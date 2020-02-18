@@ -198,14 +198,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -277,10 +277,10 @@
                     <h1 id="多行显示并在最后一行截断文字？">多行显示并在最后一行截断文字？</h1>
 <hr>
 <p>text-overflow基本知识请看上篇文章：<br>
-<a href="../text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F">text-overflow: ellipsis;什么时候可能不生效？</a></p>
+<a href="http://liyuankun.top/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F" target="_blank" rel="noopener">text-overflow: ellipsis;什么时候可能不生效？</a></p>
 <p>单行文字我们为了能够截断文字，使用了</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">white-space: nowrap; // 强制文本在一行显示</span><br></pre></td></tr></table></figure>
-<p>如果我确实有多行显示的需求呢？怎么实现？<br>
+<p>如果我确实有多行并在最后一行截断文字显示的需求呢？怎么实现？<br>
 <img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/multiline%20ellipsis.png" alt="multiline例子图片"></p>
 <h1 id="方法1-webkit-line-clamp-property">方法1 -Webkit-line-clamp property</h1>
 <p><strong>优点</strong>: 最简单的方法<br>
@@ -322,27 +322,27 @@
 <h2 id="实现原理">实现原理</h2>
 <ol>
 <li>大于3行时<br>
-:before 的内容&quot;…&quot; 在右下角</li>
+:before 的内容&quot;…&quot; 在右下角, 因为文字被justify （text-align: justify;）不会看到文字与&quot;…&quot;之间有空隙:</li>
 </ol>
-<p><img src="http://static.hackingui.com.s3.amazonaws.com/2015/08/more-3-lines.jpg" alt="大于3行时1"></p>
-<p>文字被justify （text-align: justify;）不会看到文字与&quot;…&quot;之间有空隙。<br>
-<img src="http://static.hackingui.com.s3.amazonaws.com/2015/08/more-3-lines-nonjustified.jpg" alt="大于3行时2"></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/more-3-lines.png" alt="大于3行时1"></p>
+<p>去除CSS <code>text-align: justify;</code>会看到文字与&quot;…&quot;之间有空隙:<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/more-3-lines-nonjustified.png" alt="大于3行时2"></p>
 <ol start="2">
 <li>
 <p>小于3行时<br>
 看不到&quot;…&quot;<br>
-<img src="http://static.hackingui.com.s3.amazonaws.com/2015/08/more-3-lines.jpg" alt="小于3行时"></p>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/less-3-lines.png" alt="小于3行时"></p>
 </li>
 <li>
 <p>等于3行时<br>
 看不到&quot;…&quot;<br>
-<img src="http://static.hackingui.com.s3.amazonaws.com/2015/08/more-3-lines.jpg" alt="等于3行时"></p>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/equal-3-lines.png" alt="等于3行时"></p>
 </li>
 </ol>
 <h1 id="方法5-纯scss解决-跨浏览器">方法5 纯SCSS解决 &amp; 跨浏览器</h1>
 <p>因为方法4中的缺点，所以写了个SCSS mixin。这样的话使用起来也更方便，也有复用性。</p>
 <p><strong>CodePen</strong> <a href="https://codepen.io/catherineliyuankun/pen/poJzLKx" target="_blank" rel="noopener">multiline例子链接</a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>The Hitch Hiker's Guide to the Galaxy has a few things to say on the subject of towels. A towel, it says, is about the most massivelyuseful thing an interstellar hitch hiker can have. Partly it has great practical value - you can wrap it around you for warmth as you bound across the cold moons of  Jaglan Beta.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>Small text, less then one row. Without dottes.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span> <span class="attr">style</span>=<span class="string">"width: 250px;"</span>&gt;</span>2.5 lines example: A towel is about the most massively useful thing an interstellar hitch hiker can have<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>1.大于三行例子：最简单的方法，但是很遗憾，它不支持跨浏览器,在Firefox和Internet Explorer中不起作用. CSS属性可以把块容器中的内容限制为指定的行数.它只有在 display属性设置成-webkit-box或者-webkit-inline-box并且-webkit-box-orient属性设置成vertical时才有效果在大部分情况下,也需要设置overflow属性为hidden, 否则,里面的内容不会被裁减,并且在内容显示为指定行数后还会显示省略号(ellipsis )<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>2.小于一行的例子，不会出现“...”在文末<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span> <span class="attr">style</span>=<span class="string">"width: 250px;"</span>&gt;</span>3. 2.5 行的例子: 最简单的方法，但是很遗憾，它不支持跨浏览器,在Firefox和Internet Explorer中不起作用.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">400</span> <span class="number">14px</span>/<span class="number">1.2em</span> sans-serif; </span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* mixin for multiline */</span></span><br><span class="line">@<span class="keyword">mixin</span> multiLineEllipsis($lineHeight: <span class="number">1.2em</span>, $lineCount: <span class="number">1</span>, $bgColor: white)&#123;</span><br><span class="line">  <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">  line-height: $lineHeight;</span><br><span class="line">  max-height: $lineHeight * $lineCount; </span><br><span class="line">  <span class="selector-tag">text-align</span>: <span class="selector-tag">justify</span>;</span><br><span class="line">  <span class="selector-tag">margin-right</span>: <span class="selector-tag">-1em</span>;</span><br><span class="line">  <span class="selector-tag">padding-right</span>: 1<span class="selector-tag">em</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'...'</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">0.2em</span>;</span><br><span class="line">    <span class="attribute">background</span>: $bgColor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 2, $bgColor: white);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="the-reference-link">The reference link</h1>

@@ -8,29 +8,29 @@
     </url>
 
     <url>
-        <loc>https://catherineliyuankun.github.io/categories/TECH/Tools/</loc>
-        <lastmod>2020-02-18T13:57:14.713Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://catherineliyuankun.github.io/categories/TECH/</loc>
-        <lastmod>2020-02-18T13:57:14.713Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://catherineliyuankun.github.io/categories/TECH/FrontEnd/CSS/</loc>
-        <lastmod>2020-02-05T22:13:44.429Z</lastmod>
+        <lastmod>2020-02-18T16:00:57.775Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://catherineliyuankun.github.io/categories/TECH/FrontEnd/</loc>
-        <lastmod>2020-02-05T22:13:44.429Z</lastmod>
+        <lastmod>2020-02-18T16:00:57.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://catherineliyuankun.github.io/categories/TECH/</loc>
+        <lastmod>2020-02-18T16:00:57.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://catherineliyuankun.github.io/categories/TECH/Tools/</loc>
+        <lastmod>2020-02-18T13:57:14.713Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
