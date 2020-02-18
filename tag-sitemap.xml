@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://catherineliyuankun.github.io/tags/eclipse/</loc>
+        <lastmod>2020-02-18T13:57:14.713Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://catherineliyuankun.github.io/tags/IntelliJ/</loc>
+        <lastmod>2020-02-18T13:57:03.871Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://catherineliyuankun.github.io/tags/text-overflow/</loc>
         <lastmod>2020-02-05T22:13:44.429Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -12,20 +26,6 @@
     <url>
         <loc>https://catherineliyuankun.github.io/tags/Promise/</loc>
         <lastmod>2020-02-05T20:33:00.505Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://catherineliyuankun.github.io/tags/eclipse/</loc>
-        <lastmod>2020-02-05T19:14:04.890Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://catherineliyuankun.github.io/tags/IntelliJ/</loc>
-        <lastmod>2020-02-05T19:13:43.508Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

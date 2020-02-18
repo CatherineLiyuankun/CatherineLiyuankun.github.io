@@ -198,14 +198,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -263,17 +263,18 @@
 
     <!-- Main Content -->
     <!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
+<div id="container">
+    <article>
+        <div class="container">
+            <div class="row">
 
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+                <!-- Post Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
 
-                <h1 id="dossierpageindicatorcontainer">DossierPageIndicatorContainer</h1>
+                    <h1 id="dossierpageindicatorcontainer">DossierPageIndicatorContainer</h1>
 <p>一个简单的显示页面页码的pure component，在切换页面（也就是上一回的页码与这次不同时）会显示，过3s消失。</p>
 <p>Code:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> classNames <span class="keyword">from</span> <span class="string">'classnames'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; LiveMessage &#125; <span class="keyword">from</span> <span class="string">'react-aria-live'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'../../../utils/PerfUtils'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; bem &#125; <span class="keyword">from</span> <span class="string">'../../../utils/CssUtils'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    selectCurrentPageIndex,</span><br><span class="line">    selectDossierPagesCount,</span><br><span class="line">    selectDossierNavBarTitles,</span><br><span class="line">    selectIsShowPageIndicator</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'../dossierSelectors'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; formatMessage &#125; <span class="keyword">from</span> <span class="string">'../../../utils/Intl/IntlUtils'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// component stylesheet</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./styles.scss'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bemPageIndicator = bem(<span class="string">'DossierPageIndicator'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DossierPageIndicatorContainer</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">        currentPageIndex: PropTypes.number,</span><br><span class="line">        pageCount: PropTypes.number,</span><br><span class="line">        dossierTitles: PropTypes.array,</span><br><span class="line">        left: PropTypes.number.isRequired, <span class="comment">//The "left" position of this component</span></span><br><span class="line">        isShowPageIndicator: PropTypes.bool</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            show: <span class="literal">true</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line">        <span class="keyword">this</span>.mounted = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.toggleTimer.call(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidUpdate() &#123;</span><br><span class="line">        <span class="keyword">this</span>.toggleTimer.call(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillUpdate(nextProps) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.props.currentPageIndex !== nextProps.currentPageIndex) &#123;</span><br><span class="line">            <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                show: <span class="literal">true</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillUnmount() &#123;</span><br><span class="line">        <span class="keyword">this</span>.mounted = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    toggleTimer() &#123;</span><br><span class="line">        <span class="comment">// Cancel previous pending 'hiding' action if existing</span></span><br><span class="line">        <span class="built_in">window</span>.clearTimeout(<span class="keyword">this</span>.tmr);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Hide in 3s</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.state.show) &#123;</span><br><span class="line">            <span class="keyword">this</span>.tmr = <span class="built_in">window</span>.setTimeout(</span><br><span class="line">                () =&gt; &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">this</span>.mounted) &#123;</span><br><span class="line">                        <span class="keyword">this</span>.setState(&#123;<span class="attr">show</span>: <span class="literal">false</span>&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="number">3000</span></span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; currentPageIndex, pageCount, left, dossierTitles, isShowPageIndicator &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">        <span class="keyword">const</span> pageInfo = formatMessage(<span class="number">182</span>, <span class="string">'Page &#123;currentPage&#125; of &#123;totalPages&#125;'</span>, &#123;<span class="attr">currentPage</span>: currentPageIndex + <span class="number">1</span>, <span class="attr">totalPages</span>: pageCount&#125;);</span><br><span class="line">        <span class="comment">// currentPageIndex is default to -1 which means not ready</span></span><br><span class="line">        <span class="comment">// we do not want to render the page indicator when the page is not ready</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> cls = classNames(bemPageIndicator(), &#123;</span><br><span class="line">            <span class="string">'mstrd-show'</span>: <span class="keyword">this</span>.state.show &amp;&amp; currentPageIndex &gt;= <span class="number">0</span> &amp;&amp; pageCount &gt; <span class="number">0</span> || isShowPageIndicator</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=&#123;cls&#125; style=&#123;&#123;<span class="attr">left</span>: left + <span class="string">'px'</span>&#125;&#125;&gt;</span><br><span class="line">                &#123; pageInfo &#125;</span><br><span class="line">                &#123;!!pageCount &amp;&amp; !!dossierTitles.length &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">LiveMessage</span> <span class="attr">message</span>=<span class="string">&#123;</span>`$&#123;<span class="attr">dossierTitles</span>[<span class="attr">currentPageIndex</span>]<span class="attr">.name</span>&#125; $&#123;<span class="attr">pageInfo</span>&#125;`&#125; <span class="attr">aria-live</span>=<span class="string">"polite"</span>/&gt;</span> &#125;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        currentPageIndex: selectCurrentPageIndex(state),</span><br><span class="line">        pageCount: selectDossierPagesCount(state),</span><br><span class="line">        dossierTitles: selectDossierNavBarTitles(state),</span><br><span class="line">        isShowPageIndicator: selectIsShowPageIndicator(state)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, &#123;&#125;)(DossierPageIndicatorContainer);</span><br></pre></td></tr></table></figure>
@@ -292,7 +293,7 @@
 <p><a href="https://5c54aa429e16c80007af3cd2--reactjs.netlify.com/docs/react-component.html#unsafe_componentwillupdate" target="_blank" rel="noopener">UNSAFE_componentWillUpdate() react v16.7.0</a></p>
 
 
-                <!-- Donate -->
+                    <!-- Donate -->
 
 <div>
     <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
@@ -302,7 +303,7 @@
         </button>
         <div id="QR" style="display: none;">
             <div id="wechat" style="display: inline-block">
-                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
             <!-- <p>Wechat</p> -->
             </div>
             <div id="alipay" style="display: inline-block">
@@ -314,59 +315,59 @@
 </div>
 
 
-                <! -- 添加版权信息 -->
+                    <! -- 添加版权信息 -->
 <div class="article-footer-copyright">
   <div><b>本文标题: </b><a href="/ComponentDidUpdate-setState-and-Maximum-update-depth-exceeded.html" target="_blank" title="ComponentDidUpdate setState and Maximum update depth exceeded">ComponentDidUpdate setState and Maximum update depth exceeded</a></div>
   <div><b>本文链接: </b><a href="/ComponentDidUpdate-setState-and-Maximum-update-depth-exceeded.html" target="_blank" title="ComponentDidUpdate setState and Maximum update depth exceeded">https://catherineliyuankun.github.io/ComponentDidUpdate-setState-and-Maximum-update-depth-exceeded.html</a>.</div>
   <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
 </div>
 
-                
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/Difference-between-HTTPS-Port-443-and-Port-8443.html" data-toggle="tooltip" data-placement="top" title="Difference between HTTPS Port 443 and Port 8443">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/Can-not-find-the-tag-library-descriptor-for-jsp.html" data-toggle="tooltip" data-placement="top" title="Can not find the tag library descriptor for .tld">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/Difference-between-HTTPS-Port-443-and-Port-8443.html" data-toggle="tooltip" data-placement="top" title="Difference between HTTPS Port 443 and Port 8443">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/Can-not-find-the-tag-library-descriptor-for-jsp.html" data-toggle="tooltip" data-placement="top" title="Can not find the tag library descriptor for .tld">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
 
-                <!-- Duoshuo Comment Share -->
-                
+                    <!-- Duoshuo Comment Share -->
+                    
 
-                <!-- Duoshuo Comment -->
-                
+                    <!-- Duoshuo Comment -->
+                    
 
-                <!-- Disqus Comment -->
-                <!-- disqus comment -->
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
 
     <div class="disqus_comment">
         <div id="disqus_thread" class="disqus-thread"></div>
     </div>
 
 
-                <!-- Git Comment -->
-                <!-- gitment -->
+                    <!-- Git Comment -->
+                    <!-- gitment -->
 
     <hr>
     <div class="git_comment" id="git_comment">
         
-            <div onclick="showGitment()" id="gitment-display-button">show git comment</div>
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
             <div id="gitment-container" style="display:none"></div>
         
     </div>
     <hr>
 
-            </div>
-            
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
 
     
       <aside id="sidebar">
@@ -379,9 +380,9 @@
       </aside>
     
 
-                
-            <!-- Sidebar Container Below-->
-            <div class="
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
     col-lg-8 col-lg-offset-2
     col-md-10 col-md-offset-1
     sidebar-container">
@@ -433,15 +434,20 @@
     
         <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
     
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
 </ul>
 
             <hr>
         
     
+        
+    
 </div>
+            </div>
         </div>
-    </div>
-</article>
+    </article>
+</div>
 
 
 <!-- async load function -->
@@ -465,6 +471,18 @@
         };
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
 </script>
 <style>
     /* place left on bigger screen */
@@ -526,6 +544,17 @@
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
                             </span>
                         </a>
                     </li>

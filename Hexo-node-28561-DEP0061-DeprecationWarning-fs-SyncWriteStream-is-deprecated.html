@@ -200,14 +200,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -265,17 +265,18 @@
 
     <!-- Main Content -->
     <!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
+<div id="container">
+    <article>
+        <div class="container">
+            <div class="row">
 
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+                <!-- Post Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
 
-                <h1 id="problem">Problem</h1>
+                    <h1 id="problem">Problem</h1>
 <p>NodeJs V8 使用hexo时报错：</p>
 <p>(node:28561) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">➜  Hexo-theme-zilan git:(master) ✗ hexo g</span><br><span class="line">(node:28561) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</span><br><span class="line">INFO  Start processing</span><br><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">TypeError: Cannot set property '</span>lastIndex<span class="string">' of undefined</span></span><br><span class="line"><span class="string">    at highlight (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/highlight.js/lib/highlight.js:511:35)</span></span><br><span class="line"><span class="string">    at /Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/highlight.js/lib/highlight.js:561:21</span></span><br><span class="line"><span class="string">    at Array.forEach (&lt;anonymous&gt;)</span></span><br><span class="line"><span class="string">    at Object.highlightAuto (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/highlight.js/lib/highlight.js:560:40)</span></span><br><span class="line"><span class="string">    at /Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/hexo-util/lib/highlight.js:117:25</span></span><br><span class="line"><span class="string">    at highlight (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/hexo-util/lib/highlight.js:120:7)</span></span><br><span class="line"><span class="string">    at highlightUtil (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/hexo-util/lib/highlight.js:22:14)</span></span><br><span class="line"><span class="string">    at /Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/hexo/lib/plugins/filter/before_post_render/backtick_code_block.js:62:15</span></span><br><span class="line"><span class="string">    at String.replace (&lt;anonymous&gt;)</span></span><br><span class="line"><span class="string">    at Hexo.backtickCodeBlock (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/hexo/lib/plugins/filter/before_post_render/backtick_code_block.js:14:31)</span></span><br><span class="line"><span class="string">    at Hexo.tryCatcher (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/util.js:16:23)</span></span><br><span class="line"><span class="string">    at Hexo.&lt;anonymous&gt; (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/method.js:15:34)</span></span><br><span class="line"><span class="string">    at Promise.each.filter (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/hexo/lib/extend/filter.js:63:65)</span></span><br><span class="line"><span class="string">    at tryCatcher (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/util.js:16:23)</span></span><br><span class="line"><span class="string">    at Object.gotValue (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/reduce.js:155:18)</span></span><br><span class="line"><span class="string">    at Object.gotAccum (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/reduce.js:144:25)</span></span><br><span class="line"><span class="string">    at Object.tryCatcher (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/util.js:16:23)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseFromHandler (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/promise.js:512:31)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/promise.js:569:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseCtx (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/promise.js:606:10)</span></span><br><span class="line"><span class="string">    at Async._drainQueue (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/async.js:138:12)</span></span><br><span class="line"><span class="string">    at Async._drainQueues (/Users/liyuankun/MyOwnGit/Hexo-theme-zilan/node_modules/bluebird/js/release/async.js:143:10)</span></span><br></pre></td></tr></table></figure>
@@ -305,7 +306,7 @@
 <p><a href="https://github.com/hexojs/hexo/issues/2598" target="_blank" rel="noopener">fs.SyncWriteStream is deprecated [Nodejs v8.0]</a></p>
 
 
-                <!-- Donate -->
+                    <!-- Donate -->
 
 <div>
     <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
@@ -315,7 +316,7 @@
         </button>
         <div id="QR" style="display: none;">
             <div id="wechat" style="display: inline-block">
-                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
             <!-- <p>Wechat</p> -->
             </div>
             <div id="alipay" style="display: inline-block">
@@ -327,59 +328,59 @@
 </div>
 
 
-                <! -- 添加版权信息 -->
+                    <! -- 添加版权信息 -->
 <div class="article-footer-copyright">
   <div><b>本文标题: </b><a href="/Hexo-node-28561-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated.html" target="_blank" title="&#34;Hexo fs.SyncWriteStream is deprecated&#34;">&#34;Hexo fs.SyncWriteStream is deprecated&#34;</a></div>
   <div><b>本文链接: </b><a href="/Hexo-node-28561-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated.html" target="_blank" title="&#34;Hexo fs.SyncWriteStream is deprecated&#34;">https://catherineliyuankun.github.io/Hexo-node-28561-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated.html</a>.</div>
   <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
 </div>
 
-                
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/Can-not-find-the-tag-library-descriptor-for-jsp.html" data-toggle="tooltip" data-placement="top" title="Can not find the tag library descriptor for .tld">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/从微信语音or笔记爬取音频.html" data-toggle="tooltip" data-placement="top" title="从微信语音or笔记爬取音频">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/Can-not-find-the-tag-library-descriptor-for-jsp.html" data-toggle="tooltip" data-placement="top" title="Can not find the tag library descriptor for .tld">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/从微信语音or笔记爬取音频.html" data-toggle="tooltip" data-placement="top" title="从微信语音or笔记爬取音频">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
 
-                <!-- Duoshuo Comment Share -->
-                
+                    <!-- Duoshuo Comment Share -->
+                    
 
-                <!-- Duoshuo Comment -->
-                
+                    <!-- Duoshuo Comment -->
+                    
 
-                <!-- Disqus Comment -->
-                <!-- disqus comment -->
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
 
     <div class="disqus_comment">
         <div id="disqus_thread" class="disqus-thread"></div>
     </div>
 
 
-                <!-- Git Comment -->
-                <!-- gitment -->
+                    <!-- Git Comment -->
+                    <!-- gitment -->
 
     <hr>
     <div class="git_comment" id="git_comment">
         
-            <div onclick="showGitment()" id="gitment-display-button">show git comment</div>
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
             <div id="gitment-container" style="display:none"></div>
         
     </div>
     <hr>
 
-            </div>
-            
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
 
     
       <aside id="sidebar">
@@ -392,9 +393,9 @@
       </aside>
     
 
-                
-            <!-- Sidebar Container Below-->
-            <div class="
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
     col-lg-8 col-lg-offset-2
     col-md-10 col-md-offset-1
     sidebar-container">
@@ -446,15 +447,20 @@
     
         <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
     
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
 </ul>
 
             <hr>
         
     
+        
+    
 </div>
+            </div>
         </div>
-    </div>
-</article>
+    </article>
+</div>
 
 
 <!-- async load function -->
@@ -478,6 +484,18 @@
         };
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
 </script>
 <style>
     /* place left on bigger screen */
@@ -539,6 +557,17 @@
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
                             </span>
                         </a>
                     </li>

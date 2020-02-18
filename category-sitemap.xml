@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://catherineliyuankun.github.io/categories/TECH/Tools/</loc>
+        <lastmod>2020-02-18T13:57:14.713Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://catherineliyuankun.github.io/categories/TECH/</loc>
+        <lastmod>2020-02-18T13:57:14.713Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://catherineliyuankun.github.io/categories/TECH/FrontEnd/CSS/</loc>
         <lastmod>2020-02-05T22:13:44.429Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -22,29 +36,8 @@
     </url>
 
     <url>
-        <loc>https://catherineliyuankun.github.io/categories/TECH/</loc>
-        <lastmod>2020-02-05T22:13:44.429Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://catherineliyuankun.github.io/categories/TECH/Tools/network-tools/</loc>
         <lastmod>2020-02-05T20:33:00.505Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://catherineliyuankun.github.io/categories/TECH/Tools/</loc>
-        <lastmod>2020-02-05T20:33:00.505Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://catherineliyuankun.github.io/categories/TECH/Tools/IDE/</loc>
-        <lastmod>2020-02-05T19:14:04.890Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
