@@ -3233,9 +3233,10 @@ Commit 代码3：<a href="https://github.com/CatherineLiyuankun/Hexo-theme-zilan
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <p>配完之后，就可以访问http://CatherineLiyuankun.github.io/sitemap.xml，发现这个文件已经成功生成了.</p>
 <p>如果你已经配置了自己的域名，在_config.yml里修改url为自己的域名，例如我的http://liyuankun.top/。</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="attr">http://liyuankun.top/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="attr">http://liyuankun.top</span></span><br></pre></td></tr></table></figure>
 <p>在your-hexo-site\source中新建文件robots.txt,内容可以参照我的</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/</span><br><span class="line">Allow: /about-me/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line">Sitemap: http://liyuankun.top/sitemap.xml</span><br><span class="line">Sitemap: http://liyuankun.top/baidusitemap.xml</span><br></pre></td></tr></table></figure>
+<p><a href="http://liyuankun.top/baidusitemap.xml">http://liyuankun.top/baidusitemap.xml</a></p>
 <h2 id="5-3-评论">5.3 评论</h2>
 <h3 id="disqus"><a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a></h3>
 <p>博客中使用的是 <a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a> 评论系统，注册帐号后，按下面的步骤简单的配置即可：</p>
