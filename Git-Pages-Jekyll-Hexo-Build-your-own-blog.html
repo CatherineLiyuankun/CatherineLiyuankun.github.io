@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://catherineliyuankun.github.io/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html">
+    <link rel="canonical" href="http://liyuankun.top/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -200,7 +200,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/categories/">Categories</a>
                         </li>
                         
                     
@@ -214,7 +214,7 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -307,7 +307,7 @@ Windows 用户<br>
 <h2 id="step4-git-push">step4 git push</h2>
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Git-Pages-Jekyll-Hexo-Build-your-own-blog/setp4-1.png" alt="setp4-1.png"></p>
 <h2 id="step5-访问页面">step5 访问页面</h2>
-<p>我的对应页面就是： <a href="https://catherineliyuankun.github.io/">https://catherineliyuankun.github.io/</a></p>
+<p>我的对应页面就是： <a href="https://catherineliyuankun.github.io/" target="_blank" rel="noopener">https://catherineliyuankun.github.io/</a></p>
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Git-Pages-Jekyll-Hexo-Build-your-own-blog/setp5-1..png" alt="setp5-1"><br>
 上面照着pages页面的步骤做就行，重点在下面</p>
 <hr>
@@ -497,7 +497,7 @@ hexo deploy (hexo d) 部署播客到远端（比如github, heroku等平台）<br
 <h2 id="step5-部署到git-pages">step5 部署到git pages</h2>
 <p>这一步恐怕是最关键的一步了，让我们把在本地web环境下预览到的博客部署到github上，然后就可以直接通过http://CatherineLiyuankun.github.io/访问了。</p>
 <p>首先需要明白所谓部署到github的原理。</p>
-<p>之前步骤中在Github上创建的那个特别的repo（<a href="http://CatherineLiyuankun.github.io">CatherineLiyuankun.github.io</a>）一个最大的特点就是其master中的html静态文件，可以通过链接http://CatherineLiyuankun.github.io来直接访问。<br>
+<p>之前步骤中在Github上创建的那个特别的repo（<a href="http://CatherineLiyuankun.github.io" target="_blank" rel="noopener">CatherineLiyuankun.github.io</a>）一个最大的特点就是其master中的html静态文件，可以通过链接http://CatherineLiyuankun.github.io来直接访问。<br>
 Hexo -g 会生成一个静态网站（第一次会生成一个public目录），这个静态文件可以直接访问。<br>
 需要将hexo生成的静态网站，提交(git commit)到github上。<br>
 明白了原理，怎么做自然就清晰了。</p>
@@ -509,7 +509,7 @@ hexo deploy可以部署到很多平台，具体可以参考这个链接. 如果�
 <p>然后在命令行中执行</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
 <p>即可完成部署。</p>
-<p>去自己的git pages看下部署的成果吧！<a href="https://catherineliyuankun.github.io/">https://catherineliyuankun.github.io/</a></p>
+<p>去自己的git pages看下部署的成果吧！<a href="https://catherineliyuankun.github.io/" target="_blank" rel="noopener">https://catherineliyuankun.github.io/</a></p>
 <h2 id="step5-添加分类">step5 添加分类</h2>
 <h3 id="添加分类页">添加分类页</h3>
 <p>新建一个页面，命名为 categories 。命令如下：</p>
@@ -620,11 +620,11 @@ Commit 代码3：<a href="https://github.com/CatherineLiyuankun/Hexo-theme-zilan
 <h3 id="step2-修改cname">step2 修改CNAME</h3>
 <p>如果你不想用http://username.github.com/jekyll_demo/这个域名，可以换成自己的域名。</p>
 <p>具体方法是在repo的根目录下面，新建一个名为CNAME的文本文件（注意一定是大写的！！！），里面写入你要绑定的域名，<a href="http://xn--liyuankun-k99pf62n.xn--topxxx-r06lr19q.example.com" target="_blank" rel="noopener">比如liyuankun.top或者xxx.example.com</a>。<br>
-或者是在github 你的pages库：<a href="http://CatherineLiyuankun.github.io">CatherineLiyuankun.github.io</a> 的Setting 选项里，设置Custom domain：liyuankun.top。就会自动新建一个名为CNAME的文本文件，里面写入你填写的域名：liyuankun.top。<br>
+或者是在github 你的pages库：<a href="http://CatherineLiyuankun.github.io" target="_blank" rel="noopener">CatherineLiyuankun.github.io</a> 的Setting 选项里，设置Custom domain：liyuankun.top。就会自动新建一个名为CNAME的文本文件，里面写入你填写的域名：liyuankun.top。<br>
 <img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Git-Pages-Jekyll-Hexo-Build-your-own-blog/5_1-1.png" alt="5_1-1.png"><br>
 <img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Git-Pages-Jekyll-Hexo-Build-your-own-blog/5_1-2.png" alt="5_1-2"></p>
 <h3 id="step3-域名解析">step3 域名解析</h3>
-<p>在你的域名注册提供商那里配置DNS解析，获取<a href="https://help.github.com/articles/setting-up-an-apex-domain/" target="_blank" rel="noopener">GitHub的IP地址</a>, 或者直接ping <a href="http://CatherineLiyuankun.github.io">CatherineLiyuankun.github.io</a>, 得到IP。</p>
+<p>在你的域名注册提供商那里配置DNS解析，获取<a href="https://help.github.com/articles/setting-up-an-apex-domain/" target="_blank" rel="noopener">GitHub的IP地址</a>, 或者直接ping <a href="http://CatherineLiyuankun.github.io" target="_blank" rel="noopener">CatherineLiyuankun.github.io</a>, 得到IP。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ping CatherineLiyuankun.github.io</span><br><span class="line">PING catherineliyuankun.github.io (185.199.109.153): 56 data bytes</span><br><span class="line">64 bytes from 185.199.109.153: icmp_seq=0 ttl=47 time=459.228 ms</span><br></pre></td></tr></table></figure>
 <p>如果绑定的是顶级域名，则DNS要新建一条A记录，指向185.199.109.153，主机记录为 www,代表可以解析 www.liyuankun.top的域名。</p>
 <p>另一个为 @, 代表 liyuankun.top，记录值就是我们博客的IP地址，刚才ping出的地址 185.199.109.153<br>
@@ -657,11 +657,15 @@ Commit 代码3：<a href="https://github.com/CatherineLiyuankun/Hexo-theme-zilan
 <p>配置方法： <a href="https://www.jianshu.com/p/7e1166eb412a" target="_blank" rel="noopener">https://www.jianshu.com/p/7e1166eb412a</a></p>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Analytics settings</span></span><br><span class="line"><span class="section"># Baidu Analytics</span></span><br><span class="line"><span class="section"># ba_track_id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span><br><span class="line"><span class="section"># Google Analytics</span></span><br><span class="line">ga<span class="emphasis">_track_</span>id: 'UA-XXXXXXXX-X'          # Format: UA-xxxxxx-xx</span><br><span class="line">ga_domain: yoursite</span><br></pre></td></tr></table></figure>
 <h3 id="sitemap"><a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" rel="noopener">sitemap</a></h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-sitemap --save</span><br><span class="line">$ npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
 <p>在_config.yml里添加：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sitemap</span></span><br><span class="line"><span class="attr">sitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>配完之后，就可以访问http://CatherineLiyuankun.github.io/sitemap.xml，发现这个文件已经成功生成了</p>
+<p>配完之后，就可以访问http://CatherineLiyuankun.github.io/sitemap.xml，发现这个文件已经成功生成了.</p>
+<p>如果你已经配置了自己的域名，在_config.yml里修改url为自己的域名，例如我的http://liyuankun.top/。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="attr">http://liyuankun.top/</span></span><br></pre></td></tr></table></figure>
+<p>在your-hexo-site\source中新建文件robots.txt,内容可以参照我的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/</span><br><span class="line">Allow: /about-me/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line">Sitemap: http://liyuankun.top/sitemap.xml</span><br><span class="line">Sitemap: http://liyuankun.top/baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <h2 id="5-3-评论">5.3 评论</h2>
 <h3 id="disqus"><a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a></h3>
 <p>博客中使用的是 <a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a> 评论系统，注册帐号后，按下面的步骤简单的配置即可：</p>
@@ -923,7 +927,7 @@ commit：t<a href="https://github.com/CatherineLiyuankun/Hexo-theme-zilan/commit
                     <! -- 添加版权信息 -->
 <div class="article-footer-copyright">
   <div><b>本文标题: </b><a href="/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html" target="_blank" title="Git Pages + Jekyll/Hexo Build your own blog">Git Pages + Jekyll/Hexo Build your own blog</a></div>
-  <div><b>本文链接: </b><a href="/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html" target="_blank" title="Git Pages + Jekyll/Hexo Build your own blog">https://catherineliyuankun.github.io/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html</a>.</div>
+  <div><b>本文链接: </b><a href="/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html" target="_blank" title="Git Pages + Jekyll/Hexo Build your own blog">http://liyuankun.top/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html</a>.</div>
   <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
 </div>
 
@@ -1265,7 +1269,7 @@ commit：t<a href="https://github.com/CatherineLiyuankun/Hexo-theme-zilan/commit
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://catherineliyuankun.github.io/js/jquery.tagcloud.js",function(){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -1826,8 +1830,8 @@ commit：t<a href="https://github.com/CatherineLiyuankun/Hexo-theme-zilan/commit
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES * * */
         var disqus_shortname = "lyk-1";
-        var disqus_identifier = "https://catherineliyuankun.github.io/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html";
-        var disqus_url = "https://catherineliyuankun.github.io/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html";
+        var disqus_identifier = "http://liyuankun.top/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html";
+        var disqus_url = "http://liyuankun.top/Git-Pages-Jekyll-Hexo-Build-your-own-blog.html";
 
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -5,9 +5,9 @@
   <subtitle>Talk to myself.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://catherineliyuankun.github.io/"/>
+  <link href="http://liyuankun.top/"/>
   <updated>2020-02-18T15:58:43.691Z</updated>
-  <id>https://catherineliyuankun.github.io/</id>
+  <id>http://liyuankun.top/</id>
   
   <author>
     <name>Yuankun Li</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>text-overflow: ellipsis多行文本溢出...css/js方法全总结</title>
-    <link href="https://catherineliyuankun.github.io/text-overflow-ellipsis%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA-css-js%E6%96%B9%E6%B3%95%E5%85%A8%E6%80%BB%E7%BB%93.html"/>
-    <id>https://catherineliyuankun.github.io/text-overflow-ellipsis多行文本溢出-css-js方法全总结.html</id>
+    <link href="http://liyuankun.top/text-overflow-ellipsis%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA-css-js%E6%96%B9%E6%B3%95%E5%85%A8%E6%80%BB%E7%BB%93.html"/>
+    <id>http://liyuankun.top/text-overflow-ellipsis多行文本溢出-css-js方法全总结.html</id>
     <published>2020-02-05T21:23:29.000Z</published>
     <updated>2020-02-18T15:58:43.691Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="多行显示并在最后一行截断文字？">多行显示并在最后一行截断文字？</h1><hr><p>text-overflow基本知识请看上篇文章：<br><a href="http://liyuankun.top/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F" target="_blank" rel="noopener">text-overflow: ellipsis;什么时候可能不生效？</a></p><p>单行文字我们为了能够截断文字，使用了</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">white-space: nowrap; // 强制文本在一行显示</span><br></pre></td></tr></table></figure><p>如果我确实有多行并在最后一行截断文字显示的需求呢？怎么实现？<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/multiline%20ellipsis.png" alt="multiline例子图片"></p><h1 id="方法1-webkit-line-clamp-property">方法1 -Webkit-line-clamp property</h1><p><strong>优点</strong>: 最简单的方法<br><strong>缺点</strong>: 但是很遗憾，它不支持跨浏览器（在Firefox和Internet Explorer中不起作用）。</p><blockquote><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-line-clamp" target="_blank" rel="noopener">-webkit-line-clamp</a> CSS 属性 可以把 块容器 中的内容限制为指定的行数.</p></blockquote><blockquote><p>它只有在 display 属性设置成 -webkit-box 或者 -webkit-inline-box 并且 -webkit-box-orient 属性设置成 vertical时才有效果</p></blockquote><blockquote><p>在大部分情况下,也需要设置 overflow 属性为 hidden, 否则,里面的内容不会被裁减,并且在内容显示为指定行数后还会显示省略号(ellipsis ).</p></blockquote><blockquote><p>当他应用于锚(anchor)元素时,截取动作可以发生在文本中间,而不必在末尾.</p></blockquote><p>使用方法：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="方法2-text-overflow-o-ellipsis-lastline">方法2 Text-overflow: -o-ellipsis-lastline</h1><p>从10.60版开始，Opera增加了在多行块上剪切文本的功能。 老实说，我从未尝试过，理论上只在Opera 10.6以后可以使用，不建议使用。</p><h1 id="方法3-javascript">方法3 JavaScript</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#block-with-text</span> &#123; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">3.6em</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ellipsizeMultiLineText</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">    <span class="keyword">var</span> words = element.innerHTML.split(<span class="string">' '</span>);</span><br><span class="line">    <span class="keyword">while</span>(element.scrollHeight &gt; element.offsetHeight) &#123;</span><br><span class="line">        words.pop();</span><br><span class="line">        element.innerHTML = words.join(<span class="string">' '</span>) + <span class="string">'...'</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">ellipsizeMultiLineText(<span class="string">'block-with-text'</span>);</span><br></pre></td></tr></table></figure><h1 id="方法4-纯css解决-跨浏览器">方法4 纯CSS解决 &amp; 跨浏览器</h1><h2 id="优点">优点</h2><ol><li>纯CSS</li><li>自适应 Responsive</li><li>改变大小后或者 字体加载事件后 不需要重新计算</li><li>跨浏览器</li></ol><h2 id="缺点">缺点</h2><ol><li>文字小于指定行数的时候，我们需要一个背景色来掩盖‘…’</li><li>我们需要空间来放‘…’, 而且如果父节点<code>overflow: hidden</code> 或者 <code>overflow: auto</code> 我们需要去掉style <code>margin-right: -1em;</code>.</li></ol><h2 id="实现方法">实现方法</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* styles for '...' */</span> </span><br><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">  <span class="comment">/* hide text if it more than N lines  */</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="comment">/* for set '...' in absolute position */</span></span><br><span class="line">  <span class="attribute">position</span>: relative; </span><br><span class="line">  <span class="comment">/* use this value to count block height */</span></span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.2em</span>;</span><br><span class="line">  <span class="comment">/* max-height = line-height (1.2) * lines max number (3) */</span></span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">3.6em</span>; </span><br><span class="line">  <span class="comment">/* fix problem when last visible word doesn't adjoin right side  */</span></span><br><span class="line">  <span class="attribute">text-align</span>: justify;  </span><br><span class="line">  <span class="comment">/* place for '...' */</span></span><br><span class="line">  <span class="attribute">margin-right</span>: -<span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* create the ... */</span></span><br><span class="line"><span class="selector-class">.block-with-text</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="comment">/* points in the end */</span></span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'...'</span>;</span><br><span class="line">  <span class="comment">/* absolute position */</span></span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="comment">/* set position to right bottom corner of block */</span></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* hide ... if we have text, which is less than or equal to max lines */</span></span><br><span class="line"><span class="selector-class">.block-with-text</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="comment">/* points in the end */</span></span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="comment">/* absolute position */</span></span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="comment">/* set position to right bottom corner of text */</span></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="comment">/* set width and height */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0.2em</span>;</span><br><span class="line">  <span class="comment">/* bg color = bg color under block */</span></span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="实现原理">实现原理</h2><ol><li>大于3行时<br>:before 的内容&quot;…&quot; 在右下角, 因为文字被justify （text-align: justify;）不会看到文字与&quot;…&quot;之间有空隙:</li></ol><p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/more-3-lines.png" alt="大于3行时1"></p><p>去除CSS <code>text-align: justify;</code>会看到文字与&quot;…&quot;之间有空隙:<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/more-3-lines-nonjustified.png" alt="大于3行时2"></p><ol start="2"><li><p>小于3行时<br>看不到&quot;…&quot;<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/less-3-lines.png" alt="小于3行时"></p></li><li><p>等于3行时<br>看不到&quot;…&quot;<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/equal-3-lines.png" alt="等于3行时"></p></li></ol><h1 id="方法5-纯scss解决-跨浏览器">方法5 纯SCSS解决 &amp; 跨浏览器</h1><p>因为方法4中的缺点，所以写了个SCSS mixin。这样的话使用起来也更方便，也有复用性。</p><p><strong>CodePen</strong> <a href="https://codepen.io/catherineliyuankun/pen/poJzLKx" target="_blank" rel="noopener">multiline例子链接</a></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>1.大于三行例子：最简单的方法，但是很遗憾，它不支持跨浏览器,在Firefox和Internet Explorer中不起作用. CSS属性可以把块容器中的内容限制为指定的行数.它只有在 display属性设置成-webkit-box或者-webkit-inline-box并且-webkit-box-orient属性设置成vertical时才有效果在大部分情况下,也需要设置overflow属性为hidden, 否则,里面的内容不会被裁减,并且在内容显示为指定行数后还会显示省略号(ellipsis )<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>2.小于一行的例子，不会出现“...”在文末<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span> <span class="attr">style</span>=<span class="string">"width: 250px;"</span>&gt;</span>3. 2.5 行的例子: 最简单的方法，但是很遗憾，它不支持跨浏览器,在Firefox和Internet Explorer中不起作用.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">400</span> <span class="number">14px</span>/<span class="number">1.2em</span> sans-serif; </span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* mixin for multiline */</span></span><br><span class="line">@<span class="keyword">mixin</span> multiLineEllipsis($lineHeight: <span class="number">1.2em</span>, $lineCount: <span class="number">1</span>, $bgColor: white)&#123;</span><br><span class="line">  <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">  line-height: $lineHeight;</span><br><span class="line">  max-height: $lineHeight * $lineCount; </span><br><span class="line">  <span class="selector-tag">text-align</span>: <span class="selector-tag">justify</span>;</span><br><span class="line">  <span class="selector-tag">margin-right</span>: <span class="selector-tag">-1em</span>;</span><br><span class="line">  <span class="selector-tag">padding-right</span>: 1<span class="selector-tag">em</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'...'</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">0.2em</span>;</span><br><span class="line">    <span class="attribute">background</span>: $bgColor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 2, $bgColor: white);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h1 id="the-reference-link">The reference link</h1><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" target="_blank" rel="noopener">MDN text-overflow</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="多行显示并在最后一行截断文字？">多行显示并在最后一行截断文字？</h1><hr><p>text-overflow基本知识请看上篇文章：<br><a href="http://liyuankun.top/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F">text-overflow: ellipsis;什么时候可能不生效？</a></p><p>单行文字我们为了能够截断文字，使用了</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">white-space: nowrap; // 强制文本在一行显示</span><br></pre></td></tr></table></figure><p>如果我确实有多行并在最后一行截断文字显示的需求呢？怎么实现？<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/multiline%20ellipsis.png" alt="multiline例子图片"></p><h1 id="方法1-webkit-line-clamp-property">方法1 -Webkit-line-clamp property</h1><p><strong>优点</strong>: 最简单的方法<br><strong>缺点</strong>: 但是很遗憾，它不支持跨浏览器（在Firefox和Internet Explorer中不起作用）。</p><blockquote><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-line-clamp" target="_blank" rel="noopener">-webkit-line-clamp</a> CSS 属性 可以把 块容器 中的内容限制为指定的行数.</p></blockquote><blockquote><p>它只有在 display 属性设置成 -webkit-box 或者 -webkit-inline-box 并且 -webkit-box-orient 属性设置成 vertical时才有效果</p></blockquote><blockquote><p>在大部分情况下,也需要设置 overflow 属性为 hidden, 否则,里面的内容不会被裁减,并且在内容显示为指定行数后还会显示省略号(ellipsis ).</p></blockquote><blockquote><p>当他应用于锚(anchor)元素时,截取动作可以发生在文本中间,而不必在末尾.</p></blockquote><p>使用方法：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="方法2-text-overflow-o-ellipsis-lastline">方法2 Text-overflow: -o-ellipsis-lastline</h1><p>从10.60版开始，Opera增加了在多行块上剪切文本的功能。 老实说，我从未尝试过，理论上只在Opera 10.6以后可以使用，不建议使用。</p><h1 id="方法3-javascript">方法3 JavaScript</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#block-with-text</span> &#123; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">3.6em</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ellipsizeMultiLineText</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">    <span class="keyword">var</span> words = element.innerHTML.split(<span class="string">' '</span>);</span><br><span class="line">    <span class="keyword">while</span>(element.scrollHeight &gt; element.offsetHeight) &#123;</span><br><span class="line">        words.pop();</span><br><span class="line">        element.innerHTML = words.join(<span class="string">' '</span>) + <span class="string">'...'</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">ellipsizeMultiLineText(<span class="string">'block-with-text'</span>);</span><br></pre></td></tr></table></figure><h1 id="方法4-纯css解决-跨浏览器">方法4 纯CSS解决 &amp; 跨浏览器</h1><h2 id="优点">优点</h2><ol><li>纯CSS</li><li>自适应 Responsive</li><li>改变大小后或者 字体加载事件后 不需要重新计算</li><li>跨浏览器</li></ol><h2 id="缺点">缺点</h2><ol><li>文字小于指定行数的时候，我们需要一个背景色来掩盖‘…’</li><li>我们需要空间来放‘…’, 而且如果父节点<code>overflow: hidden</code> 或者 <code>overflow: auto</code> 我们需要去掉style <code>margin-right: -1em;</code>.</li></ol><h2 id="实现方法">实现方法</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* styles for '...' */</span> </span><br><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">  <span class="comment">/* hide text if it more than N lines  */</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="comment">/* for set '...' in absolute position */</span></span><br><span class="line">  <span class="attribute">position</span>: relative; </span><br><span class="line">  <span class="comment">/* use this value to count block height */</span></span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.2em</span>;</span><br><span class="line">  <span class="comment">/* max-height = line-height (1.2) * lines max number (3) */</span></span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">3.6em</span>; </span><br><span class="line">  <span class="comment">/* fix problem when last visible word doesn't adjoin right side  */</span></span><br><span class="line">  <span class="attribute">text-align</span>: justify;  </span><br><span class="line">  <span class="comment">/* place for '...' */</span></span><br><span class="line">  <span class="attribute">margin-right</span>: -<span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">1em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* create the ... */</span></span><br><span class="line"><span class="selector-class">.block-with-text</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="comment">/* points in the end */</span></span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'...'</span>;</span><br><span class="line">  <span class="comment">/* absolute position */</span></span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="comment">/* set position to right bottom corner of block */</span></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* hide ... if we have text, which is less than or equal to max lines */</span></span><br><span class="line"><span class="selector-class">.block-with-text</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="comment">/* points in the end */</span></span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="comment">/* absolute position */</span></span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="comment">/* set position to right bottom corner of text */</span></span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="comment">/* set width and height */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0.2em</span>;</span><br><span class="line">  <span class="comment">/* bg color = bg color under block */</span></span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="实现原理">实现原理</h2><ol><li>大于3行时<br>:before 的内容&quot;…&quot; 在右下角, 因为文字被justify （text-align: justify;）不会看到文字与&quot;…&quot;之间有空隙:</li></ol><p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/more-3-lines.png" alt="大于3行时1"></p><p>去除CSS <code>text-align: justify;</code>会看到文字与&quot;…&quot;之间有空隙:<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/more-3-lines-nonjustified.png" alt="大于3行时2"></p><ol start="2"><li><p>小于3行时<br>看不到&quot;…&quot;<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/less-3-lines.png" alt="小于3行时"></p></li><li><p>等于3行时<br>看不到&quot;…&quot;<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/equal-3-lines.png" alt="等于3行时"></p></li></ol><h1 id="方法5-纯scss解决-跨浏览器">方法5 纯SCSS解决 &amp; 跨浏览器</h1><p>因为方法4中的缺点，所以写了个SCSS mixin。这样的话使用起来也更方便，也有复用性。</p><p><strong>CodePen</strong> <a href="https://codepen.io/catherineliyuankun/pen/poJzLKx" target="_blank" rel="noopener">multiline例子链接</a></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>1.大于三行例子：最简单的方法，但是很遗憾，它不支持跨浏览器,在Firefox和Internet Explorer中不起作用. CSS属性可以把块容器中的内容限制为指定的行数.它只有在 display属性设置成-webkit-box或者-webkit-inline-box并且-webkit-box-orient属性设置成vertical时才有效果在大部分情况下,也需要设置overflow属性为hidden, 否则,里面的内容不会被裁减,并且在内容显示为指定行数后还会显示省略号(ellipsis )<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>2.小于一行的例子，不会出现“...”在文末<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span> <span class="attr">style</span>=<span class="string">"width: 250px;"</span>&gt;</span>3. 2.5 行的例子: 最简单的方法，但是很遗憾，它不支持跨浏览器,在Firefox和Internet Explorer中不起作用.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">400</span> <span class="number">14px</span>/<span class="number">1.2em</span> sans-serif; </span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* mixin for multiline */</span></span><br><span class="line">@<span class="keyword">mixin</span> multiLineEllipsis($lineHeight: <span class="number">1.2em</span>, $lineCount: <span class="number">1</span>, $bgColor: white)&#123;</span><br><span class="line">  <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">  line-height: $lineHeight;</span><br><span class="line">  max-height: $lineHeight * $lineCount; </span><br><span class="line">  <span class="selector-tag">text-align</span>: <span class="selector-tag">justify</span>;</span><br><span class="line">  <span class="selector-tag">margin-right</span>: <span class="selector-tag">-1em</span>;</span><br><span class="line">  <span class="selector-tag">padding-right</span>: 1<span class="selector-tag">em</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'...'</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">0.2em</span>;</span><br><span class="line">    <span class="attribute">background</span>: $bgColor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 2, $bgColor: white);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h1 id="the-reference-link">The reference link</h1><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" target="_blank" rel="noopener">MDN text-overflow</a></p>]]></content>
     
     <summary type="html">
     
@@ -37,21 +37,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="CSS" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/CSS/"/>
+      <category term="CSS" scheme="http://liyuankun.top/categories/TECH/FrontEnd/CSS/"/>
     
     
-      <category term="text-overflow" scheme="https://catherineliyuankun.github.io/tags/text-overflow/"/>
+      <category term="text-overflow" scheme="http://liyuankun.top/tags/text-overflow/"/>
     
   </entry>
   
   <entry>
     <title>Fiddler Everywhere for MAC OS without Mono</title>
-    <link href="https://catherineliyuankun.github.io/Fiddler-Everywhere-for-MAC-OS-without-Mono.html"/>
-    <id>https://catherineliyuankun.github.io/Fiddler-Everywhere-for-MAC-OS-without-Mono.html</id>
+    <link href="http://liyuankun.top/Fiddler-Everywhere-for-MAC-OS-without-Mono.html"/>
+    <id>http://liyuankun.top/Fiddler-Everywhere-for-MAC-OS-without-Mono.html</id>
     <published>2020-02-05T19:10:02.000Z</published>
     <updated>2020-02-05T20:33:00.505Z</updated>
     
@@ -68,25 +68,25 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="Tools" scheme="https://catherineliyuankun.github.io/categories/TECH/Tools/"/>
+      <category term="Tools" scheme="http://liyuankun.top/categories/TECH/Tools/"/>
     
-      <category term="network tools" scheme="https://catherineliyuankun.github.io/categories/TECH/Tools/network-tools/"/>
+      <category term="network tools" scheme="http://liyuankun.top/categories/TECH/Tools/network-tools/"/>
     
     
-      <category term="Promise" scheme="https://catherineliyuankun.github.io/tags/Promise/"/>
+      <category term="Promise" scheme="http://liyuankun.top/tags/Promise/"/>
     
   </entry>
   
   <entry>
     <title>text-overflow: ellipsis;什么时候可能不生效？</title>
-    <link href="https://catherineliyuankun.github.io/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F.html"/>
-    <id>https://catherineliyuankun.github.io/text-overflow-ellipsis-什么时候可能不生效？.html</id>
+    <link href="http://liyuankun.top/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F.html"/>
+    <id>http://liyuankun.top/text-overflow-ellipsis-什么时候可能不生效？.html</id>
     <published>2020-02-04T20:28:48.000Z</published>
     <updated>2020-02-18T16:00:57.775Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="ⅰ-text-overflow-ellipsis-什么时候可能不生效？">Ⅰ text-overflow: ellipsis;什么时候可能不生效？</h1><hr><ol><li><p>设置在width有效的元素上，并且设置必要的width。</p><ul><li>块级元素（block level element） width、height 属性默认有效.[example 1]</li><li>内联元素（inline element 有的人也叫它行内元素）width、height 属性无效。[example 2]<br>可以通过改变display，使得width、height属性有效。</li></ul> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: block; //inline-block;</span><br></pre></td></tr></table></figure></li><li><p>要想这两个属性起真正的作用，需要配合：</p> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden; // 超出文本的部分不显示</span><br><span class="line">white-space: nowrap; // 强制文本在一行显示</span><br></pre></td></tr></table></figure></li><li><p>在table内td除了满足前两个条件之外。要在table的样式里定义一个属性 <code>table-layout:fixed</code><br>[example 3]</p></li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- example 1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divTitle"</span>&gt;</span>div text-overflow: ellipsis;什么时候可能不生效？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- example 2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"spanTitle"</span>&gt;</span>span text-overflow: ellipsis;什么时候可能不生效？<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- example 3 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>  <span class="attr">class</span>=<span class="string">"box  ellipsis"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>Here is some long content that doesn't fit.Here is some long content that doesn't fit<span class="tag">&lt;/<span class="name">span</span>&gt;</span>A</span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure><pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// example 1</span><br><span class="line"><span class="selector-class">.divTitle</span> &#123;</span><br><span class="line">    width: 10px; // or other value</span><br><span class="line">    <span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br><span class="line">    <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">    <span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example 2</span><br><span class="line"><span class="selector-class">.spanTitle</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example 3</span><br><span class="line"><span class="selector-tag">table</span> &#123; </span><br><span class="line">    <span class="attribute">table-layout</span>:fixed; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">td</span> &#123; </span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis; </span><br><span class="line">    <span class="attribute">white-space</span>: nowrap; </span><br><span class="line">    <span class="attribute">overflow</span>: hidden; </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><hr><h1 id="ⅱ-text-overflow的不同样式">Ⅱ text-overflow的不同样式</h1><hr><ul><li>clip<br>这个关键字的意思是&quot;在内容区域的极限处截断文本&quot;，因此在字符的中间可能会发生截断。为了能在两个字符过渡处截断，你必须使用一个空字符串值 (’’)(To truncate at the transition between two characters, the empty string value (’’) must be used.)。此为默认值。</li><li>ellipsis<br>这个关键字的意思是“用一个省略号 (’…’, U+2026 HORIZONTAL ELLIPSIS)来表示被截断的文本”。这个省略号被添加在内容区域中，因此会减少显示的文本。如果空间太小到连省略号都容纳不下，那么这个省略号也会被截断。</li><li>string 自定义字符串<br>string用来表示被截断的文本。字符串内容将被添加在内容区域中，所以会减少显示出的文本。如果空间太小到连省略号都容纳不下，那么这个字符串也会被截断。但是这个属性在很多浏览器中都不支持，要谨慎使用。</li></ul><p>最有意思的是，如果结合使用</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">direction:</span> rtl</span><br></pre></td></tr></table></figure><p>可以指定截断文本是在文末还是在开头。</p><p>CodePen <a href="https://codepen.io/catherineliyuankun/pen/gjzLav" target="_blank" rel="noopener">text-overflow例子链接</a><br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/text-overflow%E7%9A%84%E4%B8%8D%E5%90%8C%E6%A0%B7%E5%BC%8F.png" alt="text-overflow的不同样式例子图片"></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-visible"</span>&gt;</span>overflow-visible Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-clip"</span>&gt;</span>overflow-clip Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis"</span>&gt;</span>overflow-ellipsis Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis first"</span>&gt;</span>overflow-ellipsis first Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-string"</span>&gt;</span>overflow-string Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">2px</span> <span class="number">5px</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* BOTH of the following are required for text-overflow */</span></span><br><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-visible</span> &#123;</span><br><span class="line"><span class="attribute">white-space</span>: initial;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-clip</span> &#123;</span><br><span class="line"><span class="attribute">text-overflow</span>: clip;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span> &#123;</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span><span class="selector-class">.first</span> &#123;</span><br><span class="line"><span class="attribute">direction</span>: rtl;</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-string</span> &#123;</span><br><span class="line"><span class="comment">/* Not supported in most browsers, </span></span><br><span class="line"><span class="comment">    see the 'Browser compatibility' section below */</span></span><br><span class="line"><span class="attribute">text-overflow</span>: <span class="string">" [..]"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><hr><h1 id="ⅲ-文首截断？">Ⅲ …文首截断？</h1><hr><p>我们一般都会在文末截断…<br>如果我确实有文首截断的需求呢？怎么实现？</p><h2 id="方法一">方法一</h2><p>结合使用direction可以指定截断文本是在文末还是在开头。</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">direction: rtl; // <span class="built_in">at</span> <span class="built_in">right</span> <span class="keyword">end</span> 文末</span><br></pre></td></tr></table></figure><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">direction: ltr // <span class="built_in">at</span> <span class="built_in">left</span> <span class="keyword">end</span> 开头</span><br></pre></td></tr></table></figure><p>例子：<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/reverse%20ellipsis%201.png" alt="文首截断例子图片"></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis"</span>&gt;</span>overflow-ellipsis Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis first"</span>&gt;</span>overflow-ellipsis first Lorem ipsum dolor sit</span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">2px</span> <span class="number">5px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* BOTH of the following are required for text-overflow */</span></span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span> &#123;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span><span class="selector-class">.first</span> &#123;</span><br><span class="line">  <span class="attribute">direction</span>: rtl;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="方法二">方法二</h2><p>如果方法一在有些浏览器中不支持的话，可以使用：before添加content来实现。</p><p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/reverse%20ellipsis%202.png" alt="文首截断2例子图片"></p><p>CodePen <a href="https://codepen.io/catherineliyuankun/pen/ajGpvV" target="_blank" rel="noopener">reverse ellipsis例子链接</a></p><hr><h1 id="ⅳ-多行显示并在最后一行截断文字？">Ⅳ 多行显示并在最后一行截断文字？</h1><hr><p>多行截断的其他方法，可以参考下一篇文章：<a href="http://liyuankun.top/text-overflow-ellipsis%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA-css-js%E6%96%B9%E6%B3%95%E5%85%A8%E6%80%BB%E7%BB%93.html" target="_blank" rel="noopener">text-overflow: ellipsis多行文本溢出…css/js方法全总结</a></p><p>上面我们为了能够截断文字，使用了</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">white-space: nowrap; // 强制文本在一行显示</span><br></pre></td></tr></table></figure><p>如果我确实有多行显示的需求呢？怎么实现？</p><p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/multiline%20ellipsis.png" alt="multiline例子图片"></p><p>CodePen <a href="https://codepen.io/catherineliyuankun/pen/poJzLKx" target="_blank" rel="noopener">multiline例子链接</a></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>The Hitch Hiker's Guide to the Galaxy has a few things to say on the subject of towels. A towel, it says, is about the most massivelyuseful thing an interstellar hitch hiker can have. Partly it has great practical value - you can wrap it around you for warmth as you bound across the cold moons of  Jaglan Beta.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>Small text, less then one row. Without dottes.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span> <span class="attr">style</span>=<span class="string">"width: 250px;"</span>&gt;</span>2.5 lines example: A towel is about the most massively useful thing an interstellar hitch hiker can have<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">400</span> <span class="number">14px</span>/<span class="number">1.2em</span> sans-serif; </span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* mixin for multiline */</span></span><br><span class="line">@<span class="keyword">mixin</span> multiLineEllipsis($lineHeight: <span class="number">1.2em</span>, $lineCount: <span class="number">1</span>, $bgColor: white)&#123;</span><br><span class="line">  <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">  line-height: $lineHeight;</span><br><span class="line">  max-height: $lineHeight * $lineCount; </span><br><span class="line">  <span class="selector-tag">text-align</span>: <span class="selector-tag">justify</span>;</span><br><span class="line">  <span class="selector-tag">margin-right</span>: <span class="selector-tag">-1em</span>;</span><br><span class="line">  <span class="selector-tag">padding-right</span>: 1<span class="selector-tag">em</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'...'</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">0.2em</span>;</span><br><span class="line">    <span class="attribute">background</span>: $bgColor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 2, $bgColor: white);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h1 id="the-reference-link">The reference link</h1><p><a href="http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/" target="_blank" rel="noopener">Pure CSS for multiline truncation with ellipsis</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" target="_blank" rel="noopener">MDN text-overflow</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="ⅰ-text-overflow-ellipsis-什么时候可能不生效？">Ⅰ text-overflow: ellipsis;什么时候可能不生效？</h1><hr><ol><li><p>设置在width有效的元素上，并且设置必要的width。</p><ul><li>块级元素（block level element） width、height 属性默认有效.[example 1]</li><li>内联元素（inline element 有的人也叫它行内元素）width、height 属性无效。[example 2]<br>可以通过改变display，使得width、height属性有效。</li></ul> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: block; //inline-block;</span><br></pre></td></tr></table></figure></li><li><p>要想这两个属性起真正的作用，需要配合：</p> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden; // 超出文本的部分不显示</span><br><span class="line">white-space: nowrap; // 强制文本在一行显示</span><br></pre></td></tr></table></figure></li><li><p>在table内td除了满足前两个条件之外。要在table的样式里定义一个属性 <code>table-layout:fixed</code><br>[example 3]</p></li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- example 1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divTitle"</span>&gt;</span>div text-overflow: ellipsis;什么时候可能不生效？<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- example 2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"spanTitle"</span>&gt;</span>span text-overflow: ellipsis;什么时候可能不生效？<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- example 3 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>  <span class="attr">class</span>=<span class="string">"box  ellipsis"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>Here is some long content that doesn't fit.Here is some long content that doesn't fit<span class="tag">&lt;/<span class="name">span</span>&gt;</span>A</span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure><pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// example 1</span><br><span class="line"><span class="selector-class">.divTitle</span> &#123;</span><br><span class="line">    width: 10px; // or other value</span><br><span class="line">    <span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br><span class="line">    <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">    <span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example 2</span><br><span class="line"><span class="selector-class">.spanTitle</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example 3</span><br><span class="line"><span class="selector-tag">table</span> &#123; </span><br><span class="line">    <span class="attribute">table-layout</span>:fixed; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">td</span> &#123; </span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis; </span><br><span class="line">    <span class="attribute">white-space</span>: nowrap; </span><br><span class="line">    <span class="attribute">overflow</span>: hidden; </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><hr><h1 id="ⅱ-text-overflow的不同样式">Ⅱ text-overflow的不同样式</h1><hr><ul><li>clip<br>这个关键字的意思是&quot;在内容区域的极限处截断文本&quot;，因此在字符的中间可能会发生截断。为了能在两个字符过渡处截断，你必须使用一个空字符串值 (’’)(To truncate at the transition between two characters, the empty string value (’’) must be used.)。此为默认值。</li><li>ellipsis<br>这个关键字的意思是“用一个省略号 (’…’, U+2026 HORIZONTAL ELLIPSIS)来表示被截断的文本”。这个省略号被添加在内容区域中，因此会减少显示的文本。如果空间太小到连省略号都容纳不下，那么这个省略号也会被截断。</li><li>string 自定义字符串<br>string用来表示被截断的文本。字符串内容将被添加在内容区域中，所以会减少显示出的文本。如果空间太小到连省略号都容纳不下，那么这个字符串也会被截断。但是这个属性在很多浏览器中都不支持，要谨慎使用。</li></ul><p>最有意思的是，如果结合使用</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">direction:</span> rtl</span><br></pre></td></tr></table></figure><p>可以指定截断文本是在文末还是在开头。</p><p>CodePen <a href="https://codepen.io/catherineliyuankun/pen/gjzLav" target="_blank" rel="noopener">text-overflow例子链接</a><br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/text-overflow%E7%9A%84%E4%B8%8D%E5%90%8C%E6%A0%B7%E5%BC%8F.png" alt="text-overflow的不同样式例子图片"></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-visible"</span>&gt;</span>overflow-visible Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-clip"</span>&gt;</span>overflow-clip Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis"</span>&gt;</span>overflow-ellipsis Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis first"</span>&gt;</span>overflow-ellipsis first Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-string"</span>&gt;</span>overflow-string Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line"><span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">2px</span> <span class="number">5px</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* BOTH of the following are required for text-overflow */</span></span><br><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-visible</span> &#123;</span><br><span class="line"><span class="attribute">white-space</span>: initial;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-clip</span> &#123;</span><br><span class="line"><span class="attribute">text-overflow</span>: clip;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span> &#123;</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span><span class="selector-class">.first</span> &#123;</span><br><span class="line"><span class="attribute">direction</span>: rtl;</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-string</span> &#123;</span><br><span class="line"><span class="comment">/* Not supported in most browsers, </span></span><br><span class="line"><span class="comment">    see the 'Browser compatibility' section below */</span></span><br><span class="line"><span class="attribute">text-overflow</span>: <span class="string">" [..]"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><hr><h1 id="ⅲ-文首截断？">Ⅲ …文首截断？</h1><hr><p>我们一般都会在文末截断…<br>如果我确实有文首截断的需求呢？怎么实现？</p><h2 id="方法一">方法一</h2><p>结合使用direction可以指定截断文本是在文末还是在开头。</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">direction: rtl; // <span class="built_in">at</span> <span class="built_in">right</span> <span class="keyword">end</span> 文末</span><br></pre></td></tr></table></figure><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">direction: ltr // <span class="built_in">at</span> <span class="built_in">left</span> <span class="keyword">end</span> 开头</span><br></pre></td></tr></table></figure><p>例子：<br><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/reverse%20ellipsis%201.png" alt="文首截断例子图片"></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis"</span>&gt;</span>overflow-ellipsis Lorem ipsum dolor sit amet, consectetur adipisicing elit.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"overflow-ellipsis first"</span>&gt;</span>overflow-ellipsis first Lorem ipsum dolor sit</span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">2px</span> <span class="number">5px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* BOTH of the following are required for text-overflow */</span></span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span> &#123;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.overflow-ellipsis</span><span class="selector-class">.first</span> &#123;</span><br><span class="line">  <span class="attribute">direction</span>: rtl;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="方法二">方法二</h2><p>如果方法一在有些浏览器中不支持的话，可以使用：before添加content来实现。</p><p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/reverse%20ellipsis%202.png" alt="文首截断2例子图片"></p><p>CodePen <a href="https://codepen.io/catherineliyuankun/pen/ajGpvV" target="_blank" rel="noopener">reverse ellipsis例子链接</a></p><hr><h1 id="ⅳ-多行显示并在最后一行截断文字？">Ⅳ 多行显示并在最后一行截断文字？</h1><hr><p>多行截断的其他方法，可以参考下一篇文章：<a href="http://liyuankun.top/text-overflow-ellipsis%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA-css-js%E6%96%B9%E6%B3%95%E5%85%A8%E6%80%BB%E7%BB%93.html">text-overflow: ellipsis多行文本溢出…css/js方法全总结</a></p><p>上面我们为了能够截断文字，使用了</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">white-space: nowrap; // 强制文本在一行显示</span><br></pre></td></tr></table></figure><p>如果我确实有多行显示的需求呢？怎么实现？</p><p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/text-overflow-ellipsis-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F/multiline%20ellipsis.png" alt="multiline例子图片"></p><p>CodePen <a href="https://codepen.io/catherineliyuankun/pen/poJzLKx" target="_blank" rel="noopener">multiline例子链接</a></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>The Hitch Hiker's Guide to the Galaxy has a few things to say on the subject of towels. A towel, it says, is about the most massivelyuseful thing an interstellar hitch hiker can have. Partly it has great practical value - you can wrap it around you for warmth as you bound across the cold moons of  Jaglan Beta.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span>&gt;</span>Small text, less then one row. Without dottes.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"block-with-text"</span> <span class="attr">style</span>=<span class="string">"width: 250px;"</span>&gt;</span>2.5 lines example: A towel is about the most massively useful thing an interstellar hitch hiker can have<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">400</span> <span class="number">14px</span>/<span class="number">1.2em</span> sans-serif; </span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* mixin for multiline */</span></span><br><span class="line">@<span class="keyword">mixin</span> multiLineEllipsis($lineHeight: <span class="number">1.2em</span>, $lineCount: <span class="number">1</span>, $bgColor: white)&#123;</span><br><span class="line">  <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">  line-height: $lineHeight;</span><br><span class="line">  max-height: $lineHeight * $lineCount; </span><br><span class="line">  <span class="selector-tag">text-align</span>: <span class="selector-tag">justify</span>;</span><br><span class="line">  <span class="selector-tag">margin-right</span>: <span class="selector-tag">-1em</span>;</span><br><span class="line">  <span class="selector-tag">padding-right</span>: 1<span class="selector-tag">em</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'...'</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">0.2em</span>;</span><br><span class="line">    <span class="attribute">background</span>: $bgColor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block-with-text</span> &#123;</span><br><span class="line">  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 2, $bgColor: white);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h1 id="the-reference-link">The reference link</h1><p><a href="http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/" target="_blank" rel="noopener">Pure CSS for multiline truncation with ellipsis</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" target="_blank" rel="noopener">MDN text-overflow</a></p>]]></content>
     
     <summary type="html">
     
@@ -102,21 +102,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="CSS" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/CSS/"/>
+      <category term="CSS" scheme="http://liyuankun.top/categories/TECH/FrontEnd/CSS/"/>
     
     
-      <category term="text-overflow" scheme="https://catherineliyuankun.github.io/tags/text-overflow/"/>
+      <category term="text-overflow" scheme="http://liyuankun.top/tags/text-overflow/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript比较两个Array数组/Object的内容是否相同</title>
-    <link href="https://catherineliyuankun.github.io/JavaScript%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AAArray%E6%95%B0%E7%BB%84%E7%9A%84%E5%86%85%E5%AE%B9%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C.html"/>
-    <id>https://catherineliyuankun.github.io/JavaScript比较两个Array数组的内容是否相同.html</id>
+    <link href="http://liyuankun.top/JavaScript%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AAArray%E6%95%B0%E7%BB%84%E7%9A%84%E5%86%85%E5%AE%B9%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C.html"/>
+    <id>http://liyuankun.top/JavaScript比较两个Array数组的内容是否相同.html</id>
     <published>2020-02-04T17:17:01.000Z</published>
     <updated>2020-02-04T20:23:03.578Z</updated>
     
@@ -132,21 +132,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="JS" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/JS/"/>
+      <category term="JS" scheme="http://liyuankun.top/categories/TECH/FrontEnd/JS/"/>
     
     
-      <category term="Array" scheme="https://catherineliyuankun.github.io/tags/Array/"/>
+      <category term="Array" scheme="http://liyuankun.top/tags/Array/"/>
     
   </entry>
   
   <entry>
     <title>英文标点符号+运算符号</title>
-    <link href="https://catherineliyuankun.github.io/%E8%8B%B1%E6%96%87%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%8F%B7.html"/>
-    <id>https://catherineliyuankun.github.io/英文标点符号-运算符号.html</id>
+    <link href="http://liyuankun.top/%E8%8B%B1%E6%96%87%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%8F%B7.html"/>
+    <id>http://liyuankun.top/英文标点符号-运算符号.html</id>
     <published>2019-10-30T08:45:20.000Z</published>
     <updated>2019-10-31T16:12:38.334Z</updated>
     
@@ -173,17 +173,17 @@
     
     </summary>
     
-      <category term="English Learning" scheme="https://catherineliyuankun.github.io/categories/English-Learning/"/>
+      <category term="English Learning" scheme="http://liyuankun.top/categories/English-Learning/"/>
     
-      <category term="日常英语" scheme="https://catherineliyuankun.github.io/categories/English-Learning/%E6%97%A5%E5%B8%B8%E8%8B%B1%E8%AF%AD/"/>
+      <category term="日常英语" scheme="http://liyuankun.top/categories/English-Learning/%E6%97%A5%E5%B8%B8%E8%8B%B1%E8%AF%AD/"/>
     
     
   </entry>
   
   <entry>
     <title>Promise Vs setTimeout</title>
-    <link href="https://catherineliyuankun.github.io/Promise-Vs-setTimeout.html"/>
-    <id>https://catherineliyuankun.github.io/Promise-Vs-setTimeout.html</id>
+    <link href="http://liyuankun.top/Promise-Vs-setTimeout.html"/>
+    <id>http://liyuankun.top/Promise-Vs-setTimeout.html</id>
     <published>2019-10-29T13:17:43.000Z</published>
     <updated>2019-11-05T09:13:00.584Z</updated>
     
@@ -201,23 +201,23 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="JS" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/JS/"/>
+      <category term="JS" scheme="http://liyuankun.top/categories/TECH/FrontEnd/JS/"/>
     
     
-      <category term="Promise" scheme="https://catherineliyuankun.github.io/tags/Promise/"/>
+      <category term="Promise" scheme="http://liyuankun.top/tags/Promise/"/>
     
-      <category term="TODO" scheme="https://catherineliyuankun.github.io/tags/TODO/"/>
+      <category term="TODO" scheme="http://liyuankun.top/tags/TODO/"/>
     
   </entry>
   
   <entry>
     <title>Browser Caching</title>
-    <link href="https://catherineliyuankun.github.io/Browser-Caching.html"/>
-    <id>https://catherineliyuankun.github.io/Browser-Caching.html</id>
+    <link href="http://liyuankun.top/Browser-Caching.html"/>
+    <id>http://liyuankun.top/Browser-Caching.html</id>
     <published>2019-10-28T15:29:53.000Z</published>
     <updated>2019-10-30T08:57:06.803Z</updated>
     
@@ -234,21 +234,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="Browser Caching" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/Browser-Caching/"/>
+      <category term="Browser Caching" scheme="http://liyuankun.top/categories/TECH/FrontEnd/Browser-Caching/"/>
     
     
-      <category term="cache" scheme="https://catherineliyuankun.github.io/tags/cache/"/>
+      <category term="cache" scheme="http://liyuankun.top/tags/cache/"/>
     
   </entry>
   
   <entry>
     <title>IndexedDB-delete whole database by javaScript</title>
-    <link href="https://catherineliyuankun.github.io/IndexedDB-delete-whole-database-by-javaScript.html"/>
-    <id>https://catherineliyuankun.github.io/IndexedDB-delete-whole-database-by-javaScript.html</id>
+    <link href="http://liyuankun.top/IndexedDB-delete-whole-database-by-javaScript.html"/>
+    <id>http://liyuankun.top/IndexedDB-delete-whole-database-by-javaScript.html</id>
     <published>2019-10-28T13:24:15.000Z</published>
     <updated>2019-11-17T19:07:09.346Z</updated>
     
@@ -263,23 +263,23 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="Browser Caching" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/Browser-Caching/"/>
+      <category term="Browser Caching" scheme="http://liyuankun.top/categories/TECH/FrontEnd/Browser-Caching/"/>
     
-      <category term="IndexedDB" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/Browser-Caching/IndexedDB/"/>
+      <category term="IndexedDB" scheme="http://liyuankun.top/categories/TECH/FrontEnd/Browser-Caching/IndexedDB/"/>
     
     
-      <category term="IndexedDB" scheme="https://catherineliyuankun.github.io/tags/IndexedDB/"/>
+      <category term="IndexedDB" scheme="http://liyuankun.top/tags/IndexedDB/"/>
     
   </entry>
   
   <entry>
     <title>Z-index</title>
-    <link href="https://catherineliyuankun.github.io/Z-index.html"/>
-    <id>https://catherineliyuankun.github.io/Z-index.html</id>
+    <link href="http://liyuankun.top/Z-index.html"/>
+    <id>http://liyuankun.top/Z-index.html</id>
     <published>2019-10-24T11:48:32.000Z</published>
     <updated>2019-10-29T12:24:43.149Z</updated>
     
@@ -296,21 +296,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="CSS" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/CSS/"/>
+      <category term="CSS" scheme="http://liyuankun.top/categories/TECH/FrontEnd/CSS/"/>
     
     
-      <category term="TODO" scheme="https://catherineliyuankun.github.io/tags/TODO/"/>
+      <category term="TODO" scheme="http://liyuankun.top/tags/TODO/"/>
     
   </entry>
   
   <entry>
     <title>HTTP CORS disable for chrome</title>
-    <link href="https://catherineliyuankun.github.io/HTTP-CORS-disable.html"/>
-    <id>https://catherineliyuankun.github.io/HTTP-CORS-disable.html</id>
+    <link href="http://liyuankun.top/HTTP-CORS-disable.html"/>
+    <id>http://liyuankun.top/HTTP-CORS-disable.html</id>
     <published>2019-10-21T13:51:01.000Z</published>
     <updated>2019-11-04T17:04:37.707Z</updated>
     
@@ -328,21 +328,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="Network" scheme="https://catherineliyuankun.github.io/categories/TECH/Network/"/>
+      <category term="Network" scheme="http://liyuankun.top/categories/TECH/Network/"/>
     
-      <category term="Servlet/HTTP" scheme="https://catherineliyuankun.github.io/categories/TECH/Network/Servlet-HTTP/"/>
+      <category term="Servlet/HTTP" scheme="http://liyuankun.top/categories/TECH/Network/Servlet-HTTP/"/>
     
     
-      <category term="CORS" scheme="https://catherineliyuankun.github.io/tags/CORS/"/>
+      <category term="CORS" scheme="http://liyuankun.top/tags/CORS/"/>
     
   </entry>
   
   <entry>
     <title>React 16 - Hooks</title>
-    <link href="https://catherineliyuankun.github.io/React-16-Hooks.html"/>
-    <id>https://catherineliyuankun.github.io/React-16-Hooks.html</id>
+    <link href="http://liyuankun.top/React-16-Hooks.html"/>
+    <id>http://liyuankun.top/React-16-Hooks.html</id>
     <published>2019-10-21T09:45:22.000Z</published>
     <updated>2019-10-29T12:28:26.919Z</updated>
     
@@ -358,21 +358,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="React" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/React/"/>
+      <category term="React" scheme="http://liyuankun.top/categories/TECH/FrontEnd/React/"/>
     
     
-      <category term="React 16" scheme="https://catherineliyuankun.github.io/tags/React-16/"/>
+      <category term="React 16" scheme="http://liyuankun.top/tags/React-16/"/>
     
   </entry>
   
   <entry>
     <title>Github All You should know</title>
-    <link href="https://catherineliyuankun.github.io/Github-All-You-should-know.html"/>
-    <id>https://catherineliyuankun.github.io/Github-All-You-should-know.html</id>
+    <link href="http://liyuankun.top/Github-All-You-should-know.html"/>
+    <id>http://liyuankun.top/Github-All-You-should-know.html</id>
     <published>2019-10-15T13:33:20.000Z</published>
     <updated>2019-10-15T14:55:53.523Z</updated>
     
@@ -388,19 +388,19 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="Tools" scheme="https://catherineliyuankun.github.io/categories/TECH/Tools/"/>
+      <category term="Tools" scheme="http://liyuankun.top/categories/TECH/Tools/"/>
     
     
-      <category term="git" scheme="https://catherineliyuankun.github.io/tags/git/"/>
+      <category term="git" scheme="http://liyuankun.top/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Responsive web - Flexbox</title>
-    <link href="https://catherineliyuankun.github.io/Responsive-web-Flexbox.html"/>
-    <id>https://catherineliyuankun.github.io/Responsive-web-Flexbox.html</id>
+    <link href="http://liyuankun.top/Responsive-web-Flexbox.html"/>
+    <id>http://liyuankun.top/Responsive-web-Flexbox.html</id>
     <published>2019-10-15T11:18:56.000Z</published>
     <updated>2019-10-15T14:55:36.385Z</updated>
     
@@ -417,23 +417,23 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="CSS" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/CSS/"/>
+      <category term="CSS" scheme="http://liyuankun.top/categories/TECH/FrontEnd/CSS/"/>
     
-      <category term="Flexbox" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/CSS/Flexbox/"/>
+      <category term="Flexbox" scheme="http://liyuankun.top/categories/TECH/FrontEnd/CSS/Flexbox/"/>
     
     
-      <category term="Flexbox" scheme="https://catherineliyuankun.github.io/tags/Flexbox/"/>
+      <category term="Flexbox" scheme="http://liyuankun.top/tags/Flexbox/"/>
     
   </entry>
   
   <entry>
     <title>ES6-Promise</title>
-    <link href="https://catherineliyuankun.github.io/ES6-Promise.html"/>
-    <id>https://catherineliyuankun.github.io/ES6-Promise.html</id>
+    <link href="http://liyuankun.top/ES6-Promise.html"/>
+    <id>http://liyuankun.top/ES6-Promise.html</id>
     <published>2019-10-13T12:05:41.000Z</published>
     <updated>2019-10-29T12:45:12.657Z</updated>
     
@@ -449,21 +449,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="ES6" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/ES6/"/>
+      <category term="ES6" scheme="http://liyuankun.top/categories/TECH/FrontEnd/ES6/"/>
     
     
-      <category term="Promise" scheme="https://catherineliyuankun.github.io/tags/Promise/"/>
+      <category term="Promise" scheme="http://liyuankun.top/tags/Promise/"/>
     
   </entry>
   
   <entry>
     <title>HTTP CORS</title>
-    <link href="https://catherineliyuankun.github.io/HTTP-CORS.html"/>
-    <id>https://catherineliyuankun.github.io/HTTP-CORS.html</id>
+    <link href="http://liyuankun.top/HTTP-CORS.html"/>
+    <id>http://liyuankun.top/HTTP-CORS.html</id>
     <published>2019-10-12T13:51:01.000Z</published>
     <updated>2019-10-22T08:33:35.042Z</updated>
     
@@ -481,21 +481,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="Network" scheme="https://catherineliyuankun.github.io/categories/TECH/Network/"/>
+      <category term="Network" scheme="http://liyuankun.top/categories/TECH/Network/"/>
     
-      <category term="Servlet/HTTP" scheme="https://catherineliyuankun.github.io/categories/TECH/Network/Servlet-HTTP/"/>
+      <category term="Servlet/HTTP" scheme="http://liyuankun.top/categories/TECH/Network/Servlet-HTTP/"/>
     
     
-      <category term="CORS" scheme="https://catherineliyuankun.github.io/tags/CORS/"/>
+      <category term="CORS" scheme="http://liyuankun.top/tags/CORS/"/>
     
   </entry>
   
   <entry>
     <title>React all articles</title>
-    <link href="https://catherineliyuankun.github.io/React-all-articles.html"/>
-    <id>https://catherineliyuankun.github.io/React-all-articles.html</id>
+    <link href="http://liyuankun.top/React-all-articles.html"/>
+    <id>http://liyuankun.top/React-all-articles.html</id>
     <published>2019-09-09T09:44:38.000Z</published>
     <updated>2019-11-04T17:06:57.538Z</updated>
     
@@ -511,21 +511,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="React" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/React/"/>
+      <category term="React" scheme="http://liyuankun.top/categories/TECH/FrontEnd/React/"/>
     
     
-      <category term="Links" scheme="https://catherineliyuankun.github.io/tags/Links/"/>
+      <category term="Links" scheme="http://liyuankun.top/tags/Links/"/>
     
   </entry>
   
   <entry>
     <title>Markdown表格中单元格合并</title>
-    <link href="https://catherineliyuankun.github.io/Markdown%E8%A1%A8%E6%A0%BC%E4%B8%AD%E5%8D%95%E5%85%83%E6%A0%BC%E5%90%88%E5%B9%B6.html"/>
-    <id>https://catherineliyuankun.github.io/Markdown表格中单元格合并.html</id>
+    <link href="http://liyuankun.top/Markdown%E8%A1%A8%E6%A0%BC%E4%B8%AD%E5%8D%95%E5%85%83%E6%A0%BC%E5%90%88%E5%B9%B6.html"/>
+    <id>http://liyuankun.top/Markdown表格中单元格合并.html</id>
     <published>2019-09-03T17:56:29.000Z</published>
     <updated>2019-09-03T12:01:02.508Z</updated>
     
@@ -547,8 +547,8 @@
   
   <entry>
     <title>React 16 - DOM Attributes</title>
-    <link href="https://catherineliyuankun.github.io/React-16-DOM-Attributes.html"/>
-    <id>https://catherineliyuankun.github.io/React-16-DOM-Attributes.html</id>
+    <link href="http://liyuankun.top/React-16-DOM-Attributes.html"/>
+    <id>http://liyuankun.top/React-16-DOM-Attributes.html</id>
     <published>2019-09-03T09:08:53.000Z</published>
     <updated>2019-09-03T06:29:26.309Z</updated>
     
@@ -556,21 +556,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="React" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/React/"/>
+      <category term="React" scheme="http://liyuankun.top/categories/TECH/FrontEnd/React/"/>
     
     
-      <category term="React 16" scheme="https://catherineliyuankun.github.io/tags/React-16/"/>
+      <category term="React 16" scheme="http://liyuankun.top/tags/React-16/"/>
     
   </entry>
   
   <entry>
     <title>React 16 - Portal</title>
-    <link href="https://catherineliyuankun.github.io/React-16-Portal.html"/>
-    <id>https://catherineliyuankun.github.io/React-16-Portal.html</id>
+    <link href="http://liyuankun.top/React-16-Portal.html"/>
+    <id>http://liyuankun.top/React-16-Portal.html</id>
     <published>2019-09-03T09:07:35.000Z</published>
     <updated>2019-09-09T07:56:15.189Z</updated>
     
@@ -586,21 +586,21 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="React" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/React/"/>
+      <category term="React" scheme="http://liyuankun.top/categories/TECH/FrontEnd/React/"/>
     
     
-      <category term="React 16" scheme="https://catherineliyuankun.github.io/tags/React-16/"/>
+      <category term="React 16" scheme="http://liyuankun.top/tags/React-16/"/>
     
   </entry>
   
   <entry>
     <title>React 16 - New feature Summary Links</title>
-    <link href="https://catherineliyuankun.github.io/React-16-New-feature-Summary-Links.html"/>
-    <id>https://catherineliyuankun.github.io/React-16-New-feature-Summary-Links.html</id>
+    <link href="http://liyuankun.top/React-16-New-feature-Summary-Links.html"/>
+    <id>http://liyuankun.top/React-16-New-feature-Summary-Links.html</id>
     <published>2019-09-03T09:06:45.000Z</published>
     <updated>2019-11-04T17:06:42.398Z</updated>
     
@@ -616,14 +616,14 @@
     
     </summary>
     
-      <category term="TECH" scheme="https://catherineliyuankun.github.io/categories/TECH/"/>
+      <category term="TECH" scheme="http://liyuankun.top/categories/TECH/"/>
     
-      <category term="FrontEnd" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/"/>
+      <category term="FrontEnd" scheme="http://liyuankun.top/categories/TECH/FrontEnd/"/>
     
-      <category term="React" scheme="https://catherineliyuankun.github.io/categories/TECH/FrontEnd/React/"/>
+      <category term="React" scheme="http://liyuankun.top/categories/TECH/FrontEnd/React/"/>
     
     
-      <category term="React 16" scheme="https://catherineliyuankun.github.io/tags/React-16/"/>
+      <category term="React 16" scheme="http://liyuankun.top/tags/React-16/"/>
     
   </entry>
   
