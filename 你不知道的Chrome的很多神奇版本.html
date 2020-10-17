@@ -308,7 +308,7 @@
                     <ul class="pager">
                         
                             <li class="previous">
-                                <a href="/奥利给你的iTerm2-快速用IDE打开文件.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="奥利给你的iTerm2-快速用IDE打开文件">&larr; Previous Post</a>
+                                <a href="/awesome-tools.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="程序猿的那些好用工具">&larr; Previous Post</a>
                             </li>
                         
                         
@@ -380,6 +380,10 @@
     <ul>
       
         <li>
+          <a href="/Karabiner-Elements不生效.html">MacOS 10.14.6 Karabiner-Elements不生效</a>
+        </li>
+      
+        <li>
           <a href="/Mac上python2和python3的版本切换设置.html">Mac上python2和python3的版本切换设置</a>
         </li>
       
@@ -393,10 +397,6 @@
       
         <li>
           <a href="/必备网络请求工具Postman、Paw-or-插件Advanced-REST-client、DHC.html">必备网络请求工具Postman、Paw or 插件Advanced REST client、DHC</a>
-        </li>
-      
-        <li>
-          <a href="/奥利给你的iTerm2-快速用IDE打开文件.html">奥利给你的iTerm2-快速用IDE打开文件</a>
         </li>
       
     </ul>
@@ -463,7 +463,25 @@
         qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
         keyword: 'vip',
     });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
 </script>
+
 <style>
     /* place left on bigger screen */
     @media all and (min-width: 800px) {
@@ -1157,10 +1175,10 @@
             if(true) {
                 option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
             }
-            if (true && ) {
+            if (true && ( || false)) {
                 option.oauth.redirect_protocol = '';
             }
-            if (true && ) {
+            if (true && ( || false)) {
                 option.oauth.proxy_gateway = '';
             } else {
                 option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
