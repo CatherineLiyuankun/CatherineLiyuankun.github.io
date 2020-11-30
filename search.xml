@@ -298,11 +298,11 @@
 <!-- - [ ] [**Youtube Premium**](https://www.youtube.com/)，主要为了 iPhone 上切换应用或锁屏后能继续播放 -->
 <!-- - [ ] [**SetApp**](https://go.setapp.com/invite/sorrycc)，喊几个好友一起买，可以省不少钱 -->
 <h1 id="硬件">硬件</h1>
-<h3 id="电脑">电脑</h3>
+<h2 id="电脑">电脑</h2>
 <ul>
 <li>[ ] <strong>MacBook Pro 15-inch, 2017</strong>，公司配的，512 G 不太够用，但还行吧。自己的电脑<strong>MacBook Pro 15-inch, 2013</strong>准备用<a href="https://detail.tmall.com/item.htm?id=569327401210&amp;spm=a1z09.2.0.0.76a52e8dZEojbU&amp;_u=l1h6urtf206" target="_blank" rel="noopener">三星 970</a> 升了 1T 硬盘</li>
 </ul>
-<h3 id="电脑配件">电脑配件</h3>
+<h2 id="电脑配件">电脑配件</h2>
 <!-- - [ ] [**U28E590D**](https://detail.tmall.com/item.htm?id=523282229383) x2，三星显示器，应该是 4K 中最便宜的了 -->
 <ul>
 <li>[ ] <a href="https://detail.tmall.com/item.htm?id=594024489687&amp;spm=a1z09.2.0.0.260f2e8drJ2dpC&amp;_u=cgkogtg55d4&amp;sku_properties=5919063:6536025" target="_blank" rel="noopener"><strong>AOC 32英寸4K曲面显示器</strong></a> 公司用的dell，家里用的AOC 32英寸4K曲面显示器。</li>
@@ -315,26 +315,25 @@
 <ul>
 <li>[ ] <a href><strong>罗技无线鼠标</strong></a></li>
 </ul>
-<h3 id="家庭网络">家庭网络</h3>
+<h2 id="家庭网络">家庭网络</h2>
 <!-- - [ ] J1900 软路由 + UBNT 交换机 + （UBNT AP & [**华硕 RT-AC88U**](https://item.jd.com/2104499.html)） -->
-<h3 id="手机">手机</h3>
+<h2 id="手机">手机</h2>
 <ul>
 <li>[x] <a href="https://www.apple.com/iphone-x/" target="_blank" rel="noopener"><strong>iPhoneXS MAX</strong></a></li>
 </ul>
-<h3 id="耳机">耳机</h3>
+<h2 id="耳机">耳机</h2>
 <ul>
 <li>[x] <a href="https://detail.tmall.com/item.htm?id=577955986589&amp;spm=a1z09.2.0.0.260f2e8drJ2dpC&amp;sku_properties=5919063:6536025" target="_blank" rel="noopener"><strong>Sony/索尼 WH-1000XM3</strong></a>，头戴式无线降噪蓝牙耳机1000X，天猫618买的。淘口令：(￥kusV1GSXOve￥)</li>
 </ul>
-<h3 id="相机">相机</h3>
+<h2 id="相机">相机</h2>
 <ul>
 <li>[x] <a href="https://www.fujifilmusa.com/products/digital_cameras/x/fujifilm_x100t/" target="_blank" rel="noopener"><strong>Sony A6000</strong></a> 准备换A7</li>
 <li>[x] <a href="https://zh.shop.gopro.com/China/cameras/hero7-black/CHDHX-701-master.html" target="_blank" rel="noopener"><strong>大疆手机稳定器</strong></a></li>
 </ul>
-<h1 id="相关">相关</h1>
-<!-- - [ ] [awesome-f2e-libs](https://github.com/sorrycc/awesome-f2e-libs) -我关注的前端库。
-- [ ] [旧版本的装了啥](https://github.com/sorrycc/blog/issues/16) -->
 <h1 id="参考链接">参考链接</h1>
 <p><a href="https://github.com/sorrycc/awesome-tools" target="_blank" rel="noopener">awesome-tools</a></p>
+<!-- - [ ] [awesome-f2e-libs](https://github.com/sorrycc/awesome-f2e-libs) -我关注的前端库。
+- [ ] [旧版本的装了啥](https://github.com/sorrycc/blog/issues/16) -->
 <h2 id="rss-阅读器">RSS 阅读器</h2>
 <p>Reeder 好，MACOS+IOS 但是要付费<br>
 NetNewsWire 免费，只有IOS</p>
@@ -2065,12 +2064,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-GSFWqxTE" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-zglyhUAJ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-GSFWqxTE"),
+            element: document.getElementById("aplayer-zglyhUAJ"),
             narrow: false,
             autoplay: false,
             showlrc: false,
