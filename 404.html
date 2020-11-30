@@ -901,65 +901,6 @@
 
     <!-- Git Comment -->
     
-    
-    <!-- LOCAL: You can save these files to your site and update links -->
-        
-            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-        
-    <!-- END LOCAL -->
-        
-        <style>
-            a.gitment-editor-footer-tip { display: none; }
-            .gitment-container.gitment-footer-container { display: none; }
-        </style>
-        
-
-        
-        <script type="text/javascript">
-            var option = {
-                id: window.location.pathname,
-                owner: 'CatherineLiyuankun',
-                repo: 'gitment-comments',
-                oauth: {
-                    client_id: 'f3a0c1c7153576e1ab6c'
-                }
-            };
-            if(true) {
-                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
-            }
-            if (true && ( || false)) {
-                option.oauth.redirect_protocol = '';
-            }
-            if (true && ( || false)) {
-                option.oauth.proxy_gateway = '';
-            } else {
-                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
-            }
-
-            function renderGitment(){
-                var gitment;
-                if (true) {
-                    gitment = new Gitmint(option);
-                } else {
-                    gitment = new Gitment(option);
-                }
-                gitment.render('gitment-container');
-            }
-
-            if(!true) {
-                renderGitment();
-            } else {
-                function showGitment(){
-                    document.getElementById("gitment-display-button").style.display = "none";
-                    document.getElementById("gitment-container").style.display = "block";
-                    renderGitment();
-                }
-            }
-        </script>
-        
-    
-
 
 
     <!-- Disqus Comment -->
@@ -983,6 +924,24 @@
     
     <!-- Duoshuo Comment -->
     
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+        // dynamic User by Hux
+        var _user = 'lyk';
+    
+        // duoshuo comment query.
+        var duoshuoQuery = {short_name: _user };
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+
 
     <!-- Search popup-->
     
