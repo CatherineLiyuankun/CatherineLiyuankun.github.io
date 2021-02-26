@@ -39,6 +39,9 @@
 <h2 id="开发辅助">开发辅助</h2>
 <ul>
 <li>
+<p>[x] <a href="https://kapeli.com/dash" target="_blank" rel="noopener"><strong>Dash</strong></a> 快速查API文档。免费版本会在你搜索完后等10秒再显示，付费版：$29.99 无需等待。</p>
+</li>
+<li>
 <p>[x] <a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener"><strong>SourceTree</strong></a>，git 辅助，由于 git 高级操作命令记不住，就只用借助 UI 了。</p>
 </li>
 <li>
@@ -116,7 +119,7 @@
 </ul>
 <h2 id="效率">效率</h2>
 <ul>
-<li>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a>，应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。</li>
+<li>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a>，应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。免费功能：File search, Web search，app启动, Calculator, Dictionary, System。付费功能（需购买Powerpack）：Workflow，Action, Clipboard History，Snippets, Contacts, itunes, 1Password, Terminal.</li>
 </ul>
 <!-- - [ ] [**Paste**](https://pasteapp.me/)，粘贴板管理，[**Copied**](https://copiedapp.com/) 在 mac 10.15 下有 bug 就放弃了，再之前一直用 Alfred 的粘贴板 -->
 <!-- - [ ] [**TaskPaper**](https://www.taskpaper.com/)，任务管理 -->
@@ -2064,12 +2067,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-zglyhUAJ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-irwvtsLC" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-zglyhUAJ"),
+            element: document.getElementById("aplayer-irwvtsLC"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -8013,6 +8016,48 @@ Peace!</p>
       <tags>
         <tag>Hexo</tag>
         <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速解决windows下 cd 无法切换盘符目录</title>
+    <url>/%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3windows%E4%B8%8B-cd-%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2%E7%9B%98%E7%AC%A6%E7%9B%AE%E5%BD%95.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在windows系统， 打开cmd.exe 或者 Command prompt。<br>
+默认进入到当前用户主目录下， 发现除了C:\， 可以通过cd … , cd , dir 去到C:\下的各个目录， 可以在c盘下的各个目录自由切换。<br>
+但是不能通过 <code>cd e:\</code> 进入到e盘，仍停留在原来C:\盘的位置。</p>
+<h2 id="解决方法1">解决方法1</h2>
+<p>在 cd 和盘符之间加上 /e</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /e e:</span><br></pre></td></tr></table></figure>
+<h2 id="解决方法2">解决方法2</h2>
+<p>不用cd指令,直接用e盘符</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">e:</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3windows%E4%B8%8B-cd-%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2%E7%9B%98%E7%AC%A6%E7%9B%AE%E5%BD%95/command.png" alt="https://github.com/CatherineLiyuankun/PictureBed/blob/master/blog/post/%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3windows%E4%B8%8B-cd-%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2%E7%9B%98%E7%AC%A6%E7%9B%AE%E5%BD%95/command.png"></p>
+<p>我使用方法1，不管用，方法2成功。</p>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Command line</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一次清理多个git Branch [SourceTree]</title>
+    <url>/SourceTree-Delete-Multiple-Branches-at-One-Time.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用SourceTree来实现一次性实现多个git Branch清理：</p>
+<h1 id="click-repository-then-click-branch">Click Repository then click Branch</h1>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/SourceTree-Delete-Multiple-Branches-at-One-Time/sourcetree1.png" alt="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/SourceTree-Delete-Multiple-Branches-at-One-Time/sourcetree1.png"></p>
+<h1 id="click-delete-branches">Click Delete Branches</h1>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/SourceTree-Delete-Multiple-Branches-at-One-Time/sourcetree2.png" alt="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/SourceTree-Delete-Multiple-Branches-at-One-Time/sourcetree1.png"></p>
+<h1 id="select-the-branch-es-you-want-to-delete">Select the branch(es) you want to delete</h1>
+<p>选择要清理的branch，注意branch 分为local本地的和remote远程的。注意不要误删remote的branch，除非确实是要清理。</p>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>
