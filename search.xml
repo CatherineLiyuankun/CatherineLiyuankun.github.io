@@ -1,6 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Difference between window.location.href=window.location.href and window.location.reload() and window.location=window.location.href</title>
+    <url>/Difference-between-window-location-href-window-location-href-and-window-location-reload-and-window-location-window-location-href.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="compare-table-对比表格">Compare table 对比表格</h1>
+<blockquote>
+<p>Re-POST：reloads the current page with POST data. 发送POST请求加载当前页面。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Refresh page</th>
+<th>Re-POST</th>
+<th>Static scan tool warning: Veracode</th>
+<th>SonarQube</th>
+<th>JSLint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>window.location = window.location.href</code></td>
+<td><code>No</code></td>
+<td><code>Yes</code> “CWE ID 601 URL Redirection to Untrusted Site (‘Open Redirect’)”</td>
+<td><code>No</code></td>
+<td><code>No</code></td>
+</tr>
+<tr>
+<td><code>window.location.href = window.location.href</code></td>
+<td><code>No</code></td>
+<td><code>Yes</code></td>
+<td><code>Yes</code></td>
+<td><code>Yes</code> “Weird assignment”</td>
+</tr>
+<tr>
+<td><code>window.location.reload()</code></td>
+<td>Maybe, depends on browsers 也许，不同浏览器有不同行为 <a href="https://codepen.io/catherineliyuankun/pen/bGByZbe" target="_blank" rel="noopener">Test Code</a></td>
+<td><code>No</code></td>
+<td><code>No</code></td>
+<td><code>No</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>window.location.reload()</code> reloads the current page <strong>with POST data</strong>, while <code>window.location.href=window.location.href</code> <strong>discarding the POST data(perform a GET request)</strong> 通过GET请求reload页面.</p>
+<h2 id="window-location-href-window-location-href">window.location.href=window.location.href</h2>
+<h2 id="window-location-window-location-href">window.location=window.location.href</h2>
+<p><code>window.location = window.location.href</code> works the same as <code>window.location.href = window.location.href</code> in all these browsers.<br>
+<code>window.location = window.location.href</code>和 <code>window.location.href = window.location.href</code> 的行为在各个浏览器上完全一致。</p>
+<p><code>window.location.href=window.location.href</code> will not reload the page if there’s an anchor (#) in the URL - You must use window.location.reload() in this case.<br>
+如果页面URL中包含锚<code>#</code>, <code>window.location.href=window.location.href</code> 不会reload页面。</p>
+<p>可以通过判断hash解决：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.location.hash) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="built_in">window</span>.location.href;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.reload();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="window-location-reload">window.location.reload()</h2>
+<p>JavaScript <code>window.location</code> object can be used</p>
+<ul>
+<li>to get current page address (URL)</li>
+<li>to redirect the browser to another page</li>
+<li>to reload the same page</li>
+</ul>
+<p><code>window</code>: in JavaScript represents an open window in a browser.</p>
+<p><code>location</code>: in JavaScript holds information about current URL.</p>
+<p>The location object is like a fragment of the window object and is called up through the window.location property.</p>
+<p><code>location</code> object has three methods:</p>
+<p>assign(): used to load a new document<br>
+reload(): used to reload current document 与点击”Refesh“ 按钮效果相同。<br>
+replace(): used to replace current document with a new one</p>
+<h3 id="re-post">Re-POST</h3>
+<ul>
+<li>Chrome 12 and Safari 5.0.5 on Mac do not re-POST with <code>.reload()</code></li>
+<li>FF 2.0, 3.6, 4.0, 5.0 on Mac present the user with the “resend form dialog” with <code>.reload()</code>, <code>.reload(true)</code>, and <code>.reload(false)</code></li>
+<li>IE6, IE8(standards), IE8(IE7 mode,standards) in XP; and IE9 and IE10-tech-preview in Win7 behave the same as FF on Mac</li>
+<li><a href="https://codepen.io/catherineliyuankun/pen/bGByZbe" target="_blank" rel="noopener">Test Code</a></li>
+</ul>
+<h3 id="skipcache">skipCache</h3>
+<p><code>window.location.reload()</code> takes an additional argument <code>skipCache</code>.</p>
+<p><code>window.location.reload()</code>可以有额外的参数：<code>skipCache</code>.</p>
+<ul>
+<li>Using <code>window.location.reload(true)</code> the browser will skip the cache and reload the page from the server. <code>skipCache</code> 为<code>true</code>, 浏览器忽略cache， 从服务器重新加载页面。</li>
+<li><code>window.location.reload(false)</code> will do the opposite, and load the page from cache if possible. <code>skipCache</code> 为<code>false</code>, 浏览器优先从cache重新加载页面，若没有cache则从服务器加载页面。</li>
+<li>default value for window.location.reload() is false. <code>skipCache</code> 默认值为(false)。</li>
+</ul>
+<h2 id="window-location-assign-wd-location-href-go-to-the-url">window.location.assign(wd.location.href) : go to the URL</h2>
+<h2 id="window-location-replace-wd-location-href-go-to-the-url-and-replace-previous-page-in-history">window.location.replace(wd.location.href) : go to the URL and replace previous page in history</h2>
+<p>From w3schools: “The difference between assign() and replace(), is that replace() removes the URL of the current document from the document history, meaning that it is not possible to use the “back” button to navigate back to the original document.”</p>
+<p>The difference from the assign() method is that after using replace() the current page will not be saved in session History, meaning the user won’t be able to use the back button to navigate to it.</p>
+<h1 id="summary-总结">Summary 总结</h1>
+<ul>
+<li>如果不想要发送POST data，使用<code>window.location = window.location.href</code>。注意！如果页面URL中包含锚<code>#</code>, <code>window.location.href=window.location.href</code> 不会reload页面，需要额外判断。</li>
+<li>如果不介意使用POST请求，使用<code>window.location.reload()</code>， 这种用法在各个代码扫描工具中都不会有warning。</li>
+</ul>
+<h1 id="reference-links">Reference Links</h1>
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/questions/2405117/difference-between-window-location-href-window-location-href-and-window-location" target="_blank" rel="noopener">Difference between window.location.href=window.location.href and window.location.reload()</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/6751641/window-location-href-window-location-href-and-jslint" target="_blank" rel="noopener">window.location.href = window.location.href and JSLint</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/location" target="_blank" rel="noopener">MDN：Window.location</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Location/reload" target="_blank" rel="noopener">Location: reload()</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/3715047/how-to-reload-a-page-using-javascript" target="_blank" rel="noopener">How to reload a page using JavaScript</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/1865837/whats-the-difference-between-window-location-and-window-location-replace" target="_blank" rel="noopener">What’s the difference between window.location= and window.location.replace()?</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>FrontEnd</category>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Better performance than Java.String.replaceAll</title>
+    <url>/Better-performance-than-Java-String-replaceAll.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在看Spring Security utilize a response wrapper (<a href="https://github.com/spring-projects/spring-security/blob/5.4.x/web/src/main/java/org/springframework/security/web/firewall/FirewalledResponse.java" target="_blank" rel="noopener">FirewalledResponse</a>)的时候发现 <a href="https://github.com/spring-projects/spring-security/commit/19de13bdc7e84a92811b509fe780c711ddf1405b" target="_blank" rel="noopener">Issue 6731 improve performance of checking headers</a>. 主要的原因就是使用了正则，导致效率降低，如果是简单的匹配尽量避免使用正则。</p>
+<p>随之想到使用非常频繁的<code>Java.String.replaceAll</code>, 它的效率是否也比其他不使用正则的替换方法低呢？<br>
+之前在使用几个不同替换方法的时候并没有关注效率问题。但如果在非常频繁的使用场景下，替换方法效率的提升是否就非常有意义了呢？</p>
+<h1 id="java-自带replace-all方法">Java 自带replace all方法</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceAll</span> </span>&#123;</span><br><span class="line">    String value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceAllWithContains</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.contains(<span class="string">"."</span>) ? value.replaceAll(<span class="string">"\\."</span>, <span class="string">"%2E"</span>) : value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replaceAll(<span class="string">"\\."</span>, <span class="string">"%2E"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">"."</span>, <span class="string">"%2E"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceWithContains</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.contains(<span class="string">"."</span>) ? value.replace(<span class="string">"."</span>, <span class="string">"%2E"</span>) : value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="java-lang-replace">java.lang.replace</h2>
+<blockquote>
+<p>replace(CharSequence target, CharSequence replacement)，用replacement替换所有的target，两个参数都是字符串。</p>
+</blockquote>
+<h2 id="java-lang-replaceall">java.lang.replaceAll</h2>
+<blockquote>
+<p>replaceAll(String regex, String replacement)，用replacement替换所有的regex匹配项，regex很明显是个正则表达式，replacement是字符串。</p>
+</blockquote>
+<h2 id="对比结果">对比结果</h2>
+<p>JDK 11.0.8, OpenJDK 64-Bit Server VM, 11.0.8+10</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Benchmark                                     (value)  Mode  Cnt    Score    Error  Units</span><br><span class="line">ReplaceAll.replace                                     avgt   10    3.836 ±  0.060  ns/op</span><br><span class="line">ReplaceAll.replaceAll                                  avgt   10  147.857 ±  1.550  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains                      avgt   10    3.777 ±  0.069  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains                         avgt   10    3.778 ±  0.075  ns/op</span><br><span class="line"></span><br><span class="line">ReplaceAll.replace                      somePathNoDoT  avgt   10    7.647 ±  0.646  ns/op</span><br><span class="line">ReplaceAll.replaceAll                   somePathNoDoT  avgt   10  156.495 ±  1.751  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains       somePathNoDoT  avgt   10    7.640 ±  0.291  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains          somePathNoDoT  avgt   10    7.545 ±  0.298  ns/op</span><br><span class="line"></span><br><span class="line">ReplaceAll.replace                 some.Path.With.Dot  avgt   10  123.856 ±  1.686  ns/op</span><br><span class="line">ReplaceAll.replaceAll              some.Path.With.Dot  avgt   10  389.632 ± 18.308  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains  some.Path.With.Dot  avgt   10  378.527 ±  6.434  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains     some.Path.With.Dot  avgt   10  126.918 ±  0.940  ns/op</span><br></pre></td></tr></table></figure>
+<p>可以看出效率由高到低：<br>
+不含target时：</p>
+<blockquote>
+<p>replaceWithContains &gt; replace &gt; replaceAllWithContains &gt; replaceAll<br>
+含有target时：<br>
+replace &gt; replaceWithContains&gt; replaceAllWithContains &gt; replaceAll</p>
+</blockquote>
+<p>结论：</p>
+<blockquote>
+<p>尽量使用replace，而非replaceAll.</p>
+</blockquote>
+<h1 id="其他实现replace-all方法">其他实现replace all方法</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceCustom</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    String value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceSpring</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> springReplace(value, <span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">'.'</span>, <span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceApache</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> StringUtils.replace(value, <span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceApacheChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> StringUtils.replaceChars(value, <span class="string">'.'</span>, <span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">hasLength</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (str != <span class="keyword">null</span> &amp;&amp; !str.isEmpty());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">springReplace</span><span class="params">(String inString, String oldPattern, String newPattern)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!hasLength(inString) || !hasLength(oldPattern) || newPattern == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> inString;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = inString.indexOf(oldPattern);</span><br><span class="line">        <span class="keyword">if</span> (index == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// no occurrence -&gt; can return input as-is</span></span><br><span class="line">            <span class="keyword">return</span> inString;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> capacity = inString.length();</span><br><span class="line">        <span class="keyword">if</span> (newPattern.length() &gt; oldPattern.length()) &#123;</span><br><span class="line">            capacity += <span class="number">16</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(capacity);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;  <span class="comment">// our position in the old string</span></span><br><span class="line">        <span class="keyword">int</span> patLen = oldPattern.length();</span><br><span class="line">        <span class="keyword">while</span> (index &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            sb.append(inString, pos, index);</span><br><span class="line">            sb.append(newPattern);</span><br><span class="line">            pos = index + patLen;</span><br><span class="line">            index = inString.indexOf(oldPattern, pos);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// append any characters to the right of a match</span></span><br><span class="line">        sb.append(inString, pos, inString.length());</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="java-lang-replace-v2">java.lang.replace</h2>
+<h2 id="reference-links">Reference Links</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1010928/faster-alternatives-to-replace-method-in-a-java-string" target="_blank" rel="noopener">Faster alternatives to replace method in a Java String?</a></li>
+<li><a href="https://stackoverflow.com/questions/6262397/string-replaceall-is-considerably-slower-than-doing-the-job-yourself" target="_blank" rel="noopener">String.replaceAll is considerably slower than doing the job yourself</a></li>
+<li><a href="https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/performance.html" target="_blank" rel="noopener">Performance difference between Java Regex and String based replace operations</a></li>
+<li><a href="https://github.com/CatherineLiyuankun/java-micro-optimizations" target="_blank" rel="noopener">Micro optimizations in Java. String.replaceAll</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>BackEnd</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>程序猿的那些好用工具</title>
     <url>/awesome-tools.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文在<a href="https://github.com/sorrycc/awesome-tools" target="_blank" rel="noopener">awesome-tools</a>基础上修改，添加自己使用的工具。有些是我也已经用的软件，有些是根据这篇文章才开始用的。</p>
@@ -2067,12 +2233,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-irwvtsLC" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-AeIkFpmn" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-irwvtsLC"),
+            element: document.getElementById("aplayer-AeIkFpmn"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -6871,6 +7037,7 @@ Teh ISAPI module still has a PostBufferLimit setting in wc.ini, but we recomm
 ]]></content>
       <categories>
         <category>TECH</category>
+        <category>FrontEnd</category>
         <category>Accessibility</category>
       </categories>
       <tags>
@@ -7082,6 +7249,7 @@ HTML dictates focus order (If developer change the order/position of dom via css
 ]]></content>
       <categories>
         <category>TECH</category>
+        <category>FrontEnd</category>
         <category>Accessibility</category>
       </categories>
       <tags>
@@ -8058,6 +8226,244 @@ Peace!</p>
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java 1001问</title>
+    <url>/Java-1001%E9%97%AE.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1-java-版本为何有1-02-1-1-5-6-7-是怎么排序的？">1 Java 版本为何有1.02， 1.1， 5，6，7 是怎么排序的？</h1>
+<p><a href="https://zh.wikipedia.org/wiki/Java%E7%89%88%E6%9C%AC%E6%AD%B7%E5%8F%B2" target="_blank" rel="noopener">维基百科：Java版本历史</a></p>
+<p>原始版本 | Java名称 | 代号  | 解释<br>
+---------|----------|---------<br>
+Java 1.02 - 1.1 | Java 1 | | Java 1.02 为最原始的Java版本（真正第一个稳定的版本）<br>
+Java 1.2.0, 1.3.0, 1.4.0 | Java 2 | Playground Kestrel Merlin |没有Java 3 和 Java 4<br>
+Java 1.5.0 | Java 5 | Tiger |<br>
+Java 1.6.0 | Java 6 | Mustang |<br>
+| Java 7 | Dolphin | Lambda（Java 对匿名函数的实现）、Jigsaw（Java 对模块化的实现），以及其它一些 Coin 项目中的内容在 Java 7 里被放弃，而转为Java 8一部分（其中 Jigsaw 直至 Java 9 才得到实现）。从2012年4月开始，Java 7 一直是java.com的默认下载版本，直到 Java 8 发布。<br>
+| Java 8 |  | Java 8 不再支持 Windows XP[204] ，但JDK 8 第 25 版更新仍然可以在 Windows XP安装和运行。[205] 先前JDK 8的更新版本可以在XP中运行，但必须通过强制解压安装程序来进行安装。2014年10月后，Java 8 成为官方网站上默认的下载版本。<br>
+| Java 9 |  | Java 9 的首个发布候选版于2017年8月9日发布，首个稳定版于2017年9月21日发布。<br>
+| Java 10 |  | OpenJDK 10 于2018年3月20日发布。<br>
+| Java 11 |  | JDK 11 于2018年9月25日发布。<br>
+| Java 12 |  | JDK 12 于2019年3月19日发布。<br>
+| Java 13 |  | JDK 13 于2019年9月17日发布。<br>
+| Java 14 |  | JDK 14 发布于 2020 年 3 月 17 日。</p>
+<h1 id="2-java-编译器-jvm">2 Java 编译器 &amp; JVM</h1>
+<table>
+<thead>
+<tr>
+<th>JVM</th>
+<th>编译器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>语法错误</td>
+<td>F</td>
+</tr>
+<tr>
+<td>有些数据类型错误会在运行时发生（例如：动态绑定）</td>
+<td>T</td>
+</tr>
+<tr>
+<td>存取权限</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-其他程序语言可以用整数类型测试-我可以用">3 其他程序语言可以用整数类型测试，我可以用</h1>
+<p><code>int x = 1; if (x) {}</code>吗？</p>
+<p>不行，Java中的integer与boolean 两种类型不相容。只能：<br>
+<code>boolean x = true; if (x) {}</code></p>
+<h1 id="4-需要全局-global-变量或方法时怎么办？">4 需要全局（global）变量或方法时怎么办？</h1>
+<p>Java中没有全局（global）变量的概念。可以使用<code>public</code>和<code>static</code>修饰符，让方法变成类似<code>global</code>修饰符。<br>
+变量 可以用<code>public</code>， <code>static</code>和<code>final</code><br>
+方法 可以用<code>public static</code></p>
+<h1 id="5-如果能做出全局-global-变量或方法-又怎么算得上是面向对象呢？">5 如果能做出全局（global）变量或方法，又怎么算得上是面向对象呢？</h1>
+<p>Java中所有事物都在类中。 <code>pi</code>常数和<code>random()</code>方法在<code>Math</code>类中是特殊情况，不会有多个<code>Math</code>实例或对象。</p>
+<h1 id="6-成千上百的类如何提交-是否包装成类似单一应用程序的形式？">6 成千上百的类如何提交，是否包装成类似单一应用程序的形式？</h1>
+<p>可以把所有文件包装进依据pkzip格式来存档的<code>Java Archive</code> —— <code>.jar</code>文件。<br>
+Jar 文件里可以引入一个简单文字格式的文字文件——<code>manifest</code>，里面定义jar中的哪一个文件带有启动应用程序的<code>main()</code>方法。</p>
+<h1 id="7-java的类型及其封装器类">7 Java的类型及其封装器类</h1>
+<ul>
+<li>
+<p>Java基本类型( primitive values )共有八种，基本类型可以分为三类</p>
+<ul>
+<li>字符类型char</li>
+<li>布尔类型boolean</li>
+<li>数值类型byte、short、int、long、float、double。</li>
+</ul>
+</li>
+<li>
+<p>引用类型：引用到对象的变量。对象只会存在于可回收垃圾堆上。</p>
+</li>
+</ul>
+<p>数值类型又可以分为整数类型byte、short、int、long和浮点数类型float、double。<br>
+JAVA中的数值类型不存在无符号的，它们的取值范围是固定的，不会随着机器硬件环境或者操作系统的改变而改变。<br>
+实际上，JAVA中还存在另外一种基本类型void，它也有对应的包装类 java.lang.Void，不过我们无法直接对它们进行操作。8 中类型表示范围如下：</p>
+<p>byte：8位，最大存储数据量是255，存放的数据范围是-128~127之间。</p>
+<p>short：16位，最大数据存储量是65536，数据范围是-32768~32767之间。</p>
+<p>int：32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。</p>
+<p>long：64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。</p>
+<p>float：32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。</p>
+<p>double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。</p>
+<p>boolean：只有true和false两个取值。</p>
+<p>char：16位，存储Unicode码，用单引号赋值。</p>
+<p>Java决定了每种简单类型的大小。这些大小并不随着机器结构的变化而变化。这种大小的不可更改正是Java程序具有很强移植能力的原因之一。下表列出了Java中定义的简单类型、占用二进制位数及对应的封装器类。</p>
+<table>
+<thead>
+<tr>
+<th>简单类型</th>
+<th>boolean</th>
+<th>byte</th>
+<th>char</th>
+<th>short</th>
+<th>int</th>
+<th>long</th>
+<th>float</th>
+<th>double</th>
+<th>void</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二进制位数</td>
+<td>1</td>
+<td>8</td>
+<td>16</td>
+<td>16</td>
+<td>32</td>
+<td>64</td>
+<td>32</td>
+<td>64</td>
+<td>–</td>
+</tr>
+<tr>
+<td>封装器类</td>
+<td>Boolean</td>
+<td>Byte</td>
+<td>Character</td>
+<td>Short</td>
+<td>Integer</td>
+<td>Long</td>
+<td>Float</td>
+<td>Double</td>
+<td>Void</td>
+</tr>
+</tbody>
+</table>
+<p>对于数值类型的基本类型的取值范围，我们无需强制去记忆，因为它们的值都已经以常量的形式定义在对应的包装类中了。如：</p>
+<p>基本类型byte 二进制位数：Byte.SIZE最小值：Byte.MIN_VALUE最大值：Byte.MAX_VALUE</p>
+<p>基本类型short二进制位数：Short.SIZE最小值：Short.MIN_VALUE最大值：Short.MAX_VALUE</p>
+<p>基本类型char二进制位数：Character.SIZE最小值：Character.MIN_VALUE最大值：Character.MAX_VALUE</p>
+<p>基本类型double 二进制位数：Double.SIZE最小值：Double.MIN_VALUE最大值：Double.MAX_VALUE</p>
+<p>注意：float、double两种类型的最小值与Float.MIN_VALUE、 Double.MIN_VALUE的值并不相同，实际上Float.MIN_VALUE和Double.MIN_VALUE分别指的是 float和double类型所能表示的最小正数。也就是说存在这样一种情况，0到±Float.MIN_VALUE之间的值float类型无法表示，0 到±Double.MIN_VALUE之间的值double类型无法表示。这并没有什么好奇怪的，因为这些范围内的数值超出了它们的精度范围。</p>
+<p>Float和Double的最小值和最大值都是以科学记数法的形式输出的，结尾的&quot;E+数字&quot;表示E之前的数字要乘以10的多少倍。比如3.14E3就是3.14×1000=3140，3.14E-3就是3.14/1000=0.00314。</p>
+<p>Java基本类型存储在栈中，因此它们的存取速度要快于存储在堆中的对应包装类的实例对象。从Java5.0（1.5）开始，JAVA虚拟机（Java Virtual Machine）可以完成基本类型和它们对应包装类之间的自动转换。因此我们在赋值、参数传递以及数学运算的时候像使用基本类型一样使用它们的包装类，但这并不意味着你可以通过基本类型调用它们的包装类才具有的方法。另外，所有基本类型（包括void）的包装类都使用了final修饰，因此我们无法继承它们扩展新的类，也无法重写它们的任何方法。</p>
+<p>基本类型的优势：数据存储相对简单，运算效率比较高</p>
+<p>包装类的优势：有的容易，比如集合的元素必须是对象类型，满足了java一切皆是对象的思想。</p>
+<h2 id="javascript-数据类型">JavaScript 数据类型</h2>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener">JavaScript一共有9种数据类型</a>:</p>
+<ul>
+<li>
+<p>6 种原始类型( primitive values )：</p>
+<ul>
+<li>未定义：Undefined <code>typeof instance === &quot;undefined&quot;</code></li>
+</ul>
+<ul>
+<li>
+<p>布尔型：Boolean <code>typeof instance === &quot;boolean&quot;</code></p>
+</li>
+<li>
+<p>数值：Number <code>typeof instance === &quot;number&quot;</code></p>
+</li>
+<li>
+<p>字符串：String <code>typeof instance === &quot;string</code></p>
+</li>
+<li>
+<p>BigInt：<code>typeof instance === &quot;bigint&quot;</code></p>
+</li>
+<li>
+<p>Symbol ：<code>typeof instance === &quot;symbol&quot;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>空：null <code>typeof instance === &quot;object&quot;</code></p>
+</li>
+<li>
+<p>Object <code>typeof instance === &quot;object&quot;</code> 任何 constructed 对象实例的特殊非数据结构类型，也用做数据结构：new Object，new Array，new Map，new Set，new WeakMap，new WeakSet，new Date，和几乎所有通过 new keyword 创建的东西。</p>
+</li>
+<li>
+<p>Function：非数据结构，尽管 typeof 操作的结果是：typeof instance === “function”。这个结果是为 Function 的一个特殊缩写，尽管每个 Function 构造器都由 Object 构造器派生。</p>
+</li>
+</ul>
+<p>记住 typeof 操作符的唯一目的就是检查数据类型，如果我们希望检查任何从 Object 派生出来的结构类型，使用 typeof 是不起作用的，因为总是会得到 “object”。检查 Object 种类的合适方式是使用 instanceof 关键字。但即使这样也存在误差。</p>
+<h1 id="引用变量">引用变量</h1>
+<h2 id="引用变量有多大？">引用变量有多大？</h2>
+<p>不知道。除非你跟某个Java虚拟机开发团队的人有交情，不然你是不知道引用是如何表示的。其内部有指针，但你也不需要存取。<br>
+若是讨论内存分配的问题，最需要关心的应该是需要建立多少个对象和引用，以及对象的实际大小。</p>
+<h2 id="所有的对象引用都具有相同的大小-而不管它实际上所引用的对象大小？">所有的对象引用都具有相同的大小， 而不管它实际上所引用的对象大小？</h2>
+<p>是的，对于任意一个Java虚拟机，所有引用大小都一样，但不同的Java虚拟机可能会以不同的方式来表示引用， 因此某个Java虚拟机的引用大小可能会大于或小于另一个Java虚拟机的引用。</p>
+<h2 id="可以对引用变量进行运算吗-像c语言那样？">可以对引用变量进行运算吗，像C语言那样？</h2>
+<p>不可以。</p>
+<h2 id="数组">数组</h2>
+<p>数组一定是个对象，不管声明的元素是否为primitive主数据类型，并且没有primitive主数据类型的数组，只有装载primitive主数据类型的数组。</p>
+<h1 id="实例变量">实例变量</h1>
+<h2 id="未初始化时-它的默认值是多少？">未初始化时，它的默认值是多少？</h2>
+<p>数值类型的变量默认值都为0（integers 0， floating points 0.0），char类型的默认值也是0。<br>
+布尔类型的默认值是false。<br>
+引用类型的默认值是null。</p>
+<h2 id="实例变量和局部变量有哪些区别？">实例变量和局部变量有哪些区别？</h2>
+<p>实例变量是声明在类中的，可以不初始化，会用默认值自动初始化。<br>
+局部变量是声明在方法中的，在被使用之前，必须先初始化，没有默认值。方法的参数，也属于局部变量。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>实例变量 Instance variables</th>
+<th>局部变量 local</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>声明</td>
+<td>类内</td>
+<td>方法中</td>
+</tr>
+<tr>
+<td>初始化</td>
+<td>有默认值，使用前如果没有初始化，实例变量会用默认值。</td>
+<td>没有默认值，使用前必须初始化。否则编译器会报错。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="如何判断两个变量是否相等？">如何判断两个变量是否相等？</h2>
+<p>== , 比较两个primitive主数据类型，或者判断两个引用是否引用同一个对象。<br>
+equals()，用于判断两个对象是否是在意义上的相等。（例如两个String对象是否带有相同的字节组合。）</p>
+<h2 id="什么是形参-parameter-和实参-argument-？">什么是形参(parameter)和实参(argument)？</h2>
+<p>我们可以给方法传入参数。实参是传给方法的值。当实参传入方法后就成了形参。<br>
+给方法传入实参时，实参的顺序、类型、数量必须与形参的顺序、类型、数量完全一致。<br>
+你还可以把变量当作实参传入方法，只要其类型符合要求即可。</p>
+<h2 id="方法的参数传递为什么是值传递？什么是值传递？">方法的参数传递为什么是值传递？什么是值传递？</h2>
+<p>Java方法的参数传递是值传递形式，即通过拷贝传递。<br>
+实参进入方法之后就成了形参，形参的变化不会改变实参（方法无法改变调用方所传入的参数），这就是值传递的好处。<br>
+如果传递的是对象，那么传递的是对象引用的拷贝。对象引用不会被方法改变，但是可以改变对象。</p>
+<h2 id="什么是方法的返回值？方法可以声明多个返回值？">什么是方法的返回值？方法可以声明多个返回值？</h2>
+<p>在Java中，方法可以有返回值，每个方法都必须显示地指明返回值类型。如果方法没有返回值，指明为void类型即可。<br>
+不能有多个，只能单一返回值。</p>
+<h2 id="一定要返回所声明的类型吗？">一定要返回所声明的类型吗？</h2>
+<p>可以返回会被隐式转换成声明类型的其他类型。例如byte当做int类型的返回。<br>
+但若声明的类型容器小于想要返回的类型，必须做明确的转换。</p>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>BackEnd</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
       </tags>
   </entry>
 </search>
