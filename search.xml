@@ -1,36 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git Push 避免重复输入用户名和密码方法 - 多账户配置</title>
+    <url>/Git-Push-%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%96%B9%E6%B3%95-%E5%A4%9A%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="git-push-避免用户名和密码方法">Git Push 避免用户名和密码方法</h1>
+<p>在大家使用github的过程中，一定会碰到这样一种情况，就是每次要push 和pull时总是要输入github的账号和密码，这样不仅浪费了大量的时间且降低了工作效率。在此背景下，本文在网上找了两种方法来避免这种状况，这些成果也是先人提出来的，在此只是做个总结。</p>
+<h2 id="1-方法一">1 方法一</h2>
+<h3 id="1-1-创建文件存储git用户名和密码">1.1 创建文件存储GIT用户名和密码</h3>
+<p>在%HOME%目录中创建文件名为.git-credentials的文件。</p>
+<!-- 文件保存在 OneDrive/LYKMACSetting/_Users_liyuankun/.git-credentials -->
+<p>%HOME%目录:</p>
+<ul>
+<li>Windows：一般为<code>C:\users\Administrator</code>，也可以是你自己创建的系统用户名目录，反正都在C:\users\中。</li>
+<li>Mac：/Users/YourUserName</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">touch .git-credentials</span><br><span class="line">vim .git-credentials</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入 https://&#123;username&#125;:&#123;password&#125;@github.com</span></span><br><span class="line">https://&#123;CatherineLiyuankun&#125;:&#123;xxxxxxxxx&#125;@github.com</span><br><span class="line">https://&#123;yuanli&#125;:&#123;xxxxxxx&#125;@github.microstrategy.com</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-添加git-config-内容">1.2 添加Git Config 内容</h3>
+<p>进入终端， 输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+<p>执行完后查看%HOME%目录下的.gitconfig文件，会多了一项：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[credential]</span><br><span class="line">helper = store</span><br></pre></td></tr></table></figure>
+<p>重启终端会发现git push时不用再输入用户名和密码。</p>
+<h2 id="2-方法二">2 方法二</h2>
+<h3 id="2-1-添加环境变量">2.1 添加环境变量</h3>
+<p>添加一个HOME环境变量，变量名:HOME,变量值：%USERPROFILE%</p>
+<h3 id="2-2-创建git用户名和密码存储文件">2.2 创建git用户名和密码存储文件</h3>
+<p>进入%HOME%目录，新建一个名为&quot;_netrc&quot;的文件，文件中内容格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">machine &#123;git account name&#125;.github.comlogin your-usernmaepassword your-password</span><br></pre></td></tr></table></figure>
+<p>重新打开终端，无需再输入用户名和密码</p>
+<!-- [user]
+        name = Li,Yuankun
+        email = yuanli@microstrategy.com -->
+<h2 id="3-开启两步验证-two-factor-authentication-的github账号">3 开启两步验证&quot;Two-factor authentication&quot;的github账号</h2>
+<p>前面用方法一之后， 重启终端， 重新<code>git push</code>, 跟据提示输入用户名和密码，结果报错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: CatherineLiyuankun</span><br><span class="line">Password <span class="keyword">for</span> <span class="string">'https://CatherineLiyuankun@github.com'</span>:</span><br><span class="line">remote: Invalid username or password.</span><br><span class="line">fatal: Authentication failed <span class="keyword">for</span> <span class="string">'https://github.com/CatherineLiyuankun/Todo-List-mojo.git/'</span></span><br></pre></td></tr></table></figure>
+<p>查了下原因，是因为我github账号 开启过两步验证，所以简单说就是不要输入<code>password</code> 而是要输入<code>personal access token</code>。<br>
+可以通过： <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a> 查看你账号已有的personal access token。<br>
+如果没有可以新建一个<code>personal access token</code>，并保存下来。</p>
+ <!-- my own githut : token: "mac-MS"  -->
+<blockquote>
+<p>It turns out that I need to log in using my username, but instead of using the normal GitHub account password, I should use a personal access token that can be created here.</p>
+<p>Because I am use GitHub feature named “Two-factor authentication” (It isn’t a standard Git’s feature, it’s added feature by <a href="http://GitHub.com" target="_blank" rel="noopener">GitHub.com</a>). After turn on the feature, I must create “Personal Access Tokens”</p>
+</blockquote>
+<blockquote>
+<p><strong>Reference</strong></p>
+<p>When you’ll be asked for a personal access token as a password<br>
+After 2FA is enabled there are a couple of scenarios where you need to enter a personal access tokeninstead of a 2FA code and your GitHub password.</p>
+</blockquote>
+<blockquote>
+<p><strong>Through the command line</strong></p>
+<p>You must create a personal access token to use as a password when authenticating to GitHub on the command line using HTTPS URLs.<br>
+For example, when you access a repository using Git on the command line using commands like git clone, git fetch, git pull or git push with HTTPS URLs, you must provide your GitHub username and your personal access token when prompted for a username and password. The command line prompt won’t specify that you should enter your personal access token when it asks for your password.</p>
+</blockquote>
+<blockquote>
+<p><strong>2FA and Subversion (svn command line, tortoise svn, etc)</strong></p>
+<p>When you access a repository via Subversion, you must provide a personal access token instead of entering your password.</p>
+</blockquote>
+<h2 id="附录：配置git账户命令">附录：配置git账户命令</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置git账户</span></span><br><span class="line">git config --list <span class="comment">#查看当前配置</span></span><br><span class="line">git config --list [--<span class="built_in">local</span>] <span class="comment">#查看当前仓库配置</span></span><br><span class="line">git config --list --global <span class="comment">#查看全局配置</span></span><br><span class="line"><span class="comment"># 配置全局账户（配置文件位于 ~/.gitconfig中）</span></span><br><span class="line">git config --global user.name <span class="string">"your_name"</span> <span class="comment"># 如果是提到github上，your_name最好是你的github账户的名字</span></span><br><span class="line">git config --global user.email <span class="string">"your_email@example.com"</span> <span class="comment"># 如果是提到github上，your_email@example.com最好是你的github账户的邮箱</span></span><br><span class="line"><span class="comment"># 配置本地仓库账户 (配置文件位于当前仓库目录的.git/config中）</span></span><br><span class="line">git config [--<span class="built_in">local</span>] user.name <span class="string">"your_name_in_company"</span> <span class="comment"># 如果是提到github上，your_name最好是你的github账户的名字</span></span><br><span class="line">git config [--<span class="built_in">local</span>] user.email <span class="string">"your_company_email@example.com"</span> <span class="comment"># 如果是提到github上，your_email@example.com最好是你的github账户的邮箱</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+        <category>Environment setup</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>制作MAC OS 系统安装U盘</title>
     <url>/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在创建macOS U盘启动之前，必须拥有一个U盘。</p>
-<h2 id="1-u盘">1 U盘</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-u盘">1 U盘</h2>
+<p>在创建macOS U盘启动之前，必须拥有一个U盘。</p>
 <ul>
 <li>U盘大小 &gt;= 16G</li>
 <li>U盘确保 不含有重要数据，因为会初始化U盘.</li>
 </ul>
-<p>插入u盘，将U盘在「磁盘工具」中初始化，其中<code>MyVolume</code>代表自己的U盘名称.</p>
+<p>插入u盘，将U盘在「磁盘工具」中初始化，其中<code>MyVolume</code>代表自己的U盘名称. 可以命名为其他名称，但要和步骤3中的命令一致。</p>
 <ul>
 <li>格式：Mac OS扩展（日志式）</li>
 <li>方案：GUID 分区图</li>
 </ul>
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98/u%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96.jpg" alt="格式化"></p>
 <h2 id="2-下载macos-系统">2 下载macOS 系统</h2>
+<p>Apple Store 官方下载链接：</p>
 <ul>
 <li>下载：<a href="https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12" target="_blank" rel="noopener">macOS Big Sur</a>、<a href="https://apps.apple.com/cn/app/macos-catalina/id1466841314?mt=12" target="_blank" rel="noopener">macOS Catalina</a>、<a href="https://apps.apple.com/cn/app/macos-mojave/id1398502828?mt=12" target="_blank" rel="noopener">macOS Mojave</a> 或 <a href="https://apps.apple.com/cn/app/macos-high-sierra/id1246284741?mt=12" target="_blank" rel="noopener">macOS High Sierra</a><br>
-这些内容会作为名为“安装 macOS [版本名称]”的 App 下载到您的“应用程序”文件夹。如果安装器在下载后打开，请退出而不要继续安装。要获取正确的安装器，请从运行 <a href="https://support.apple.com/zh-cn/HT201260" target="_blank" rel="noopener">macOS Sierra 10.12.5 或更高版本</a>或者 El Capitan 10.11.6 的 Mac 上进行下载。如果您是企业管理员，请通过 Apple 下载，而不要通过本地托管的软件更新服务器进行下载。</li>
+这些内容会作为名为“安装 macOS [版本名称]”的 App 下载到您的<code>应用程序</code>文件夹。<br>
+如果安装器在下载后打开，请退出而不要继续安装。要获取正确的安装器，请从运行 <a href="https://support.apple.com/zh-cn/HT201260" target="_blank" rel="noopener">macOS Sierra 10.12.5 或更高版本</a>或者 El Capitan 10.11.6 的 Mac 上进行下载。如果您是企业管理员，请通过 Apple 下载，而不要通过本地托管的软件更新服务器进行下载。</li>
 <li>下载：<a href="http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg" target="_blank" rel="noopener">OS X El Capitan</a><br>
 这个内容会作为名为“InstallMacOSX.dmg”的磁盘映像下载。在与 El Capitan 兼容的 Mac 上，打开下载的磁盘映像，并运行其中名为“InstallMacOSX.pkg”的安装器。这时会在您的“应用程序”文件夹中安装一个名为“安装 OS X El Capitan”的 App。您将通过这个 App（而不是通过磁盘映像或 .pkg 安装器）创建可引导安装器。</li>
 </ul>
 <h2 id="3-在-终端-中使用-createinstallmedia-命令">3 在“终端”中使用“createinstallmedia”命令</h2>
-<p><code>MyVolume</code>代表自己的U盘名称.</p>
-<p>例如：</p>
+<p><code>MyVolume</code>代表自己的U盘名称, 要和步骤1中U盘名称一致.</p>
+<p>例如安装Big Sur*：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>Catalina*：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>Mojave*：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>High Sierra*：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>El Capitan：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果您的 Mac 运行的是 macOS Sierra 或更低版本，请使用 --applicationpath 参数和安装器路径，具体方法与在适用于 El Capitan 的命令中完成这个操作的方法类似。</p>
+</blockquote>
 <p>键入命令后：</p>
 <ol>
 <li>按下 Return 键以输入这个命令。</li>
 <li>出现提示时，请键入您的管理员密码，然后再次按下 Return 键。在您键入密码时，“终端”不会显示任何字符。</li>
-<li>出现提示时，请键入 Y 以确认您要抹掉宗卷，然后按下 Return 键。在抹掉宗卷的过程中，“终端”会显示进度。</li>
+<li>出现提示时，请键入 <code>Y</code> 以确认您要抹掉宗卷，然后按下 Return 键。在抹掉宗卷的过程中，“终端”会显示进度。</li>
 <li>宗卷被抹掉后，您可能会看到一条提醒，提示“终端”要访问可移除宗卷上的文件。点按“好”以允许继续拷贝。</li>
 <li>当“终端”显示操作已完成时，相应宗卷将拥有与您下载的安装器相同的名称，例如“安装 macOS Big Sur”。您现在可以退出“终端”并弹出宗卷。</li>
 </ol>
@@ -38,25 +119,27 @@
 <h1 id="参考链接">参考链接</h1>
 <p><a href="https://support.apple.com/zh-cn/HT201372" target="_blank" rel="noopener">如何创建可引导的 macOS 安装器</a></p>
 ]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
       <tags>
         <tag>MAC</tag>
-        <tag>[object Object]</tag>
-        <tag>TECH</tag>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
     <title>MAC book pro 2015款换三星SSD硬盘970EVO 1T</title>
     <url>/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>升级MacBook Pro（15英寸，带有Retina显示屏，2015年）中的SSD硬盘。原SSD硬盘容量只有256GB, 相当不够用, 虽然电脑15款的但还很好用，不如只换个SSD就行了。<br>
-既然都换了，不如直接上1T的。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>升级MacBook Pro（15英寸，带有Retina显示屏，2015年）中的SSD硬盘。原SSD硬盘容量只有256GB, 相当不够用.<br>
+虽然电脑是15款的，但还很好用，不如只换个SSD就行了。既然都换了，不如直接上1T的。</p>
 <h1 id="1-准备">1 准备</h1>
 <h2 id="1-1-硬件准备">1.1 硬件准备</h2>
 <ul>
-<li>SSD硬盘：三星SSD硬盘970EVO 1T  1296￥</li>
-<li>M.2 NGFF转Macbook SSD转接卡：18￥ 虽然MacBook专用的SSD接口比较特殊，但是它仅仅只是接口形态有别于常规M.2，金手指定义和缺口位置不一样，转接卡甚至都不需要芯片，非常简单成本也很低，同时得益于它长度比一般常规的2280规格的M.2 SSD还更长一点，加个转接卡在前面装回去也完全可行。<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/0%E8%BD%AC%E6%8E%A5%E5%8D%A1.jpeg" alt="M.2 NGFF转Macbook SSD转接卡"></li>
 <li>P5 螺丝刀 + T6 螺丝刀 + 碳棒（或者不导电的其他工具，用于在2.2步骤里拆除电池连接器）</li>
+<li>SSD硬盘：三星SSD硬盘970EVO 1T  ￥1296</li>
+<li>M.2 NGFF转Macbook SSD转接卡：￥18<br>
+虽然MacBook专用的SSD接口比较特殊，但是它仅仅只是接口形态有别于常规M.2，金手指定义和缺口位置不一样，转接卡甚至都不需要芯片，非常简单成本也很低，同时得益于它长度比一般常规的2280规格的M.2 SSD还更长一点，加个转接卡在前面装回去也完全可行。<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/0%E8%BD%AC%E6%8E%A5%E5%8D%A1.jpeg" alt="M.2 NGFF转Macbook SSD转接卡"></li>
 </ul>
 <h2 id="1-2-软件准备">1.2 软件准备</h2>
 <ul>
@@ -95,13 +178,19 @@
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.31.png" alt></p>
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.32.png" alt></p>
 <h2 id="2-4-换上新的ssd">2.4 换上新的SSD</h2>
-<p>把NVMe M.2 固态硬盘插在转接卡上，然后再安装到MacBook主板的SSD接口上。注意一定要卡紧咯。</p>
+<ul>
+<li>把NVMe M.2 固态硬盘插在转接卡上</li>
+<li>再安装到MacBook主板的SSD接口上。注意一定要卡紧咯。</li>
+</ul>
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/0%E8%BD%AC%E6%8E%A5%E5%8D%A1.jpeg" alt="M.2 NGFF转Macbook SSD转接卡"></p>
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.4.png" alt></p>
+<ul>
+<li>安装好电池连接器，安装底部盖板。</li>
+</ul>
 <h1 id="3-软件-安装系统">3 软件-安装系统</h1>
 <ol>
-<li>插上制作好之后的macOS Big Sur 系统启动U盘</li>
-<li>重启Mac</li>
+<li>电脑插上制作好之后的macOS Big Sur 系统启动U盘</li>
+<li>点击电源键，启动Mac</li>
 <li>一直按住<code>option</code>键，直到出现“安装 Big Sur”再松开，然后点击“安装 Big Sur”开始安装macOS Big Sur系统。</li>
 </ol>
 <blockquote>
@@ -109,11 +198,20 @@
 </blockquote>
 <p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.3.png" alt></p>
 <ol start="4">
-<li>出现白色apple 图标，读进度条(这一步可能出现，有些电脑不会出现)</li>
-<li>选择语言 (这一步可能出现，有些电脑不会出现)</li>
-<li>出现“macOS 实用工具“ 界面, 选择”磁盘工具“<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.6.png" alt></li>
-<li>格式化（抹掉）新装的SSD硬盘</li>
+<li>
+<p>出现白色apple 图标，读进度条(这一步可能出现，有些电脑不会出现)</p>
+</li>
+<li>
+<p>选择语言 (这一步可能出现，有些电脑不会出现)<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.5.png" alt></p>
+</li>
+<li>
+<p>出现“macOS 实用工具“ 界面, 选择”磁盘工具“<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.6.png" alt></p>
+</li>
+<li>
+<p>格式化（抹掉）新装的SSD硬盘</p>
+</li>
 </ol>
 <p>选择显示全部（这一步很重要！很重要！很重要！否则接下来你抹掉磁盘时有可能找不到 GUID 分区图的选项哦）<br>
 找到新硬盘，抹掉，名称自定义（这里我为磁盘取名 Macintosh HD），方案：</p>
@@ -121,7 +219,8 @@
 <li>格式：<code>Mac OS扩展（日志式）</code>或者 <code>APFS</code>格式</li>
 <li>方案：<code>GUID</code><br>
 <img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.7.png" alt><br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.71.png" alt></li>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.71.png" alt><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.72.png" alt></li>
 </ul>
 <ol start="8">
 <li>退出”磁盘工具“， 回到“macOS 实用工具“ 界面, 选择”安装MacOS“ 或者 ”从Time machine 备份进行恢复“。<br>
@@ -130,12 +229,17 @@
 <h1 id="4-测试">4 测试</h1>
 <p>系统安装完后，apple store （美国区）安装软件‎Blackmagic Disk Speed Test， 测试SSD速度。<br>
 测试一下速度，读28xxMB/s，写24xxMB/s。</p>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a href="https://post.smzdm.com/p/a783vk9g/" target="_blank" rel="noopener">换个SSD再战3年，15款MacBook Pro升级1TB SSD，附13-17款升级指南</a></li>
+</ul>
 ]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
       <tags>
         <tag>MAC</tag>
-        <tag>[object Object]</tag>
-        <tag>TECH</tag>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -145,11 +249,12 @@
 <p>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件</p>
 <p>defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件</p>
 ]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
       <tags>
         <tag>MAC</tag>
-        <tag>[object Object]</tag>
-        <tag>TECH</tag>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -159,7 +264,7 @@
 <ul>
 <li>[x] <a href="https://www.google.com/chrome/" target="_blank" rel="noopener"><strong>Google Chrome</strong></a> 网址下载，或者[APP Store + 国外账号] + <a href="https://www.google.com/chrome/canary/" target="_blank" rel="noopener"><strong>Google Chrome Canary</strong></a> + <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener"><strong>Firefox</strong></a> + <strong>Safari</strong>，浏览器，调试用，IE 的测试会借助内网的云测平台</li>
 <li>Xcode  [APP Store]</li>
-<li>Vscode</li>
+<li>Vscode + 插件Settings Sync （用gitHub账号创建gist同步配置）。</li>
 </ul>
 <h1 id="效率">效率</h1>
 <ul>
@@ -189,11 +294,12 @@
 <h1 id="生活娱乐必备">生活娱乐必备</h1>
 <p>，或者[APP Store + 国外账号]</p>
 ]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
       <tags>
         <tag>MAC</tag>
-        <tag>[object Object]</tag>
-        <tag>TECH</tag>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -940,11 +1046,12 @@ HD Tune Pro for Mac</p>
 <a href="http://www.jeepxie.net/article/988702.html" target="_blank" rel="noopener">在Mac OS X下修复Disk Utility无法修复的移动硬盘分区</a><br>
 <a href="https://www.v2ex.com/t/120433" target="_blank" rel="noopener">请问硬盘修复失败导致无法挂载有什么解决办法吗？</a></p>
 ]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
       <tags>
         <tag>MAC</tag>
-        <tag>[object Object]</tag>
-        <tag>TECH</tag>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -1086,6 +1193,7 @@ Sync Extensions。</p>
       <categories>
         <category>TECH</category>
         <category>Tools</category>
+        <category>Environment setup</category>
       </categories>
       <tags>
         <tag>Command line</tag>
@@ -1274,6 +1382,7 @@ custom 个性化配置目录，自安装的插件和主题可放这里</p>
       <categories>
         <category>TECH</category>
         <category>Tools</category>
+        <category>Environment setup</category>
       </categories>
       <tags>
         <tag>Command line</tag>
@@ -2490,12 +2599,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-OtjVlGpl" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-fNgSiLtf" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-OtjVlGpl"),
+            element: document.getElementById("aplayer-fNgSiLtf"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -6506,6 +6615,7 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
         <category>IDE</category>
       </categories>
       <tags>
+        <tag>git</tag>
         <tag>IntelliJ</tag>
       </tags>
   </entry>
@@ -8460,7 +8570,7 @@ Peace!</p>
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>environment</tag>
+        <tag>Command line</tag>
       </tags>
   </entry>
   <entry>
