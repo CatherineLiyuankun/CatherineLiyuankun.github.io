@@ -203,6 +203,13 @@
 
                         
                         <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -211,13 +218,6 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/categories/">Categories</a>
                         </li>
                         
                     
@@ -326,7 +326,7 @@ For example:</p>
 <p>If you wonder why use port 8443 rather than 443, you can see my another blog: <a href="http://liyuankun.top/2019/06/11/Difference-between-HTTPS-Port-443-and-Port-8443/">Difference between HTTPS Port 443 and Port 8443</a> and <a href="http://liyuankun.top/2019/06/11/Changing-SSL-port-from-8443-to-443/">Changing SSL port from 8443 to 443</a></p>
 <h2 id="2-for-asp-and-iis-environment">2 For ASP and IIS environment</h2>
 <p>In order to accept larger files you have to change two sets of setting in you’re web.config.<br>
-C:\Program Files (x86)\MicroStrategy\Web ASPx\web.config or Your ASP Folder\web.config</p>
+C:\Program Files (x86)\yourcompanydomain\Web ASPx\web.config or Your ASP Folder\web.config</p>
 <h3 id="2-1-iis-setting-request-limits">2.1 IIS Setting: Request Limits</h3>
 <p>The following sets the max POST buffer size to 500 megs. The value is specified in bytes.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">system.webServer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">security</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">requestFiltering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">requestLimits</span> <span class="attr">maxAllowedContentLength</span>=<span class="string">"500000000"</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">requestFiltering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">security</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">system.webServer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
