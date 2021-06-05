@@ -199,6 +199,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/categories/">Categories</a>
                         </li>
                         
@@ -207,13 +214,6 @@
                         
                         <li>
                             <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -276,18 +276,61 @@
                     post-container">
 
                     <h1 id="mac终端命令行下用sublime-vscode-atom打开文件或目录"><a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a></h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> atom=<span class="string">'/Applications/Atom.app/Contents/MacOS/Atom'</span></span><br><span class="line"><span class="built_in">alias</span> subl=<span class="string">'/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'</span></span><br><span class="line"><span class="built_in">alias</span> vsc=<span class="string">'/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'</span></span><br></pre></td></tr></table></figure>
+<p>打开~/.zshrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>添加内容:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set personal aliases, overriding those provided by oh-my-zsh libs,</span></span><br><span class="line"><span class="comment"># plugins, and themes. Aliases can be placed here, though oh-my-zsh</span></span><br><span class="line"><span class="comment"># users are encouraged to define aliases within the ZSH_CUSTOM folder.</span></span><br><span class="line"><span class="comment"># For a full list of active aliases, run `alias`.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Example aliases</span></span><br><span class="line"><span class="comment"># alias zshconfig="mate ~/.zshrc"</span></span><br><span class="line"><span class="comment"># alias ohmyzsh="mate ~/.oh-my-zsh"</span></span><br><span class="line"><span class="built_in">alias</span> atom=<span class="string">'/Applications/Atom.app/Contents/MacOS/Atom'</span></span><br><span class="line"><span class="built_in">alias</span> subl=<span class="string">'/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'</span></span><br><span class="line"><span class="built_in">alias</span> vsc=<span class="string">'/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'</span></span><br></pre></td></tr></table></figure>
 <h1 id="mac-配置finder当前目录打开iterm2"><a href="https://www.jianshu.com/p/445d3f754c4d" target="_blank" rel="noopener">Mac 配置Finder当前目录打开iTerm2</a></h1>
-<p>Go2Shell.app 部分</p>
+<h2 id="安装go2shell">安装Go2Shell</h2>
+<ul>
+<li>
+<p><a href="http://zipzapmac.com/Go2Shell" target="_blank" rel="noopener">Go2Shell官方安装</a> 【我的百度网盘】<code>!!!!!亲测版本V2.5, Mac OS Big Sur可以使用</code>。</p>
+</li>
+<li>
+<p>苹果应用商店安装<a href="https://apps.apple.com/cn/app/go2shell/id445770608?mt=12" target="_blank" rel="noopener">Go2Shell</a>，只支持Mac OS 到Yosemite。新版Mac OS Big Sur 不能使用。</p>
+</li>
+</ul>
+<h2 id="设置go2shell">设置Go2Shell</h2>
+<h3 id="1-进入-preferences-的方式">1 进入 Preferences 的方式</h3>
+<ol>
+<li>
+<p>v2.3 和 v2.5 直接在应用文件中打开 Go2Shell 就行。</p>
+</li>
+<li>
+<p>新老版本都可以通过命令行打开:</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新老版本都可以通过命令行打开</span></span><br><span class="line">open -a Go2Shell --args configGo</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置选择">2 设置选择</h3>
+<ul>
+<li><code>iTerm2</code></li>
+<li><code>New Tab</code>
+<ul>
+<li>优点：Find直接点Go2Shell按钮就可以在当前目录打开终端了</li>
+<li>缺点：iTerm2 APPStore 版本每次都是在新的终端窗口中打开，而不是在新的终端标签中打开</li>
+</ul>
+</li>
+<li>Command to execute in terminal:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> %PATH%; clear; <span class="built_in">echo</span> -e <span class="string">"Last login: `date`"</span>; <span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Go2Shell.png" alt="Go2Shell设置"></p>
+<h3 id="3-添加go2shell-图标到finder">3 添加Go2Shell 图标到finder</h3>
+<p>上一步点击： “Install Go2Shell to Finder”后, Finder出现图标：</p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Go2Shell2.png" alt="Go2Shell图标"></p>
+<p>点击右边这个<code>&gt;_&lt;</code>图标，就可以在 iterm2 中以新窗口的模式打开一个 terminal。</p>
+<blockquote>
+<p>删除这个功能，或者图标显示错误很好处理，按住 cmd 键，鼠标拖拽这个图标到外面释放图标，就可以删除这个功能了。<br>
+或者重新打开Go2Shell设置， 点击“Uninstall Go2Shell from Finder”</p>
+</blockquote>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a></li>
+<li><a href="https://www.jianshu.com/p/445d3f754c4d" target="_blank" rel="noopener">Mac 配置Finder当前目录打开iTerm2</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.iterm2.com/documentation.html" target="_blank" rel="noopener">iTerm2 官方文档</a></li>
+<li><a href="https://link.jianshu.com/?t=http://foocoder.com/blog/wo-zai-yong-de-macruan-jian.html/" target="_blank" rel="noopener">终端环境之iTerm2</a></li>
+<li><a href="https://link.jianshu.com/?t=http://blog.csdn.net/thinkdiff/article/details/25075047" target="_blank" rel="noopener">mac下超好用的终端–iterm2用法与技巧</a></li>
+<li><a href="https://link.jianshu.com/?t=http://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/" target="_blank" rel="noopener">使用profiles功能快速ssh机器-Fast SSH Windows With iTerm 2</a> 或者看这篇中文文章 <a href="http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html" target="_blank" rel="noopener">http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html</a></li>
 </ul>
-<p><a href="https://www.jianshu.com/p/445d3f754c4d" target="_blank" rel="noopener">Mac 配置Finder当前目录打开iTerm2</a></p>
-<p><a href="https://link.jianshu.com/?t=http://www.iterm2.com/documentation.html" target="_blank" rel="noopener">iTerm2 官方文档</a><br>
-<a href="https://link.jianshu.com/?t=http://foocoder.com/blog/wo-zai-yong-de-macruan-jian.html/" target="_blank" rel="noopener">终端环境之iTerm2</a><br>
-<a href="https://link.jianshu.com/?t=http://blog.csdn.net/thinkdiff/article/details/25075047" target="_blank" rel="noopener">mac下超好用的终端–iterm2用法与技巧</a><br>
-<a href="https://link.jianshu.com/?t=http://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/" target="_blank" rel="noopener">使用profiles功能快速ssh机器-Fast SSH Windows With iTerm 2</a> 或者看这篇中文文章 <a href="http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html" target="_blank" rel="noopener">http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html</a></p>
 
 
                     <!-- Donate -->
@@ -346,7 +389,7 @@
         data-url="http://liyuankun.top/奥利给你的iTerm2-快速用IDE打开文件.html"
         data-images="http://liyuankun.top/img/header_img/home-bg.png"
         data-content="MAC终端命令行下用sublime、vscode、atom打开文件或目录
-123alias a... | Yuankun | Zilan " >
+打开~/.zshrc... | Yuankun | Zilan " >
         <div class="ds-share-inline">
             <ul  class="ds-share-icons-16">
             <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -404,7 +447,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#mac终端命令行下用sublime-vscode-atom打开文件或目录"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">MAC终端命令行下用sublime、vscode、atom打开文件或目录</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#mac-配置finder当前目录打开iterm2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Mac 配置Finder当前目录打开iTerm2</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#links"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Links</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#mac终端命令行下用sublime-vscode-atom打开文件或目录"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">MAC终端命令行下用sublime、vscode、atom打开文件或目录</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#mac-配置finder当前目录打开iterm2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Mac 配置Finder当前目录打开iTerm2</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装go2shell"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">安装Go2Shell</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#设置go2shell"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">设置Go2Shell</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-进入-preferences-的方式"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1 进入 Preferences 的方式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-设置选择"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2 设置选择</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-添加go2shell-图标到finder"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">3 添加Go2Shell 图标到finder</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#links"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Links</span></a></li></ol>
         
         </div>
       </aside>
@@ -430,6 +473,10 @@
     <ul>
       
         <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
           <a href="/Git-Push-避免重复输入用户名和密码方法-多账户配置.html">Git Push 避免重复输入用户名和密码方法 - 多账户配置</a>
         </li>
       
@@ -443,10 +490,6 @@
       
         <li>
           <a href="/程序员-MAC-重新装机必备2命令行-环境配置.html">程序员-MAC 重新装机必备2命令行+环境配置</a>
-        </li>
-      
-        <li>
-          <a href="/程序员-MAC-重新装机必备1软件.html">程序员-MAC 重新装机必备1软件</a>
         </li>
       
     </ul>

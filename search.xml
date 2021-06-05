@@ -1,518 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git Push 避免重复输入用户名和密码方法 - 多账户配置</title>
-    <url>/Git-Push-%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%96%B9%E6%B3%95-%E5%A4%9A%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="git-push-避免用户名和密码方法">Git Push 避免用户名和密码方法</h1>
-<p>在大家使用github的过程中，一定会碰到这样一种情况，就是每次要push 和pull时总是要输入github的账号和密码，这样不仅浪费了大量的时间且降低了工作效率。在此背景下，本文在网上找了两种方法来避免这种状况，这些成果也是先人提出来的，在此只是做个总结。</p>
-<h2 id="1-方法一">1 方法一</h2>
-<h3 id="1-1-创建文件存储git用户名和密码">1.1 创建文件存储GIT用户名和密码</h3>
-<p>在%HOME%目录中创建文件名为.git-credentials的文件。</p>
-<!-- 文件保存在 OneDrive/LYKMACSetting/_Users_liyuankun/.git-credentials -->
-<p>%HOME%目录:</p>
-<ul>
-<li>Windows：一般为<code>C:\users\Administrator</code>，也可以是你自己创建的系统用户名目录，反正都在C:\users\中。</li>
-<li>Mac：/Users/YourUserName</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">touch .git-credentials</span><br><span class="line">vim .git-credentials</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入 https://&#123;username&#125;:&#123;password&#125;@github.com</span></span><br><span class="line">https://&#123;CatherineLiyuankun&#125;:&#123;xxxxxxxxx&#125;@github.com</span><br><span class="line">https://&#123;yuanli&#125;:&#123;xxxxxxx&#125;@github.yourcompanydomain.com</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-添加git-config-内容">1.2 添加Git Config 内容</h3>
-<p>进入终端， 输入如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
-<p>执行完后查看%HOME%目录下的.gitconfig文件，会多了一项：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[credential]</span><br><span class="line">helper = store</span><br></pre></td></tr></table></figure>
-<p>重启终端会发现git push时不用再输入用户名和密码。</p>
-<h2 id="2-方法二">2 方法二</h2>
-<h3 id="2-1-添加环境变量">2.1 添加环境变量</h3>
-<p>添加一个HOME环境变量，变量名:HOME,变量值：%USERPROFILE%</p>
-<h3 id="2-2-创建git用户名和密码存储文件">2.2 创建git用户名和密码存储文件</h3>
-<p>进入%HOME%目录，新建一个名为&quot;_netrc&quot;的文件，文件中内容格式如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">machine &#123;git account name&#125;.github.comlogin your-usernmaepassword your-password</span><br></pre></td></tr></table></figure>
-<p>重新打开终端，无需再输入用户名和密码</p>
-<!-- [user]
-        name = Li,Yuankun
-        email = yuanli@microstrategy.com -->
-<h2 id="3-开启两步验证-two-factor-authentication-的github账号">3 开启两步验证&quot;Two-factor authentication&quot;的github账号</h2>
-<p>前面用方法一之后， 重启终端， 重新<code>git push</code>, 跟据提示输入用户名和密码，结果报错：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: CatherineLiyuankun</span><br><span class="line">Password <span class="keyword">for</span> <span class="string">'https://CatherineLiyuankun@github.com'</span>:</span><br><span class="line">remote: Invalid username or password.</span><br><span class="line">fatal: Authentication failed <span class="keyword">for</span> <span class="string">'https://github.com/CatherineLiyuankun/Todo-List-mojo.git/'</span></span><br></pre></td></tr></table></figure>
-<p>查了下原因，是因为我github账号 开启过两步验证，所以简单说就是不要输入<code>password</code> 而是要输入<code>personal access token</code>。<br>
-可以通过： <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a> 查看你账号已有的personal access token。<br>
-如果没有可以新建一个<code>personal access token</code>，并保存下来。</p>
- <!-- my own githut : token: "mac-MS"  -->
-<blockquote>
-<p>It turns out that I need to log in using my username, but instead of using the normal GitHub account password, I should use a personal access token that can be created here.</p>
-<p>Because I am use GitHub feature named “Two-factor authentication” (It isn’t a standard Git’s feature, it’s added feature by <a href="http://GitHub.com" target="_blank" rel="noopener">GitHub.com</a>). After turn on the feature, I must create “Personal Access Tokens”</p>
-</blockquote>
-<blockquote>
-<p><strong>Reference</strong></p>
-<p>When you’ll be asked for a personal access token as a password<br>
-After 2FA is enabled there are a couple of scenarios where you need to enter a personal access tokeninstead of a 2FA code and your GitHub password.</p>
-</blockquote>
-<blockquote>
-<p><strong>Through the command line</strong></p>
-<p>You must create a personal access token to use as a password when authenticating to GitHub on the command line using HTTPS URLs.<br>
-For example, when you access a repository using Git on the command line using commands like git clone, git fetch, git pull or git push with HTTPS URLs, you must provide your GitHub username and your personal access token when prompted for a username and password. The command line prompt won’t specify that you should enter your personal access token when it asks for your password.</p>
-</blockquote>
-<blockquote>
-<p><strong>2FA and Subversion (svn command line, tortoise svn, etc)</strong></p>
-<p>When you access a repository via Subversion, you must provide a personal access token instead of entering your password.</p>
-</blockquote>
-<h2 id="附录：配置git账户命令">附录：配置git账户命令</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置git账户</span></span><br><span class="line">git config --list <span class="comment">#查看当前配置</span></span><br><span class="line">git config --list [--<span class="built_in">local</span>] <span class="comment">#查看当前仓库配置</span></span><br><span class="line">git config --list --global <span class="comment">#查看全局配置</span></span><br><span class="line"><span class="comment"># 配置全局账户（配置文件位于 ~/.gitconfig中）</span></span><br><span class="line">git config --global user.name <span class="string">"your_name"</span> <span class="comment"># 如果是提到github上，your_name最好是你的github账户的名字</span></span><br><span class="line">git config --global user.email <span class="string">"your_email@example.com"</span> <span class="comment"># 如果是提到github上，your_email@example.com最好是你的github账户的邮箱</span></span><br><span class="line"><span class="comment"># 配置本地仓库账户 (配置文件位于当前仓库目录的.git/config中）</span></span><br><span class="line">git config [--<span class="built_in">local</span>] user.name <span class="string">"your_name_in_company"</span> <span class="comment"># 如果是提到github上，your_name最好是你的github账户的名字</span></span><br><span class="line">git config [--<span class="built_in">local</span>] user.email <span class="string">"your_company_email@example.com"</span> <span class="comment"># 如果是提到github上，your_email@example.com最好是你的github账户的邮箱</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>Tools</category>
-        <category>Environment setup</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>制作MAC OS 系统安装U盘</title>
-    <url>/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-u盘">1 U盘</h2>
-<p>在创建macOS U盘启动之前，必须拥有一个U盘。</p>
-<ul>
-<li>U盘大小 &gt;= 16G</li>
-<li>U盘确保 不含有重要数据，因为会初始化U盘.</li>
-</ul>
-<p>插入u盘，将U盘在「磁盘工具」中初始化，其中<code>MyVolume</code>代表自己的U盘名称. 可以命名为其他名称，但要和步骤3中的命令一致。</p>
-<ul>
-<li>格式：Mac OS扩展（日志式）</li>
-<li>方案：GUID 分区图</li>
-</ul>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98/u%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96.jpg" alt="格式化"></p>
-<h2 id="2-下载macos-系统">2 下载macOS 系统</h2>
-<p>Apple Store 官方下载链接：</p>
-<ul>
-<li>下载：<a href="https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12" target="_blank" rel="noopener">macOS Big Sur</a>、<a href="https://apps.apple.com/cn/app/macos-catalina/id1466841314?mt=12" target="_blank" rel="noopener">macOS Catalina</a>、<a href="https://apps.apple.com/cn/app/macos-mojave/id1398502828?mt=12" target="_blank" rel="noopener">macOS Mojave</a> 或 <a href="https://apps.apple.com/cn/app/macos-high-sierra/id1246284741?mt=12" target="_blank" rel="noopener">macOS High Sierra</a><br>
-这些内容会作为名为“安装 macOS [版本名称]”的 App 下载到您的<code>应用程序</code>文件夹。<br>
-如果安装器在下载后打开，请退出而不要继续安装。要获取正确的安装器，请从运行 <a href="https://support.apple.com/zh-cn/HT201260" target="_blank" rel="noopener">macOS Sierra 10.12.5 或更高版本</a>或者 El Capitan 10.11.6 的 Mac 上进行下载。如果您是企业管理员，请通过 Apple 下载，而不要通过本地托管的软件更新服务器进行下载。</li>
-<li>下载：<a href="http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg" target="_blank" rel="noopener">OS X El Capitan</a><br>
-这个内容会作为名为“InstallMacOSX.dmg”的磁盘映像下载。在与 El Capitan 兼容的 Mac 上，打开下载的磁盘映像，并运行其中名为“InstallMacOSX.pkg”的安装器。这时会在您的“应用程序”文件夹中安装一个名为“安装 OS X El Capitan”的 App。您将通过这个 App（而不是通过磁盘映像或 .pkg 安装器）创建可引导安装器。</li>
-</ul>
-<h2 id="3-在-终端-中使用-createinstallmedia-命令">3 在“终端”中使用“createinstallmedia”命令</h2>
-<p><code>MyVolume</code>代表自己的U盘名称, 要和步骤1中U盘名称一致.</p>
-<p>例如安装Big Sur*：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
-<p>Catalina*：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
-<p>Mojave*：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
-<p>High Sierra*：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
-<p>El Capitan：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果您的 Mac 运行的是 macOS Sierra 或更低版本，请使用 --applicationpath 参数和安装器路径，具体方法与在适用于 El Capitan 的命令中完成这个操作的方法类似。</p>
-</blockquote>
-<p>键入命令后：</p>
-<ol>
-<li>按下 Return 键以输入这个命令。</li>
-<li>出现提示时，请键入您的管理员密码，然后再次按下 Return 键。在您键入密码时，“终端”不会显示任何字符。</li>
-<li>出现提示时，请键入 <code>Y</code> 以确认您要抹掉宗卷，然后按下 Return 键。在抹掉宗卷的过程中，“终端”会显示进度。</li>
-<li>宗卷被抹掉后，您可能会看到一条提醒，提示“终端”要访问可移除宗卷上的文件。点按“好”以允许继续拷贝。</li>
-<li>当“终端”显示操作已完成时，相应宗卷将拥有与您下载的安装器相同的名称，例如“安装 macOS Big Sur”。您现在可以退出“终端”并弹出宗卷。</li>
-</ol>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98/macos-big-sur-terminal-create-bootable-installer.jpg" alt=" 在“终端”中使用“createinstallmedia”命令"></p>
-<h1 id="参考链接">参考链接</h1>
-<p><a href="https://support.apple.com/zh-cn/HT201372" target="_blank" rel="noopener">如何创建可引导的 macOS 安装器</a></p>
-]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>MAC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MAC book pro 2015款换三星SSD硬盘970EVO 1T</title>
-    <url>/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>升级MacBook Pro（15英寸，带有Retina显示屏，2015年）中的SSD硬盘。原SSD硬盘容量只有256GB, 相当不够用.<br>
-虽然电脑是15款的，但还很好用，不如只换个SSD就行了。既然都换了，不如直接上1T的。</p>
-<h1 id="1-准备">1 准备</h1>
-<h2 id="1-1-硬件准备">1.1 硬件准备</h2>
-<ul>
-<li>P5 螺丝刀 + T6 螺丝刀 + 碳棒（或者不导电的其他工具，用于在2.2步骤里拆除电池连接器）</li>
-<li>SSD硬盘：三星SSD硬盘970EVO 1T  ￥1296</li>
-<li>M.2 NGFF转Macbook SSD转接卡：￥18<br>
-虽然MacBook专用的SSD接口比较特殊，但是它仅仅只是接口形态有别于常规M.2，金手指定义和缺口位置不一样，转接卡甚至都不需要芯片，非常简单成本也很低，同时得益于它长度比一般常规的2280规格的M.2 SSD还更长一点，加个转接卡在前面装回去也完全可行。<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/0%E8%BD%AC%E6%8E%A5%E5%8D%A1.jpeg" alt="M.2 NGFF转Macbook SSD转接卡"></li>
-</ul>
-<h2 id="1-2-软件准备">1.2 软件准备</h2>
-<ul>
-<li>系统升级到 macOS Hight Serria (10.13)及以上：在 macOS 10.13 正式发布之后，支持原生 NVME 协议。</li>
-<li>Time Machine 备份系统，可以实现整个系统完整迁移。</li>
-<li><a href="../%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98.md">制作U盘系统盘，安装全新的MAC OS系统</a>。</li>
-</ul>
-<h1 id="2-硬件-换ssd">2 硬件-换SSD</h1>
-<h2 id="2-1拆底部盖板">2.1拆底部盖板</h2>
-<p>取出固定Macbook Pro底壳的五角梅花螺丝，每颗螺丝按原位置摆放好，如下：</p>
-<ul>
-<li>8颗3.1mm</li>
-<li>两颗2.3mm</li>
-</ul>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.1.png" alt="M.2 NGFF转Macbook SSD转接卡"></p>
-<p>从屏幕转轴一侧的边缘抬起，把底部盖板从MacBook Pro上抬起来。</p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.11.png" alt></p>
-<p>底部盖板上有两个塑料夹子（红色），在上面的箱子里卡扣（橙色）可以装进塑料夹子。<br>
-在重新组装过程中，轻轻地将盖板的中心推到它的两个塑料夹上。</p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.12.png" alt></p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.13.png" alt></p>
-<h2 id="2-2-拆除电池连接器">2.2 拆除电池连接器</h2>
-<ul>
-<li>把电池连接器上的标签撕掉， 不撕也可以。</li>
-<li>在逻辑板上轻轻抬起电池连接器的每一端，将连接器从其插座上撬开。</li>
-<li>将连接器弯曲，确保电池连接器不意外地与逻辑板接触。</li>
-</ul>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.21.png" alt></p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.22.png" alt></p>
-<h2 id="2-3-拆除旧ssd-固态硬盘">2.3 拆除旧SSD（固态硬盘）</h2>
-<ul>
-<li>拧开将 SSD 固定在主板上的一颗 2.9 mm T5 梅花螺丝。</li>
-<li>把SSD抬起足够高来从扬声器上方拿出。不要把SSD抬得太高，否则你可能会损坏触点或者插槽。</li>
-<li>把SSD从主板上的插槽中拉出。</li>
-</ul>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.31.png" alt></p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.32.png" alt></p>
-<h2 id="2-4-换上新的ssd">2.4 换上新的SSD</h2>
-<ul>
-<li>把NVMe M.2 固态硬盘插在转接卡上</li>
-<li>再安装到MacBook主板的SSD接口上。注意一定要卡紧咯。</li>
-</ul>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/0%E8%BD%AC%E6%8E%A5%E5%8D%A1.jpeg" alt="M.2 NGFF转Macbook SSD转接卡"></p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.4.png" alt></p>
-<ul>
-<li>安装好电池连接器，安装底部盖板。</li>
-</ul>
-<h1 id="3-软件-安装系统">3 软件-安装系统</h1>
-<ol>
-<li>电脑插上制作好之后的macOS Big Sur 系统启动U盘</li>
-<li>点击电源键，启动Mac</li>
-<li>一直按住<code>option</code>键，直到出现“安装 Big Sur”再松开，然后点击“安装 Big Sur”开始安装macOS Big Sur系统。</li>
-</ol>
-<blockquote>
-<p>不要”command + R“, 否则后续”磁盘工具“内找不到新装的SSD硬盘。</p>
-</blockquote>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.3.png" alt></p>
-<ol start="4">
-<li>
-<p>出现白色apple 图标，读进度条(这一步可能出现，有些电脑不会出现)</p>
-</li>
-<li>
-<p>选择语言 (这一步可能出现，有些电脑不会出现)<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.5.png" alt></p>
-</li>
-<li>
-<p>出现“macOS 实用工具“ 界面, 选择”磁盘工具“<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.6.png" alt></p>
-</li>
-<li>
-<p>格式化（抹掉）新装的SSD硬盘</p>
-</li>
-</ol>
-<p>选择显示全部（这一步很重要！很重要！很重要！否则接下来你抹掉磁盘时有可能找不到 GUID 分区图的选项哦）<br>
-找到新硬盘，抹掉，名称自定义（这里我为磁盘取名 Macintosh HD），方案：</p>
-<ul>
-<li>格式：<code>Mac OS扩展（日志式）</code>或者 <code>APFS</code>格式</li>
-<li>方案：<code>GUID</code><br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.7.png" alt><br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.71.png" alt><br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.72.png" alt></li>
-</ul>
-<ol start="8">
-<li>退出”磁盘工具“， 回到“macOS 实用工具“ 界面, 选择”安装MacOS“ 或者 ”从Time machine 备份进行恢复“。<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.8.png" alt></li>
-</ol>
-<h1 id="4-测试">4 测试</h1>
-<p>系统安装完后，apple store （美国区）安装软件‎Blackmagic Disk Speed Test， 测试SSD速度。<br>
-测试一下速度，读28xxMB/s，写24xxMB/s。</p>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a href="https://post.smzdm.com/p/a783vk9g/" target="_blank" rel="noopener">换个SSD再战3年，15款MacBook Pro升级1TB SSD，附13-17款升级指南</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>MAC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>程序员-MAC 重新装机必备2命令行+环境配置</title>
-    <url>/%E7%A8%8B%E5%BA%8F%E5%91%98-MAC-%E9%87%8D%E6%96%B0%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%872%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mac-显示隐藏文件-命令-comand-finder">Mac 显示隐藏文件 命令 comand finder</h1>
-<p>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件</p>
-<p>defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件</p>
-]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>MAC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>程序员-MAC 重新装机必备1软件</title>
-    <url>/%E7%A8%8B%E5%BA%8F%E5%91%98-MAC-%E9%87%8D%E6%96%B0%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%871%E8%BD%AF%E4%BB%B6.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="编程必备">编程必备</h1>
-<ul>
-<li>[x] <a href="https://www.google.com/chrome/" target="_blank" rel="noopener"><strong>Google Chrome</strong></a> 网址下载，或者[APP Store + 国外账号] + <a href="https://www.google.com/chrome/canary/" target="_blank" rel="noopener"><strong>Google Chrome Canary</strong></a> + <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener"><strong>Firefox</strong></a> + <strong>Safari</strong>，浏览器，调试用，IE 的测试会借助内网的云测平台</li>
-<li>Xcode  [APP Store]</li>
-<li>Vscode + 插件Settings Sync （用gitHub账号创建gist同步配置）。</li>
-</ul>
-<h1 id="效率">效率</h1>
-<ul>
-<li>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a> 【我的百度网盘、硬盘】应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。免费功能：File search, Web search，app启动, Calculator, Dictionary, System。付费功能（需购买Powerpack）：Workflow，Action, Clipboard History，Snippets, Contacts, itunes, 1Password, Terminal.</li>
-<li>[x] <a href="https://github.com/gbammc/Thor" target="_blank" rel="noopener"><strong>Thor</strong></a>，【网址下载】或者[APP Store + 国外账号]一键直达应用， 免费，开源。</li>
-</ul>
-<p>【我的百度网盘、硬盘】</p>
-<ul>
-<li>
-<p>KeepingYouAwake</p>
-</li>
-<li>
-<p>[x] <a href="https://macpaw.com/cleanmymac" target="_blank" rel="noopener"><strong>CleanMyMac 3</strong></a> 【我的百度网盘、硬盘】系统清理。</p>
-</li>
-</ul>
-<h1 id="工具">工具</h1>
-<ul>
-<li>[x] <a href="pan.baidu.com">百度网盘</a></li>
-<li>office 365</li>
-</ul>
-<h1 id="工作必备">工作必备</h1>
-<ul>
-<li>[x] <a href="https://vpn.microstrategy.com/global-protect/getsoftwarepage.esp" target="_blank" rel="noopener">GlobalProtect</a> 【网址下载】 工作 VPN 软件</li>
-<li>[ ] Microsoft Remote Desktop [APP Store]</li>
-<li>[ ]</li>
-</ul>
-<h1 id="生活娱乐必备">生活娱乐必备</h1>
-<p>，或者[APP Store + 国外账号]</p>
-]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>MAC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java ==  equals() 区别</title>
-    <url>/Java-and-equals-%E5%8C%BA%E5%88%AB.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="java-equals-区别">Java ==  equals() 区别</h1>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>==</th>
-<th><code>equals()</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>类型</td>
-<td>operator 运算符</td>
-<td>method 方法</td>
-</tr>
-<tr>
-<td>基本类型</td>
-<td>值是否相同，本质是比较其中的字节组合是否相同。<code>int a = 3; byte b = 3; if(a == b) {} // true</code> a 和 b 的字节码都是0000000011 == 00000011（忽略a有更多的0）</td>
-<td></td>
-</tr>
-<tr>
-<td>引用类型</td>
-<td>引用变量是否相同，本质同样是是比较引用变量（对象在堆中的地址）的字节组合是否相同。<code>Foo a = new Foo(); Foo b = new Foo(); Foo c = a; if(a == b) {} // false if(a == c) {} // true if(c == b) {} // false</code> 对象是存储在堆上的，这里的a， b， c都是对象的引用变量（堆中的地址），而非堆上的对象的值。</td>
-<td>1 如果是未被父类或自身重载override过，则与==相同 。Object类的equals方法：<code>public boolean equals(Object obj) {return (this == obj);}</code> 2 如果像String 和 Integer 等重载了 equals 方法，把它变成了对象的值比较。</td>
-</tr>
-</tbody>
-</table>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a href="https://stackoverflow.com/questions/7520432/what-is-the-difference-between-and-equals-in-java" target="_blank" rel="noopener">What is the difference between == and equals() in Java?</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>BackEnd</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Difference between window.location.href=window.location.href and window.location.reload() and window.location=window.location.href</title>
-    <url>/Difference-between-window-location-href-window-location-href-and-window-location-reload-and-window-location-window-location-href.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="compare-table-对比表格">Compare table 对比表格</h1>
-<blockquote>
-<p>Re-POST：reloads the current page with POST data. 发送POST请求加载当前页面。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Refresh page</th>
-<th>Re-POST</th>
-<th>Static scan tool warning: Veracode</th>
-<th>SonarQube</th>
-<th>JSLint</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>window.location = window.location.href</code></td>
-<td><code>No</code></td>
-<td><code>Yes</code> “CWE ID 601 URL Redirection to Untrusted Site (‘Open Redirect’)”</td>
-<td><code>No</code></td>
-<td><code>No</code></td>
-</tr>
-<tr>
-<td><code>window.location.href = window.location.href</code></td>
-<td><code>No</code></td>
-<td><code>Yes</code></td>
-<td><code>Yes</code></td>
-<td><code>Yes</code> “Weird assignment”</td>
-</tr>
-<tr>
-<td><code>window.location.reload()</code></td>
-<td>Maybe, depends on browsers 也许，不同浏览器有不同行为 <a href="https://codepen.io/catherineliyuankun/pen/bGByZbe" target="_blank" rel="noopener">Test Code</a></td>
-<td><code>No</code></td>
-<td><code>No</code></td>
-<td><code>No</code></td>
-</tr>
-</tbody>
-</table>
-<p><code>window.location.reload()</code> reloads the current page <strong>with POST data</strong>, while <code>window.location.href=window.location.href</code> <strong>discarding the POST data(perform a GET request)</strong> 通过GET请求reload页面.</p>
-<h2 id="window-location-href-window-location-href">window.location.href=window.location.href</h2>
-<h2 id="window-location-window-location-href">window.location=window.location.href</h2>
-<p><code>window.location = window.location.href</code> works the same as <code>window.location.href = window.location.href</code> in all these browsers.<br>
-<code>window.location = window.location.href</code>和 <code>window.location.href = window.location.href</code> 的行为在各个浏览器上完全一致。</p>
-<p><code>window.location.href=window.location.href</code> will not reload the page if there’s an anchor (#) in the URL - You must use window.location.reload() in this case.<br>
-如果页面URL中包含锚<code>#</code>, <code>window.location.href=window.location.href</code> 不会reload页面。</p>
-<p>可以通过判断hash解决：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.location.hash) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="built_in">window</span>.location.href;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.reload();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="window-location-reload">window.location.reload()</h2>
-<p>JavaScript <code>window.location</code> object can be used</p>
-<ul>
-<li>to get current page address (URL)</li>
-<li>to redirect the browser to another page</li>
-<li>to reload the same page</li>
-</ul>
-<p><code>window</code>: in JavaScript represents an open window in a browser.</p>
-<p><code>location</code>: in JavaScript holds information about current URL.</p>
-<p>The location object is like a fragment of the window object and is called up through the window.location property.</p>
-<p><code>location</code> object has three methods:</p>
-<p>assign(): used to load a new document<br>
-reload(): used to reload current document 与点击”Refesh“ 按钮效果相同。<br>
-replace(): used to replace current document with a new one</p>
-<h3 id="re-post">Re-POST</h3>
-<ul>
-<li>Chrome 12 and Safari 5.0.5 on Mac do not re-POST with <code>.reload()</code></li>
-<li>FF 2.0, 3.6, 4.0, 5.0 on Mac present the user with the “resend form dialog” with <code>.reload()</code>, <code>.reload(true)</code>, and <code>.reload(false)</code></li>
-<li>IE6, IE8(standards), IE8(IE7 mode,standards) in XP; and IE9 and IE10-tech-preview in Win7 behave the same as FF on Mac</li>
-<li><a href="https://codepen.io/catherineliyuankun/pen/bGByZbe" target="_blank" rel="noopener">Test Code</a></li>
-</ul>
-<h3 id="skipcache">skipCache</h3>
-<p><code>window.location.reload()</code> takes an additional argument <code>skipCache</code>.</p>
-<p><code>window.location.reload()</code>可以有额外的参数：<code>skipCache</code>.</p>
-<ul>
-<li>Using <code>window.location.reload(true)</code> the browser will skip the cache and reload the page from the server. <code>skipCache</code> 为<code>true</code>, 浏览器忽略cache， 从服务器重新加载页面。</li>
-<li><code>window.location.reload(false)</code> will do the opposite, and load the page from cache if possible. <code>skipCache</code> 为<code>false</code>, 浏览器优先从cache重新加载页面，若没有cache则从服务器加载页面。</li>
-<li>default value for window.location.reload() is false. <code>skipCache</code> 默认值为(false)。</li>
-</ul>
-<h2 id="window-location-assign-wd-location-href-go-to-the-url">window.location.assign(wd.location.href) : go to the URL</h2>
-<h2 id="window-location-replace-wd-location-href-go-to-the-url-and-replace-previous-page-in-history">window.location.replace(wd.location.href) : go to the URL and replace previous page in history</h2>
-<p>From w3schools: “The difference between assign() and replace(), is that replace() removes the URL of the current document from the document history, meaning that it is not possible to use the “back” button to navigate back to the original document.”</p>
-<p>The difference from the assign() method is that after using replace() the current page will not be saved in session History, meaning the user won’t be able to use the back button to navigate to it.</p>
-<h1 id="summary-总结">Summary 总结</h1>
-<ul>
-<li>如果不想要发送POST data，使用<code>window.location = window.location.href</code>。注意！如果页面URL中包含锚<code>#</code>, <code>window.location.href=window.location.href</code> 不会reload页面，需要额外判断。</li>
-<li>如果不介意使用POST请求，使用<code>window.location.reload()</code>， 这种用法在各个代码扫描工具中都不会有warning。</li>
-</ul>
-<h1 id="reference-links">Reference Links</h1>
-<ul>
-<li>
-<p><a href="https://stackoverflow.com/questions/2405117/difference-between-window-location-href-window-location-href-and-window-location" target="_blank" rel="noopener">Difference between window.location.href=window.location.href and window.location.reload()</a></p>
-</li>
-<li>
-<p><a href="https://stackoverflow.com/questions/6751641/window-location-href-window-location-href-and-jslint" target="_blank" rel="noopener">window.location.href = window.location.href and JSLint</a></p>
-</li>
-<li>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/location" target="_blank" rel="noopener">MDN：Window.location</a></p>
-</li>
-<li>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Location/reload" target="_blank" rel="noopener">Location: reload()</a></p>
-</li>
-<li>
-<p><a href="https://stackoverflow.com/questions/3715047/how-to-reload-a-page-using-javascript" target="_blank" rel="noopener">How to reload a page using JavaScript</a></p>
-</li>
-<li>
-<p><a href="https://stackoverflow.com/questions/1865837/whats-the-difference-between-window-location-and-window-location-replace" target="_blank" rel="noopener">What’s the difference between window.location= and window.location.replace()?</a></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>FrontEnd</category>
-        <category>JavaScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Better performance than Java.String.replaceAll</title>
-    <url>/Better-performance-than-Java-String-replaceAll.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在看Spring Security utilize a response wrapper (<a href="https://github.com/spring-projects/spring-security/blob/5.4.x/web/src/main/java/org/springframework/security/web/firewall/FirewalledResponse.java" target="_blank" rel="noopener">FirewalledResponse</a>)的时候发现 <a href="https://github.com/spring-projects/spring-security/commit/19de13bdc7e84a92811b509fe780c711ddf1405b" target="_blank" rel="noopener">Issue 6731 improve performance of checking headers</a>. 主要的原因就是使用了正则，导致效率降低，如果是简单的匹配尽量避免使用正则。</p>
-<p>随之想到使用非常频繁的<code>Java.String.replaceAll</code>, 它的效率是否也比其他不使用正则的替换方法低呢？<br>
-之前在使用几个不同替换方法的时候并没有关注效率问题。但如果在非常频繁的使用场景下，替换方法效率的提升是否就非常有意义了呢？</p>
-<h1 id="java-自带replace-all方法">Java 自带replace all方法</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceAll</span> </span>&#123;</span><br><span class="line">    String value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceAllWithContains</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.contains(<span class="string">"."</span>) ? value.replaceAll(<span class="string">"\\."</span>, <span class="string">"%2E"</span>) : value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replaceAll(<span class="string">"\\."</span>, <span class="string">"%2E"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">"."</span>, <span class="string">"%2E"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceWithContains</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.contains(<span class="string">"."</span>) ? value.replace(<span class="string">"."</span>, <span class="string">"%2E"</span>) : value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="java-lang-replace">java.lang.replace</h2>
-<blockquote>
-<p>replace(CharSequence target, CharSequence replacement)，用replacement替换所有的target，两个参数都是字符串。</p>
-</blockquote>
-<h2 id="java-lang-replaceall">java.lang.replaceAll</h2>
-<blockquote>
-<p>replaceAll(String regex, String replacement)，用replacement替换所有的regex匹配项，regex很明显是个正则表达式，replacement是字符串。</p>
-</blockquote>
-<h2 id="对比结果">对比结果</h2>
-<p>JDK 11.0.8, OpenJDK 64-Bit Server VM, 11.0.8+10</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Benchmark                                     (value)  Mode  Cnt    Score    Error  Units</span><br><span class="line">ReplaceAll.replace                                     avgt   10    3.836 ±  0.060  ns/op</span><br><span class="line">ReplaceAll.replaceAll                                  avgt   10  147.857 ±  1.550  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains                      avgt   10    3.777 ±  0.069  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains                         avgt   10    3.778 ±  0.075  ns/op</span><br><span class="line"></span><br><span class="line">ReplaceAll.replace                      somePathNoDoT  avgt   10    7.647 ±  0.646  ns/op</span><br><span class="line">ReplaceAll.replaceAll                   somePathNoDoT  avgt   10  156.495 ±  1.751  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains       somePathNoDoT  avgt   10    7.640 ±  0.291  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains          somePathNoDoT  avgt   10    7.545 ±  0.298  ns/op</span><br><span class="line"></span><br><span class="line">ReplaceAll.replace                 some.Path.With.Dot  avgt   10  123.856 ±  1.686  ns/op</span><br><span class="line">ReplaceAll.replaceAll              some.Path.With.Dot  avgt   10  389.632 ± 18.308  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains  some.Path.With.Dot  avgt   10  378.527 ±  6.434  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains     some.Path.With.Dot  avgt   10  126.918 ±  0.940  ns/op</span><br></pre></td></tr></table></figure>
-<p>可以看出效率由高到低：<br>
-不含target时：</p>
-<blockquote>
-<p>replaceWithContains &gt; replace &gt; replaceAllWithContains &gt; replaceAll<br>
-含有target时：<br>
-replace &gt; replaceWithContains&gt; replaceAllWithContains &gt; replaceAll</p>
-</blockquote>
-<p>结论：</p>
-<blockquote>
-<p>尽量使用replace，而非replaceAll.</p>
-</blockquote>
-<h1 id="其他实现replace-all方法">其他实现replace all方法</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceCustom</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    String value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceSpring</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> springReplace(value, <span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">'.'</span>, <span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceApache</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> StringUtils.replace(value, <span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceApacheChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> StringUtils.replaceChars(value, <span class="string">'.'</span>, <span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">hasLength</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (str != <span class="keyword">null</span> &amp;&amp; !str.isEmpty());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">springReplace</span><span class="params">(String inString, String oldPattern, String newPattern)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!hasLength(inString) || !hasLength(oldPattern) || newPattern == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> inString;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = inString.indexOf(oldPattern);</span><br><span class="line">        <span class="keyword">if</span> (index == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// no occurrence -&gt; can return input as-is</span></span><br><span class="line">            <span class="keyword">return</span> inString;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> capacity = inString.length();</span><br><span class="line">        <span class="keyword">if</span> (newPattern.length() &gt; oldPattern.length()) &#123;</span><br><span class="line">            capacity += <span class="number">16</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(capacity);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;  <span class="comment">// our position in the old string</span></span><br><span class="line">        <span class="keyword">int</span> patLen = oldPattern.length();</span><br><span class="line">        <span class="keyword">while</span> (index &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            sb.append(inString, pos, index);</span><br><span class="line">            sb.append(newPattern);</span><br><span class="line">            pos = index + patLen;</span><br><span class="line">            index = inString.indexOf(oldPattern, pos);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// append any characters to the right of a match</span></span><br><span class="line">        sb.append(inString, pos, inString.length());</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="java-lang-replace-v2">java.lang.replace</h2>
-<h2 id="reference-links">Reference Links</h2>
-<ul>
-<li><a href="https://stackoverflow.com/questions/1010928/faster-alternatives-to-replace-method-in-a-java-string" target="_blank" rel="noopener">Faster alternatives to replace method in a Java String?</a></li>
-<li><a href="https://stackoverflow.com/questions/6262397/string-replaceall-is-considerably-slower-than-doing-the-job-yourself" target="_blank" rel="noopener">String.replaceAll is considerably slower than doing the job yourself</a></li>
-<li><a href="https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/performance.html" target="_blank" rel="noopener">Performance difference between Java Regex and String based replace operations</a></li>
-<li><a href="https://github.com/CatherineLiyuankun/java-micro-optimizations" target="_blank" rel="noopener">Micro optimizations in Java. String.replaceAll</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>TECH</category>
-        <category>BackEnd</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>程序猿的那些好用工具</title>
     <url>/awesome-tools.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文在<a href="https://github.com/sorrycc/awesome-tools" target="_blank" rel="noopener">awesome-tools</a>基础上修改，添加自己使用的工具。有些是我也已经用的软件，有些是根据这篇文章才开始用的。</p>
@@ -583,10 +71,10 @@ replace &gt; replaceWithContains&gt; replaceAllWithContains &gt; replaceAll</p>
 <p>[x] <a href><strong>Colloquy</strong></a></p>
 </li>
 <li>
-<p>[x] <a href><strong>Cyberduck</strong></a></p>
+<p>[x] <a href="https://cyberduck.io/" target="_blank" rel="noopener"><strong>Cyberduck</strong></a></p>
 </li>
 <li>
-<p>[x] <a href><strong>VNC Viewer</strong></a></p>
+<p>[x] <a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener"><strong>VNC Viewer</strong></a></p>
 </li>
 <li>
 <p>[x] <a href><strong>Microsoft Remote Desktop</strong></a></p>
@@ -606,7 +94,7 @@ replace &gt; replaceWithContains&gt; replaceAllWithContains &gt; replaceAll</p>
 </ul>
 <h3 id="虚拟机">虚拟机</h3>
 <ul>
-<li>[x] <a href><strong>VirtualBox</strong></a></li>
+<li>[x] <a href><strong>ParallelsDesktop</strong></a></li>
 <li>[x] <a href><strong>VirtualBox</strong></a></li>
 </ul>
 <h3 id="数据库">数据库</h3>
@@ -1055,6 +543,620 @@ HD Tune Pro for Mac</p>
       </tags>
   </entry>
   <entry>
+    <title>Git Push 避免重复输入用户名和密码方法 - 多账户配置</title>
+    <url>/Git-Push-%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%96%B9%E6%B3%95-%E5%A4%9A%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="git-push-避免用户名和密码方法">Git Push 避免用户名和密码方法</h1>
+<p>在大家使用github的过程中，一定会碰到这样一种情况，就是每次要push 和pull时总是要输入github的账号和密码，这样不仅浪费了大量的时间且降低了工作效率。在此背景下，本文在网上找了两种方法来避免这种状况，这些成果也是先人提出来的，在此只是做个总结。</p>
+<h2 id="1-方法一">1 方法一</h2>
+<h3 id="1-1-创建文件存储git用户名和密码">1.1 创建文件存储GIT用户名和密码</h3>
+<p>在%HOME%目录中创建文件名为.git-credentials的文件。</p>
+<!-- 文件保存在 OneDrive/LYKMACSetting/_Users_liyuankun/.git-credentials -->
+<p>%HOME%目录:</p>
+<ul>
+<li>Windows：一般为<code>C:\users\Administrator</code>，也可以是你自己创建的系统用户名目录，反正都在C:\users\中。</li>
+<li>Mac：/Users/YourUserName</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">touch .git-credentials</span><br><span class="line">vim .git-credentials</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入 https://&#123;username&#125;:&#123;password&#125;@github.com</span></span><br><span class="line">https://&#123;CatherineLiyuankun&#125;:&#123;xxxxxxxxx&#125;@github.com</span><br><span class="line">https://&#123;yuanli&#125;:&#123;xxxxxxx&#125;@github.yourcompanydomain.com</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-添加git-config-内容">1.2 添加Git Config 内容</h3>
+<p>进入终端， 输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+<p>执行完后查看%HOME%目录下的.gitconfig文件，会多了一项：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[credential]</span><br><span class="line">helper = store</span><br></pre></td></tr></table></figure>
+<p>重启终端会发现git push时不用再输入用户名和密码。</p>
+<h2 id="2-方法二">2 方法二</h2>
+<h3 id="2-1-添加环境变量">2.1 添加环境变量</h3>
+<p>添加一个HOME环境变量，变量名:HOME,变量值：%USERPROFILE%</p>
+<h3 id="2-2-创建git用户名和密码存储文件">2.2 创建git用户名和密码存储文件</h3>
+<p>进入%HOME%目录，新建一个名为&quot;_netrc&quot;的文件，文件中内容格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">machine &#123;git account name&#125;.github.comlogin your-usernmaepassword your-password</span><br></pre></td></tr></table></figure>
+<p>重新打开终端，无需再输入用户名和密码</p>
+<!-- [user]
+        name = Li,Yuankun
+        email = yuanli@microstrategy.com -->
+<h2 id="3-开启两步验证-two-factor-authentication-的github账号">3 开启两步验证&quot;Two-factor authentication&quot;的github账号</h2>
+<p>前面用方法一之后， 重启终端， 重新<code>git push</code>, 跟据提示输入用户名和密码，结果报错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: CatherineLiyuankun</span><br><span class="line">Password <span class="keyword">for</span> <span class="string">'https://CatherineLiyuankun@github.com'</span>:</span><br><span class="line">remote: Invalid username or password.</span><br><span class="line">fatal: Authentication failed <span class="keyword">for</span> <span class="string">'https://github.com/CatherineLiyuankun/Todo-List-mojo.git/'</span></span><br></pre></td></tr></table></figure>
+<p>查了下原因，是因为我github账号 开启过两步验证，所以简单说就是不要输入<code>password</code> 而是要输入<code>personal access token</code>。<br>
+可以通过： <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a> 查看你账号已有的personal access token。<br>
+如果没有可以新建一个<code>personal access token</code>，并保存下来。</p>
+ <!-- my own githut : token: "mac-MS"  -->
+<blockquote>
+<p>It turns out that I need to log in using my username, but instead of using the normal GitHub account password, I should use a personal access token that can be created here.</p>
+<p>Because I am use GitHub feature named “Two-factor authentication” (It isn’t a standard Git’s feature, it’s added feature by <a href="http://GitHub.com" target="_blank" rel="noopener">GitHub.com</a>). After turn on the feature, I must create “Personal Access Tokens”</p>
+</blockquote>
+<blockquote>
+<p><strong>Reference</strong></p>
+<p>When you’ll be asked for a personal access token as a password<br>
+After 2FA is enabled there are a couple of scenarios where you need to enter a personal access tokeninstead of a 2FA code and your GitHub password.</p>
+</blockquote>
+<blockquote>
+<p><strong>Through the command line</strong></p>
+<p>You must create a personal access token to use as a password when authenticating to GitHub on the command line using HTTPS URLs.<br>
+For example, when you access a repository using Git on the command line using commands like git clone, git fetch, git pull or git push with HTTPS URLs, you must provide your GitHub username and your personal access token when prompted for a username and password. The command line prompt won’t specify that you should enter your personal access token when it asks for your password.</p>
+</blockquote>
+<blockquote>
+<p><strong>2FA and Subversion (svn command line, tortoise svn, etc)</strong></p>
+<p>When you access a repository via Subversion, you must provide a personal access token instead of entering your password.</p>
+</blockquote>
+<h2 id="附录：配置git账户命令">附录：配置git账户命令</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置git账户</span></span><br><span class="line">git config --list <span class="comment">#查看当前配置</span></span><br><span class="line">git config --list [--<span class="built_in">local</span>] <span class="comment">#查看当前仓库配置</span></span><br><span class="line">git config --list --global <span class="comment">#查看全局配置</span></span><br><span class="line"><span class="comment"># 配置全局账户（配置文件位于 ~/.gitconfig中）</span></span><br><span class="line">git config --global user.name <span class="string">"your_name"</span> <span class="comment"># 如果是提到github上，your_name最好是你的github账户的名字</span></span><br><span class="line">git config --global user.email <span class="string">"your_email@example.com"</span> <span class="comment"># 如果是提到github上，your_email@example.com最好是你的github账户的邮箱</span></span><br><span class="line"><span class="comment"># 配置本地仓库账户 (配置文件位于当前仓库目录的.git/config中）</span></span><br><span class="line">git config [--<span class="built_in">local</span>] user.name <span class="string">"your_name_in_company"</span> <span class="comment"># 如果是提到github上，your_name最好是你的github账户的名字</span></span><br><span class="line">git config [--<span class="built_in">local</span>] user.email <span class="string">"your_company_email@example.com"</span> <span class="comment"># 如果是提到github上，your_email@example.com最好是你的github账户的邮箱</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+        <category>Environment setup</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>制作MAC OS 系统安装U盘</title>
+    <url>/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-u盘">1 U盘</h2>
+<p>在创建macOS U盘启动之前，必须拥有一个U盘。</p>
+<ul>
+<li>U盘大小 &gt;= 16G</li>
+<li>U盘确保 不含有重要数据，因为会初始化U盘.</li>
+</ul>
+<p>插入u盘，将U盘在「磁盘工具」中初始化，其中<code>MyVolume</code>代表自己的U盘名称. 可以命名为其他名称，但要和步骤3中的命令一致。</p>
+<ul>
+<li>格式：Mac OS扩展（日志式）</li>
+<li>方案：GUID 分区图</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98/u%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96.jpg" alt="格式化"></p>
+<h2 id="2-下载macos-系统">2 下载macOS 系统</h2>
+<p>Apple Store 官方下载链接：</p>
+<ul>
+<li>下载：<a href="https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12" target="_blank" rel="noopener">macOS Big Sur</a>、<a href="https://apps.apple.com/cn/app/macos-catalina/id1466841314?mt=12" target="_blank" rel="noopener">macOS Catalina</a>、<a href="https://apps.apple.com/cn/app/macos-mojave/id1398502828?mt=12" target="_blank" rel="noopener">macOS Mojave</a> 或 <a href="https://apps.apple.com/cn/app/macos-high-sierra/id1246284741?mt=12" target="_blank" rel="noopener">macOS High Sierra</a><br>
+这些内容会作为名为“安装 macOS [版本名称]”的 App 下载到您的<code>应用程序</code>文件夹。<br>
+如果安装器在下载后打开，请退出而不要继续安装。要获取正确的安装器，请从运行 <a href="https://support.apple.com/zh-cn/HT201260" target="_blank" rel="noopener">macOS Sierra 10.12.5 或更高版本</a>或者 El Capitan 10.11.6 的 Mac 上进行下载。如果您是企业管理员，请通过 Apple 下载，而不要通过本地托管的软件更新服务器进行下载。</li>
+<li>下载：<a href="http://updates-http.cdn-apple.com/2019/cert/061-41424-20191024-218af9ec-cf50-4516-9011-228c78eda3d2/InstallMacOSX.dmg" target="_blank" rel="noopener">OS X El Capitan</a><br>
+这个内容会作为名为“InstallMacOSX.dmg”的磁盘映像下载。在与 El Capitan 兼容的 Mac 上，打开下载的磁盘映像，并运行其中名为“InstallMacOSX.pkg”的安装器。这时会在您的“应用程序”文件夹中安装一个名为“安装 OS X El Capitan”的 App。您将通过这个 App（而不是通过磁盘映像或 .pkg 安装器）创建可引导安装器。</li>
+</ul>
+<h2 id="3-在-终端-中使用-createinstallmedia-命令">3 在“终端”中使用“createinstallmedia”命令</h2>
+<p><code>MyVolume</code>代表自己的U盘名称, 要和步骤1中U盘名称一致.</p>
+<p>例如安装Big Sur*：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>Catalina*：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>Mojave*：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>High Sierra*：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</span><br></pre></td></tr></table></figure>
+<p>El Capitan：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果您的 Mac 运行的是 macOS Sierra 或更低版本，请使用 --applicationpath 参数和安装器路径，具体方法与在适用于 El Capitan 的命令中完成这个操作的方法类似。</p>
+</blockquote>
+<p>键入命令后：</p>
+<ol>
+<li>按下 Return 键以输入这个命令。</li>
+<li>出现提示时，请键入您的管理员密码，然后再次按下 Return 键。在您键入密码时，“终端”不会显示任何字符。</li>
+<li>出现提示时，请键入 <code>Y</code> 以确认您要抹掉宗卷，然后按下 Return 键。在抹掉宗卷的过程中，“终端”会显示进度。</li>
+<li>宗卷被抹掉后，您可能会看到一条提醒，提示“终端”要访问可移除宗卷上的文件。点按“好”以允许继续拷贝。</li>
+<li>当“终端”显示操作已完成时，相应宗卷将拥有与您下载的安装器相同的名称，例如“安装 macOS Big Sur”。您现在可以退出“终端”并弹出宗卷。</li>
+</ol>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98/macos-big-sur-terminal-create-bootable-installer.jpg" alt=" 在“终端”中使用“createinstallmedia”命令"></p>
+<h1 id="参考链接">参考链接</h1>
+<p><a href="https://support.apple.com/zh-cn/HT201372" target="_blank" rel="noopener">如何创建可引导的 macOS 安装器</a></p>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MAC book pro 2015款换三星SSD硬盘970EVO 1T</title>
+    <url>/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>升级MacBook Pro（15英寸，带有Retina显示屏，2015年）中的SSD硬盘。原SSD硬盘容量只有256GB, 相当不够用.<br>
+虽然电脑是15款的，但还很好用，不如只换个SSD就行了。既然都换了，不如直接上1T的。</p>
+<h1 id="1-准备">1 准备</h1>
+<h2 id="1-1-硬件准备">1.1 硬件准备</h2>
+<ul>
+<li>P5 螺丝刀 + T6 螺丝刀 + 碳棒（或者不导电的其他工具，用于在2.2步骤里拆除电池连接器）</li>
+<li>SSD硬盘：三星SSD硬盘970EVO 1T  ￥1296</li>
+<li>M.2 NGFF转Macbook SSD转接卡：￥18<br>
+虽然MacBook专用的SSD接口比较特殊，但是它仅仅只是接口形态有别于常规M.2，金手指定义和缺口位置不一样，转接卡甚至都不需要芯片，非常简单成本也很低，同时得益于它长度比一般常规的2280规格的M.2 SSD还更长一点，加个转接卡在前面装回去也完全可行。<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/0%E8%BD%AC%E6%8E%A5%E5%8D%A1.jpeg" alt="M.2 NGFF转Macbook SSD转接卡"></li>
+</ul>
+<h2 id="1-2-软件准备">1.2 软件准备</h2>
+<ul>
+<li>系统升级到 macOS Hight Serria (10.13)及以上：在 macOS 10.13 正式发布之后，支持原生 NVME 协议。</li>
+<li>Time Machine 备份系统，可以实现整个系统完整迁移。</li>
+<li><a href="../%E5%88%B6%E4%BD%9CMAC-OS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98.md">制作U盘系统盘，安装全新的MAC OS系统</a>。</li>
+</ul>
+<h1 id="2-硬件-换ssd">2 硬件-换SSD</h1>
+<h2 id="2-1拆底部盖板">2.1拆底部盖板</h2>
+<p>取出固定Macbook Pro底壳的五角梅花螺丝，每颗螺丝按原位置摆放好，如下：</p>
+<ul>
+<li>8颗3.1mm</li>
+<li>两颗2.3mm</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.1.png" alt="M.2 NGFF转Macbook SSD转接卡"></p>
+<p>从屏幕转轴一侧的边缘抬起，把底部盖板从MacBook Pro上抬起来。</p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.11.png" alt></p>
+<p>底部盖板上有两个塑料夹子（红色），在上面的箱子里卡扣（橙色）可以装进塑料夹子。<br>
+在重新组装过程中，轻轻地将盖板的中心推到它的两个塑料夹上。</p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.12.png" alt></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/1.13.png" alt></p>
+<h2 id="2-2-拆除电池连接器">2.2 拆除电池连接器</h2>
+<ul>
+<li>把电池连接器上的标签撕掉， 不撕也可以。</li>
+<li>在逻辑板上轻轻抬起电池连接器的每一端，将连接器从其插座上撬开。</li>
+<li>将连接器弯曲，确保电池连接器不意外地与逻辑板接触。</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.21.png" alt></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.22.png" alt></p>
+<h2 id="2-3-拆除旧ssd-固态硬盘">2.3 拆除旧SSD（固态硬盘）</h2>
+<ul>
+<li>拧开将 SSD 固定在主板上的一颗 2.9 mm T5 梅花螺丝。</li>
+<li>把SSD抬起足够高来从扬声器上方拿出。不要把SSD抬得太高，否则你可能会损坏触点或者插槽。</li>
+<li>把SSD从主板上的插槽中拉出。</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.31.png" alt></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.32.png" alt></p>
+<h2 id="2-4-换上新的ssd">2.4 换上新的SSD</h2>
+<ul>
+<li>把NVMe M.2 固态硬盘插在转接卡上</li>
+<li>再安装到MacBook主板的SSD接口上。注意一定要卡紧咯。</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/0%E8%BD%AC%E6%8E%A5%E5%8D%A1.jpeg" alt="M.2 NGFF转Macbook SSD转接卡"></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/2.4.png" alt></p>
+<ul>
+<li>安装好电池连接器，安装底部盖板。</li>
+</ul>
+<h1 id="3-软件-安装系统">3 软件-安装系统</h1>
+<ol>
+<li>电脑插上制作好之后的macOS Big Sur 系统启动U盘</li>
+<li>点击电源键，启动Mac</li>
+<li>一直按住<code>option</code>键，直到出现“安装 Big Sur”再松开，然后点击“安装 Big Sur”开始安装macOS Big Sur系统。</li>
+</ol>
+<blockquote>
+<p>不要”command + R“, 否则后续”磁盘工具“内找不到新装的SSD硬盘。</p>
+</blockquote>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.3.png" alt></p>
+<ol start="4">
+<li>
+<p>出现白色apple 图标，读进度条(这一步可能出现，有些电脑不会出现)</p>
+</li>
+<li>
+<p>选择语言 (这一步可能出现，有些电脑不会出现)<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.5.png" alt></p>
+</li>
+<li>
+<p>出现“macOS 实用工具“ 界面, 选择”磁盘工具“<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.6.png" alt></p>
+</li>
+<li>
+<p>格式化（抹掉）新装的SSD硬盘</p>
+</li>
+</ol>
+<p>选择显示全部（这一步很重要！很重要！很重要！否则接下来你抹掉磁盘时有可能找不到 GUID 分区图的选项哦）<br>
+找到新硬盘，抹掉，名称自定义（这里我为磁盘取名 Macintosh HD），方案：</p>
+<ul>
+<li>格式：<code>Mac OS扩展（日志式）</code>或者 <code>APFS</code>格式</li>
+<li>方案：<code>GUID</code><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.7.png" alt><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.71.png" alt><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.72.png" alt></li>
+</ul>
+<ol start="8">
+<li>退出”磁盘工具“， 回到“macOS 实用工具“ 界面, 选择”安装MacOS“ 或者 ”从Time machine 备份进行恢复“。<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/MAC-book-pro-2015%E6%AC%BE%E6%8D%A2%E4%B8%89%E6%98%9FSSD%E7%A1%AC%E7%9B%98970EVO-1T/3.8.png" alt></li>
+</ol>
+<h1 id="4-测试">4 测试</h1>
+<p>系统安装完后，apple store （美国区）安装软件‎Blackmagic Disk Speed Test， 测试SSD速度。<br>
+测试一下速度，读28xxMB/s，写24xxMB/s。</p>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a href="https://post.smzdm.com/p/a783vk9g/" target="_blank" rel="noopener">换个SSD再战3年，15款MacBook Pro升级1TB SSD，附13-17款升级指南</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>程序员-MAC 重新装机必备2命令行+环境配置</title>
+    <url>/%E7%A8%8B%E5%BA%8F%E5%91%98-MAC-%E9%87%8D%E6%96%B0%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%872%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
+<li>[x] Terminal 用 <a href="https://www.iterm2.com/" target="_blank" rel="noopener"><strong>iTerm2</strong></a> + <a href="https://en.wikipedia.org/wiki/Z_shell" target="_blank" rel="noopener"><strong>zsh</strong></a> + <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener"><strong>oh-my-zsh</strong></a> 的组合，主题是 <a href="https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme" target="_blank" rel="noopener">robbyrussell</a></li>
+<li>[x] zsh 的插件开了 git、autojump、brew、git、git-extra、git-flow、git-prompt、git-remote-branch、github、gitignore、history、history-substring-search、iterm2、node、npm、npx、nvm、tig、vscode、yarn、<a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></li>
+<li>[] iTerm2 里配 <code>Run command...</code> 为 <code>/usr/local/bin/idea --path \2 \1</code> (<a href="https://zos.alipayobjects.com/rmsportal/RmWdxKRQUWFMoVDjerNQ.png" target="_blank" rel="noopener">图</a>)，这样 Command + 点击文件路径，就会在 Intellij Idea 里打开
+<ul>
+<li>[x] 安装Go2Shell，在finder可以用iTerm2打开当前目录</li>
+<li>[x] 配置<a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a>
+<ul>
+<li>[x] open .  用finder打开当前文件</li>
+<li>[x] vsc .  用vscode打开当前文件</li>
+<li>[x] subl .  用Sublime打开当前文件</li>
+<li>[x] atom .  用Atom打开当前文件</li>
+<li>[x] command + &lt;-  / -&gt;     切换tab</li>
+<li>[x] control + w 回退一部分命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://tldr.sh/" target="_blank" rel="noopener">tldr</a> Simplified and community-driven <code>man</code> pages. Quick install: <code>npm install -g tldr</code>.</li>
+<li>Take <code>git</code> for example, while <code>man</code> <code>git</code> outputs more than 100 lines. <code>&gt; tldr git</code></li>
+</ul>
+<h2 id="命令行">命令行</h2>
+<h3 id="通过-homebrew-安装">通过 <a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a> 安装</h3>
+<ul>
+<li>[x] <a href="https://github.com/wting/autojump" target="_blank" rel="noopener"><strong>autojump</strong></a>，目录跳转</li>
+<li>[ ] <a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener"><strong>the_silver_searcher</strong></a>，文件搜索，命令行是 ag</li>
+<li>[ ] <a href="https://hub.github.com/" target="_blank" rel="noopener"><strong>hub</strong></a> - git 扩展</li>
+<li>[ ] <a href="https://github.com/jonas/tig" target="_blank" rel="noopener"><strong>tig</strong></a> - git 扩展</li>
+<li>[ ] <a href="https://github.com/sharkdp/bat" target="_blank" rel="noopener"><strong>bat</strong></a>，带行号的 cat，可以配 <code>alias cat=&quot;bat&quot;</code></li>
+<li>[ ] <a href="https://github.com/sharkdp/fd" target="_blank" rel="noopener"><strong>fd</strong></a>，比系统自带的 find 友好</li>
+</ul>
+<h3 id="通过-yarn-global-add-安装">通过 <code>yarn global add</code> 安装</h3>
+<ul>
+<li>[ ] <a href="https://github.com/popomore/projj" target="_blank" rel="noopener"><strong>projj</strong></a>，github/gitlab 项目管理</li>
+<li>[ ] <a href="https://github.com/zeit/serve" target="_blank" rel="noopener"><strong>serve</strong></a>，本地静态服务器</li>
+<li>[ ] <a href="https://github.com/sindresorhus/fkill" target="_blank" rel="noopener"><strong>fkill</strong></a>，比 kill 好用的进程 killer</li>
+<li>[ ] <a href="https://github.com/gtanner/qrcode-terminal" target="_blank" rel="noopener"><strong>qrcode-terminal</strong></a>，二维码生成</li>
+</ul>
+<h1 id="mac-显示隐藏文件-命令-comand-finder">Mac 显示隐藏文件 命令 comand finder</h1>
+<p>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件</p>
+<p>defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件</p>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>程序员-MAC 重新装机必备1软件</title>
+    <url>/%E7%A8%8B%E5%BA%8F%E5%91%98-MAC-%E9%87%8D%E6%96%B0%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%871%E8%BD%AF%E4%BB%B6.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="编程必备">编程必备</h1>
+<ul>
+<li>[x] <a href="https://www.google.com/chrome/" target="_blank" rel="noopener"><strong>Google Chrome</strong></a> 网址下载，或者[APP Store + 国外账号] + <a href="https://www.google.com/chrome/canary/" target="_blank" rel="noopener"><strong>Google Chrome Canary</strong></a> + <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener"><strong>Firefox</strong></a> + <strong>Safari</strong>，浏览器，调试用，IE 的测试会借助内网的云测平台</li>
+</ul>
+<h2 id="ide">IDE</h2>
+<ul>
+<li>Xcode  [APP Store]</li>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Vscode</a> + 插件Settings Sync （用gitHub账号创建gist同步配置和插件）。
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=bat67.markdown-extension-pack" target="_blank" rel="noopener">Markdown Extension Pack</a></li>
+</ul>
+</li>
+<li><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener">Toolbox</a> + IntelliJ</li>
+</ul>
+<h2 id="编程辅助">编程辅助</h2>
+<ul>
+<li><a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener">SourceTree</a> git 辅助，由于 git 高级操作命令记不住，就只用借助 UI 了。</li>
+<li><a href="https://kapeli.com/dash" target="_blank" rel="noopener">Dash</a> 快速查API文档。免费版本会在你搜索完后等10秒再显示，付费版：$29.99 无需等待。</li>
+<li><a href="https://colorsnapper.com/" target="_blank" rel="noopener"><strong>ColorSnapper2</strong></a>，取色工具。付费，App store 没有。<br>
+<a href="https://cyberduck.io/" target="_blank" rel="noopener">https://cyberduck.io/</a></li>
+<li><a href="https://cyberduck.io/" target="_blank" rel="noopener"><strong>Cyberduck</strong></a></li>
+</ul>
+<h2 id="网络">网络</h2>
+<ul>
+<li><a href="https://paw.cloud/" target="_blank" rel="noopener"><strong>Paw</strong></a>，请求模拟，前后端联调API时用这个先走一遍。</li>
+<li><a href="https://www.postman.com/" target="_blank" rel="noopener"><strong>Postman</strong></a>，请求模拟，前后端联调API时用这个先走一遍。</li>
+<li><a href="https://www.charlesproxy.com/" target="_blank" rel="noopener"><strong>Charles</strong></a>，抓包用，支持 https, 不免费，公司提供的付费账号。</li>
+<li><a href="https://github.com/2ndalpha/gasmask" target="_blank" rel="noopener"><strong>Gas Mask</strong></a> ，<a href="https://zhuanlan.zhihu.com/p/20466912" target="_blank" rel="noopener">Hosts 管理</a></li>
+</ul>
+<h2 id="命令行工具">命令行工具</h2>
+<ul>
+<li><a href="https://iterm2.com/" target="_blank" rel="noopener">Iterm2</a></li>
+</ul>
+<h1 id="效率">效率</h1>
+<ul>
+<li>
+<p>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a> 【我的百度网盘、硬盘】应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。免费功能：File search, Web search，app启动, Calculator, Dictionary, System。付费功能（需购买Powerpack）：Workflow，Action, Clipboard History，Snippets, Contacts, itunes, 1Password, Terminal. 【我的百度网盘、硬盘】</p>
+</li>
+<li>
+<p>[x] <a href="https://github.com/gbammc/Thor" target="_blank" rel="noopener"><strong>Thor</strong></a>，【网址下载】或者[APP Store + 国外账号]一键直达应用， 免费，开源。</p>
+</li>
+<li>
+<p><a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a>. 我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。<a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">遇到了macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题. 另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</p>
+</li>
+<li>
+<p>[x] <a href="https://github.com/newmarcel/KeepingYouAwake" target="_blank" rel="noopener"><strong>KeepingYouAwake</strong></a>，可保证Mac系统不自动休眠。原来用的<a href="http://lightheadsw.com/caffeine/" target="_blank" rel="noopener">Caffeine</a>，但是<a href="https://www.reddit.com/r/osx/comments/9pbl9u/macos_mojave_caffeine_replacement/" target="_blank" rel="noopener">MacOS更新到Mojave以后就不管用了</a>。可以改用Amphetamine 或者 KeepingYouAwake。免费，开源。</p>
+</li>
+<li>
+<p><a href="https://dida365.com/" target="_blank" rel="noopener"><strong>TickTick滴答</strong></a> ，任务管理，有MAC版和iPhone版，可以同步。[APP Store]</p>
+</li>
+<li>
+<p>[x] <a href="https://macpaw.com/cleanmymac" target="_blank" rel="noopener"><strong>CleanMyMac 3</strong></a> 【我的百度网盘、硬盘】系统清理。</p>
+</li>
+<li>
+<p>[x] <a href="https://www.rescuetime.com/dashboard" target="_blank" rel="noopener">RescueTime</a>和<a href="https://wakatime.com/dashboard" target="_blank" rel="noopener">WakaTime</a>来记录你的时间，都有Chrome插件。RescueTime 手机端电脑端都有app。</p>
+</li>
+</ul>
+<h1 id="工具">工具</h1>
+<ul>
+<li><a href="pan.baidu.com">百度网盘</a></li>
+<li>office 365</li>
+<li>[x] <a href="http://kiwiforgmail.com/" target="_blank" rel="noopener"><strong>Kiwi for Gmail</strong></a>，Gmail 客户端, 我用的免费的lite版，App store 要切换到美国。</li>
+<li>[x] <a href="https://www.seagate.com/pl/pl/support/software/paragon/" target="_blank" rel="noopener"><strong>Microsoft NTFS for Mac by Paragon Software</strong></a> - 支持 NTFS 格式硬盘，因为原来买了希捷的移动硬盘，送的软件，一般、够用。</li>
+</ul>
+<h2 id="输出">输出</h2>
+<!-- - [ ] [**Ulysses**](https://ulysses.app/)，笔记工具，从 [Bear](http://www.bear-writer.com/) 和 [Notion](https://www.notion.so/?r=159be429981b4725ad6f36c4f599bd98) 切到 Ulysses -->
+<ul>
+<li>
+<p>[x] <a href="https://www.onenote.com/signin?wdorigin=ondc" target="_blank" rel="noopener"><strong>Onenote</strong></a>，笔记工具，从 <a href="https://evernote.com/intl/zh-cn" target="_blank" rel="noopener">Evernote印象笔记</a> （原来是会员，现在只是免费版） 切到 Onenote，感觉Onenote对markdown支持不好（只有windows版本有插件可以支持markdown），准备换<a href="https://ulysses.app/" target="_blank" rel="noopener"><strong>Ulysses</strong></a>。不过我现在markdown一般都用vscode+github来写了。</p>
+</li>
+<li>
+<p>[x] <a href="https://www.omnigroup.com/omnigraffle" target="_blank" rel="noopener"><strong>OmniGraffle</strong></a> + <a href="https://www.xmind.net/" target="_blank" rel="noopener"><strong>Xmind</strong></a></p>
+</li>
+</ul>
+<!-- - [ ] + iPad 上的 [**Whiteboard**](https://apps.apple.com/us/app/microsoft-whiteboard/id1352499399)，分别用于画架构图和和脑图 -->
+<ul>
+<li>[x] <a href="https://apps.apple.com/cn/app/gif-brewery-3-video-to-gif/id1081413713?l=en&amp;mt=12" target="_blank" rel="noopener"><strong>Gif Brewery 3</strong></a> ，GIF 录屏工具, 可以直接录屏并转换成gif动图。免费，App store 下载。</li>
+</ul>
+<h2 id="输入">输入</h2>
+<ul>
+<li>[x] <a href="http://reederapp.com/mac/" target="_blank" rel="noopener"><strong>Reeder</strong></a>，RSS 阅读软件</li>
+</ul>
+<!-- 我的主要信息来源，没有提供 rss 源的我会先在 [**rsshub.app**](https://docs.rsshub.app/) 上找，再没有就自己写一个 serverless 服务部署在 [now](https://zeit.co/) 上，[now使用方法](http://object.ws/2017/09/10/nowsh-note/) -->
+<h2 id="虚拟机">虚拟机</h2>
+<ul>
+<li>[x] <a href><strong>ParallelsDesktop</strong></a></li>
+</ul>
+<h2 id="工作必备">工作必备</h2>
+<ul>
+<li>[x] <a href="https://vpn.microstrategy.com/global-protect/getsoftwarepage.esp" target="_blank" rel="noopener">GlobalProtect</a> 【网址下载】 工作 VPN 软件</li>
+<li>[ ] Microsoft Remote Desktop [APP Store]</li>
+<li>[ ]</li>
+</ul>
+<h2 id="生活娱乐必备">生活娱乐必备</h2>
+<ul>
+<li>各类视频软件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java ==  equals() 区别</title>
+    <url>/Java-and-equals-%E5%8C%BA%E5%88%AB.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="java-equals-区别">Java ==  equals() 区别</h1>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>==</th>
+<th><code>equals()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类型</td>
+<td>operator 运算符</td>
+<td>method 方法</td>
+</tr>
+<tr>
+<td>基本类型</td>
+<td>值是否相同，本质是比较其中的字节组合是否相同。<code>int a = 3; byte b = 3; if(a == b) {} // true</code> a 和 b 的字节码都是0000000011 == 00000011（忽略a有更多的0）</td>
+<td></td>
+</tr>
+<tr>
+<td>引用类型</td>
+<td>引用变量是否相同，本质同样是是比较引用变量（对象在堆中的地址）的字节组合是否相同。<code>Foo a = new Foo(); Foo b = new Foo(); Foo c = a; if(a == b) {} // false if(a == c) {} // true if(c == b) {} // false</code> 对象是存储在堆上的，这里的a， b， c都是对象的引用变量（堆中的地址），而非堆上的对象的值。</td>
+<td>1 如果是未被父类或自身重载override过，则与==相同 。Object类的equals方法：<code>public boolean equals(Object obj) {return (this == obj);}</code> 2 如果像String 和 Integer 等重载了 equals 方法，把它变成了对象的值比较。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a href="https://stackoverflow.com/questions/7520432/what-is-the-difference-between-and-equals-in-java" target="_blank" rel="noopener">What is the difference between == and equals() in Java?</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>BackEnd</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Difference between window.location.href=window.location.href and window.location.reload() and window.location=window.location.href</title>
+    <url>/Difference-between-window-location-href-window-location-href-and-window-location-reload-and-window-location-window-location-href.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="compare-table-对比表格">Compare table 对比表格</h1>
+<blockquote>
+<p>Re-POST：reloads the current page with POST data. 发送POST请求加载当前页面。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Refresh page</th>
+<th>Re-POST</th>
+<th>Static scan tool warning: Veracode</th>
+<th>SonarQube</th>
+<th>JSLint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>window.location = window.location.href</code></td>
+<td><code>No</code></td>
+<td><code>Yes</code> “CWE ID 601 URL Redirection to Untrusted Site (‘Open Redirect’)”</td>
+<td><code>No</code></td>
+<td><code>No</code></td>
+</tr>
+<tr>
+<td><code>window.location.href = window.location.href</code></td>
+<td><code>No</code></td>
+<td><code>Yes</code></td>
+<td><code>Yes</code></td>
+<td><code>Yes</code> “Weird assignment”</td>
+</tr>
+<tr>
+<td><code>window.location.reload()</code></td>
+<td>Maybe, depends on browsers 也许，不同浏览器有不同行为 <a href="https://codepen.io/catherineliyuankun/pen/bGByZbe" target="_blank" rel="noopener">Test Code</a></td>
+<td><code>No</code></td>
+<td><code>No</code></td>
+<td><code>No</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>window.location.reload()</code> reloads the current page <strong>with POST data</strong>, while <code>window.location.href=window.location.href</code> <strong>discarding the POST data(perform a GET request)</strong> 通过GET请求reload页面.</p>
+<h2 id="window-location-href-window-location-href">window.location.href=window.location.href</h2>
+<h2 id="window-location-window-location-href">window.location=window.location.href</h2>
+<p><code>window.location = window.location.href</code> works the same as <code>window.location.href = window.location.href</code> in all these browsers.<br>
+<code>window.location = window.location.href</code>和 <code>window.location.href = window.location.href</code> 的行为在各个浏览器上完全一致。</p>
+<p><code>window.location.href=window.location.href</code> will not reload the page if there’s an anchor (#) in the URL - You must use window.location.reload() in this case.<br>
+如果页面URL中包含锚<code>#</code>, <code>window.location.href=window.location.href</code> 不会reload页面。</p>
+<p>可以通过判断hash解决：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">window</span>.location.hash) &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.href = <span class="built_in">window</span>.location.href;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.location.reload();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="window-location-reload">window.location.reload()</h2>
+<p>JavaScript <code>window.location</code> object can be used</p>
+<ul>
+<li>to get current page address (URL)</li>
+<li>to redirect the browser to another page</li>
+<li>to reload the same page</li>
+</ul>
+<p><code>window</code>: in JavaScript represents an open window in a browser.</p>
+<p><code>location</code>: in JavaScript holds information about current URL.</p>
+<p>The location object is like a fragment of the window object and is called up through the window.location property.</p>
+<p><code>location</code> object has three methods:</p>
+<p>assign(): used to load a new document<br>
+reload(): used to reload current document 与点击”Refesh“ 按钮效果相同。<br>
+replace(): used to replace current document with a new one</p>
+<h3 id="re-post">Re-POST</h3>
+<ul>
+<li>Chrome 12 and Safari 5.0.5 on Mac do not re-POST with <code>.reload()</code></li>
+<li>FF 2.0, 3.6, 4.0, 5.0 on Mac present the user with the “resend form dialog” with <code>.reload()</code>, <code>.reload(true)</code>, and <code>.reload(false)</code></li>
+<li>IE6, IE8(standards), IE8(IE7 mode,standards) in XP; and IE9 and IE10-tech-preview in Win7 behave the same as FF on Mac</li>
+<li><a href="https://codepen.io/catherineliyuankun/pen/bGByZbe" target="_blank" rel="noopener">Test Code</a></li>
+</ul>
+<h3 id="skipcache">skipCache</h3>
+<p><code>window.location.reload()</code> takes an additional argument <code>skipCache</code>.</p>
+<p><code>window.location.reload()</code>可以有额外的参数：<code>skipCache</code>.</p>
+<ul>
+<li>Using <code>window.location.reload(true)</code> the browser will skip the cache and reload the page from the server. <code>skipCache</code> 为<code>true</code>, 浏览器忽略cache， 从服务器重新加载页面。</li>
+<li><code>window.location.reload(false)</code> will do the opposite, and load the page from cache if possible. <code>skipCache</code> 为<code>false</code>, 浏览器优先从cache重新加载页面，若没有cache则从服务器加载页面。</li>
+<li>default value for window.location.reload() is false. <code>skipCache</code> 默认值为(false)。</li>
+</ul>
+<h2 id="window-location-assign-wd-location-href-go-to-the-url">window.location.assign(wd.location.href) : go to the URL</h2>
+<h2 id="window-location-replace-wd-location-href-go-to-the-url-and-replace-previous-page-in-history">window.location.replace(wd.location.href) : go to the URL and replace previous page in history</h2>
+<p>From w3schools: “The difference between assign() and replace(), is that replace() removes the URL of the current document from the document history, meaning that it is not possible to use the “back” button to navigate back to the original document.”</p>
+<p>The difference from the assign() method is that after using replace() the current page will not be saved in session History, meaning the user won’t be able to use the back button to navigate to it.</p>
+<h1 id="summary-总结">Summary 总结</h1>
+<ul>
+<li>如果不想要发送POST data，使用<code>window.location = window.location.href</code>。注意！如果页面URL中包含锚<code>#</code>, <code>window.location.href=window.location.href</code> 不会reload页面，需要额外判断。</li>
+<li>如果不介意使用POST请求，使用<code>window.location.reload()</code>， 这种用法在各个代码扫描工具中都不会有warning。</li>
+</ul>
+<h1 id="reference-links">Reference Links</h1>
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/questions/2405117/difference-between-window-location-href-window-location-href-and-window-location" target="_blank" rel="noopener">Difference between window.location.href=window.location.href and window.location.reload()</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/6751641/window-location-href-window-location-href-and-jslint" target="_blank" rel="noopener">window.location.href = window.location.href and JSLint</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/location" target="_blank" rel="noopener">MDN：Window.location</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Location/reload" target="_blank" rel="noopener">Location: reload()</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/3715047/how-to-reload-a-page-using-javascript" target="_blank" rel="noopener">How to reload a page using JavaScript</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/1865837/whats-the-difference-between-window-location-and-window-location-replace" target="_blank" rel="noopener">What’s the difference between window.location= and window.location.replace()?</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>FrontEnd</category>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Better performance than Java.String.replaceAll</title>
+    <url>/Better-performance-than-Java-String-replaceAll.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在看Spring Security utilize a response wrapper (<a href="https://github.com/spring-projects/spring-security/blob/5.4.x/web/src/main/java/org/springframework/security/web/firewall/FirewalledResponse.java" target="_blank" rel="noopener">FirewalledResponse</a>)的时候发现 <a href="https://github.com/spring-projects/spring-security/commit/19de13bdc7e84a92811b509fe780c711ddf1405b" target="_blank" rel="noopener">Issue 6731 improve performance of checking headers</a>. 主要的原因就是使用了正则，导致效率降低，如果是简单的匹配尽量避免使用正则。</p>
+<p>随之想到使用非常频繁的<code>Java.String.replaceAll</code>, 它的效率是否也比其他不使用正则的替换方法低呢？<br>
+之前在使用几个不同替换方法的时候并没有关注效率问题。但如果在非常频繁的使用场景下，替换方法效率的提升是否就非常有意义了呢？</p>
+<h1 id="java-自带replace-all方法">Java 自带replace all方法</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceAll</span> </span>&#123;</span><br><span class="line">    String value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceAllWithContains</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.contains(<span class="string">"."</span>) ? value.replaceAll(<span class="string">"\\."</span>, <span class="string">"%2E"</span>) : value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replaceAll(<span class="string">"\\."</span>, <span class="string">"%2E"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">"."</span>, <span class="string">"%2E"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceWithContains</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.contains(<span class="string">"."</span>) ? value.replace(<span class="string">"."</span>, <span class="string">"%2E"</span>) : value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="java-lang-replace">java.lang.replace</h2>
+<blockquote>
+<p>replace(CharSequence target, CharSequence replacement)，用replacement替换所有的target，两个参数都是字符串。</p>
+</blockquote>
+<h2 id="java-lang-replaceall">java.lang.replaceAll</h2>
+<blockquote>
+<p>replaceAll(String regex, String replacement)，用replacement替换所有的regex匹配项，regex很明显是个正则表达式，replacement是字符串。</p>
+</blockquote>
+<h2 id="对比结果">对比结果</h2>
+<p>JDK 11.0.8, OpenJDK 64-Bit Server VM, 11.0.8+10</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Benchmark                                     (value)  Mode  Cnt    Score    Error  Units</span><br><span class="line">ReplaceAll.replace                                     avgt   10    3.836 ±  0.060  ns/op</span><br><span class="line">ReplaceAll.replaceAll                                  avgt   10  147.857 ±  1.550  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains                      avgt   10    3.777 ±  0.069  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains                         avgt   10    3.778 ±  0.075  ns/op</span><br><span class="line"></span><br><span class="line">ReplaceAll.replace                      somePathNoDoT  avgt   10    7.647 ±  0.646  ns/op</span><br><span class="line">ReplaceAll.replaceAll                   somePathNoDoT  avgt   10  156.495 ±  1.751  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains       somePathNoDoT  avgt   10    7.640 ±  0.291  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains          somePathNoDoT  avgt   10    7.545 ±  0.298  ns/op</span><br><span class="line"></span><br><span class="line">ReplaceAll.replace                 some.Path.With.Dot  avgt   10  123.856 ±  1.686  ns/op</span><br><span class="line">ReplaceAll.replaceAll              some.Path.With.Dot  avgt   10  389.632 ± 18.308  ns/op</span><br><span class="line">ReplaceAll.replaceAllWithContains  some.Path.With.Dot  avgt   10  378.527 ±  6.434  ns/op</span><br><span class="line">ReplaceAll.replaceWithContains     some.Path.With.Dot  avgt   10  126.918 ±  0.940  ns/op</span><br></pre></td></tr></table></figure>
+<p>可以看出效率由高到低：<br>
+不含target时：</p>
+<blockquote>
+<p>replaceWithContains &gt; replace &gt; replaceAllWithContains &gt; replaceAll<br>
+含有target时：<br>
+replace &gt; replaceWithContains&gt; replaceAllWithContains &gt; replaceAll</p>
+</blockquote>
+<p>结论：</p>
+<blockquote>
+<p>尽量使用replace，而非replaceAll.</p>
+</blockquote>
+<h1 id="其他实现replace-all方法">其他实现replace all方法</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceCustom</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    String value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceSpring</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> springReplace(value, <span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value.replace(<span class="string">'.'</span>, <span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceApache</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> StringUtils.replace(value, <span class="string">"."</span>, <span class="string">"/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceApacheChar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> StringUtils.replaceChars(value, <span class="string">'.'</span>, <span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">hasLength</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (str != <span class="keyword">null</span> &amp;&amp; !str.isEmpty());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">springReplace</span><span class="params">(String inString, String oldPattern, String newPattern)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!hasLength(inString) || !hasLength(oldPattern) || newPattern == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> inString;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = inString.indexOf(oldPattern);</span><br><span class="line">        <span class="keyword">if</span> (index == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// no occurrence -&gt; can return input as-is</span></span><br><span class="line">            <span class="keyword">return</span> inString;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> capacity = inString.length();</span><br><span class="line">        <span class="keyword">if</span> (newPattern.length() &gt; oldPattern.length()) &#123;</span><br><span class="line">            capacity += <span class="number">16</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(capacity);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;  <span class="comment">// our position in the old string</span></span><br><span class="line">        <span class="keyword">int</span> patLen = oldPattern.length();</span><br><span class="line">        <span class="keyword">while</span> (index &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            sb.append(inString, pos, index);</span><br><span class="line">            sb.append(newPattern);</span><br><span class="line">            pos = index + patLen;</span><br><span class="line">            index = inString.indexOf(oldPattern, pos);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// append any characters to the right of a match</span></span><br><span class="line">        sb.append(inString, pos, inString.length());</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="java-lang-replace-v2">java.lang.replace</h2>
+<h2 id="reference-links">Reference Links</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1010928/faster-alternatives-to-replace-method-in-a-java-string" target="_blank" rel="noopener">Faster alternatives to replace method in a Java String?</a></li>
+<li><a href="https://stackoverflow.com/questions/6262397/string-replaceall-is-considerably-slower-than-doing-the-job-yourself" target="_blank" rel="noopener">String.replaceAll is considerably slower than doing the job yourself</a></li>
+<li><a href="https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/performance.html" target="_blank" rel="noopener">Performance difference between Java Regex and String based replace operations</a></li>
+<li><a href="https://github.com/CatherineLiyuankun/java-micro-optimizations" target="_blank" rel="noopener">Micro optimizations in Java. String.replaceAll</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>BackEnd</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MacOS 10.14.6 Karabiner-Elements不生效</title>
     <url>/Karabiner-Elements%E4%B8%8D%E7%94%9F%E6%95%88.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考<a href="https://github.com/pqrs-org/Karabiner-Elements/issues/1867" target="_blank" rel="noopener">Does not work on MacOS Catalina #1867</a></p>
@@ -1177,18 +1279,61 @@ Sync Extensions。</p>
     <title>奥利给你的iTerm2-快速用IDE打开文件</title>
     <url>/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="mac终端命令行下用sublime-vscode-atom打开文件或目录"><a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a></h1>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> atom=<span class="string">'/Applications/Atom.app/Contents/MacOS/Atom'</span></span><br><span class="line"><span class="built_in">alias</span> subl=<span class="string">'/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'</span></span><br><span class="line"><span class="built_in">alias</span> vsc=<span class="string">'/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'</span></span><br></pre></td></tr></table></figure>
+<p>打开~/.zshrc</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>添加内容:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Set personal aliases, overriding those provided by oh-my-zsh libs,</span></span><br><span class="line"><span class="comment"># plugins, and themes. Aliases can be placed here, though oh-my-zsh</span></span><br><span class="line"><span class="comment"># users are encouraged to define aliases within the ZSH_CUSTOM folder.</span></span><br><span class="line"><span class="comment"># For a full list of active aliases, run `alias`.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Example aliases</span></span><br><span class="line"><span class="comment"># alias zshconfig="mate ~/.zshrc"</span></span><br><span class="line"><span class="comment"># alias ohmyzsh="mate ~/.oh-my-zsh"</span></span><br><span class="line"><span class="built_in">alias</span> atom=<span class="string">'/Applications/Atom.app/Contents/MacOS/Atom'</span></span><br><span class="line"><span class="built_in">alias</span> subl=<span class="string">'/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'</span></span><br><span class="line"><span class="built_in">alias</span> vsc=<span class="string">'/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'</span></span><br></pre></td></tr></table></figure>
 <h1 id="mac-配置finder当前目录打开iterm2"><a href="https://www.jianshu.com/p/445d3f754c4d" target="_blank" rel="noopener">Mac 配置Finder当前目录打开iTerm2</a></h1>
-<p>Go2Shell.app 部分</p>
+<h2 id="安装go2shell">安装Go2Shell</h2>
+<ul>
+<li>
+<p><a href="http://zipzapmac.com/Go2Shell" target="_blank" rel="noopener">Go2Shell官方安装</a> 【我的百度网盘】<code>!!!!!亲测版本V2.5, Mac OS Big Sur可以使用</code>。</p>
+</li>
+<li>
+<p>苹果应用商店安装<a href="https://apps.apple.com/cn/app/go2shell/id445770608?mt=12" target="_blank" rel="noopener">Go2Shell</a>，只支持Mac OS 到Yosemite。新版Mac OS Big Sur 不能使用。</p>
+</li>
+</ul>
+<h2 id="设置go2shell">设置Go2Shell</h2>
+<h3 id="1-进入-preferences-的方式">1 进入 Preferences 的方式</h3>
+<ol>
+<li>
+<p>v2.3 和 v2.5 直接在应用文件中打开 Go2Shell 就行。</p>
+</li>
+<li>
+<p>新老版本都可以通过命令行打开:</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新老版本都可以通过命令行打开</span></span><br><span class="line">open -a Go2Shell --args configGo</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置选择">2 设置选择</h3>
+<ul>
+<li><code>iTerm2</code></li>
+<li><code>New Tab</code>
+<ul>
+<li>优点：Find直接点Go2Shell按钮就可以在当前目录打开终端了</li>
+<li>缺点：iTerm2 APPStore 版本每次都是在新的终端窗口中打开，而不是在新的终端标签中打开</li>
+</ul>
+</li>
+<li>Command to execute in terminal:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> %PATH%; clear; <span class="built_in">echo</span> -e <span class="string">"Last login: `date`"</span>; <span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Go2Shell.png" alt="Go2Shell设置"></p>
+<h3 id="3-添加go2shell-图标到finder">3 添加Go2Shell 图标到finder</h3>
+<p>上一步点击： “Install Go2Shell to Finder”后, Finder出现图标：</p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Go2Shell2.png" alt="Go2Shell图标"></p>
+<p>点击右边这个<code>&gt;_&lt;</code>图标，就可以在 iterm2 中以新窗口的模式打开一个 terminal。</p>
+<blockquote>
+<p>删除这个功能，或者图标显示错误很好处理，按住 cmd 键，鼠标拖拽这个图标到外面释放图标，就可以删除这个功能了。<br>
+或者重新打开Go2Shell设置， 点击“Uninstall Go2Shell from Finder”</p>
+</blockquote>
 <h1 id="links">Links</h1>
 <ul>
 <li><a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a></li>
+<li><a href="https://www.jianshu.com/p/445d3f754c4d" target="_blank" rel="noopener">Mac 配置Finder当前目录打开iTerm2</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.iterm2.com/documentation.html" target="_blank" rel="noopener">iTerm2 官方文档</a></li>
+<li><a href="https://link.jianshu.com/?t=http://foocoder.com/blog/wo-zai-yong-de-macruan-jian.html/" target="_blank" rel="noopener">终端环境之iTerm2</a></li>
+<li><a href="https://link.jianshu.com/?t=http://blog.csdn.net/thinkdiff/article/details/25075047" target="_blank" rel="noopener">mac下超好用的终端–iterm2用法与技巧</a></li>
+<li><a href="https://link.jianshu.com/?t=http://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/" target="_blank" rel="noopener">使用profiles功能快速ssh机器-Fast SSH Windows With iTerm 2</a> 或者看这篇中文文章 <a href="http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html" target="_blank" rel="noopener">http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html</a></li>
 </ul>
-<p><a href="https://www.jianshu.com/p/445d3f754c4d" target="_blank" rel="noopener">Mac 配置Finder当前目录打开iTerm2</a></p>
-<p><a href="https://link.jianshu.com/?t=http://www.iterm2.com/documentation.html" target="_blank" rel="noopener">iTerm2 官方文档</a><br>
-<a href="https://link.jianshu.com/?t=http://foocoder.com/blog/wo-zai-yong-de-macruan-jian.html/" target="_blank" rel="noopener">终端环境之iTerm2</a><br>
-<a href="https://link.jianshu.com/?t=http://blog.csdn.net/thinkdiff/article/details/25075047" target="_blank" rel="noopener">mac下超好用的终端–iterm2用法与技巧</a><br>
-<a href="https://link.jianshu.com/?t=http://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/" target="_blank" rel="noopener">使用profiles功能快速ssh机器-Fast SSH Windows With iTerm 2</a> 或者看这篇中文文章 <a href="http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html" target="_blank" rel="noopener">http://fuweiyi.com/mac/2015/03/06/a-mac-iterm2-ssh-profile.html</a></p>
 ]]></content>
       <categories>
         <category>TECH</category>
@@ -2599,12 +2744,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-sttJnGHL" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-FcBEfQgL" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-sttJnGHL"),
+            element: document.getElementById("aplayer-FcBEfQgL"),
             narrow: false,
             autoplay: false,
             showlrc: false,

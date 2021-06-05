@@ -199,6 +199,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/categories/">Categories</a>
                         </li>
                         
@@ -207,13 +214,6 @@
                         
                         <li>
                             <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -275,7 +275,45 @@
                     col-md-10 col-md-offset-1
                     post-container">
 
-                    <h1 id="mac-显示隐藏文件-命令-comand-finder">Mac 显示隐藏文件 命令 comand finder</h1>
+                    <ul>
+<li>[x] Terminal 用 <a href="https://www.iterm2.com/" target="_blank" rel="noopener"><strong>iTerm2</strong></a> + <a href="https://en.wikipedia.org/wiki/Z_shell" target="_blank" rel="noopener"><strong>zsh</strong></a> + <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener"><strong>oh-my-zsh</strong></a> 的组合，主题是 <a href="https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme" target="_blank" rel="noopener">robbyrussell</a></li>
+<li>[x] zsh 的插件开了 git、autojump、brew、git、git-extra、git-flow、git-prompt、git-remote-branch、github、gitignore、history、history-substring-search、iterm2、node、npm、npx、nvm、tig、vscode、yarn、<a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></li>
+<li>[] iTerm2 里配 <code>Run command...</code> 为 <code>/usr/local/bin/idea --path \2 \1</code> (<a href="https://zos.alipayobjects.com/rmsportal/RmWdxKRQUWFMoVDjerNQ.png" target="_blank" rel="noopener">图</a>)，这样 Command + 点击文件路径，就会在 Intellij Idea 里打开
+<ul>
+<li>[x] 安装Go2Shell，在finder可以用iTerm2打开当前目录</li>
+<li>[x] 配置<a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a>
+<ul>
+<li>[x] open .  用finder打开当前文件</li>
+<li>[x] vsc .  用vscode打开当前文件</li>
+<li>[x] subl .  用Sublime打开当前文件</li>
+<li>[x] atom .  用Atom打开当前文件</li>
+<li>[x] command + &lt;-  / -&gt;     切换tab</li>
+<li>[x] control + w 回退一部分命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://tldr.sh/" target="_blank" rel="noopener">tldr</a> Simplified and community-driven <code>man</code> pages. Quick install: <code>npm install -g tldr</code>.</li>
+<li>Take <code>git</code> for example, while <code>man</code> <code>git</code> outputs more than 100 lines. <code>&gt; tldr git</code></li>
+</ul>
+<h2 id="命令行">命令行</h2>
+<h3 id="通过-homebrew-安装">通过 <a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a> 安装</h3>
+<ul>
+<li>[x] <a href="https://github.com/wting/autojump" target="_blank" rel="noopener"><strong>autojump</strong></a>，目录跳转</li>
+<li>[ ] <a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener"><strong>the_silver_searcher</strong></a>，文件搜索，命令行是 ag</li>
+<li>[ ] <a href="https://hub.github.com/" target="_blank" rel="noopener"><strong>hub</strong></a> - git 扩展</li>
+<li>[ ] <a href="https://github.com/jonas/tig" target="_blank" rel="noopener"><strong>tig</strong></a> - git 扩展</li>
+<li>[ ] <a href="https://github.com/sharkdp/bat" target="_blank" rel="noopener"><strong>bat</strong></a>，带行号的 cat，可以配 <code>alias cat=&quot;bat&quot;</code></li>
+<li>[ ] <a href="https://github.com/sharkdp/fd" target="_blank" rel="noopener"><strong>fd</strong></a>，比系统自带的 find 友好</li>
+</ul>
+<h3 id="通过-yarn-global-add-安装">通过 <code>yarn global add</code> 安装</h3>
+<ul>
+<li>[ ] <a href="https://github.com/popomore/projj" target="_blank" rel="noopener"><strong>projj</strong></a>，github/gitlab 项目管理</li>
+<li>[ ] <a href="https://github.com/zeit/serve" target="_blank" rel="noopener"><strong>serve</strong></a>，本地静态服务器</li>
+<li>[ ] <a href="https://github.com/sindresorhus/fkill" target="_blank" rel="noopener"><strong>fkill</strong></a>，比 kill 好用的进程 killer</li>
+<li>[ ] <a href="https://github.com/gtanner/qrcode-terminal" target="_blank" rel="noopener"><strong>qrcode-terminal</strong></a>，二维码生成</li>
+</ul>
+<h1 id="mac-显示隐藏文件-命令-comand-finder">Mac 显示隐藏文件 命令 comand finder</h1>
 <p>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件</p>
 <p>defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件</p>
 
@@ -335,8 +373,8 @@
         data-title="程序员-MAC 重新装机必备2命令行+环境配置"
         data-url="http://liyuankun.top/程序员-MAC-重新装机必备2命令行-环境配置.html"
         data-images="http://liyuankun.top/img/header_img/home-bg.png"
-        data-content="Mac 显示隐藏文件 命令 comand finder
-defaults write com.... | Yuankun | Zilan " >
+        data-content="
+[x] Terminal 用 iTerm2 + zsh + oh-my-zsh 的组合，主题... | Yuankun | Zilan " >
         <div class="ds-share-inline">
             <ul  class="ds-share-icons-16">
             <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -394,7 +432,7 @@ defaults write com.... | Yuankun | Zilan " >
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#mac-显示隐藏文件-命令-comand-finder"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Mac 显示隐藏文件 命令 comand finder</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#命令行"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">命令行</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#通过-homebrew-安装"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">通过 homebrew 安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#通过-yarn-global-add-安装"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">通过 yarn global add 安装</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#mac-显示隐藏文件-命令-comand-finder"><span class="toc-nav-number"></span> <span class="toc-nav-text">Mac 显示隐藏文件 命令 comand finder</span></a>
         
         </div>
       </aside>
@@ -420,6 +458,10 @@ defaults write com.... | Yuankun | Zilan " >
     <ul>
       
         <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
           <a href="/Git-Push-避免重复输入用户名和密码方法-多账户配置.html">Git Push 避免重复输入用户名和密码方法 - 多账户配置</a>
         </li>
       
@@ -433,10 +475,6 @@ defaults write com.... | Yuankun | Zilan " >
       
         <li>
           <a href="/程序员-MAC-重新装机必备2命令行-环境配置.html">程序员-MAC 重新装机必备2命令行+环境配置</a>
-        </li>
-      
-        <li>
-          <a href="/程序员-MAC-重新装机必备1软件.html">程序员-MAC 重新装机必备1软件</a>
         </li>
       
     </ul>
