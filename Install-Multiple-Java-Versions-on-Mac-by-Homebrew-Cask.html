@@ -15,11 +15,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          IntelliJ IDEA:Unregistered VCS root detected - Yuankun | Zilan
+          Install Multiple Java Versions on Mac by Homebrew Cask - Yuankun | Zilan
         
     </title>
 
-    <link rel="canonical" href="http://liyuankun.top/IntelliJ-IDEA-Unregistered-VCS-root-detected.html">
+    <link rel="canonical" href="http://liyuankun.top/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -106,7 +106,11 @@
                         <div class="post-heading">
                             <div class="tags">
                                 
-                                <a class="tag" href="/tags/#IntelliJ" title="IntelliJ">IntelliJ</a>
+                                <a class="tag" href="/tags/#Java" title="Java">Java</a>
+                                
+                                <a class="tag" href="/tags/#Command line" title="Command line">Command line</a>
+                                
+                                <a class="tag" href="/tags/#MAC" title="MAC">MAC</a>
                                 
                             </div>
                             <!-- category post header -->
@@ -118,16 +122,16 @@
                             
                                 <span class="post-comments-count">
                                     <span class="post-meta-divider">|</span>
-                                    <a href="/IntelliJ-IDEA-Unregistered-VCS-root-detected.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                    <a href="/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
                                         <span class="post-meta-item-icon">
                                             <i class="fa fa-comment-o"></i>
                                         </span>
-                                        <span class="post-comments-count gitment-comments-count" data-xid="/IntelliJ-IDEA-Unregistered-VCS-root-detected.html" itemprop="commentsCount"></span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html" itemprop="commentsCount"></span>
                                     </a>
                                 </span>
                             
                             <h1>
-                                IntelliJ IDEA:Unregistered VCS root detected
+                                Install Multiple Java Versions on Mac by Homebrew Cask
                                 <!-- Share -->
                                 
                                     <span id="needsharebutton-postbottom" class="header-share">
@@ -137,10 +141,10 @@
                                     </span>
                                 
                             </h1>
-                            <h2 class="subheading"></h2>
+                            <h2 class="subheading">多个Java版本切换和安装</h2>
                             <span class="meta">
                                 Posted by Yuankun Li on
-                                2019-07-10
+                                2021-06-06
                             </span>
                         </div>
                     
@@ -275,15 +279,47 @@
                     col-md-10 col-md-offset-1
                     post-container">
 
-                    <p>如果还没有配置git，参考<a href="../IntelliJ-IDEA-Set-git.html">IntelliJ-IDEA-Set-git</a>。</p>
-<p>在IntelliJ IDEA导入已有的git项目时，出现warning：</p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/IntelliJ-IDEA-Unregistered-VCS-root-detected/1.png" alt="warning"></p>
-<p>打开Preference-&gt;Version Control，看到Unregistered的project目录：<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/IntelliJ-IDEA-Unregistered-VCS-root-detected/2.png" alt="warning"></p>
-<p>选中要配置的Unregistered的project，点击“+”，然后Apply，解决<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/IntelliJ-IDEA-Unregistered-VCS-root-detected/3.png" alt="warning"></p>
-<p>参考链接：<br>
-<a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000013600--Unregistered-VCS-root-detected-" target="_blank" rel="noopener">Unregistered VCS root detected </a></p>
+                    <h1 id="安装homebrew-cask">安装<a href="https://github.com/Homebrew/homebrew-cask" target="_blank" rel="noopener">Homebrew Cask</a></h1>
+<h2 id="brew-install-和-brew-cask-install-的区别"><a href="https://zhuanlan.zhihu.com/p/138059447" target="_blank" rel="noopener">brew install 和 brew cask install 的区别</a></h2>
+<h2 id="homebrew-官网"><a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a> 官网</h2>
+<p>Install <a href="https://github.com/Homebrew/homebrew-cask" target="_blank" rel="noopener">Homebrew Cask</a> first if you haven’t:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line"><span class="comment"># 老版本 brew tap caskroom/cask</span></span><br><span class="line"><span class="comment"># 会报错：</span></span><br><span class="line"><span class="comment"># Error: caskroom/cask was moved. Tap homebrew/cask instead.</span></span><br><span class="line"><span class="comment"># 2021 新版本：</span></span><br><span class="line">brew tap homebrew/cask </span><br><span class="line"><span class="comment"># 老版本： brew install brew-cask</span></span><br><span class="line">brew install homebrew/cask</span><br></pre></td></tr></table></figure>
+<p>安装brew-cask-completion：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install brew-cask-completion</span><br></pre></td></tr></table></figure>
+<p>But before doing that, let’s check if we already have JDK 7 installed by Homebrew Cask:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 老版本 brew tap caskroom/versions</span></span><br><span class="line"><span class="comment"># Error: caskroom/versions was moved. Tap homebrew/cask-versions instead.</span></span><br><span class="line">brew tap homebrew/cask-versions</span><br><span class="line"><span class="comment"># 老版本：brew cask info java7</span></span><br><span class="line">brew info --cask java7</span><br></pre></td></tr></table></figure>
+<h2 id="how-to-use-homebrew-cask"><a href="https://github.com/Homebrew/homebrew-cask/blob/master/USAGE.md" target="_blank" rel="noopener">How to Use Homebrew Cask</a></h2>
+<h1 id="安装java">安装Java</h1>
+<h2 id="安装最新版本java">安装最新版本Java</h2>
+<p>Otherwise, install Latest Version of Java Using Brew:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 老版本 brew cask install java</span></span><br><span class="line"><span class="comment"># 会报错：</span></span><br><span class="line"><span class="comment"># Error: Unknown command: cask</span></span><br><span class="line">brew install --cask java</span><br></pre></td></tr></table></figure>
+<h2 id="安装指定版本java">安装指定版本Java</h2>
+<p>Install Specific Versions of Java (Java8, Java11, Java13)<br>
+To install previous or specific versions of JDKs, you can get them from AdoptOpenJDK:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap adoptopenjdk/openjdk</span><br><span class="line"></span><br><span class="line">$ brew install --cask adoptopenjdk8</span><br><span class="line">$ brew install --cask adoptopenjdk11</span><br><span class="line">$ brew install --cask adoptopenjdk13</span><br></pre></td></tr></table></figure>
+<h1 id="java版本切换">Java版本切换</h1>
+<p>Now it is time to install jEnv:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jenv</span><br></pre></td></tr></table></figure>
+<p>Add the following lines to ~/.bash_profile. This will initialize jEnv.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Init jenv</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">which</span> jenv &gt; /dev/null; <span class="keyword">then</span> <span class="built_in">eval</span> <span class="string">"<span class="variable">$(jenv init -)</span>"</span>; <span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>jEnv doesn’t install JDKs, so we have to tell jEnv where to look for them. Type these commands to register JDKs in jEnv (replace the minor and patch versions with yours):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">where</span> java</span><br><span class="line">/usr/bin/java</span><br><span class="line">/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/bin/java</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<p>After that, run this command to list all registered JDKs:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jenv versions</span><br></pre></td></tr></table></figure>
+<p>The version with an asterisk is the active version.<br>
+In my case, I need to keep JDK 7 as my default version, so I set the global version to 1.7:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jenv global oracle64-1.7.0.79</span><br></pre></td></tr></table></figure>
+<p>And in my project, I set the local JDK version to 1.8:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;my project&gt;</span><br><span class="line">jenv <span class="built_in">local</span> oracle64-1.8.0.66</span><br></pre></td></tr></table></figure>
+<p>The above command will create a .java-version file at project root. Its content is the version I just picked for this project:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oracle64-1.8.0.66</span><br></pre></td></tr></table></figure>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/" target="_blank" rel="noopener">Install Multiple Java Versions on Mac</a></li>
+<li><a href="https://stackoverflow.com/questions/30413621/homebrew-cask-option-not-recognized" target="_blank" rel="noopener">Homebrew cask option not recognized?</a></li>
+<li><a href="https://devqa.io/brew-install-java/" target="_blank" rel="noopener">How to Use Brew to Install Java on Mac</a></li>
+</ul>
 
 
                     <!-- Donate -->
@@ -310,8 +346,8 @@
 
                     <! -- 添加版权信息 -->
 <div class="article-footer-copyright">
-  <div><b>本文标题: </b><a href="/IntelliJ-IDEA-Unregistered-VCS-root-detected.html" target="_blank" title="IntelliJ IDEA:Unregistered VCS root detected">IntelliJ IDEA:Unregistered VCS root detected</a></div>
-  <div><b>本文链接: </b><a href="/IntelliJ-IDEA-Unregistered-VCS-root-detected.html" target="_blank" title="IntelliJ IDEA:Unregistered VCS root detected">http://liyuankun.top/IntelliJ-IDEA-Unregistered-VCS-root-detected.html</a>.</div>
+  <div><b>本文标题: </b><a href="/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html" target="_blank" title="Install Multiple Java Versions on Mac by Homebrew Cask">Install Multiple Java Versions on Mac by Homebrew Cask</a></div>
+  <div><b>本文链接: </b><a href="/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html" target="_blank" title="Install Multiple Java Versions on Mac by Homebrew Cask">http://liyuankun.top/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html</a>.</div>
   <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
 </div>
 
@@ -321,12 +357,12 @@
                     <ul class="pager">
                         
                             <li class="previous">
-                                <a href="/IntelliJ-IDEA-Set-git.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="IntelliJ IDEA:Set git">&larr; Previous Post</a>
+                                <a href="/Web-containers-web容器总结.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="web容器对比">&larr; Previous Post</a>
                             </li>
                         
                         
                             <li class="next">
-                                <a href="/Server-Tomcat-v8-0-Server-at-localhost-was-unable-to-start-within-180-seconds-in-Eclipse.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="Server Tomcat v8.0 Server at localhost was unable to start within 180 seconds in Eclipse">Next Post &rarr;</a>
+                                <a href="/awesome-tools.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="程序猿的那些好用工具">Next Post &rarr;</a>
                             </li>
                         
                     </ul>
@@ -337,12 +373,12 @@
     </style>
     <div class="ds-share"
         style="text-align: right"
-        data-thread-key="IntelliJ-IDEA-Unregistered-VCS-root-detected.html"
-        data-title="IntelliJ IDEA:Unregistered VCS root detected"
-        data-url="http://liyuankun.top/IntelliJ-IDEA-Unregistered-VCS-root-detected.html"
+        data-thread-key="Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html"
+        data-title="Install Multiple Java Versions on Mac by Homebrew Cask"
+        data-url="http://liyuankun.top/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html"
         data-images="http://liyuankun.top/img/header_img/home-bg.png"
-        data-content="如果还没有配置git，参考IntelliJ-IDEA-Set-git。
-在IntelliJ I... | Yuankun | Zilan " >
+        data-content="安装Homebrew Cask
+brew install 和 brew cask instal... | Yuankun | Zilan " >
         <div class="ds-share-inline">
             <ul  class="ds-share-icons-16">
             <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -363,9 +399,9 @@
     <!-- 多说评论框 start -->
     <div class="comment">
         <div class="ds-thread"
-            data-thread-key="IntelliJ-IDEA-Unregistered-VCS-root-detected.html"
-            data-title="IntelliJ IDEA:Unregistered VCS root detected"
-            data-url="http://liyuankun.top/IntelliJ-IDEA-Unregistered-VCS-root-detected.html" >
+            data-thread-key="Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html"
+            data-title="Install Multiple Java Versions on Mac by Homebrew Cask"
+            data-url="http://liyuankun.top/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html" >
         </div>
     </div>
 
@@ -400,7 +436,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安装homebrew-cask"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装Homebrew Cask</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#brew-install-和-brew-cask-install-的区别"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">brew install 和 brew cask install 的区别</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#homebrew-官网"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">homebrew 官网</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#how-to-use-homebrew-cask"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">How to Use Homebrew Cask</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安装java"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装Java</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装最新版本java"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">安装最新版本Java</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装指定版本java"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">安装指定版本Java</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#java版本切换"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Java版本切换</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#reference"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Reference</span></a></li></ol>
         
         </div>
       </aside>
@@ -1202,8 +1238,8 @@
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES * * */
         var disqus_shortname = "lyk-1";
-        var disqus_identifier = "http://liyuankun.top/IntelliJ-IDEA-Unregistered-VCS-root-detected.html";
-        var disqus_url = "http://liyuankun.top/IntelliJ-IDEA-Unregistered-VCS-root-detected.html";
+        var disqus_identifier = "http://liyuankun.top/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html";
+        var disqus_url = "http://liyuankun.top/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html";
 
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

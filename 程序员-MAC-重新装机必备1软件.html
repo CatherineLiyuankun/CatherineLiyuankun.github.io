@@ -199,7 +199,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -213,7 +213,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -288,6 +288,7 @@
 </ul>
 </li>
 <li><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener">Toolbox</a> + IntelliJ</li>
+<li><a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime</a></li>
 </ul>
 <h2 id="编程辅助">编程辅助</h2>
 <ul>
@@ -304,33 +305,31 @@
 <li><a href="https://www.charlesproxy.com/" target="_blank" rel="noopener"><strong>Charles</strong></a>，抓包用，支持 https, 不免费，公司提供的付费账号。</li>
 <li><a href="https://github.com/2ndalpha/gasmask" target="_blank" rel="noopener"><strong>Gas Mask</strong></a> ，<a href="https://zhuanlan.zhihu.com/p/20466912" target="_blank" rel="noopener">Hosts 管理</a></li>
 </ul>
-<h2 id="命令行工具">命令行工具</h2>
-<ul>
-<li><a href="https://iterm2.com/" target="_blank" rel="noopener">Iterm2</a></li>
-</ul>
+<h2 id="命令行工具和配置">命令行工具和配置</h2>
+<p>参考下一篇文章： <a href="../%E7%A8%8B%E5%BA%8F%E5%91%98-MAC-%E9%87%8D%E6%96%B0%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%872%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html">程序员-MAC-重新装机必备2命令行-环境配置</a></p>
 <h1 id="效率">效率</h1>
 <ul>
-<li>
-<p>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a> 【我的百度网盘、硬盘】应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。免费功能：File search, Web search，app启动, Calculator, Dictionary, System。付费功能（需购买Powerpack）：Workflow，Action, Clipboard History，Snippets, Contacts, itunes, 1Password, Terminal. 【我的百度网盘、硬盘】</p>
+<li>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a> 【我的百度网盘、硬盘】应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。免费功能：File search, Web search，app启动, Calculator, Dictionary, System。付费功能（需购买Powerpack）：Workflow，Action, Clipboard History，Snippets, Contacts, itunes, 1Password, Terminal. 【我的百度网盘、硬盘】
+<ul>
+<li><a href="https://www.jianshu.com/p/594fac7950c4" target="_blank" rel="noopener">Alfred auto paste on return 自动粘贴失效解决方法</a> 确认下 System Preferences -&gt; Security &amp; Privacy -&gt; Accessibility 里有没有勾选 Alfred。如果已经勾上了 取消掉 重新选择勾上试试。</li>
+</ul>
 </li>
-<li>
-<p>[x] <a href="https://github.com/gbammc/Thor" target="_blank" rel="noopener"><strong>Thor</strong></a>，【网址下载】或者[APP Store + 国外账号]一键直达应用， 免费，开源。</p>
+<li>[x] <a href="https://github.com/gbammc/Thor" target="_blank" rel="noopener"><strong>Thor</strong></a>，【网址下载】或者[APP Store + 国外账号]一键直达应用， 免费，开源。</li>
+<li><a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a>
+<ul>
+<li>“<code>右 Command”改成F19</code>: 切换到Complex modifications --&gt; Add rule --&gt; “Change caps_lock to command+control+option+shift.” --&gt; 打开文件<code>/Users/yourusername/.config/karabiner/karabiner.json</code> 把<code>caps_lock</code>替换成<code>right_command</code><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Karabiner%20Element.png" alt="替换成"></li>
+<li>我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。</li>
+<li><a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">遇到了macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题</li>
+<li>另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</li>
+</ul>
 </li>
-<li>
-<p><a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a>. 我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。<a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">遇到了macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题. 另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</p>
-</li>
-<li>
-<p>[x] <a href="https://github.com/newmarcel/KeepingYouAwake" target="_blank" rel="noopener"><strong>KeepingYouAwake</strong></a>，可保证Mac系统不自动休眠。原来用的<a href="http://lightheadsw.com/caffeine/" target="_blank" rel="noopener">Caffeine</a>，但是<a href="https://www.reddit.com/r/osx/comments/9pbl9u/macos_mojave_caffeine_replacement/" target="_blank" rel="noopener">MacOS更新到Mojave以后就不管用了</a>。可以改用Amphetamine 或者 KeepingYouAwake。免费，开源。</p>
-</li>
-<li>
-<p><a href="https://dida365.com/" target="_blank" rel="noopener"><strong>TickTick滴答</strong></a> ，任务管理，有MAC版和iPhone版，可以同步。[APP Store]</p>
-</li>
-<li>
-<p>[x] <a href="https://macpaw.com/cleanmymac" target="_blank" rel="noopener"><strong>CleanMyMac 3</strong></a> 【我的百度网盘、硬盘】系统清理。</p>
-</li>
-<li>
-<p>[x] <a href="https://www.rescuetime.com/dashboard" target="_blank" rel="noopener">RescueTime</a>和<a href="https://wakatime.com/dashboard" target="_blank" rel="noopener">WakaTime</a>来记录你的时间，都有Chrome插件。RescueTime 手机端电脑端都有app。</p>
-</li>
+</ul>
+<ul>
+<li>[x] <a href="https://github.com/newmarcel/KeepingYouAwake" target="_blank" rel="noopener"><strong>KeepingYouAwake</strong></a>，可保证Mac系统不自动休眠。原来用的<a href="http://lightheadsw.com/caffeine/" target="_blank" rel="noopener">Caffeine</a>，但是<a href="https://www.reddit.com/r/osx/comments/9pbl9u/macos_mojave_caffeine_replacement/" target="_blank" rel="noopener">MacOS更新到Mojave以后就不管用了</a>。可以改用Amphetamine 或者 KeepingYouAwake。免费，开源。</li>
+<li><a href="https://dida365.com/" target="_blank" rel="noopener"><strong>TickTick滴答</strong></a> ，任务管理，有MAC版和iPhone版，可以同步。[APP Store]</li>
+<li>[x] <a href="https://macpaw.com/cleanmymac" target="_blank" rel="noopener"><strong>CleanMyMac 3</strong></a> 【我的百度网盘、硬盘】系统清理。</li>
+<li>[x] <a href="https://www.rescuetime.com/dashboard" target="_blank" rel="noopener">RescueTime</a>和<a href="https://wakatime.com/dashboard" target="_blank" rel="noopener">WakaTime</a>来记录你的时间，都有Chrome插件。RescueTime 手机端电脑端都有app。</li>
 </ul>
 <h1 id="工具">工具</h1>
 <ul>
@@ -338,6 +337,7 @@
 <li>office 365</li>
 <li>[x] <a href="http://kiwiforgmail.com/" target="_blank" rel="noopener"><strong>Kiwi for Gmail</strong></a>，Gmail 客户端, 我用的免费的lite版，App store 要切换到美国。</li>
 <li>[x] <a href="https://www.seagate.com/pl/pl/support/software/paragon/" target="_blank" rel="noopener"><strong>Microsoft NTFS for Mac by Paragon Software</strong></a> - 支持 NTFS 格式硬盘，因为原来买了希捷的移动硬盘，送的软件，一般、够用。</li>
+<li>Photoshop 收费，如果轻量级使用可以用网页在线工具<a href="https://www.photopea.com/" target="_blank" rel="noopener">photopea</a>代替。</li>
 </ul>
 <h2 id="输出">输出</h2>
 <!-- - [ ] [**Ulysses**](https://ulysses.app/)，笔记工具，从 [Bear](http://www.bear-writer.com/) 和 [Notion](https://www.notion.so/?r=159be429981b4725ad6f36c4f599bd98) 切到 Ulysses -->
@@ -366,13 +366,24 @@
 <ul>
 <li>[x] <a href="https://vpn.microstrategy.com/global-protect/getsoftwarepage.esp" target="_blank" rel="noopener">GlobalProtect</a> 【网址下载】 工作 VPN 软件</li>
 <li>[ ] Microsoft Remote Desktop [APP Store]</li>
-<li>[ ]</li>
+<li>[ ] Zoom</li>
 </ul>
 <h2 id="生活娱乐必备">生活娱乐必备</h2>
 <ul>
 <li>各类视频软件</li>
 </ul>
-
+<h1 id="mac-设置">MAC 设置</h1>
+<h2 id="高效-macbook-工作环境配置"><a href="https://cloud.tencent.com/developer/article/1424480" target="_blank" rel="noopener">高效 MacBook 工作环境配置</a></h2>
+<h2 id="finder设置">Finder设置</h2>
+<ul>
+<li>
+<p><a href="https://sspai.com/post/27403" target="_blank" rel="noopener">10 个实用技巧，让 Finder 带你飞</a></p>
+</li>
+<li>
+<p>Mac 显示隐藏文件 命令 comand finder</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件</span><br><span class="line"></span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件</span><br></pre></td></tr></table></figure>
 
                     <!-- Donate -->
 
@@ -489,7 +500,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#编程必备"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">编程必备</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ide"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">IDE</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#编程辅助"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">编程辅助</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#网络"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">网络</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#命令行工具"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">命令行工具</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#效率"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">效率</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#工具"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">工具</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输出"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">输出</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输入"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">输入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#虚拟机"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#工作必备"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">工作必备</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生活娱乐必备"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">生活娱乐必备</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#编程必备"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">编程必备</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ide"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">IDE</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#编程辅助"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">编程辅助</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#网络"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">网络</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#命令行工具和配置"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">命令行工具和配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#效率"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">效率</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#工具"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">工具</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输出"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">输出</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#输入"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">输入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#虚拟机"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#工作必备"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">工作必备</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生活娱乐必备"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">生活娱乐必备</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#mac-设置"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">MAC 设置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#高效-macbook-工作环境配置"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">高效 MacBook 工作环境配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#finder设置"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">Finder设置</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -515,6 +526,14 @@
     <ul>
       
         <li>
+          <a href="/Web-containers-web容器总结.html">web容器对比</a>
+        </li>
+      
+        <li>
+          <a href="/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html">Install Multiple Java Versions on Mac by Homebrew Cask</a>
+        </li>
+      
+        <li>
           <a href="/awesome-tools.html">程序猿的那些好用工具</a>
         </li>
       
@@ -524,14 +543,6 @@
       
         <li>
           <a href="/制作MAC-OS-系统安装U盘.html">制作MAC OS 系统安装U盘</a>
-        </li>
-      
-        <li>
-          <a href="/MAC-book-pro-2015款换三星SSD硬盘970EVO-1T.html">MAC book pro 2015款换三星SSD硬盘970EVO 1T</a>
-        </li>
-      
-        <li>
-          <a href="/程序员-MAC-重新装机必备2命令行-环境配置.html">程序员-MAC 重新装机必备2命令行+环境配置</a>
         </li>
       
     </ul>

@@ -1,6 +1,337 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>web容器对比</title>
+    <url>/Web-containers-web%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="web容器-vs-ejb容器-vs-java-ee容器">Web容器 Vs EJB容器 Vs Java EE容器</h1>
+<p>Web容器和EJB容器是Java EE容器的子集。 Java EE容器还包含应用程序客户端容器和applet容器。<br>
+*在文档中，他们使用多格式，但是实际上每个Java EE服务器只有一个Web容器和一个EJB容器。</p>
+<blockquote>
+<p>The deployment process installs Java EE application components in the Java EE containers.</p>
+</blockquote>
+<blockquote>
+<p>Application client container: Manages the execution of application client components. Application clients and their container run on the client.</p>
+</blockquote>
+<blockquote>
+<p>Applet container: Manages the execution of applets. Consists of a web browser and Java Plug-in running on the client together.</p>
+</blockquote>
+<h2 id="ejb容器">EJB容器</h2>
+<blockquote>
+<p>Enterprise JavaBeans (EJB) container: Manages the execution of enterprise beans for Java EE applications. Enterprise beans and their container run on the Java EE server.</p>
+</blockquote>
+<h2 id="java-ee容器">Java EE容器</h2>
+<blockquote>
+<p>Java EE server: The runtime portion of a Java EE product. A Java EE server provides EJB [container and web container].</p>
+</blockquote>
+<p>Java EE容器是一种应用程序服务器解决方案，它支持Web容器，EJB和其他Java EE API和服务。<br>
+Orace WebLogic服务器，GlassFish服务器，IBM WebSphere应用程序服务器，JBoss应用程序服务器和Caucho Resin是Java EE容器的示例</p>
+<h2 id="web容器">Web容器</h2>
+<blockquote>
+<p>Web container: Manages the execution of JSP page and servlet components for Java EE applications. Web components and their container run on the Java EE server.<br>
+管理Java EE应用程序的网页，Servlet和某些EJB组件的执行。 Web组件及其容器运行在Web服务器上，例如Jetty，tomcat。</p>
+</blockquote>
+<h1 id="对比表格">对比表格</h1>
+<table>
+<thead>
+<tr>
+<th>特性\web containers</th>
+<th>Tomcat</th>
+<th>WebLogic</th>
+<th>WebSphere</th>
+<th>JBOSS</th>
+<th>Jetty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1出品公司</td>
+<td>Apache 软件基金会的 Jakarta 项目中的一个核心项目，由 Apache、 Sun 和其他一些公司及个人共同开发而成。</td>
+<td>最早由WebLogic Inc.开发，后并入BEA公司，最终BEA公司又并入Oracle公司</td>
+<td>IBM 的集成软件平台</td>
+<td>2006 年,Jboss 公司被 Redhat 公司收购</td>
+<td></td>
+</tr>
+<tr>
+<td>2介绍</td>
+<td>Jsp和Servlet容器。由于有了 Sun 的参与和支持，最新的 S ervlet 和 JSP 规范总是能在 Tomcat 中得到体现， Tomcat 5 支持最新的 Servlet 2. 4 和 JSP 2.0 规范。因为 Tomcat 技术先进、性能稳定，而且免费，因而深受 Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的 Web 应用服务器。</td>
+<td>application server 确切的说是一个基于 j2ee 架构的中间件。用于开发、集成、部署和管理大型分布式 Web 应用、网络应用和数据库应用的 Java 应用服务器。将 Java 的动态功能和 Java Enterprise 标准的安全性引入大型网络应用的开发、集成、部署和管理之中。</td>
+<td>它包含了编写、运行和监视全天候的工 业强度的随需应变 Web 应用程序和跨平台、 跨产品解决方案所需要的整个中间件基 础设施，如服务器、服务和工具。 WebSphere 提供了可靠、灵活和健壮的集成软件。</td>
+<td>JBoss是一个基于J2EE的管理EJB的容器和服务器，支持 EJB 1.1、EJB 2.0 和 EJB3.0 的 规范。但 JBoss 核心服务不包括支持 servlet/JSP 的 WEB 容器，一般与 Tomcat 或 Jetty 绑定使用。（Jboss作为应用服务器，而Tomcat做web服务器。在 3.0 之前 JBoss 使用 Jetty 作为 Web Container，之后 JBoss 使用了 Tomcat 作为他的一个基础服务提供了 Web Container，所以 JBoss 4.x 里面你会看到一个 Embbed Tomcat。）</td>
+<td>Servlet容器</td>
+</tr>
+<tr>
+<td>3价位</td>
+<td>免费</td>
+<td>收费-高 对于开发者，有免费使用一年的许可证。</td>
+<td>收费-高</td>
+<td>免费（文档要收费）</td>
+<td>免费</td>
+</tr>
+<tr>
+<td>开源性</td>
+<td>开源</td>
+<td>不</td>
+<td>不</td>
+<td>开源</td>
+<td>开源</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>轻便小巧</td>
+<td></td>
+<td></td>
+<td>热deploy</td>
+<td>开源</td>
+</tr>
+<tr>
+<td>技术支持</td>
+<td><code>EJB</code> No</td>
+<td>WebLogic 与 WebSphere 都是对业内多种标准的全面支持， 包括 EJB、 JSB、 JMS、 JDBC、XML 和 WML，使 Web 应用系统的实施更为简单，并且保护了投资，同时也使基于标准的解决方案的开发更加简便。</td>
+<td></td>
+<td><code>EJB</code> Yes JBoss 是实现了EJB 容器，再集成了 Tomcat</td>
+<td></td>
+</tr>
+<tr>
+<td>扩展性</td>
+<td></td>
+<td>高扩展的架构体系闻名于业内，包括客户机连接的共享、资源 pooling 以及动态网页和 EJB 组件群集。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>应用范围</td>
+<td>小型的轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试 JSP 程序的首选。</td>
+<td>大型企业的大型项目</td>
+<td>大型企业的大型项目</td>
+<td>EJB 服务的中小型公司</td>
+<td></td>
+</tr>
+<tr>
+<td>商业服务和技术支持</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+<td>无</td>
+<td></td>
+</tr>
+<tr>
+<td>与数据库的紧密结合性</td>
+<td></td>
+<td>如果硬件成本比软件成本高许多，那不如使用 Weblogic/Websphere。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>相对低</td>
+<td>相对高</td>
+<td>相对高</td>
+<td>相对低</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="相关cve">相关CVE</h1>
+<h2 id="tomcat">Tomcat</h2>
+<ul>
+<li><a href="https://www.freebuf.com/vuls/228108.html" target="_blank" rel="noopener">CVE-2020-1938</a></li>
+<li><a href="https://github.com/pyn3rd/CVE-2019-0232/" target="_blank" rel="noopener">CVE-2019-0232 远程代码执行</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&amp;mid=2247483659&amp;idx=1&amp;sn=c23b3a3b3b43d70999bdbe644e79f7e5" target="_blank" rel="noopener">CVE-2017-12615 任意文件写入</a></li>
+<li>CVE-2013-2067</li>
+<li>CVE-2012-4534</li>
+<li>CVE-2012-4431</li>
+<li>CVE-2012-3546</li>
+<li>CVE-2012-3544</li>
+<li>CVE-2012-2733</li>
+<li>CVE-2011-3375</li>
+<li>CVE-2011-3190</li>
+<li>CVE-2008-2938</li>
+</ul>
+<h2 id="weblogic">Weblogic</h2>
+<ul>
+<li>
+<p>CVE-2019-2725</p>
+<ul>
+<li>wls-wsat 反序列化远程代码执行</li>
+</ul>
+</li>
+<li>
+<p>CVE-2019-2658</p>
+</li>
+<li>
+<p>CVE-2019-2650</p>
+</li>
+<li>
+<p>CVE-2019-2649</p>
+</li>
+<li>
+<p>CVE-2019-2648</p>
+</li>
+<li>
+<p>CVE-2019-2647</p>
+</li>
+<li>
+<p>CVE-2019-2646</p>
+</li>
+<li>
+<p>CVE-2019-2645</p>
+</li>
+<li>
+<p>CVE-2019-2618</p>
+<ul>
+<li><a href="https://github.com/jas502n/cve-2019-2618/" target="_blank" rel="noopener">https://github.com/jas502n/cve-2019-2618/</a></li>
+</ul>
+</li>
+<li>
+<p>CVE-2019-2615</p>
+</li>
+<li>
+<p>CVE-2019-2568</p>
+</li>
+<li>
+<p>CVE-2018-3252</p>
+</li>
+<li>
+<p>CVE-2018-3248</p>
+</li>
+<li>
+<p>CVE-2018-3245</p>
+</li>
+<li>
+<p>CVE-2018-3201</p>
+</li>
+<li>
+<p>CVE-2018-3197</p>
+</li>
+<li>
+<p>CVE-2018-3191</p>
+<ul>
+<li><a href="https://github.com/voidfyoo/CVE-2018-3191" target="_blank" rel="noopener">https://github.com/voidfyoo/CVE-2018-3191</a></li>
+<li><a href="https://github.com/Libraggbond/CVE-2018-3191" target="_blank" rel="noopener">https://github.com/Libraggbond/CVE-2018-3191</a></li>
+</ul>
+</li>
+<li>
+<p>CVE-2018-2894</p>
+<ul>
+<li>任意文件上传</li>
+<li><a href="https://xz.aliyun.com/t/2458" target="_blank" rel="noopener">https://xz.aliyun.com/t/2458</a></li>
+</ul>
+</li>
+<li>
+<p>CVE-2018-2893</p>
+<ul>
+<li>反序列化</li>
+<li><a href="https://www.freebuf.com/vuls/178105.html" target="_blank" rel="noopener">https://www.freebuf.com/vuls/178105.html</a></li>
+</ul>
+</li>
+<li>
+<p>CVE-2018-2628</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/nYY4zg2m2xsqT0GXa9pMGA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/nYY4zg2m2xsqT0GXa9pMGA</a></li>
+</ul>
+</li>
+<li>
+<p>CVE-2018-1258</p>
+</li>
+<li>
+<p>CVE-2017-10271</p>
+<ul>
+<li><a href="http://webcache.googleusercontent.com/search?q=cache%3AsH7j8TF8uOIJ%3Awww.freebuf.com%2Fvuls%2F160367.html" target="_blank" rel="noopener">XMLDecoder 反序列化漏洞</a></li>
+</ul>
+</li>
+<li>
+<p>CVE-2017-3248</p>
+</li>
+<li>
+<p>CVE-2016-3510</p>
+</li>
+<li>
+<p>CVE-2015-4852</p>
+<ul>
+<li><a href="https://github.com/roo7break/serialator" target="_blank" rel="noopener">https://github.com/roo7break/serialator</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="jboss">JBoss</h2>
+<ul>
+<li>CVE-2017-12149
+<ul>
+<li>反序列化漏洞</li>
+<li>访问 /invoker/readonly ，页面存在即有反序列化漏洞</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a href="https://websec.readthedocs.io/zh/latest/language/java/container.html" target="_blank" rel="noopener">Web安全学习笔记5.3.5. 容器</a></li>
+<li><a href="https://www.codenong.com/17181292/" target="_blank" rel="noopener">Java EE容器与Web容器</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>BackEnd</category>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Install Multiple Java Versions on Mac by Homebrew Cask</title>
+    <url>/Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="安装homebrew-cask">安装<a href="https://github.com/Homebrew/homebrew-cask" target="_blank" rel="noopener">Homebrew Cask</a></h1>
+<h2 id="brew-install-和-brew-cask-install-的区别"><a href="https://zhuanlan.zhihu.com/p/138059447" target="_blank" rel="noopener">brew install 和 brew cask install 的区别</a></h2>
+<h2 id="homebrew-官网"><a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a> 官网</h2>
+<p>Install <a href="https://github.com/Homebrew/homebrew-cask" target="_blank" rel="noopener">Homebrew Cask</a> first if you haven’t:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew update</span><br><span class="line"><span class="comment"># 老版本 brew tap caskroom/cask</span></span><br><span class="line"><span class="comment"># 会报错：</span></span><br><span class="line"><span class="comment"># Error: caskroom/cask was moved. Tap homebrew/cask instead.</span></span><br><span class="line"><span class="comment"># 2021 新版本：</span></span><br><span class="line">brew tap homebrew/cask </span><br><span class="line"><span class="comment"># 老版本： brew install brew-cask</span></span><br><span class="line">brew install homebrew/cask</span><br></pre></td></tr></table></figure>
+<p>安装brew-cask-completion：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install brew-cask-completion</span><br></pre></td></tr></table></figure>
+<p>But before doing that, let’s check if we already have JDK 7 installed by Homebrew Cask:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 老版本 brew tap caskroom/versions</span></span><br><span class="line"><span class="comment"># Error: caskroom/versions was moved. Tap homebrew/cask-versions instead.</span></span><br><span class="line">brew tap homebrew/cask-versions</span><br><span class="line"><span class="comment"># 老版本：brew cask info java7</span></span><br><span class="line">brew info --cask java7</span><br></pre></td></tr></table></figure>
+<h2 id="how-to-use-homebrew-cask"><a href="https://github.com/Homebrew/homebrew-cask/blob/master/USAGE.md" target="_blank" rel="noopener">How to Use Homebrew Cask</a></h2>
+<h1 id="安装java">安装Java</h1>
+<h2 id="安装最新版本java">安装最新版本Java</h2>
+<p>Otherwise, install Latest Version of Java Using Brew:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 老版本 brew cask install java</span></span><br><span class="line"><span class="comment"># 会报错：</span></span><br><span class="line"><span class="comment"># Error: Unknown command: cask</span></span><br><span class="line">brew install --cask java</span><br></pre></td></tr></table></figure>
+<h2 id="安装指定版本java">安装指定版本Java</h2>
+<p>Install Specific Versions of Java (Java8, Java11, Java13)<br>
+To install previous or specific versions of JDKs, you can get them from AdoptOpenJDK:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew tap adoptopenjdk/openjdk</span><br><span class="line"></span><br><span class="line">$ brew install --cask adoptopenjdk8</span><br><span class="line">$ brew install --cask adoptopenjdk11</span><br><span class="line">$ brew install --cask adoptopenjdk13</span><br></pre></td></tr></table></figure>
+<h1 id="java版本切换">Java版本切换</h1>
+<p>Now it is time to install jEnv:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install jenv</span><br></pre></td></tr></table></figure>
+<p>Add the following lines to ~/.bash_profile. This will initialize jEnv.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Init jenv</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">which</span> jenv &gt; /dev/null; <span class="keyword">then</span> <span class="built_in">eval</span> <span class="string">"<span class="variable">$(jenv init -)</span>"</span>; <span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>jEnv doesn’t install JDKs, so we have to tell jEnv where to look for them. Type these commands to register JDKs in jEnv (replace the minor and patch versions with yours):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">where</span> java</span><br><span class="line">/usr/bin/java</span><br><span class="line">/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/bin/java</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<p>After that, run this command to list all registered JDKs:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jenv versions</span><br></pre></td></tr></table></figure>
+<p>The version with an asterisk is the active version.<br>
+In my case, I need to keep JDK 7 as my default version, so I set the global version to 1.7:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jenv global oracle64-1.7.0.79</span><br></pre></td></tr></table></figure>
+<p>And in my project, I set the local JDK version to 1.8:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;my project&gt;</span><br><span class="line">jenv <span class="built_in">local</span> oracle64-1.8.0.66</span><br></pre></td></tr></table></figure>
+<p>The above command will create a .java-version file at project root. Its content is the version I just picked for this project:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">oracle64-1.8.0.66</span><br></pre></td></tr></table></figure>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/" target="_blank" rel="noopener">Install Multiple Java Versions on Mac</a></li>
+<li><a href="https://stackoverflow.com/questions/30413621/homebrew-cask-option-not-recognized" target="_blank" rel="noopener">Homebrew cask option not recognized?</a></li>
+<li><a href="https://devqa.io/brew-install-java/" target="_blank" rel="noopener">How to Use Brew to Install Java on Mac</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+        <category>Environment setup</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Command line</tag>
+        <tag>MAC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>程序猿的那些好用工具</title>
     <url>/awesome-tools.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文在<a href="https://github.com/sorrycc/awesome-tools" target="_blank" rel="noopener">awesome-tools</a>基础上修改，添加自己使用的工具。有些是我也已经用的软件，有些是根据这篇文章才开始用的。</p>
@@ -787,10 +1118,17 @@ For example, when you access a repository using Git on the command line using co
   <entry>
     <title>程序员-MAC 重新装机必备2命令行+环境配置</title>
     <url>/%E7%A8%8B%E5%BA%8F%E5%91%98-MAC-%E9%87%8D%E6%96%B0%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%872%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
-<li>[x] Terminal 用 <a href="https://www.iterm2.com/" target="_blank" rel="noopener"><strong>iTerm2</strong></a> + <a href="https://en.wikipedia.org/wiki/Z_shell" target="_blank" rel="noopener"><strong>zsh</strong></a> + <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener"><strong>oh-my-zsh</strong></a> 的组合，主题是 <a href="https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme" target="_blank" rel="noopener">robbyrussell</a></li>
-<li>[x] zsh 的插件开了 git、autojump、brew、git、git-extra、git-flow、git-prompt、git-remote-branch、github、gitignore、history、history-substring-search、iterm2、node、npm、npx、nvm、tig、vscode、yarn、<a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></li>
-<li>[] iTerm2 里配 <code>Run command...</code> 为 <code>/usr/local/bin/idea --path \2 \1</code> (<a href="https://zos.alipayobjects.com/rmsportal/RmWdxKRQUWFMoVDjerNQ.png" target="_blank" rel="noopener">图</a>)，这样 Command + 点击文件路径，就会在 Intellij Idea 里打开
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="terminal-设置">Terminal 设置</h1>
+<ul>
+<li>
+<p>[x] Terminal 用 <a href="https://www.iterm2.com/" target="_blank" rel="noopener"><strong>iTerm2</strong></a> + <a href="https://en.wikipedia.org/wiki/Z_shell" target="_blank" rel="noopener"><strong>zsh</strong></a> + <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener"><strong>oh-my-zsh</strong></a> 的组合，主题是 <a href="https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme" target="_blank" rel="noopener">robbyrussell</a>.<br>
+配置方法参考文章： <a href="../oh-my-zsh%E7%BB%84%E5%90%88%E4%BD%A0%E7%9A%84terminal.html">iterm2+oh-my-zsh组合你的terminal</a>.</p>
+</li>
+<li>
+<p>[x] zsh 的插件开了 git、autojump、brew、git、git-extra、git-flow、git-prompt、git-remote-branch、github、gitignore、history、history-substring-search、iterm2、node、npm、npx、nvm、tig、vscode、yarn、<a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></p>
+</li>
+<li>
+<p>[] iTerm2 里配 <code>Run command...</code> 为 <code>/usr/local/bin/idea --path \2 \1</code> (<a href="https://zos.alipayobjects.com/rmsportal/RmWdxKRQUWFMoVDjerNQ.png" target="_blank" rel="noopener">图</a>)，这样 Command + 点击文件路径，就会在 Intellij Idea 里打开</p>
 <ul>
 <li>[x] 安装Go2Shell，在finder可以用iTerm2打开当前目录</li>
 <li>[x] 配置<a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a>
@@ -805,33 +1143,155 @@ For example, when you access a repository using Git on the command line using co
 </li>
 </ul>
 </li>
-<li><a href="https://tldr.sh/" target="_blank" rel="noopener">tldr</a> Simplified and community-driven <code>man</code> pages. Quick install: <code>npm install -g tldr</code>.</li>
-<li>Take <code>git</code> for example, while <code>man</code> <code>git</code> outputs more than 100 lines. <code>&gt; tldr git</code></li>
+<li>
+<p><a href="https://tldr.sh/" target="_blank" rel="noopener">tldr</a> Simplified and community-driven <code>man</code> pages. Quick install: <code>npm install -g tldr</code>.<br>
+Take <code>git</code> for example, while <code>man</code> <code>git</code> outputs more than 100 lines. <code>&gt; tldr git</code></p>
+</li>
 </ul>
-<h2 id="命令行">命令行</h2>
+<h1 id="命令行开发环境设置">命令行开发环境设置</h1>
+<h2 id="安装command-line-tools">安装Command line tools</h2>
+<p>苹果的 Command line tools 是专为开发者使用的，包括 gcc 等常用的基本工具。<br>
+推荐登陆 <a href="http://connect.apple.com" target="_blank" rel="noopener"><a href="http://connect.apple.com" target="_blank" rel="noopener">http://connect.apple.com</a></a> ，然后搜索 <code>command line tools</code> 选择对应版本进行安装。<br>
+也可以通过Xcode进行安装，如果已经安装Xcode则已经包含了<code>command line tools</code>。</p>
+<p>Mac 自带ruby，可以检查版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby -v</span><br></pre></td></tr></table></figure>
+<h2 id="检查shell版本-bash-or-zsh-or">检查shell版本 bash or zsh or?</h2>
+<p>MAC 自带并默认使用zsh。</p>
+<p>参考： <a href="https://unix.stackexchange.com/questions/9501/how-to-test-what-shell-i-am-using-in-a-terminal" target="_blank" rel="noopener">How to check what shell I am using in a terminal?</a></p>
+<h3 id="1-常用且好记">1 常用且好记</h3>
+<p>The following works on zsh, bash, and dash, but not on csh:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$0</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$BASH_VERSION</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$ZSH_VERSION</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-作用范围广">2 作用范围广</h3>
+<p>Works in the four shells (bash, dash, zsh, csh):</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ps -p $$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -p$$ -ocmd= </span><br><span class="line"></span><br><span class="line"><span class="comment"># On Solaris, this may need to be</span></span><br><span class="line">ps -p$$ -ofname=</span><br><span class="line"></span><br><span class="line"><span class="comment"># On macOS and on BSD should be</span></span><br><span class="line">ps -p$$ -ocommand=</span><br></pre></td></tr></table></figure>
+<h2 id="安装homebrew">安装homebrew</h2>
+<p><a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew 官网</a>。<br>
+homebrew是Mac下目前最常用的包管理工具，相当于debain下的 apt , Red hat系列的 yum ，帮你安装、升级、移除软件工具包。<br>
+软件安装完成后homebrew有时会给出进一步设置的提示，强烈建议仔细阅读。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/bin/bash -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<p>报错解决方法： <a href="https://zhuanlan.zhihu.com/p/346726110" target="_blank" rel="noopener">Mac 怎么安装Homebrew (2021)</a>。</p>
+<!-- > homebrew默认会把可执行文件装在目录 /usr/local/bin 下面，建议修改 path 路径，让你通过 homebrew
+安装的工具可以覆盖掉Mac默认的（例如git，Big sur Mac自带2.30.1版本的git）。使用管理员权限修改文件
+/etc/paths 将 /usr/local/bin 移动到第一行。 -->
 <h3 id="通过-homebrew-安装">通过 <a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a> 安装</h3>
 <ul>
-<li>[x] <a href="https://github.com/wting/autojump" target="_blank" rel="noopener"><strong>autojump</strong></a>，目录跳转</li>
-<li>[ ] <a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener"><strong>the_silver_searcher</strong></a>，文件搜索，命令行是 ag</li>
-<li>[ ] <a href="https://hub.github.com/" target="_blank" rel="noopener"><strong>hub</strong></a> - git 扩展</li>
-<li>[ ] <a href="https://github.com/jonas/tig" target="_blank" rel="noopener"><strong>tig</strong></a> - git 扩展</li>
-<li>[ ] <a href="https://github.com/sharkdp/bat" target="_blank" rel="noopener"><strong>bat</strong></a>，带行号的 cat，可以配 <code>alias cat=&quot;bat&quot;</code></li>
-<li>[ ] <a href="https://github.com/sharkdp/fd" target="_blank" rel="noopener"><strong>fd</strong></a>，比系统自带的 find 友好</li>
+<li>[x] <a href="https://github.com/wting/autojump" target="_blank" rel="noopener"><strong>autojump</strong></a>，目录跳转。 <code>brew install autojump</code>。</li>
 </ul>
-<h3 id="通过-yarn-global-add-安装">通过 <code>yarn global add</code> 安装</h3>
+<!-- - [ ] [**the\_silver\_searcher**](https://github.com/ggreer/the_silver_searcher)，文件搜索，命令行是 ag
+- [ ] [**hub**](https://hub.github.com/) - git 扩展
+- [ ] [**tig**](https://github.com/jonas/tig) - git 扩展
+- [ ] [**bat**](https://github.com/sharkdp/bat)，带行号的 cat，可以配 `alias cat="bat"`
+- [ ] [**fd**](https://github.com/sharkdp/fd)，比系统自带的 find 友好 -->
+<h2 id="多个java版本切换和安装">多个Java版本切换和安装</h2>
+<p><a href="../Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html">Install Multiple Java Versions on Mac by Homebrew Cask</a></p>
+<h2 id="node-version-manager-nvm">Node Version Manager: nvm</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm</span><br><span class="line">zsh: <span class="built_in">command</span> not found: nvm</span><br></pre></td></tr></table></figure>
+<h3 id="解决方法1：">解决方法1：</h3>
+<p>There might be some problems installing nvm in new mac, caused by the shell is not bash by default, check if it is bash with command</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$0</span></span><br></pre></td></tr></table></figure>
+<p>§ if it is not run command</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chsh -s /bin/bash</span><br></pre></td></tr></table></figure>
+<p>And then reopen the terminal</p>
+<h3 id="解决方法2：">解决方法2：</h3>
+<p>如果用的是<code>zsh</code>, 而不是<code>bash</code>. 将<code>.bashrc</code>中关于<code>nvm</code>的配置copy到<code>.zshrc</code>里边。<br>
+将<code>.bashrc</code>中的copy到<code>~.zshrc</code>下就可以啦。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"/usr/local/Cellar/nvm/0.38.0"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/bash_completion"</span> <span class="comment">#This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
+<p>然后再</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="安装bash-complete">安装bash-complete</h2>
+<p>bash 自动完成功能在 linux 发行版里一般都会自带，不过通过 homebrew 安装也很简单</p>
+<p>brew install bash-completion<br>
+安装完成后需要根据提示在你的 <code>.profile</code> 文件中添加几行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f $(brew --prefix)/etc/bash_completion ]; <span class="keyword">then</span></span><br><span class="line">  . $(brew --prefix)/etc/bash_completion</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h2 id="install-node-js">Install Node.js</h2>
+<ol>
+<li>Install Node.js</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm install v10.15.0</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Upgrade(<a href="https://codeforgeek.com/update-node-using-npm/" target="_blank" rel="noopener">https://codeforgeek.com/update-node-using-npm/</a>)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install -g n</span><br><span class="line">$ npm -v</span><br><span class="line">$ sudo n 10.15.0</span><br></pre></td></tr></table></figure>
+<h2 id="install-maven-and-add-its-bin-folder-to-the-path-environment-variable">Install Maven and add its bin folder to the PATH environment variable.</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install maven</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mvn -v</span><br><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Maven</span></span><br><span class="line"><span class="built_in">export</span> M2_HOME=<span class="string">"/usr/local/Cellar/maven/3.8.1/libexec"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;M2_HOME&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<h2 id="install-grunt-globally">Install Grunt globally</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure>
+<h2 id="install-the-ant-build-tool">Install the Ant build tool</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install ant</span><br></pre></td></tr></table></figure>
+<p>Add the environment variable <code>ANT_HOME</code> in your system.<br>
+Add its bin folder to the <code>PATH</code> environment variable.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ant</span></span><br><span class="line"><span class="comment"># BIN folder should include both ant and antRun</span></span><br><span class="line"><span class="comment"># If installed with brew, it should be "/usr/local/Cellar/ant@1.9/1.9.x/libexec/bin"</span></span><br><span class="line"><span class="built_in">export</span> ANT_HOME=/usr/<span class="built_in">local</span>/Cellar/1.10.10/libexec</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$ANT_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<h2 id="install-gradle">Install gradle</h2>
+<h3 id="方法1：通过homebrew安装">方法1：通过Homebrew安装</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install gradle</span><br><span class="line"><span class="comment"># brew install gradle@6</span></span><br><span class="line">brew upgrade gradle</span><br></pre></td></tr></table></figure>
+<h3 id="方法2：通过sdkman安装-gradle多版本管理-推荐">方法2：通过SDKman安装，gradle多版本管理【推荐】</h3>
+<p><a href="https://juejin.cn/post/6844903481942212621" target="_blank" rel="noopener">不同版本 Gradle ，怎么和平共处</a></p>
+<p><a href="https://github.com/sdkman/sdkman-cli" target="_blank" rel="noopener">安装SDKman</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -s https://get.sdkman.io | bash</span><br></pre></td></tr></table></figure>
+<p>查看安装版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sdk version</span><br></pre></td></tr></table></figure>
+<p>安装指定版本的 Gradle</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sdk install gradle 6.7</span><br></pre></td></tr></table></figure>
+<p>卸载指定版本的 Gradle</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sdk uninstall gradle 6.7</span><br></pre></td></tr></table></figure>
+<p>查看当前安装的 Gradle 版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sdk current gradle</span><br></pre></td></tr></table></figure>
+<p>查看安装的 Gradle 版本和所有版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sdk list gradle</span><br></pre></td></tr></table></figure>
+<p>设置默认的 Gradle 版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sdk default gradle 6.7</span><br></pre></td></tr></table></figure>
+<p>使用临时的 Gradle 版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sdk use gradle 6.7</span><br></pre></td></tr></table></figure>
+<!-- ## 安装Bash
+
+Mac 虽然默认也是使用 GNU Bash，不过使用命令 `/bin/bash --version` 可看到版本只有 3.2，该版本不支持 4.0 版本后添加的关联数组等功能，为了脚本的通用，建议升级到最新版本。
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install bash</span><br></pre></td></tr></table></figure>
+<p>安装完要设置新安装的 bash 为默认 bash ，用超级用户编辑文件：<code>/etc/shells</code>，加入<br>
+<code>/usr/local/bin/bash</code>到第一行 --&gt;</p>
+<!-- ## 安装coreutils
+
+Mac底层是基于freeBSD的，所以常用工具例如 `ls` 、`grep` 也都是freeBSD版本的，为了让我们的脚本可以更容易的跨平台，我们可以安装coreutils
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install coreutils</span><br></pre></td></tr></table></figure>
+<p>装完需要根据提示进行设置，在<code>.profile</code>文件中加入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/opt/coreutils/libexec/gnubin:<span class="variable">$PATH</span>"</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"/usr/local/opt/coreutils/libexec/gnuman:<span class="variable">$MANPATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>让GNU的工具覆盖freeBSD的，并且使用man时显示的是GNU工具的文档。 --&gt;</p>
+<!-- ## 安装dircolors-solarized
+
+因为默认的 ls 配色实在很土，所以我用solarized配色方案：
+
+mkdir ~/lib
+cd ~/lib
+git clone git@github.com:seebi/dircolors-solarized.git
+echo 'eval `dircolors ~/lib/dircolors-solarized/dircolors.256dark`' >> ~/.profile -->
+<h2 id="通过-yarn-global-add-安装">通过 <code>yarn global add</code> 安装</h2>
 <ul>
 <li>[ ] <a href="https://github.com/popomore/projj" target="_blank" rel="noopener"><strong>projj</strong></a>，github/gitlab 项目管理</li>
 <li>[ ] <a href="https://github.com/zeit/serve" target="_blank" rel="noopener"><strong>serve</strong></a>，本地静态服务器</li>
 <li>[ ] <a href="https://github.com/sindresorhus/fkill" target="_blank" rel="noopener"><strong>fkill</strong></a>，比 kill 好用的进程 killer</li>
 <li>[ ] <a href="https://github.com/gtanner/qrcode-terminal" target="_blank" rel="noopener"><strong>qrcode-terminal</strong></a>，二维码生成</li>
 </ul>
-<h1 id="mac-显示隐藏文件-命令-comand-finder">Mac 显示隐藏文件 命令 comand finder</h1>
-<p>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件</p>
-<p>defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件</p>
+<h1 id="其他设置">其他设置</h1>
+<h2 id="hexo-博客">Hexo 博客</h2>
+<p>安装 Hexo（参考：<a href="../Git-Pages-Jekyll-Hexo-Build-your-own-blog.html#step1-%E5%AE%89%E8%A3%85-hexo">Git Pages + Jekyll/Hexo Build your own blog</a>）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h1 id="参考链接">参考链接</h1>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000037592655" target="_blank" rel="noopener">当你拿到一台崭新的Mac电脑时，我们应该如何快速高效配置开发环境?</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>TECH</category>
         <category>Tools</category>
+        <category>Environment setup</category>
       </categories>
       <tags>
         <tag>MAC</tag>
@@ -853,6 +1313,7 @@ For example, when you access a repository using Git on the command line using co
 </ul>
 </li>
 <li><a href="https://www.jetbrains.com/toolbox-app/" target="_blank" rel="noopener">Toolbox</a> + IntelliJ</li>
+<li><a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime</a></li>
 </ul>
 <h2 id="编程辅助">编程辅助</h2>
 <ul>
@@ -869,33 +1330,31 @@ For example, when you access a repository using Git on the command line using co
 <li><a href="https://www.charlesproxy.com/" target="_blank" rel="noopener"><strong>Charles</strong></a>，抓包用，支持 https, 不免费，公司提供的付费账号。</li>
 <li><a href="https://github.com/2ndalpha/gasmask" target="_blank" rel="noopener"><strong>Gas Mask</strong></a> ，<a href="https://zhuanlan.zhihu.com/p/20466912" target="_blank" rel="noopener">Hosts 管理</a></li>
 </ul>
-<h2 id="命令行工具">命令行工具</h2>
-<ul>
-<li><a href="https://iterm2.com/" target="_blank" rel="noopener">Iterm2</a></li>
-</ul>
+<h2 id="命令行工具和配置">命令行工具和配置</h2>
+<p>参考下一篇文章： <a href="../%E7%A8%8B%E5%BA%8F%E5%91%98-MAC-%E9%87%8D%E6%96%B0%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%872%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html">程序员-MAC-重新装机必备2命令行-环境配置</a></p>
 <h1 id="效率">效率</h1>
 <ul>
-<li>
-<p>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a> 【我的百度网盘、硬盘】应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。免费功能：File search, Web search，app启动, Calculator, Dictionary, System。付费功能（需购买Powerpack）：Workflow，Action, Clipboard History，Snippets, Contacts, itunes, 1Password, Terminal. 【我的百度网盘、硬盘】</p>
+<li>[x] <a href="https://www.alfredapp.com/" target="_blank" rel="noopener"><strong>Alfred</strong></a> + <a href="https://www.alfredapp.com/powerpack/" target="_blank" rel="noopener"><strong>Powerpack</strong></a> 【我的百度网盘、硬盘】应用启动、粘贴板管理、Workflow、Snippets 管理等。 同步问题可以参考：<a href="https://www.zhihu.com/question/39098799" target="_blank" rel="noopener">Alfred 中如何在不同电脑上同步自定义设置？</a> 和 <a href="https://mac.orsoon.com/news/337637.html" target="_blank" rel="noopener">在Mac之间同步您的Alfred设置</a>。免费功能：File search, Web search，app启动, Calculator, Dictionary, System。付费功能（需购买Powerpack）：Workflow，Action, Clipboard History，Snippets, Contacts, itunes, 1Password, Terminal. 【我的百度网盘、硬盘】
+<ul>
+<li><a href="https://www.jianshu.com/p/594fac7950c4" target="_blank" rel="noopener">Alfred auto paste on return 自动粘贴失效解决方法</a> 确认下 System Preferences -&gt; Security &amp; Privacy -&gt; Accessibility 里有没有勾选 Alfred。如果已经勾上了 取消掉 重新选择勾上试试。</li>
+</ul>
 </li>
-<li>
-<p>[x] <a href="https://github.com/gbammc/Thor" target="_blank" rel="noopener"><strong>Thor</strong></a>，【网址下载】或者[APP Store + 国外账号]一键直达应用， 免费，开源。</p>
+<li>[x] <a href="https://github.com/gbammc/Thor" target="_blank" rel="noopener"><strong>Thor</strong></a>，【网址下载】或者[APP Store + 国外账号]一键直达应用， 免费，开源。</li>
+<li><a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a>
+<ul>
+<li>“<code>右 Command”改成F19</code>: 切换到Complex modifications --&gt; Add rule --&gt; “Change caps_lock to command+control+option+shift.” --&gt; 打开文件<code>/Users/yourusername/.config/karabiner/karabiner.json</code> 把<code>caps_lock</code>替换成<code>right_command</code><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Karabiner%20Element.png" alt="替换成"></li>
+<li>我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。</li>
+<li><a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">遇到了macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题</li>
+<li>另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</li>
+</ul>
 </li>
-<li>
-<p><a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a>. 我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。<a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">遇到了macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题. 另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</p>
-</li>
-<li>
-<p>[x] <a href="https://github.com/newmarcel/KeepingYouAwake" target="_blank" rel="noopener"><strong>KeepingYouAwake</strong></a>，可保证Mac系统不自动休眠。原来用的<a href="http://lightheadsw.com/caffeine/" target="_blank" rel="noopener">Caffeine</a>，但是<a href="https://www.reddit.com/r/osx/comments/9pbl9u/macos_mojave_caffeine_replacement/" target="_blank" rel="noopener">MacOS更新到Mojave以后就不管用了</a>。可以改用Amphetamine 或者 KeepingYouAwake。免费，开源。</p>
-</li>
-<li>
-<p><a href="https://dida365.com/" target="_blank" rel="noopener"><strong>TickTick滴答</strong></a> ，任务管理，有MAC版和iPhone版，可以同步。[APP Store]</p>
-</li>
-<li>
-<p>[x] <a href="https://macpaw.com/cleanmymac" target="_blank" rel="noopener"><strong>CleanMyMac 3</strong></a> 【我的百度网盘、硬盘】系统清理。</p>
-</li>
-<li>
-<p>[x] <a href="https://www.rescuetime.com/dashboard" target="_blank" rel="noopener">RescueTime</a>和<a href="https://wakatime.com/dashboard" target="_blank" rel="noopener">WakaTime</a>来记录你的时间，都有Chrome插件。RescueTime 手机端电脑端都有app。</p>
-</li>
+</ul>
+<ul>
+<li>[x] <a href="https://github.com/newmarcel/KeepingYouAwake" target="_blank" rel="noopener"><strong>KeepingYouAwake</strong></a>，可保证Mac系统不自动休眠。原来用的<a href="http://lightheadsw.com/caffeine/" target="_blank" rel="noopener">Caffeine</a>，但是<a href="https://www.reddit.com/r/osx/comments/9pbl9u/macos_mojave_caffeine_replacement/" target="_blank" rel="noopener">MacOS更新到Mojave以后就不管用了</a>。可以改用Amphetamine 或者 KeepingYouAwake。免费，开源。</li>
+<li><a href="https://dida365.com/" target="_blank" rel="noopener"><strong>TickTick滴答</strong></a> ，任务管理，有MAC版和iPhone版，可以同步。[APP Store]</li>
+<li>[x] <a href="https://macpaw.com/cleanmymac" target="_blank" rel="noopener"><strong>CleanMyMac 3</strong></a> 【我的百度网盘、硬盘】系统清理。</li>
+<li>[x] <a href="https://www.rescuetime.com/dashboard" target="_blank" rel="noopener">RescueTime</a>和<a href="https://wakatime.com/dashboard" target="_blank" rel="noopener">WakaTime</a>来记录你的时间，都有Chrome插件。RescueTime 手机端电脑端都有app。</li>
 </ul>
 <h1 id="工具">工具</h1>
 <ul>
@@ -903,6 +1362,7 @@ For example, when you access a repository using Git on the command line using co
 <li>office 365</li>
 <li>[x] <a href="http://kiwiforgmail.com/" target="_blank" rel="noopener"><strong>Kiwi for Gmail</strong></a>，Gmail 客户端, 我用的免费的lite版，App store 要切换到美国。</li>
 <li>[x] <a href="https://www.seagate.com/pl/pl/support/software/paragon/" target="_blank" rel="noopener"><strong>Microsoft NTFS for Mac by Paragon Software</strong></a> - 支持 NTFS 格式硬盘，因为原来买了希捷的移动硬盘，送的软件，一般、够用。</li>
+<li>Photoshop 收费，如果轻量级使用可以用网页在线工具<a href="https://www.photopea.com/" target="_blank" rel="noopener">photopea</a>代替。</li>
 </ul>
 <h2 id="输出">输出</h2>
 <!-- - [ ] [**Ulysses**](https://ulysses.app/)，笔记工具，从 [Bear](http://www.bear-writer.com/) 和 [Notion](https://www.notion.so/?r=159be429981b4725ad6f36c4f599bd98) 切到 Ulysses -->
@@ -931,16 +1391,28 @@ For example, when you access a repository using Git on the command line using co
 <ul>
 <li>[x] <a href="https://vpn.microstrategy.com/global-protect/getsoftwarepage.esp" target="_blank" rel="noopener">GlobalProtect</a> 【网址下载】 工作 VPN 软件</li>
 <li>[ ] Microsoft Remote Desktop [APP Store]</li>
-<li>[ ]</li>
+<li>[ ] Zoom</li>
 </ul>
 <h2 id="生活娱乐必备">生活娱乐必备</h2>
 <ul>
 <li>各类视频软件</li>
 </ul>
-]]></content>
+<h1 id="mac-设置">MAC 设置</h1>
+<h2 id="高效-macbook-工作环境配置"><a href="https://cloud.tencent.com/developer/article/1424480" target="_blank" rel="noopener">高效 MacBook 工作环境配置</a></h2>
+<h2 id="finder设置">Finder设置</h2>
+<ul>
+<li>
+<p><a href="https://sspai.com/post/27403" target="_blank" rel="noopener">10 个实用技巧，让 Finder 带你飞</a></p>
+</li>
+<li>
+<p>Mac 显示隐藏文件 命令 comand finder</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件</span><br><span class="line"></span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>TECH</category>
         <category>Tools</category>
+        <category>Environment setup</category>
       </categories>
       <tags>
         <tag>MAC</tag>
@@ -2744,12 +3216,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-FcBEfQgL" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-bFmYEZqY" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-FcBEfQgL"),
+            element: document.getElementById("aplayer-bFmYEZqY"),
             narrow: false,
             autoplay: false,
             showlrc: false,
