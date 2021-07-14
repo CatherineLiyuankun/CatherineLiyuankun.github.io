@@ -3216,12 +3216,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-bFmYEZqY" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-okEHcAKR" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-bFmYEZqY"),
+            element: document.getElementById("aplayer-okEHcAKR"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -7129,6 +7129,62 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
       <tags>
         <tag>git</tag>
         <tag>abbr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java request.getcontextPath()</title>
+    <url>/Java-request-getcontextPath.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="解决相对路径的问题">解决相对路径的问题</h1>
+<p><code>request.getContextPath()</code>：是在开发Web项目时，经常用到的方法，是为了解决相对路径的问题，可返回站点的根路径。</p>
+<p>比如：要生成一个文件放在服务器上得一个目录下,可以使用request.getContextPath()+/dir,组成一个完整得目录结构.</p>
+<p>当使用Tomcat作为Web服务器，项目一般部署在Tomcat下的webapps的目录下。具体来说主要用两种部署的路径：</p>
+<ul>
+<li>
+<p>将web项目中的webRoot下的文件直接拷贝到webapps/ROOT下（删除ROOT下的原有文件）；</p>
+</li>
+<li>
+<p>在Tomcat下的webapps中创建以项目名称命名（当然也可以用其他的名称）的文件夹，并将webRoot下的文件直接拷贝到该文件夹下。</p>
+</li>
+</ul>
+<p>对于第一部署方法，<code>request.getContextPath()</code>的返回值为空（即：<code>&quot;&quot;</code>,中间无空格，注意区分<code>null</code>)。</p>
+<p>对于第二部署方法，其返回值为：<code>/创建的文件夹的名称</code>。</p>
+<h2 id="url实例">URL实例</h2>
+<p>假定你的web application 名称为liyuankun,你在浏览器中输入请求路径：</p>
+<p><code>http://localhost:8080/liyuankun/main/test.jsp</code></p>
+<p>则执行下面向行代码后打印出如下结果：</p>
+<ol>
+<li><code>System.out.println(request.getContextPath());</code></li>
+</ol>
+<p>打印结果：<code>/liyuankun</code></p>
+<ol start="2">
+<li><code>System.out.println(request.getServletPath());</code></li>
+</ol>
+<p>打印结果：<code>/main/test.jsp</code></p>
+<ol start="3">
+<li><code>System.out.println(request.getRequestURI());</code></li>
+</ol>
+<p>打印结果：<code>/liyuankun/main/test.jsp</code></p>
+<ol start="4">
+<li><code>System.out.println(request.getRealPath(&quot;/&quot;));</code></li>
+</ol>
+<p>打印结果：<code>\Tomcat所在目录\webapps\liyuankun\test</code></p>
+<p><code>request.getSchema()</code>可以返回当前页面使用的协议，http、https等, 这里是<code>http</code>;</p>
+<p><code>request.getServerName()</code>可以返回当前页面所在的服务器的名字, 这里是<code>localhost</code>;</p>
+<p><code>request.getServerPort()</code>可以返回当前页面所在的服务器使用的端口,这里是<code>8080</code>;</p>
+<p>实际应用中，一般用来解决jsp测试和生产环境路径不同的问题：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%</span><br><span class="line"> String appContext = request.getContextPath();</span><br><span class="line"> String basePath =request.getScheme()+<span class="string">"://"</span>+request.getServerName()+<span class="string">":"</span>+request.getServerPort() + appContext; </span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://blog.csdn.net/haojiahj/article/details/8796472" target="_blank" rel="noopener">request.getcontextPath() 详解</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>BackEnd</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
