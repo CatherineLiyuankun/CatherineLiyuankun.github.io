@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://liyuankun.top/tags/git/</loc>
+        <lastmod>2023-11-08T11:29:30.603Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://liyuankun.top/tags/MAC/</loc>
         <lastmod>2023-11-07T05:49:00.797Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -137,13 +144,6 @@
 
     <url>
         <loc>http://liyuankun.top/tags/WebContainer/</loc>
-        <lastmod>2023-10-27T08:55:20.214Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://liyuankun.top/tags/git/</loc>
         <lastmod>2023-10-27T08:55:20.214Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -304,14 +304,14 @@
     </url>
 
     <url>
-        <loc>http://liyuankun.top/tags/life-cycle/</loc>
+        <loc>http://liyuankun.top/tags/devtool/</loc>
         <lastmod>2023-10-27T08:55:20.191Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://liyuankun.top/tags/devtool/</loc>
+        <loc>http://liyuankun.top/tags/life-cycle/</loc>
         <lastmod>2023-10-27T08:55:20.191Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
