@@ -8527,15 +8527,12 @@ CocoaChina前身是全球成立最早规模最大的苹果开发中文站,现致
       </tags>
   </entry>
   <entry>
-    <title>cURL</title>
-    <url>/cURL.html</url>
+    <title>Linux 命令总结</title>
+    <url>/Linux-%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="reference-links">Reference Links</h2>
 <ul>
-<li><a href="https://zh.wikipedia.org/wiki/CURL" target="_blank" rel="noopener">cURL维基百科</a></li>
-<li><a href="https://curl.se/" target="_blank" rel="noopener">cURL官网</a></li>
-<li><a href="https://github.com/curl/curl" target="_blank" rel="noopener">cURL Github</a></li>
-<li><a href="https://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="noopener">阮一峰的网络日志：《curl 初学者教程》</a></li>
-<li><a href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html" target="_blank" rel="noopener">阮一峰的网络日志：curl 的用法指南</a></li>
+<li><a href="https://mp.weixin.qq.com/s/mhb02uSHkPAgIxwpiDN70Q" target="_blank" rel="noopener">2万字系统总结，带你实现Linux命令自由</a></li>
+<li><a href="../cURL.html">cURL</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -8548,12 +8545,15 @@ CocoaChina前身是全球成立最早规模最大的苹果开发中文站,现致
       </tags>
   </entry>
   <entry>
-    <title>Linux 命令总结</title>
-    <url>/Linux-%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93.html</url>
+    <title>cURL</title>
+    <url>/cURL.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="reference-links">Reference Links</h2>
 <ul>
-<li><a href="https://mp.weixin.qq.com/s/mhb02uSHkPAgIxwpiDN70Q" target="_blank" rel="noopener">2万字系统总结，带你实现Linux命令自由</a></li>
-<li><a href="../cURL.html">cURL</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/CURL" target="_blank" rel="noopener">cURL维基百科</a></li>
+<li><a href="https://curl.se/" target="_blank" rel="noopener">cURL官网</a></li>
+<li><a href="https://github.com/curl/curl" target="_blank" rel="noopener">cURL Github</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="noopener">阮一峰的网络日志：《curl 初学者教程》</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html" target="_blank" rel="noopener">阮一峰的网络日志：curl 的用法指南</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -14108,12 +14108,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-GZyuCvZt" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-wVXLNgJX" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-GZyuCvZt"),
+            element: document.getElementById("aplayer-wVXLNgJX"),
             narrow: false,
             autoplay: false,
             showlrc: false,
