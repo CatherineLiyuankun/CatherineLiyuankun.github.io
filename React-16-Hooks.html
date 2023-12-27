@@ -199,14 +199,14 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/categories/">Categories</a>
                         </li>
                         
                     
@@ -280,24 +280,37 @@
 <h2 id="生命周期方法要如何对应到-hook？">生命周期方法要如何对应到 Hook？</h2>
 <ul>
 <li>
-<p>constructor：函数组件不需要构造函数。你可以通过调用 useState 来初始化 state。如果计算的代价比较昂贵，你可以传一个函数给 useState。</p>
+<p>constructor：函数组件不需要构造函数。你可以通过调用 <code>useState</code> 来初始化 state。如果计算的代价比较昂贵，你可以传一个函数给 <code>useState</code>。</p>
 </li>
 <li>
-<p>getDerivedStateFromProps：改为 在渲染时 安排一次更新。</p>
+<p><code>getDerivedStateFromProps</code>：改为 在渲染时 安排一次更新。</p>
 </li>
 <li>
-<p>shouldComponentUpdate：详见 下方 React.memo.</p>
+<p><code>shouldComponentUpdate</code>：详见 下方 React.memo.</p>
 </li>
 <li>
 <p>render：这是函数组件体本身。</p>
 </li>
 <li>
-<p>componentDidMount, componentDidUpdate, componentWillUnmount：useEffect Hook 可以表达所有这些(包括 不那么 常见 的场景)的组合。</p>
+<p><code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code>：<code>useEffect</code> Hook 可以表达所有这些(包括 不那么 常见 的场景)的组合。</p>
 </li>
 <li>
-<p>componentDidCatch and getDerivedStateFromError：目前还没有这些方法的 Hook 等价写法，但很快会加上。</p>
+<p><code>componentDidCatch</code> and <code>getDerivedStateFromError</code>：目前还没有这些方法的 Hook 等价写法，但很快会加上。</p>
 </li>
 </ul>
+<h3 id="on-mounting-componentdidmount">On Mounting (componentDidMount)</h3>
+<p>生命周期方法 <code>componentDidMount</code> 会在第一次render完成后立即调用。以前有一个 componentWillMount 会在第一次render之前调用，但它被认为是传统方法，不建议在较新版本的 React 中使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"> React.useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Hello"</span>);</span><br><span class="line"> &#125;, []); <span class="comment">// [] 作为依赖数组，与componentDidMount等效，会在第一次render完成后立即调用</span></span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>取代 <code>componentDidMount</code>，我们使用第二个参数为 <code>[]</code> 的 <code>useEffect</code> hook。 <code>useState</code> hook的第二个参数通常是一个包含变化状态的数组，而 <code>useEffect</code> 只会在这些选定的变化中被调用。但如果是像本例这样的空数组，则会在挂载时调用一次。这可以完美替代 <code>componentDidMount</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"> componentDidMount() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Hello"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> render() &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里发生的事情基本上是一样的：<code>componentDidMount</code> 是一个生命周期方法，在第一次render后会被调用一次。</p>
+<h3 id="on-unmounting-componentwillunmount">On Unmounting (componentWillUnmount)</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"> componentWillUnmount() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Bye"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> render() &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bye, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"> React.useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;       <span class="comment">// 返回一个函数</span></span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">"Bye"</span>);</span><br><span class="line">   &#125;;</span><br><span class="line"> &#125;, []);</span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bye, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>好消息是，我们也可以使用 <code>useState</code> 钩子来卸载。但要注意，语法有些不同。你需要做的是在 <code>useEffect</code> 函数中返回一个在卸载时运行的<code>函数</code>。这在需要清理订阅（如 <code>clearInterval</code> 函数）时尤其有用，否则会在较大的项目中造成严重的内存泄漏。使用 useEffect 的一个好处是，我们可以在同一个地方编写挂载和卸载函数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Function to be called when the component mounts</span></span><br><span class="line">  <span class="keyword">const</span> handleEvent = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Event occurred:'</span>, event);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 挂载 Add event listener when the component mounts</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'yourEventType'</span>, handleEvent);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 卸载 Clean up the event listener when the component unmounts</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">'yourEventType'</span>, handleEvent);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;, []); <span class="comment">// Empty dependency array means this effect runs only once (on mount)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// custom hook</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useDelayedRender = <span class="function">(<span class="params">delayTime: number</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [shouldRender, setShouldRender] = useState(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="comment">// 挂载 </span></span><br><span class="line">      setShouldRender(<span class="literal">true</span>)</span><br><span class="line">    &#125;, delayTime)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> clearTimeout(timeoutId) <span class="comment">// 卸载</span></span><br><span class="line">  &#125;, [delayTime])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> shouldRender</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Function to be called at intervals</span></span><br><span class="line">  <span class="keyword">const</span> updateValue = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setValue(<span class="function">(<span class="params">prevValue</span>) =&gt;</span> prevValue + <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 挂载 Set an interval when the component mounts</span></span><br><span class="line">  <span class="keyword">const</span> intervalId = setInterval(updateValue, <span class="number">1000</span>); <span class="comment">// Replace 1000 with your desired interval in milliseconds</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Clean up the interval when the component unmounts</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    clearInterval(intervalId); <span class="comment">// 卸载</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;, []); <span class="comment">// Empty dependency array means this effect runs only once (on mount)</span></span><br></pre></td></tr></table></figure>
 <h2 id="我该如何使用-hook-进行数据获取？">我该如何使用 Hook 进行数据获取？</h2>
 <p>该 <a href="https://codesandbox.io/s/jvvkoo8pq3" target="_blank" rel="noopener">demo</a> 会帮助你开始理解。欲了解更多，请查阅 <a href="https://www.robinwieruch.de/react-hooks-fetch-data" target="_blank" rel="noopener">react-hooks-fetch-data</a> 来了解如何使用 Hook 进行数据获取。</p>
 <h2 id="reference-links">Reference Links</h2>
@@ -390,7 +403,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#hooks-faq"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Hooks FAQ</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生命周期方法要如何对应到-hook？"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">生命周期方法要如何对应到 Hook？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我该如何使用-hook-进行数据获取？"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">我该如何使用 Hook 进行数据获取？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#reference-links"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Reference Links</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#hooks-faq"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Hooks FAQ</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生命周期方法要如何对应到-hook？"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">生命周期方法要如何对应到 Hook？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#on-mounting-componentdidmount"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">On Mounting (componentDidMount)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#on-unmounting-componentwillunmount"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">On Unmounting (componentWillUnmount)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我该如何使用-hook-进行数据获取？"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">我该如何使用 Hook 进行数据获取？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#reference-links"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Reference Links</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -416,6 +429,10 @@
     <ul>
       
         <li>
+          <a href="/React-对比函数组件和类组件.html">React 对比函数组件和类组件</a>
+        </li>
+      
+        <li>
           <a href="/AI相关软件大集合.html">AI相关软件大集合</a>
         </li>
       
@@ -429,10 +446,6 @@
       
         <li>
           <a href="/awesome-tools.html">程序猿的那些好用工具</a>
-        </li>
-      
-        <li>
-          <a href="/hexo-deploy-error-with-wrong-git-user.html">hexo deploy error with wrong git user</a>
         </li>
       
     </ul>

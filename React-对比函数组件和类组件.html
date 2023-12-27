@@ -15,11 +15,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Can not find the tag library descriptor for .tld - Yuankun | Zilan
+          React 对比函数组件和类组件 - Yuankun | Zilan
         
     </title>
 
-    <link rel="canonical" href="http://liyuankun.top/Can-not-find-the-tag-library-descriptor-for-jsp.html">
+    <link rel="canonical" href="http://liyuankun.top/React-对比函数组件和类组件.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -78,7 +78,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Can-not-find-the-tag-library-descriptor-for-jsp/header-JSP-Tag.png');
+            background-image: url('');
             /*post*/
         
     }
@@ -106,28 +106,28 @@
                         <div class="post-heading">
                             <div class="tags">
                                 
-                                <a class="tag" href="/tags/#eclipse" title="eclipse">eclipse</a>
+                                <a class="tag" href="/tags/#React 16" title="React 16">React 16</a>
                                 
                             </div>
                             <!-- category post header -->
                             
                                 <div class="page-header-category">
-                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/Tools/">Tools</a>
+                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/FrontEnd/">FrontEnd</a>
                                 </div>
                             
                             
                                 <span class="post-comments-count">
                                     <span class="post-meta-divider">|</span>
-                                    <a href="/Can-not-find-the-tag-library-descriptor-for-jsp.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                    <a href="/React-对比函数组件和类组件.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
                                         <span class="post-meta-item-icon">
                                             <i class="fa fa-comment-o"></i>
                                         </span>
-                                        <span class="post-comments-count gitment-comments-count" data-xid="/Can-not-find-the-tag-library-descriptor-for-jsp.html" itemprop="commentsCount"></span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/React-对比函数组件和类组件.html" itemprop="commentsCount"></span>
                                     </a>
                                 </span>
                             
                             <h1>
-                                Can not find the tag library descriptor for .tld
+                                React 对比函数组件和类组件
                                 <!-- Share -->
                                 
                                     <span id="needsharebutton-postbottom" class="header-share">
@@ -137,10 +137,10 @@
                                     </span>
                                 
                             </h1>
-                            <h2 class="subheading"></h2>
+                            <h2 class="subheading">React Differences between Functional Components and Class Components</h2>
                             <span class="meta">
                                 Posted by Yuankun Li on
-                                2019-05-14
+                                2023-12-27
                             </span>
                         </div>
                     
@@ -275,21 +275,95 @@
                     col-md-10 col-md-offset-1
                     post-container">
 
-                    <h1 id="problem">Problem</h1>
-<p>Eclipse Photon<br>
-eclipse web project一直在正常使用，不知哪天。。。突然 Promblems tab 里就冒出了好多error:</p>
-<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Can-not-find-the-tag-library-descriptor-for-jsp/error.png" alt="error"></p>
-<h1 id="solution">Solution</h1>
-<p>基本上把<a href="https://stackoverflow.com/questions/1265309/eclipse-cannot-find-the-tag-library-descriptor-for-custom-tags-not-jstl?rq=1" target="_blank" rel="noopener">Eclipse “cannot find the tag library descriptor” for custom tags (not JSTL!)</a>里的方法都试了一遍，貌似都不管用。。。</p>
-<p>最后打开project的properties：<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Can-not-find-the-tag-library-descriptor-for-jsp/before.png" alt="before"></p>
-<p>修改后：<br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Can-not-find-the-tag-library-descriptor-for-jsp/after.png" alt="after"></p>
-<p>那些error没了，而且再改回去，貌似也没了。。。<br>
-有空再详细研究下原因。。。</p>
-<h1 id="reference-links">Reference Links</h1>
-<p><a href="https://stackoverflow.com/questions/1265309/eclipse-cannot-find-the-tag-library-descriptor-for-custom-tags-not-jstl?rq=1" target="_blank" rel="noopener">Eclipse “cannot find the tag library descriptor” for custom tags (not JSTL!)</a></p>
-<p><a href="https://stackoverflow.com/questions/13285826/can-not-find-the-tag-library-descriptor-for-http-java-sun-com-jsp-jstl-core" target="_blank" rel="noopener">Can not find teh tag library descriptor for “http://java.sun.com/jsp/jstl/core”</a></p>
+                    <h2 id="rendering-jsx">Rendering JSX</h2>
+<p>首先，它们的明显区别在于语法。正如它们的名字一样，功能组件只是一个返回 JSX 的普通 JavaScript 函数。类组件是一个扩展了 React.Component 的 JavaScript 类，它有一个 render 方法。有点困惑？让我们来看一个简单的例子。<br>
+功能组件是一个返回 JSX 的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="comment">// arrow functions</span></span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FunctionalComponent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在定义类组件时，必须创建一个扩展了 <code>React.Component</code> 的类。要渲染的 JSX 将在 render 方法中返回。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"> render() &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="passing-props">Passing props</h2>
+<p>传递props可能会让人感到困惑，让我们来看看类和功能组件中是如何编写props的。假设我们像下面这样传递名称为 &quot;propsA &quot;的props。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Component name=<span class="string">"propsA"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function">(<span class="params">&#123; name &#125;</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在功能组件中，我们将props作为函数的参数传递。请注意，我们在这里使用了destructuring。或者，我们也可以不使用destructuring。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>既然它是一个类，就需要用它来引用props。当然，在使用基于类的组件时，我们可以使用destructuring来获取props内部的名称。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; name &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123; name &#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="handling-state">Handling state</h2>
+<h3 id="counter-using-class-components">Counter using Class Components</h3>
+<p>这是用 ReactJS 构建的大多数现代网络应用的基础。这些组件是简单的类（由为应用程序添加功能的多个函数组成）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123; </span><br><span class="line">    <span class="keyword">constructor</span>() &#123; </span><br><span class="line">        <span class="keyword">super</span>(); </span><br><span class="line">        <span class="keyword">this</span>.state = &#123; </span><br><span class="line">            count: <span class="number">0</span> </span><br><span class="line">        &#125;; </span><br><span class="line">        <span class="keyword">this</span>.increase = <span class="keyword">this</span>.increase.bind(<span class="keyword">this</span>); </span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    increase() &#123; </span><br><span class="line">        <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="keyword">this</span>.state.count + <span class="number">1</span> &#125;); </span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    render() &#123; </span><br><span class="line">        <span class="keyword">return</span> ( </span><br><span class="line">            &lt;div style=&#123;&#123; <span class="attr">margin</span>: <span class="string">'50px'</span> &#125;&#125;&gt; </span><br><span class="line">                &lt;h1&gt;Welcome to Geeks <span class="keyword">for</span> Geeks &lt;<span class="regexp">/h1&gt; </span></span><br><span class="line"><span class="regexp">                &lt;h3&gt;Counter App using Class Component : &lt;/</span>h3&gt; </span><br><span class="line">                &lt;h2&gt; &#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/h2&gt; </span></span><br><span class="line"><span class="regexp">                &lt;button onClick=&#123;this.increase&#125;&gt; Add&lt;/</span>button&gt; </span><br><span class="line">            &lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">        ) </span></span><br><span class="line"><span class="regexp">    &#125; </span></span><br><span class="line"><span class="regexp">&#125; </span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default ClassComponent;</span></span><br></pre></td></tr></table></figure>
+<h3 id="counter-using-functional-components">Counter using Functional Components</h3>
+<p>功能组件是在 React 中工作时会遇到的一些更常见的组件。它们只是 JavaScript 函数。我们可以通过编写 JavaScript 函数为 React 创建一个功能组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">"react"</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>); </span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> increase = <span class="function"><span class="params">()</span> =&gt;</span> &#123; </span><br><span class="line">        setCount(count + <span class="number">1</span>); </span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ( </span><br><span class="line">        &lt;div style=&#123;&#123; <span class="attr">margin</span>: <span class="string">'50px'</span> &#125;&#125;&gt; </span><br><span class="line">            &lt;h1&gt;Welcome to Geeks <span class="keyword">for</span> Geeks &lt;<span class="regexp">/h1&gt; </span></span><br><span class="line"><span class="regexp">            &lt;h3&gt;Counter App using Functional Component : &lt;/</span>h3&gt; </span><br><span class="line">            &lt;h2&gt;&#123;count&#125;&lt;<span class="regexp">/h2&gt; </span></span><br><span class="line"><span class="regexp">            &lt;button onClick=&#123;increase&#125;&gt;Add&lt;/</span>button&gt; </span><br><span class="line">        &lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">    ) </span></span><br><span class="line"><span class="regexp">&#125; </span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default FunctionalComponent;</span></span><br></pre></td></tr></table></figure>
+<p>对于功能组件，我们使用hooks（useState）来管理状态。如果编写了一个功能组件，并意识到需要为其添加一些状态，以前必须将其转换为类组件。现在，可以在现有的函数组件中使用hooks来管理状态，而无需将其转换为类组件。hooks是 React 16.8 新增的功能。它们让无需编写类即可使用状态和其他 React 功能。我们可以在功能组件中使用hooks来代替类，因为这是一种更简单的状态管理方式。</p>
+<ul>
+<li>hooks只能用于功能组件，不能用于类内组件!</li>
+<li>hooks 详细介绍可以看之前的文章： <a href="./React-16-Hooks.html">hooks</a></li>
+</ul>
+<h2 id="lifecycle-methods">Lifecycle Methods</h2>
+<p>最后，让我们来谈谈生命周期。生命周期在渲染的时间安排上起着重要作用。对于那些从类组件迁移到功能组件的人来说，一定很想知道有什么可以替代类组件中的 <code>componentDidMount()</code> 等生命周期方法。没错，有一个hook可以完美地实现这一目的，让我们一起来看看吧！</p>
+<h3 id="on-mounting-componentdidmount">On Mounting (componentDidMount)</h3>
+<p>生命周期方法 <code>componentDidMount</code> 会在第一次render完成后立即调用。以前有一个 componentWillMount 会在第一次render之前调用，但它被认为是传统方法，不建议在较新版本的 React 中使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"> React.useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Hello"</span>);</span><br><span class="line"> &#125;, []); <span class="comment">// [] 作为依赖数组，与componentDidMount等效，会在第一次render完成后立即调用</span></span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>取代 <code>componentDidMount</code>，我们使用第二个参数为 <code>[]</code> 的 <code>useEffect</code> hook。 <code>useState</code> hook的第二个参数通常是一个包含变化状态的数组，而 <code>useEffect</code> 只会在这些选定的变化中被调用。但如果是像本例这样的空数组，则会在挂载时调用一次。这可以完美替代 <code>componentDidMount</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"> componentDidMount() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Hello"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> render() &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里发生的事情基本上是一样的：<code>componentDidMount</code> 是一个生命周期方法，在第一次render后会被调用一次。</p>
+<h3 id="on-unmounting-componentwillunmount">On Unmounting (componentWillUnmount)</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"> componentWillUnmount() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Bye"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> render() &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bye, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FunctionalComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"> React.useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;       <span class="comment">// 返回一个函数</span></span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">"Bye"</span>);</span><br><span class="line">   &#125;;</span><br><span class="line"> &#125;, []);</span><br><span class="line"> <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bye, World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>好消息是，我们也可以使用 <code>useState</code> 钩子来卸载。但要注意，语法有些不同。你需要做的是在 <code>useEffect</code> 函数中返回一个在卸载时运行的<code>函数</code>。这在需要清理订阅（如 <code>clearInterval</code> 函数）时尤其有用，否则会在较大的项目中造成严重的内存泄漏。使用 useEffect 的一个好处是，我们可以在同一个地方编写挂载和卸载函数。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Function to be called when the component mounts</span></span><br><span class="line">  <span class="keyword">const</span> handleEvent = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Event occurred:'</span>, event);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 挂载 Add event listener when the component mounts</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'yourEventType'</span>, handleEvent);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 卸载 Clean up the event listener when the component unmounts</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">'yourEventType'</span>, handleEvent);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;, []); <span class="comment">// Empty dependency array means this effect runs only once (on mount)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// custom hook</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useDelayedRender = <span class="function">(<span class="params">delayTime: number</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [shouldRender, setShouldRender] = useState(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="comment">// 挂载 </span></span><br><span class="line">      setShouldRender(<span class="literal">true</span>)</span><br><span class="line">    &#125;, delayTime)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> clearTimeout(timeoutId) <span class="comment">// 卸载</span></span><br><span class="line">  &#125;, [delayTime])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> shouldRender</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Function to be called at intervals</span></span><br><span class="line">  <span class="keyword">const</span> updateValue = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    setValue(<span class="function">(<span class="params">prevValue</span>) =&gt;</span> prevValue + <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 挂载 Set an interval when the component mounts</span></span><br><span class="line">  <span class="keyword">const</span> intervalId = setInterval(updateValue, <span class="number">1000</span>); <span class="comment">// Replace 1000 with your desired interval in milliseconds</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Clean up the interval when the component unmounts</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    clearInterval(intervalId); <span class="comment">// 卸载</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;, []); <span class="comment">// Empty dependency array means this effect runs only once (on mount)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="对比函数组件和类组件总结">对比函数组件和类组件总结</h2>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.geeksforgeeks.org/reactjs-functional-components/" target="_blank" rel="noopener"><strong>Functional Components</strong></a></th>
+<th><a href="https://www.geeksforgeeks.org/reactjs-class-based-components/" target="_blank" rel="noopener"><strong>Class Components</strong></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能组件只是一个纯 JavaScript pure函数，它接受props作为参数，并返回一个 React 元素（JSX）。</td>
+<td>类组件要求您从 React.Component 扩展（extend），并创建返回 React 元素的render函数。并创建一个返回 React 元素的render函数。</td>
+</tr>
+<tr>
+<td>no <code>render</code> method</td>
+<td>必须有<code>render()</code> method 返回 JSX (语法上类似于HTML)</td>
+</tr>
+<tr>
+<td>功能组件从上到下依次运行，一旦功能返回，它就无法继续存活。Functional components run from top to bottom and once the function is returned it can’t be kept alive.</td>
+<td>类组件被实例化后，不同的生命周期方法会保持活力，并根据类组件所处的阶段运行和调用。 The class component is instantiated and different life cycle method is kept alive and is run and invoked depending on the phase of the class component.</td>
+</tr>
+<tr>
+<td>也被称为无状态组件，因为它们只是接受数据并以某种形式显示出来，主要负责渲染用户界面。Also known as Stateless components as they simply accept data and display them in some form, they are mainly responsible for rendering UI.</td>
+<td>也被称为有状态组件，因为它们实现了逻辑和状态。Also known as Stateful components because they implement logic and state.</td>
+</tr>
+<tr>
+<td>功能组件中不能使用 React 生命周期方法（例如 componentDidMount）。React lifecycle methods (for example, componentDidMount) cannot be used in functional components.</td>
+<td>React 生命周期方法可用于类组件内部（例如 componentDidMount）。React lifecycle methods can be used inside class components (for example, componentDidMount).</td>
+</tr>
+<tr>
+<td>Hooks可以很容易地用于功能组件，使其成为有状态的组件。Hooks can be easily used in functional components to make them Stateful. <br>Example:<br><code>const [name,SetName]= React.useState(' ')</code></td>
+<td>在类组件中实现hook需要不同的语法。It requires different syntax inside a class component to implement hooks.<br>Example:<br><code>constructor(props) {  super(props);  this.state = {name: ' '}</code></td>
+</tr>
+<tr>
+<td>不使用构造函数。Constructors are not used.</td>
+<td>使用构造函数，因为它需要存储状态。Constructor is used as it needs to store state.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference-links">Reference Links</h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/differences-between-functional-components-and-class-components/" target="_blank" rel="noopener">Differences between Functional Components and Class Components</a></li>
+<li><a href="https://www.twilio.com/blog/react-choose-functional-components" target="_blank" rel="noopener">Understanding Functional Components vs. Class Components in React</a></li>
+</ul>
 
 
                     <!-- Donate -->
@@ -316,8 +390,8 @@ eclipse web project一直在正常使用，不知哪天。。。突然 Promblems
 
                     <! -- 添加版权信息 -->
 <div class="article-footer-copyright">
-  <div><b>本文标题: </b><a href="/Can-not-find-the-tag-library-descriptor-for-jsp.html" target="_blank" title="Can not find the tag library descriptor for .tld">Can not find the tag library descriptor for .tld</a></div>
-  <div><b>本文链接: </b><a href="/Can-not-find-the-tag-library-descriptor-for-jsp.html" target="_blank" title="Can not find the tag library descriptor for .tld">http://liyuankun.top/Can-not-find-the-tag-library-descriptor-for-jsp.html</a>.</div>
+  <div><b>本文标题: </b><a href="/React-对比函数组件和类组件.html" target="_blank" title="React 对比函数组件和类组件">React 对比函数组件和类组件</a></div>
+  <div><b>本文链接: </b><a href="/React-对比函数组件和类组件.html" target="_blank" title="React 对比函数组件和类组件">http://liyuankun.top/React-对比函数组件和类组件.html</a>.</div>
   <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
 </div>
 
@@ -326,13 +400,9 @@ eclipse web project一直在正常使用，不知哪天。。。突然 Promblems
                     <!-- Pager -->
                     <ul class="pager">
                         
-                            <li class="previous">
-                                <a href="/ComponentDidUpdate-setState-and-Maximum-update-depth-exceeded.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="ComponentDidUpdate setState and Maximum update depth exceeded">&larr; Previous Post</a>
-                            </li>
-                        
                         
                             <li class="next">
-                                <a href="/Hexo-node-28561-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title=""Hexo fs.SyncWriteStream is deprecated"">Next Post &rarr;</a>
+                                <a href="/AI相关软件大集合.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="AI相关软件大集合">Next Post &rarr;</a>
                             </li>
                         
                     </ul>
@@ -373,7 +443,7 @@ eclipse web project一直在正常使用，不知哪天。。。突然 Promblems
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#problem"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Problem</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#solution"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Solution</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#reference-links"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Reference Links</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#rendering-jsx"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Rendering JSX</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#passing-props"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Passing props</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#handling-state"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Handling state</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#counter-using-class-components"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Counter using Class Components</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#counter-using-functional-components"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Counter using Functional Components</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#lifecycle-methods"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Lifecycle Methods</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#on-mounting-componentdidmount"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">On Mounting (componentDidMount)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#on-unmounting-componentwillunmount"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">On Unmounting (componentWillUnmount)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对比函数组件和类组件总结"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">对比函数组件和类组件总结</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#reference-links"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Reference Links</span></a></li></ol>
         
         </div>
       </aside>
@@ -1234,8 +1304,8 @@ eclipse web project一直在正常使用，不知哪天。。。突然 Promblems
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES * * */
         var disqus_shortname = "lyk-1";
-        var disqus_identifier = "http://liyuankun.top/Can-not-find-the-tag-library-descriptor-for-jsp.html";
-        var disqus_url = "http://liyuankun.top/Can-not-find-the-tag-library-descriptor-for-jsp.html";
+        var disqus_identifier = "http://liyuankun.top/React-对比函数组件和类组件.html";
+        var disqus_url = "http://liyuankun.top/React-对比函数组件和类组件.html";
 
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
