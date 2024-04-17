@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Develop LLM powered applications with LangChain - Udemy Course</title>
+    <url>/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="resource-links">Resource Links</h2>
+<ul>
+<li><a href="https://www.udemy.com/course/langchain/?couponCode=ST15MT31224" target="_blank" rel="noopener">Develop LLM powered applications with LangChain - Udemy Course</a></li>
+<li><a href="https://github.com/emarco177/ice_breaker" target="_blank" rel="noopener">Git repo - ice_breaker</a></li>
+<li><a href="https://discord.com/invite/DcxSsbaav7" target="_blank" rel="noopener">Discord discussion</a>
+<ul>
+<li><a href="https://discord.com/channels/1099224935320256545/1115310131505278977" target="_blank" rel="noopener">https://discord.com/channels/1099224935320256545/1115310131505278977</a></li>
+</ul>
+</li>
+<li><a href="https://python.langchain.com/docs/get_started/introduction" target="_blank" rel="noopener">Langchain Python Documentation</a></li>
+</ul>
+<h2 id="课程笔记">课程笔记</h2>
+<h3 id="5-pycharm-setup">5 Pycharm setup</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=6Qmnh5C4Pmo&amp;t=1s" target="_blank" rel="noopener">Pipenv Crash Course - Youtube</a>
+<ul>
+<li><a href="https://pipenv.pypa.io/en/latest/" target="_blank" rel="noopener">Pipenv官方文档</a></li>
+<li><a href="https://juejin.cn/post/6844904202737713160" target="_blank" rel="noopener">Python—pipenv精心整理教程</a>
+<ul>
+<li>安装pipenv <code>sudo pip install pipenv</code>注：无法用pip管理的包，pipenv同样无法使用。pipenv依赖：psutil, virtualenv-clone, pew, certifi, urllib3, chardet, requests, mccabe, pyflakes, pycodestyle, flake8等第三方模块。</li>
+<li><code>pipenv shell</code>  生成<code>Pipfile</code>文件</li>
+<li><code>pipenv install langchain</code> 即可生成<code>Pipfile.lock</code>文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>课程设置：<br>
+<img src="./Develop-LLM-powered-applications-with-LangChain-Udemy-Course/pycharm1.png" alt="Pycharm setup 1"><br>
+<img src="./Develop-LLM-powered-applications-with-LangChain-Udemy-Course/pycharm2.png" alt="Pycharm setup 2"></p>
+<p>我的设置，添加interpreter:<br>
+Pipenv Executable: <code>/Users/yuanli/anaconda3/bin/pipenv</code><br>
+<img src="./Develop-LLM-powered-applications-with-LangChain-Udemy-Course/pycharm2-2.png" alt="Pycharm my setup 2"></p>
+<p>成功后： <code>/Users/yuanli/.local/share/virtualenvs/ice_breaker-Ofs_l0Re/bin/python</code><br>
+<img src="./Develop-LLM-powered-applications-with-LangChain-Udemy-Course/pycharm2-3.png" alt="Pycharm my setup 3"></p>
+<p><img src="./Develop-LLM-powered-applications-with-LangChain-Udemy-Course/pycharm3.png" alt="Pycharm setup 3"><br>
+<img src="./Develop-LLM-powered-applications-with-LangChain-Udemy-Course/pycharm4.png" alt="Pycharm setup 4"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Enable the dev tools in the Microsoft Teams desktop client</title>
     <url>/Enable-the-dev-tools-in-the-Microsoft-Teams-desktop-client.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="enable-dev-mode-打开microsoft-teams-desktop的开发模式">Enable Dev Mode 打开Microsoft Teams desktop的开发模式</h1>
@@ -29,6 +71,7 @@ Enable Dev Mode后：<br>
 <h2 id="reference-links">Reference Links</h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/50678907/how-can-i-open-the-dev-tools-in-the-microsoft-teams-desktop-client" target="_blank" rel="noopener">(How) can I open the dev tools in the Microsoft Teams desktop client?</a></li>
+<li><a href="https://thechriskent.com/2023/11/02/enabling-dev-tools-in-the-new-microsoft-teams-client/" target="_blank" rel="noopener">Enabling Dev Tools in the New Microsoft Teams Client</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -494,8 +537,11 @@ Enable Dev Mode后：<br>
 <ul>
 <li>[x] <a href="https://dida365.com/" target="_blank" rel="noopener"><strong>TickTick滴答</strong></a> ，任务管理，有MAC版和iPhone版，可以同步。</li>
 <li>[x] <a href="https://github.com/gbammc/Thor" target="_blank" rel="noopener"><strong>Thor</strong></a>，一键直达应用， 免费，开源。</li>
-<li>[x] <a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a>. 我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。<a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">遇到了macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题. 另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</li>
-<li>[x] <a href="https://www.rescuetime.com/dashboard" target="_blank" rel="noopener">RescueTime</a>和<a href="https://wakatime.com/dashboard" target="_blank" rel="noopener">WakaTime</a>来记录你的时间，都有Chrome插件。RescueTime 手机端电脑端都有app。 <a href="https://wakatime.com/terminal" target="_blank" rel="noopener">命令行安装WakaTime</a></li>
+<li>[x] <a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a>.
+<ul>
+<li>[ ] <a href="./Karabiner-Elements%E4%B8%8D%E7%94%9F%E6%95%88.html">Karabiner-Elements不生效解决方法</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="摄影相关">摄影相关</h2>
 <h3 id="图片">图片</h3>
@@ -9360,8 +9406,8 @@ There are other startup systems as well, such as Upstart and BSD.</p>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>LinksSummary</tag>
+        <tag>Python</tag>
         <tag>TODO</tag>
       </tags>
   </entry>
@@ -12087,10 +12133,7 @@ sh脚本文件启动执行的JD-GUI，脚本文件在<code>JD-GUI.app/Contents/M
 <li>
 <p>[x] <a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a></p>
 <ul>
-<li>“<code>右 Command”改成F19</code>: 切换到Complex modifications --&gt; Add rule --&gt; “Change caps_lock to command+control+option+shift.” --&gt; 打开文件<code>~/.config/karabiner/karabiner.json</code> 把<code>caps_lock</code>替换成<code>right_command</code><br>
-<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Karabiner%20Element.png" alt="替换成"></li>
-<li>我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。</li>
-<li><a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">遇到了macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题</li>
+<li><a href="./Karabiner-Elements%E4%B8%8D%E7%94%9F%E6%95%88.html">Karabiner-Elements不生效解决方法</a></li>
 <li>另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</li>
 </ul>
 </li>
@@ -12532,20 +12575,104 @@ replace &gt; replaceWithContains&gt; replaceAllWithContains &gt; replaceAll</p>
       </tags>
   </entry>
   <entry>
-    <title>MacOS 10.14.6 Karabiner-Elements不生效</title>
+    <title>MacOS Karabiner-Elements不生效解决方法</title>
     <url>/Karabiner-Elements%E4%B8%8D%E7%94%9F%E6%95%88.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考<a href="https://github.com/pqrs-org/Karabiner-Elements/issues/1867" target="_blank" rel="noopener">Does not work on MacOS Catalina #1867</a></p>
-<p>For some reason the permission prompt is not showing up for me when I open Karabiner-EventViewer. And EventViewer says “EventViewer failed to observe keyboard devices”. So I cannot find out a way to use<br>
-saagarjha’s method as stated above.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>每回MacOS一升级，总会遇到Karabiner-Elements不生效的问题，所以统一总结一下</p>
+<h2 id="karabiner-elements">Karabiner-Elements</h2>
+<p><a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener"><strong>Karabiner Element</strong></a>，作用是键盘按键改键。</p>
+<p>我通常用于<a href="http://lucifr.com/2013/02/16/caps-lock-to-hyper-key/" target="_blank" rel="noopener">把右 Command 和 Capslock 键利用起来</a>，避免快捷键冲突，<a href="https://hackmd.io/s/rk4u9i-pG" target="_blank" rel="noopener">简单 note</a>，详见<a href="https://www.bilibili.com/video/av44127555" target="_blank" rel="noopener">sorrycc的《我的快捷键技巧》</a></p>
+<ul>
+<li>“<code>右 Command”改成F19</code>: 切换到Complex modifications --&gt; Add rule --&gt; “Change caps_lock to command+control+option+shift.” --&gt; 打开文件<code>~/.config/karabiner/karabiner.json</code> 把<code>caps_lock</code>替换成<code>right_command</code><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/Karabiner%20Element.png" alt="替换成"></li>
+<li>我试了后, 把“右 Command”改成F19,发现我右 Command+delete还是经常用的，所以接着在Karabiner Element 的“Simple modifications” 把 “right_option” 改成了 “left_command”。</li>
+<li>另外参考<a href="https://lhajh.github.io/mac/2017/12/05/.Mac-custom-application-shortcut-keys.html" target="_blank" rel="noopener">Mac 自定义应用程序快捷键</a>配置了Mac app，比如Chrome和iterm3的一些快捷键。免费，开源。</li>
+</ul>
+<h2 id="通用解决方法">通用解决方法</h2>
+<p>系统权限保证都设置正确<br>
+打开System Settings &gt; Security &amp; Privacy &gt; Privacy</p>
+<h3 id="full-disk-access">Full Disk Access</h3>
+<ul>
+<li>[x] Karabiner-Elements
+<ul>
+<li>/Applications/Karabiner-Elements.app</li>
+</ul>
+</li>
+<li>[x] karabiner_grabber
+<ul>
+<li>路径： /Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_grabber</li>
+</ul>
+</li>
+</ul>
+<h3 id="input-monitoring">Input monitoring</h3>
+<ul>
+<li>[x] Karabiner-Eventviewer
+<ul>
+<li>/Applications/Karabiner-EventViewer.app</li>
+</ul>
+</li>
+<li>[x] karabiner_grabber
+<ul>
+<li>/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_grabber</li>
+</ul>
+</li>
+<li>[x] karabiner_observer
+<ul>
+<li>/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_observer</li>
+</ul>
+</li>
+</ul>
+<h3 id="accessibility">Accessibility</h3>
+<ul>
+<li>[x] karabiner_grabber
+<ul>
+<li>/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_grabber</li>
+</ul>
+</li>
+<li>[x] karabiner_observer
+<ul>
+<li>/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_observer</li>
+</ul>
+</li>
+</ul>
+<h3 id="allow-driver">Allow driver</h3>
+<p>打开System Settings &gt; Security &amp; Privacy &gt; Security<br>
+Allow driver:<br>
+<a href="https://karabiner-elements.pqrs.org/docs/help/troubleshooting/allow-button-does-not-appear/" target="_blank" rel="noopener">https://karabiner-elements.pqrs.org/docs/help/troubleshooting/allow-button-does-not-appear/</a></p>
+<h3 id="重启">重启</h3>
+<p>重启电脑<br>
+多次重启Karabiner-Elements<br>
+如果还不成功，就杀进程后重启Karabiner-Elements</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo killall karabiner_grabber</span><br><span class="line">sudo killall karabiner_observer</span><br></pre></td></tr></table></figure>
+<h2 id="macos-14-4-1-karabiner-elements不生效">MacOS 14.4.1 Karabiner-Elements不生效</h2>
+<p>额外把’karabiner_grabber’ full disk access rights makes it work. However, I had to restart Karabiner twice afterwards and 重启电脑.</p>
+<p>参考链接：<a href="https://github.com/pqrs-org/Karabiner-Elements/issues/3620#issuecomment-1765946996" target="_blank" rel="noopener">https://github.com/pqrs-org/Karabiner-Elements/issues/3620#issuecomment-1765946996</a></p>
+<h2 id="macos-10-14-6-karabiner-elements不生效">MacOS 10.14.6 Karabiner-Elements不生效</h2>
+<p>遇到了<a href="https://www.v2ex.com/t/585453" target="_blank" rel="noopener">macOS 10.14.6 Karabiner-Elements</a> 疑似无法正常使用的问题<br>
+参考<a href="https://github.com/pqrs-org/Karabiner-Elements/issues/1867" target="_blank" rel="noopener">Does not work on MacOS Catalina #1867</a></p>
+<p>For some reason the permission prompt is not showing up for me when I open <code>Karabiner-EventViewer</code>. And EventViewer says “EventViewer failed to observe keyboard devices”. So I cannot find out a way to use saagarjha’s method as stated above.</p>
 <ol>
-<li>add karabiner_grabber and karabiner_observer to “Security &amp; Privacy &gt; Privacy &gt; Accessibility” apps.</li>
+<li>add <code>karabiner_grabber</code> and <code>karabiner_observer</code> to “Security &amp; Privacy &gt; Privacy &gt; Accessibility” apps.</li>
 <li>And after sudo killall-ing both processes, Karabiner-Elements is working for me again.</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo killall karabiner_grabber</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo killall karabiner_observer</span></span><br></pre></td></tr></table></figure>
-<p>In order to fix the F-key/media playback buttons, I needed to add the following entries to the Security &amp; Privacy &gt; Privacy &gt; Input Monitoring list:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo killall karabiner_grabber</span><br><span class="line">sudo killall karabiner_observer</span><br></pre></td></tr></table></figure>
+<p>In order to fix, I needed to add the following entries to the Security &amp; Privacy &gt; Privacy &gt; Input Monitoring list:</p>
 <p>/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_grabber<br>
 /Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_observer</p>
+<h2 id="其他改键工具">其他改键工具</h2>
+<p>Some other tools that should work for you are:</p>
+<ol>
+<li>hidutil: macOS-native remapping tool. See <a href="https://github.com/pqrs-org/Karabiner-Elements/issues/3082#issuecomment-1137009173" target="_blank" rel="noopener">MX Keys not active in logi options+ via bluetooth #3082 (comment)</a>.   Only work for simple modifications</li>
+<li>skhd: <a href="https://github.com/koekeishiya/skhd" target="_blank" rel="noopener">https://github.com/koekeishiya/skhd</a>.</li>
+<li>Hammerspoon or BetterTouchTool.</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>TECH</category>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+      </tags>
   </entry>
   <entry>
     <title>Mac上python2和python3的版本切换设置</title>
@@ -14299,12 +14426,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-OytYQazy" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-QcxIUEAi" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-OytYQazy"),
+            element: document.getElementById("aplayer-QcxIUEAi"),
             narrow: false,
             autoplay: false,
             showlrc: false,
