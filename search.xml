@@ -1,6 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</title>
+    <url>/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8A%A5%E9%94%99%E2%80%9Clocalhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR%E2%80%9D.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>当浏览器访问http的本地开发环境时，<code>http://localhost:4000/</code> , 浏览器报错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">localhost sent an invalid response.</span><br><span class="line">ERR_SSL_PROTOCOL_ERROR</span><br></pre></td></tr></table></figure>
+<p>The <code>ERR_SSL_PROTOCOL_ERROR</code> in Chrome typically occurs when you’re trying to access a local development server (like one running on <code>http://localhost:4000</code>) over HTTPS <code>https://localhost:4000</code> instead of HTTP. If your server isn’t set up to handle HTTPS, Chrome may block the connection because it expects a valid SSL certificate, which isn’t usually present on local servers.</p>
+<h2 id="解决方法">解决方法</h2>
+<p>因为HSTS，浏览器会自动把我的http的网址<code>http://localhost:4000/</code> 自动redirect到HTTPS <code>https://localhost:4000</code>, 所以用方法1，2都可以解决。</p>
+<h3 id="前提-确保使用的是http">前提 确保使用的是HTTP</h3>
+<p>Ensure You’re Using HTTP, Not HTTPS:</p>
+<ul>
+<li>Make sure you’re visiting <code>http://localhost:4000</code> (not <code>https://localhost:4000</code>).</li>
+<li>Check the URL bar and explicitly type <code>http://</code> before <code>localhost:4000</code> if necessary.</li>
+</ul>
+<h3 id="方法一-清除hsts设置">方法一 清除HSTS设置</h3>
+<p>Disable HTTPS Enforcement in Chrome:<br>
+Chrome may automatically redirect to HTTPS if it previously visited the site over HTTPS. You can clear this by:</p>
+<ul>
+<li>Clearing the HSTS Settings for localhost:
+<ul>
+<li>Go to chrome://net-internals/#hsts in your Chrome browser.</li>
+<li>Under the “Delete domain security policies” section, type localhost and click “Delete”.</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法二-使用浏览器匿名模式-incognito-window">方法二 使用浏览器匿名模式 Incognito Window</h3>
+<p>Sometimes, Chrome caches HSTS settings. Opening an incognito window might avoid the cached redirection to HTTPS.</p>
+<h3 id="方法三-check-for-extensions-or-proxy-settings">方法三 Check for Extensions or Proxy Settings</h3>
+<p>Ensure no Chrome extensions or proxy settings are forcing HTTPS. Disable any such extensions or settings temporarily to test.</p>
+<h3 id="方法四-update-your-server-configuration-optional">方法四 Update Your Server Configuration (Optional)</h3>
+<p>If you need to serve your local site over HTTPS, configure your development server to support HTTPS. This typically involves generating a self-signed SSL certificate and configuring your server to use it.</p>
+<h3 id="方法五-ypass-the-ssl-error-not-recommended-for-regular-use">方法五 ypass the SSL Error (Not Recommended for Regular Use)</h3>
+<p>If you still need to bypass the SSL check, you can type <code>thisisunsafe</code> directly on the error page in Chrome. It will bypass the SSL warning, but this is generally not recommended for regular use.</p>
+<h3 id="总结">总结</h3>
+<ul>
+<li>Start by confirming you’re accessing <code>http://localhost:4000</code>, not <code>https://localhost:4000</code>.</li>
+<li>If Chrome still redirects to HTTPS or shows an SSL error, try clearing the HSTS settings for <code>localhost</code> or using an incognito window.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TECH</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JSON Web Token (JWT) 入门教程</title>
+    <url>/JSON-Web-Token-JWT-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="json-web-token">JSON Web Token</h2>
+<p><code>JWT (JSON Web Token)</code> is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of the token. This JSON object is then digitally signed using a secret key or a public/private key pair.</p>
+<h3 id="structure-of-a-jwt">Structure of a JWT</h3>
+<p>它是一个很长的字符串，中间用点（.）分隔成三个部分。注意，JWT 内部是没有换行的，这里只是为了便于展示，将它写成了几行。<br>
+A JWT consists of three parts, separated by dots (<code>.</code>):</p>
+<ul>
+<li><strong>Header</strong>: Contains metadata about the token, such as the type of token (<code>JWT</code>) and the signing algorithm (<code>HMAC SHA256</code> or <code>RSA</code>).</li>
+<li><strong>Payload</strong>: Contains the claims, which are statements about an entity (typically, the user) and additional data.</li>
+<li><strong>Signature</strong>: Used to verify that the token was not altered after it was issued.</li>
+</ul>
+<p>Example of a JWT:</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Header.Payload.Signature</span></span><br><span class="line"></span><br><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.</span><br><span class="line">eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.</span><br><span class="line">SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h3 id="common-use-cases-for-jwt">Common Use Cases for JWT</h3>
+<ul>
+<li>
+<p><strong>Authentication</strong>: JWTs are often used for securing APIs, where the client receives a token upon successful login and then includes this token in the Authorization header of subsequent requests.</p>
+</li>
+<li>
+<p><strong>Information Exchange</strong>: JWTs can be used to securely transmit information between parties. Since they can be signed, the information can be trusted to be accurate.</p>
+</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>
+<p><strong>JWT</strong> is a way to securely transmit information between two parties.</p>
+</li>
+<li>
+<p>It is composed of a header, payload, and signature.</p>
+</li>
+<li>
+<p>JWTs are commonly used for authentication in web applications.</p>
+</li>
+<li>
+<p>Libraries like <code>PyJWT</code> in Python and <code>jsonwebtoken</code> in Node.js make it easy to create and verify JWTs.</p>
+</li>
+<li>
+<p>JWT 默认是不加密，但也是可以加密的。生成原始 Token 以后，可以用密钥再加密一次。</p>
+</li>
+<li>
+<p>JWT 不加密的情况下，不能将秘密数据写入 JWT。</p>
+</li>
+<li>
+<p>JWT 不仅可以用于认证，也可以用于交换信息。有效使用 JWT，可以降低服务器查询数据库的次数。</p>
+</li>
+<li>
+<p>JWT 的最大缺点是，由于服务器不保存 session 状态，因此无法在使用过程中废止某个 token，或者更改 token 的权限。也就是说，一旦 JWT 签发了，在- 之前就会始终有效，除非服务器部署额外的逻辑</p>
+</li>
+<li>
+<p>JWT 本身包含了认证信息，一旦泄露，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT 的有效期应该设置得比较短。对于一些比较重要的权限，使用时应该再次对用户进行认证。</p>
+</li>
+<li>
+<p>为了减少盗用，JWT 不应该使用 HTTP 协议明码传输，要使用 HTTPS 协议传输。</p>
+</li>
+</ul>
+<h3 id="jwt-和-session-id-的区别总结">JWT 和 Session Id 的区别总结</h3>
+<h3 id="jwt">JWT</h3>
+<ul>
+<li>服务器上不保存任何东西，JWT 存储于客户端中</li>
+<li>由服务器 加密（可选）和签名</li>
+<li>token 包含用户的所有信息</li>
+<li>所有信息都存储于 token 本身中</li>
+<li>易于扩展到cluster</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/JSON-Web-Token-JWT-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/JWT.png" alt="JWT workflow"></p>
+<h3 id="session-id">Session Id</h3>
+<ul>
+<li>Session Id 保存于服务器和客户端中</li>
+<li>加密并签名</li>
+<li>Session Id 是对用户的引用</li>
+<li>服务器需要查找用户并进行必要的检查</li>
+<li>难以扩展到cluster</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/JSON-Web-Token-JWT-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/session.png" alt="Session workflow"></p>
+<h2 id="jwt教程">JWT教程</h2>
+<p><a href="https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html" target="_blank" rel="noopener">JSON Web Token 入门教程 阮一峰</a><br>
+<a href="https://www.cnblogs.com/ittranslator/p/14595165.html" target="_blank" rel="noopener">JWT 介绍 - Step by Step</a><br>
+- <a href="https://dev.to/moe23/intro-to-jwt-mcb" target="_blank" rel="noopener">Intro to JWT - Step by Step</a></p>
+<h2 id="jsonwebtoken-in-node-js"><code>jsonwebtoken</code> in Node.js</h2>
+<ol>
+<li>
+<p>Installing Required Libraries</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install jsonwebtoken</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Creating a JWT</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">'jsonwebtoken'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Define your secret key</span></span><br><span class="line"><span class="keyword">const</span> secretKey = <span class="string">'your-256-bit-secret'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the payload (claims)</span></span><br><span class="line"><span class="keyword">const</span> payload = &#123;</span><br><span class="line">sub: <span class="string">'1234567890'</span>, <span class="comment">// subject</span></span><br><span class="line">name: <span class="string">'John Doe'</span>,</span><br><span class="line">iat: <span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">1000</span>), <span class="comment">// issued at</span></span><br><span class="line">exp: <span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">1000</span>) + (<span class="number">60</span> * <span class="number">30</span>) <span class="comment">// expiration time</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Encode the payload to create a JWT</span></span><br><span class="line"><span class="keyword">const</span> token = jwt.sign(payload, secretKey, &#123; <span class="attr">algorithm</span>: <span class="string">'HS256'</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(token);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Verifying a JWT</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">jwt.verify(token, secretKey, (err, decoded) =&gt; &#123;</span><br><span class="line"><span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">if</span> (err.name === <span class="string">'TokenExpiredError'</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Token has expired"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Invalid token"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(decoded);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="pyjwt-in-python"><code>PyJWT</code> in Python</h2>
+<ol>
+<li>
+<p>Installing Required Libraries</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install PyJWT</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Creating a JWT</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> jwt</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define your secret key</span></span><br><span class="line">secret_key = <span class="string">'your-256-bit-secret'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the payload (claims)</span></span><br><span class="line">payload = &#123;</span><br><span class="line">    <span class="string">'sub'</span>: <span class="string">'1234567890'</span>,  <span class="comment"># subject</span></span><br><span class="line">    <span class="string">'name'</span>: <span class="string">'John Doe'</span>,</span><br><span class="line">    <span class="string">'iat'</span>: datetime.datetime.utcnow(),  <span class="comment"># issued at</span></span><br><span class="line">    <span class="string">'exp'</span>: datetime.datetime.utcnow() + datetime.timedelta(minutes=<span class="number">30</span>)  <span class="comment"># expiration time</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Encode the payload to create a JWT</span></span><br><span class="line">token = jwt.encode(payload, secret_key, algorithm=<span class="string">'HS256'</span>)</span><br><span class="line"></span><br><span class="line">print(token)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Verifying a JWT</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    decoded_token = jwt.decode(token, secret_key, algorithms=[<span class="string">'HS256'</span>])</span><br><span class="line">    print(decoded_token)</span><br><span class="line"><span class="keyword">except</span> jwt.ExpiredSignatureError:</span><br><span class="line">    print(<span class="string">"Token has expired"</span>)</span><br><span class="line"><span class="keyword">except</span> jwt.InvalidTokenError:</span><br><span class="line">    print(<span class="string">"Invalid token"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>TECH</category>
+      </categories>
+      <tags>
+        <tag>Authentication</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Develop LLM powered applications with LangChain - Udemy Course</title>
     <url>/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="resource-links">Resource Links</h2>
@@ -14503,12 +14665,12 @@ M3 | Money Supply definition 3 | 货币供应量M3 | 货币供应的一种，包
 <h3 id="例子">例子</h3>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% aplayer "岚坤爷" "岚坤爷" "https://www.xiami.com/webapp/embed-player?autoPlay=1&amp;id=1900020217" "https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/chatHead.jpg" %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-JNZGvsSK" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-zEuFpQeU" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-JNZGvsSK"),
+            element: document.getElementById("aplayer-zEuFpQeU"),
             narrow: false,
             autoplay: false,
             showlrc: false,
