@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Kubernetes - RBAC - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/Kubernetes-RBAC.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                                <a class="tag" href="/tags/#Cloud" title="Cloud">Cloud</a>
+                                
+                                <a class="tag" href="/tags/#container" title="container">container</a>
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                                <div class="page-header-category">
+                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/container/">container</a>
+                                </div>
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/Kubernetes-RBAC.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/Kubernetes-RBAC.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                Kubernetes - RBAC
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading">role &amp; rolebinding clusterrole &amp; clusterrolebinding serviceaccount</h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2022-07-27
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <h1 id="role">Role</h1>
+<h2 id="创建role">创建Role</h2>
+<h3 id="apply-yaml">apply yaml</h3>
+<ul>
+<li>
+<p><code>kubectl create role namex —verb=get,watch,list --resource=pods --dry-run=client -o yaml&gt;role1.yaml</code></p>
+<ul>
+<li>快速获取role1.yaml，再进行修改</li>
+</ul>
+</li>
+<li>
+<p><code>kubectl apply -f role1.yaml</code></p>
+</li>
+</ul>
+<h3 id="kubectl-create-role-namex-verb-get-watch-list-resource-pods-deployment"><code>kubectl create role namex —verb=get,watch,list --resource=pods,deployment</code></h3>
+<h2 id="查看role">查看Role</h2>
+<h3 id="kubectl-get-role"><code>kubectl get role</code></h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NAME       AGE</span><br><span class="line">od-reader  7s</span><br></pre></td></tr></table></figure>
+<h3 id="kubectl-describe-role-pod-reader"><code>kubectl describe role pod-reader</code></h3>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/Kubernetes-RBAC.html" target="_blank" title="Kubernetes - RBAC">Kubernetes - RBAC</a></div>
+  <div><b>本文链接: </b><a href="/Kubernetes-RBAC.html" target="_blank" title="Kubernetes - RBAC">http://liyuankun.top/Kubernetes-RBAC.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/Kubernates-upgrade.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="Kubernates-upgrade">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/MAC-OS常见问题集锦.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="MAC OS常见问题集锦">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#role"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Role</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建role"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">创建Role</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#apply-yaml"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">apply yaml</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#kubectl-create-role-namex-verb-get-watch-list-resource-pods-deployment"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">kubectl create role namex —verb=get,watch,list --resource=pods,deployment</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#查看role"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">查看Role</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#kubectl-get-role"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">kubectl get role</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#kubectl-describe-role-pod-reader"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">kubectl describe role pod-reader</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/Kubernetes-RBAC.html";
+        var disqus_url = "http://liyuankun.top/Kubernetes-RBAC.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>

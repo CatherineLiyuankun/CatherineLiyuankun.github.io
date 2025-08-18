@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          程序员-MAC 重新装机必备2命令行+环境配置 - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/程序员-MAC-重新装机必备2命令行-环境配置.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                                <a class="tag" href="/tags/#MAC" title="MAC">MAC</a>
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                                <div class="page-header-category">
+                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/Tools/">Tools</a>
+                                </div>
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/程序员-MAC-重新装机必备2命令行-环境配置.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/程序员-MAC-重新装机必备2命令行-环境配置.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                程序员-MAC 重新装机必备2命令行+环境配置
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading"></h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2021-05-31
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <h1 id="terminal-设置">Terminal 设置</h1>
+<ul>
+<li>
+<p>[x] <a href="https://www.warp.dev/" target="_blank" rel="noopener">Warp</a> <a href="https://github.com/warpdotdev/Warp" target="_blank" rel="noopener">Git开源</a> The terminal for the 21st century。</p>
+<ul>
+<li>Warp解决第一个痛点，是通过减少配置、方便输入，优化输出，增加常用命令行自动提示(通过fig)，方便查看历史记录，可定义流程，等等。</li>
+<li>解决第二个痛点，则是增加协作功能。例如可以共享自己的命令行、设置项、历史记录。</li>
+<li><a href="https://www.warp.dev/blog/introducing-warp-ai" target="_blank" rel="noopener">Warp AI</a>： 可以直接问Warp AI怎样write script 来实现特定功能。</li>
+</ul>
+</li>
+<li>
+<p>[x] Terminal 用 <a href="https://www.iterm2.com/" target="_blank" rel="noopener"><strong>iTerm2</strong></a> + <a href="https://en.wikipedia.org/wiki/Z_shell" target="_blank" rel="noopener"><strong>zsh</strong></a> + <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener"><strong>oh-my-zsh</strong></a> 的组合，主题是 <a href="https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme" target="_blank" rel="noopener">robbyrussell</a>.<br>
+配置方法参考文章： <a href="../oh-my-zsh%E7%BB%84%E5%90%88%E4%BD%A0%E7%9A%84terminal.html">iterm2+oh-my-zsh组合你的terminal</a>.</p>
+</li>
+<li>
+<p>[x] zsh 的插件开了 git、autojump、brew、git、git-extra、git-flow、git-prompt、git-remote-branch、github、gitignore、history、history-substring-search、iterm2、node、npm、npx、nvm、tig、vscode、yarn、<a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a>、<a href="https://wakatime.com/terminal" target="_blank" rel="noopener">命令行安装WakaTime</a></p>
+</li>
+<li>
+<p><a href="http://liyuankun.top/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.html#mac-%E9%85%8D%E7%BD%AEfinder%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%89%93%E5%BC%80iterm2">Mac 配置在Finder里用iTerm2打开当前目录</a></p>
+<ul>
+<li><a href="https://apps.apple.com/cn/app/qmenu/id1567442612?l=en&amp;mt=12" target="_blank" rel="noopener"><strong>Qmenu</strong></a> 【免费, App strore】访达扩展，拥有QSpace【付费, App strore】的部分功能。 【推荐】现在用Qmenu，功能比OpenInTerminal 更多。</li>
+</ul>
+</li>
+<li>
+<p>[x] 配置<a href="https://liyuankun.top/%E5%A5%A5%E5%88%A9%E7%BB%99%E4%BD%A0%E7%9A%84iTerm2-%E5%BF%AB%E9%80%9F%E7%94%A8IDE%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.html#mac%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E7%94%A8sublime-vscode-atom%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a></p>
+<ul>
+<li>[x] open .  用finder打开当前文件</li>
+<li>[x] vsc .  用vscode打开当前文件</li>
+<li>[x] subl .  用Sublime打开当前文件</li>
+<li>[x] atom .  用Atom打开当前文件</li>
+<li>[x] command + &lt;-  / -&gt;     切换tab</li>
+<li>[x] control + w 回退一部分命令</li>
+</ul>
+</li>
+<li>
+<p><a href="https://tldr.sh/" target="_blank" rel="noopener">tldr</a> Simplified and community-driven <code>man</code> pages. Quick install: <code>npm install -g tldr</code>.</p>
+<ul>
+<li>Take <code>git</code> for example, while <code>man</code> <code>git</code> outputs more than 100 lines. <code>&gt; tldr git</code></li>
+</ul>
+</li>
+<li>
+<p><a href="http://liyuankun.top/Git-Push-%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%96%B9%E6%B3%95-%E5%A4%9A%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE.html">Git 多用户配置</a></p>
+</li>
+<li>
+<p><a href="https://tomcat.apache.org/download-10.cgi" target="_blank" rel="noopener">Tomcat 10.x</a></p>
+</li>
+</ul>
+<h1 id="命令行开发环境设置">命令行开发环境设置</h1>
+<h2 id="安装command-line-tools">安装Command line tools</h2>
+<p>苹果的 Command line tools 是专为开发者使用的，包括 gcc 等常用的基本工具。<br>
+推荐登陆 <a href="http://connect.apple.com" target="_blank" rel="noopener"><a href="http://connect.apple.com" target="_blank" rel="noopener">http://connect.apple.com</a></a> ，然后搜索 <code>command line tools</code> 选择对应版本进行安装。<br>
+也可以通过Xcode进行安装，如果已经安装Xcode则已经包含了<code>command line tools</code>。</p>
+<p>Mac 自带ruby，可以检查版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br></pre></td></tr></table></figure>
+<h2 id="检查shell版本-bash-or-zsh-or">检查shell版本 bash or zsh or?</h2>
+<p>MAC 自带并默认使用zsh。</p>
+<p>参考： <a href="https://unix.stackexchange.com/questions/9501/how-to-test-what-shell-i-am-using-in-a-terminal" target="_blank" rel="noopener">How to check what shell I am using in a terminal?</a></p>
+<h3 id="1-常用且好记">1 常用且好记</h3>
+<p>The following works on zsh, bash, and dash, but not on csh:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$0</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$BASH_VERSION</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$ZSH_VERSION</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-作用范围广">2 作用范围广</h3>
+<p>Works in the four shells (bash, dash, zsh, csh):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -p $$</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ps -p$$ -ocmd= </span><br><span class="line"></span><br><span class="line"><span class="comment"># On Solaris, this may need to be</span></span><br><span class="line">ps -p$$ -ofname=</span><br><span class="line"></span><br><span class="line"><span class="comment"># On macOS and on BSD should be</span></span><br><span class="line">ps -p$$ -ocommand=</span><br></pre></td></tr></table></figure>
+<h2 id="设置zsh-作为默认shell">设置Zsh 作为默认shell</h2>
+<p>打开一个新的terminal来确认，设置Zsh 作为默认shell：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br><span class="line"><span class="comment"># 期望结果: /usr/bin/zsh or similar</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果shell列表中没有zsh或者你没有使用chsh权限的时候，不起作用</span></span><br><span class="line"><span class="comment"># 使用下面命令设置Zsh 作为默认shell</span></span><br><span class="line">[sudo] chsh -s $(<span class="built_in">which</span> zsh)  <span class="comment">#或 chsh -s /bin/zsh</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装homebrew">安装homebrew</h2>
+<p><a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew 官网</a>。<br>
+homebrew是Mac下目前最常用的包管理工具，相当于debain下的 apt , Red hat系列的 yum ，帮你安装、升级、移除软件工具包。<br>
+软件安装完成后homebrew有时会给出进一步设置的提示，强烈建议仔细阅读。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="报错解决方法">报错解决方法</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/346726110" target="_blank" rel="noopener">Mac 怎么安装Homebrew (2021)</a></p>
+<h3 id="安装路径">安装路径</h3>
+<p>The <code>/usr/local/Cellar</code> directory is the default location on OS X. You’ll see sub-directories in there for all your installed formulae.<br>
+MAC 系统上默认路径为<code>/usr/local/Cellar</code>, 下面的子目录就是用brew安装的其他包。<br>
+homebrew默认会把可执行文件装在目录 /usr/local/bin 下面，建议修改 path 路径，让你通过 homebrew安装的工具可以覆盖掉Mac默认的（例如git, Big sur Mac自带2.30.1版本的git）。使用管理员权限修改文件/etc/paths 将 /usr/local/bin 移动到第一行。</p>
+<p>MAC Monterey 系统上新版本Homebrew， 例如 3.3.12，默认路径变为<code>/opt/homebrew/Cellar</code>, 下面的子目录就是用brew安装的其他包。</p>
+<h3 id="通过-homebrew-安装">通过 <a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a> 安装</h3>
+<ul>
+<li>[x] <a href="https://github.com/wting/autojump" target="_blank" rel="noopener"><strong>autojump</strong></a>，目录跳转。 <code>brew install autojump</code>。</li>
+</ul>
+<!-- - [ ] [**the\_silver\_searcher**](https://github.com/ggreer/the_silver_searcher)，文件搜索，命令行是 ag
+- [ ] [**hub**](https://hub.github.com/) - git 扩展
+- [ ] [**tig**](https://github.com/jonas/tig) - git 扩展
+- [ ] [**bat**](https://github.com/sharkdp/bat)，带行号的 cat，可以配 `alias cat="bat"`
+- [ ] [**fd**](https://github.com/sharkdp/fd)，比系统自带的 find 友好 -->
+<h2 id="多个java版本切换和安装">多个Java版本切换和安装</h2>
+<p><a href="../Install-Multiple-Java-Versions-on-Mac-by-Homebrew-Cask.html">Install Multiple Java Versions on Mac by Homebrew Cask</a></p>
+<h2 id="install-node-js-and-nvm"><a href="../Install-node-js-and-nvm.html">Install node.js and nvm</a></h2>
+<h3 id="install-grunt-globally">Install Grunt globally</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt -v</span><br></pre></td></tr></table></figure>
+<h3 id="install-yarn-globally">Install yarn globally</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure>
+<h4 id="通过-yarn-global-add-安装">通过 <code>yarn global add</code> 安装</h4>
+<ul>
+<li>[ ] <a href="https://github.com/popomore/projj" target="_blank" rel="noopener"><strong>projj</strong></a>，github/gitlab 项目管理</li>
+<li>[ ] <a href="https://github.com/zeit/serve" target="_blank" rel="noopener"><strong>serve</strong></a>，本地静态服务器</li>
+<li>[ ] <a href="https://github.com/sindresorhus/fkill" target="_blank" rel="noopener"><strong>fkill</strong></a>，比 kill 好用的进程 killer</li>
+<li>[ ] <a href="https://github.com/gtanner/qrcode-terminal" target="_blank" rel="noopener"><strong>qrcode-terminal</strong></a>，二维码生成</li>
+</ul>
+<h2 id="安装bash-complete">安装bash-complete</h2>
+<p>bash 自动完成功能在 linux 发行版里一般都会自带，不过通过 homebrew 安装也很简单</p>
+<p>brew install bash-completion<br>
+安装完成后需要根据提示在你的 <code>.profile</code> 文件中添加几行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f $(brew --prefix)/etc/bash_completion ]; <span class="keyword">then</span></span><br><span class="line">  . $(brew --prefix)/etc/bash_completion</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h2 id="install-maven">Install <code>Maven</code></h2>
+<h3 id="install-maven-macos">Install <code>Maven</code> - MacOS</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install maven</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br><span class="line">Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)</span><br><span class="line">Maven home: /opt/homebrew/Cellar/maven/3.9.11/libexec</span><br><span class="line">Java version: 24.0.2, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk/24.0.2/libexec/openjdk.jdk/Contents/Home</span><br><span class="line"></span><br><span class="line"><span class="comment"># vi ~/.bash_profile or</span></span><br><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>add its bin folder to the PATH environment variable</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Maven</span></span><br><span class="line"><span class="built_in">export</span> M2_HOME=<span class="string">"/opt/homebrew/Cellar/maven/3.9.11/libexec"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;M2_HOME&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<p><code>echo $M2_HOME</code> 或者 <code>mvn --version</code>验证</p>
+<h3 id="install-maven-windows">Install <code>Maven</code> - Windows</h3>
+<ul>
+<li>Maven 3.3 要求 JDK 1.7 或以上</li>
+<li>Maven 3.2 要求 JDK 1.6 或以上</li>
+<li>Maven 3.0/3.1 要求 JDK 1.5 或以上</li>
+</ul>
+<h4 id="下载-maven-文件">下载 Maven 文件</h4>
+<ul>
+<li><a href="http://maven.apache.org/download.html" target="_blank" rel="noopener">下载 Maven</a></li>
+<li>解压 Maven 文件
+<ul>
+<li>解压文件到你想要的位置来安装 Maven 3.2.5，你会得到 apache-maven-3.2.5 子目录。<code>C:\Tools\apache-maven-3.3.9</code></li>
+</ul>
+</li>
+<li>设置 Maven 环境变量
+<ul>
+<li>添加 <code>M2_HOME</code>、<code>MAVEN_OPTS</code> 环境变量。
+<ul>
+<li>右键单击“我的电脑”，然后单击“属性” --&gt; 单击“高级”选项卡 --&gt; 单击“环境变量” --&gt; 单击“新建”添加一个新变量名和值。
+<ul>
+<li><code>M2_HOME= C:\Tools\apache-maven-3.3.9</code> 或者通过<code>where maven</code>查找已经安装的路径</li>
+<li><code>MAVEN_OPTS=-Xms256m -Xmx512m</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>编辑环境变量<code>path</code>
+<ul>
+<li>尾部添加<code>%M2_HOME%\bin</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>验证 Maven 安装
+<ul>
+<li>现在打开控制台，执行以下命令。</li>
+<li><code>c:\&gt; mvn --version</code></li>
+<li>或者<code>echo $M2_HOME</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="install-the-ant-build-tool">Install the <code>Ant</code> build tool</h2>
+<h3 id="install-the-ant-macos">Install the <code>Ant</code> - MacOS</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ant</span><br></pre></td></tr></table></figure>
+<p>Add the environment variable <code>ANT_HOME</code> in your system.<br>
+Add its bin folder to the <code>PATH</code> environment variable.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">where</span> ant</span><br><span class="line">/opt/homebrew/bin/ant</span><br><span class="line"></span><br><span class="line"><span class="comment"># vi ~/.bash_profile or</span></span><br><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ant</span></span><br><span class="line"><span class="comment"># BIN folder should include both ant and antRun</span></span><br><span class="line"><span class="comment"># If installed with brew, it should be "/usr/local/Cellar/ant@1.9/1.9.x/libexec/bin"</span></span><br><span class="line"><span class="comment"># export ANT_HOME=/usr/local/Cellar/1.10.10/libexec</span></span><br><span class="line"><span class="built_in">export</span> ANT_HOME=/opt/homebrew/Cellar/ant/1.10.15_1/libexec</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$ANT_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<p><code>echo $ANT_HOME</code> 或者 <code>ant -version</code> 验证</p>
+<h3 id="install-the-ant-windows">Install the <code>Ant</code> - Windows</h3>
+<ul>
+<li>设置 Ant 环境变量
+<ul>
+<li>添加 <code>ANT_HOME</code>环境变量。
+<ul>
+<li>右键单击“我的电脑”，然后单击“属性” --&gt; 单击“高级”选项卡 --&gt; 单击“环境变量” --&gt; 单击“新建”添加一个新变量名和值。
+<ul>
+<li><code>ANT_HOME= C:\Tools\ant</code> 或者通过<code>where ant</code>查找已经安装的路径</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>编辑环境变量<code>path</code>
+<ul>
+<li>尾部添加<code>%ANT_HOME%\bin</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>验证 Maven 安装
+<ul>
+<li>现在打开控制台，执行以下命令。</li>
+<li><code>c:\&gt; ant --version</code></li>
+<li>或者<code>echo $ANT_HOME</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="install-gradle">Install gradle</h2>
+<h3 id="方法1：通过homebrew安装">方法1：通过Homebrew安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install gradle</span><br><span class="line"><span class="comment"># brew install gradle@6</span></span><br><span class="line">brew upgrade gradle</span><br></pre></td></tr></table></figure>
+<h3 id="方法2：通过sdkman安装-gradle多版本管理-推荐">方法2：通过SDKman安装，gradle多版本管理【推荐】</h3>
+<p><a href="https://juejin.cn/post/6844903481942212621" target="_blank" rel="noopener">不同版本 Gradle ，怎么和平共处</a></p>
+<p><a href="https://github.com/sdkman/sdkman-cli" target="_blank" rel="noopener">安装SDKman</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://get.sdkman.io | bash</span><br></pre></td></tr></table></figure>
+<p>查看安装版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk version</span><br></pre></td></tr></table></figure>
+<p>安装指定版本的 Gradle</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install gradle 6.7</span><br></pre></td></tr></table></figure>
+<p>卸载指定版本的 Gradle</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk uninstall gradle 6.7</span><br></pre></td></tr></table></figure>
+<p>查看当前安装的 Gradle 版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk current gradle</span><br></pre></td></tr></table></figure>
+<p>查看安装的 Gradle 版本和所有版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk list gradle</span><br></pre></td></tr></table></figure>
+<p>设置默认的 Gradle 版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk default gradle 6.7</span><br></pre></td></tr></table></figure>
+<p>使用临时的 Gradle 版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk use gradle 6.7</span><br></pre></td></tr></table></figure>
+<h2 id="安装python">安装Python</h2>
+<h3 id="安装python-v2">安装Python</h3>
+<p>如果你正在使用Mac，系统是OS X&gt;=10.9，那么系统自带的Python版本是2.7。要安装最新的Python 3.9，有两个方法：</p>
+<p>方法一：<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">从Python官网下载Python 3.9的安装程序</a>，下载后双击运行并安装；</p>
+<p>安装目录：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">which python3</span><br><span class="line">/Library/Frameworks/Python.framework/Versions/<span class="number">3.9</span>/bin/python3</span><br></pre></td></tr></table></figure>
+<p>方法二：如果安装了Homebrew，直接通过命令<code>brew install python3</code>安装即可。</p>
+<p>安装目录：<code>/usr/local/Cellar/python@3.9</code><br>
+可执行文件目录：<code>/usr/local/bin/python3.9</code></p>
+<p>MAC Monterey 系统上新版本Homebrew， 例如 3.3.12，默认路径变为<code>/opt/homebrew/Cellar/python@3.10</code>, 下面的子目录就是用brew安装的其他包。</p>
+<h3 id="mac上python2和python3的版本切换设置"><a href="../Mac%E4%B8%8Apython2%E5%92%8Cpython3%E7%9A%84%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2%E8%AE%BE%E7%BD%AE.html">Mac上python2和python3的版本切换设置</a></h3>
+<h3 id="apktool">APKTOOL</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install apktool</span><br></pre></td></tr></table></figure>
+<h3 id="jadx">JADX</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jadx</span><br></pre></td></tr></table></figure>
+<!-- ## 安装Bash
+
+Mac 虽然默认也是使用 GNU Bash，不过使用命令 `/bin/bash --version` 可看到版本只有 3.2，该版本不支持 4.0 版本后添加的关联数组等功能，为了脚本的通用，建议升级到最新版本。
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install bash</span><br></pre></td></tr></table></figure>
+<p>安装完要设置新安装的 bash 为默认 bash ，用超级用户编辑文件：<code>/etc/shells</code>，加入<br>
+<code>/usr/local/bin/bash</code>到第一行 --&gt;</p>
+<!-- ## 安装coreutils
+
+Mac底层是基于freeBSD的，所以常用工具例如 `ls` 、`grep` 也都是freeBSD版本的，为了让我们的脚本可以更容易的跨平台，我们可以安装coreutils
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install coreutils</span><br></pre></td></tr></table></figure>
+<p>装完需要根据提示进行设置，在<code>.profile</code>文件中加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/opt/coreutils/libexec/gnubin:<span class="variable">$PATH</span>"</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"/usr/local/opt/coreutils/libexec/gnuman:<span class="variable">$MANPATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>让GNU的工具覆盖freeBSD的，并且使用man时显示的是GNU工具的文档。 --&gt;</p>
+<!-- ## 安装dircolors-solarized
+
+因为默认的 ls 配色实在很土，所以我用solarized配色方案：
+
+mkdir ~/lib
+cd ~/lib
+git clone git@github.com:seebi/dircolors-solarized.git
+echo 'eval `dircolors ~/lib/dircolors-solarized/dircolors.256dark`' >> ~/.profile -->
+<h1 id="其他设置">其他设置</h1>
+<h2 id="hexo-博客">Hexo 博客</h2>
+<p>安装 Hexo（参考：<a href="../Git-Pages-Jekyll-Hexo-Build-your-own-blog.html#step1-%E5%AE%89%E8%A3%85-hexo">Git Pages + Jekyll/Hexo Build your own blog</a>）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h1 id="参考链接">参考链接</h1>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000037592655" target="_blank" rel="noopener">当你拿到一台崭新的Mac电脑时，我们应该如何快速高效配置开发环境?</a></li>
+</ul>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/程序员-MAC-重新装机必备2命令行-环境配置.html" target="_blank" title="程序员-MAC 重新装机必备2命令行+环境配置">程序员-MAC 重新装机必备2命令行+环境配置</a></div>
+  <div><b>本文链接: </b><a href="/程序员-MAC-重新装机必备2命令行-环境配置.html" target="_blank" title="程序员-MAC 重新装机必备2命令行+环境配置">http://liyuankun.top/程序员-MAC-重新装机必备2命令行-环境配置.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/MAC-book-pro-2015款换三星SSD硬盘970EVO-1T.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="MAC book pro 2015款换三星SSD硬盘970EVO 1T">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/程序员-MAC-重新装机必备1软件.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="程序员-MAC 重新装机必备1软件">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#terminal-设置"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Terminal 设置</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#命令行开发环境设置"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">命令行开发环境设置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装command-line-tools"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">安装Command line tools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#检查shell版本-bash-or-zsh-or"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">检查shell版本 bash or zsh or?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-常用且好记"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1 常用且好记</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-作用范围广"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2 作用范围广</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#设置zsh-作为默认shell"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">设置Zsh 作为默认shell</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装homebrew"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">安装homebrew</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#报错解决方法"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">报错解决方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装路径"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">安装路径</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#通过-homebrew-安装"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">通过 homebrew 安装</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#多个java版本切换和安装"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">多个Java版本切换和安装</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#install-node-js-and-nvm"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">Install node.js and nvm</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#install-grunt-globally"><span class="toc-nav-number">2.6.1.</span> <span class="toc-nav-text">Install Grunt globally</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#install-yarn-globally"><span class="toc-nav-number">2.6.2.</span> <span class="toc-nav-text">Install yarn globally</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#通过-yarn-global-add-安装"><span class="toc-nav-number">2.6.2.1.</span> <span class="toc-nav-text">通过 yarn global add 安装</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装bash-complete"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">安装bash-complete</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#install-maven"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">Install Maven</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#install-maven-macos"><span class="toc-nav-number">2.8.1.</span> <span class="toc-nav-text">Install Maven - MacOS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#install-maven-windows"><span class="toc-nav-number">2.8.2.</span> <span class="toc-nav-text">Install Maven - Windows</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#下载-maven-文件"><span class="toc-nav-number">2.8.2.1.</span> <span class="toc-nav-text">下载 Maven 文件</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#install-the-ant-build-tool"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">Install the Ant build tool</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#install-the-ant-macos"><span class="toc-nav-number">2.9.1.</span> <span class="toc-nav-text">Install the Ant - MacOS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#install-the-ant-windows"><span class="toc-nav-number">2.9.2.</span> <span class="toc-nav-text">Install the Ant - Windows</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#install-gradle"><span class="toc-nav-number">2.10.</span> <span class="toc-nav-text">Install gradle</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法1：通过homebrew安装"><span class="toc-nav-number">2.10.1.</span> <span class="toc-nav-text">方法1：通过Homebrew安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法2：通过sdkman安装-gradle多版本管理-推荐"><span class="toc-nav-number">2.10.2.</span> <span class="toc-nav-text">方法2：通过SDKman安装，gradle多版本管理【推荐】</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装python"><span class="toc-nav-number">2.11.</span> <span class="toc-nav-text">安装Python</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装python-v2"><span class="toc-nav-number">2.11.1.</span> <span class="toc-nav-text">安装Python</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mac上python2和python3的版本切换设置"><span class="toc-nav-number">2.11.2.</span> <span class="toc-nav-text">Mac上python2和python3的版本切换设置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#apktool"><span class="toc-nav-number">2.11.3.</span> <span class="toc-nav-text">APKTOOL</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#jadx"><span class="toc-nav-number">2.11.4.</span> <span class="toc-nav-text">JADX</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#其他设置"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">其他设置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hexo-博客"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Hexo 博客</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考链接"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">参考链接</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/程序员-MAC-重新装机必备2命令行-环境配置.html";
+        var disqus_url = "http://liyuankun.top/程序员-MAC-重新装机必备2命令行-环境配置.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>

@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          IDEA 安装配置监控JVM 插件-VisualVM-解决jdk11无法启动VisualVM问题 - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                                <a class="tag" href="/tags/#Java" title="Java">Java</a>
+                                
+                                <a class="tag" href="/tags/#IntelliJ" title="IntelliJ">IntelliJ</a>
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                                <div class="page-header-category">
+                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/BackEnd/">BackEnd</a>
+                                </div>
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                IDEA 安装配置监控JVM 插件-VisualVM-解决jdk11无法启动VisualVM问题
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading">Windows &amp; MacOS</h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2023-01-16
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <p>GitHub：<a href="https://github.com/oracle/visualvm" target="_blank" rel="noopener">VisualVM</a> 已经被 Oracle 在 GitHub 上开源了，因此我们可以直接在 GitHub 上下载安装包。</p>
+<h2 id="idea-安装配置监控jvm-插件">IDEA 安装配置监控JVM 插件</h2>
+<p>打开Preference --&gt; Plugins --&gt; 搜索VisualVM  --&gt; install --&gt; Apply</p>
+<p><a href="https://plugins.jetbrains.com/plugin/7115-visualvm-launcher/" target="_blank" rel="noopener">VisualVM IDEA 插件链接</a></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-install.png" alt="VisualVM-install.png"></p>
+<h2 id="idea配置visualvm">IDEA配置VisualVM</h2>
+<p>重新打开Preference --&gt; Other Settings --&gt; VisualVM Launcher --&gt; VisualVM executable</p>
+<p>Other Settings --&gt; VisualVM Launcher 这部分设置第一步&quot;plugins中安装VisualVM Launcher插件&quot;之后才会显示。</p>
+<h3 id="jdk-8">jdk 8</h3>
+<p>VisualVM executable 填 <code>你的jdk8路径/bin/jvisualvm.exe</code>, 例如<code>C:/Program Files/Java/jdk1.8.0_131/bin/jvisualvm.exe</code></p>
+<h3 id="jdk-11">jdk 11</h3>
+<p>发现JDK11的目录里，bin目录下并没有jvisualvm的可执行文件<code>jvisualvm.exe</code>.<br>
+原来从jdk 9开始, visualVM不再集成在Oracle JDK中, 需要单独下载安装。</p>
+<ul>
+<li>
+<p>IDEA 的VisualVM executable里也有提示链接： <a href="https://visualvm.github.io/" target="_blank" rel="noopener">VisualVM executable</a></p>
+</li>
+<li>
+<p>下载地址: <a href="https://visualvm.github.io/download.html" target="_blank" rel="noopener">https://visualvm.github.io/download.html</a></p>
+</li>
+<li>
+<p>与IDE集成方式： <a href="https://visualvm.github.io/idesupport.html" target="_blank" rel="noopener">https://visualvm.github.io/idesupport.html</a></p>
+</li>
+<li>
+<p>Windows 下载visualvm_215.zip</p>
+<!-- - 解压到JDK目录下，层级对应覆盖即可。bin目录下的内容copy到`你的jdk11路径/bin` (例如`C:/Program Files/Eclipse Adoptium/jdk-11.0.13.8-hotspot/bin/visualvm.exe`)下面，其他类似。 -->
+<ul>
+<li>解压visualvm_215.zip为visualvm_215，我是放在<code>Z:\Program Files\visualvm_215</code></li>
+<li>VisualVM executable 填写<code>visualvm_215路径/bin/visualvm.exe</code></li>
+<li><code>visualvm_215路径/etc/visualvm.conf</code> 里面配置JDK路径，例如 <code>visualvm_jdkhome=&quot;C:/Program Files/Eclipse Adoptium/jdk-11.0.13.8-hotspot&quot;</code></li>
+<li>如果显示检测不到本地运行Java程序, 就到刚刚<code>visualvm_215路径/bin/jvisualvm.exe</code>的文件处，右击选择<code>以管理员身份运行</code>
+<ul>
+<li>监控的本地jdk路径（不修改也是能用，只是不能显示详细的包名和类名，只显示进程号难以区分）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>MacOS 下载VisualVM_215.dmg 安装</p>
+<ul>
+<li>VisualVM executable 填写<code>/Applications/VisualVM.app/Contents/MacOS/visualvm</code></li>
+<li><code>/Applications/VisualVM.app/Contents/Resources/visualvm/etc/visualvm.conf</code> 里面配置JDK路径，例如 <code>visualvm_jdkhome=&quot;/opt/homebrew/Cellar/openjdk@11/11.0.15/libexec/openjdk.jdk/Contents/Home&quot;</code> (参考：<a href="https://blog.51cto.com/u_15456153/4847185" target="_blank" rel="noopener">Mac安装VisualVM Mac版 V2.0.7</a>)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-config-mac.png" alt="VisualVM-config-mac"></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-config-windows.png" alt="VisualVM-config-windows"></p>
+<p>Preference --&gt; Other Settings --&gt; VisualVM Launcher --&gt; Custom JDK home path 默认使用project配置的JDK，如果找不到，就会使用填写的指定的jdk。</p>
+<h2 id="idea启动visualvm">IDEA启动VisualVM</h2>
+<p>然后重启IDEA，点击<code>Run</code>就发现多了两个选择。点击这两个选项，就可以启动VisualVM。</p>
+<ul>
+<li><code>Run with VisualVM</code></li>
+<li><code>DeBug with VisualVM</code></li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-start.png" alt="启动VisualVM"></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-run.png" alt="VisualVM-run"></p>
+<h3 id="启动按钮diabled状态无法启动visualvm">启动按钮diabled状态无法启动VisualVM</h3>
+<p>可以参考这篇文章：<a href="https://segmentfault.com/a/1190000040495117" target="_blank" rel="noopener">IDEA安装了VisualVM Launcher插件无法调试使用</a><br>
+但是仍然没有解决我的问题，仍然是disabled状态。后来在左下方“Console” tab下看到了VisualVM一个图标，实测可用。</p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-IDEAstart.pic.jpg" alt="“Console” tab下看到了VisualVM一个图标"></p>
+<h3 id="命令行启动visualvm">命令行启动VisualVM</h3>
+<ol>
+<li>
+<p>本地启动Java服务后，保持运行；打开终端，输入jps命令回车，查看进程ID，例如进程ID为44620；<br>
+<code>jps</code></p>
+</li>
+<li>
+<p>打开终端，输入jvisualvm命令、参数和进程ID后回车，会自动打开此软件，命令如下：</p>
+</li>
+</ol>
+<p><code>jvisualvm --openpid 44620</code><br>
+之后，稍等片刻，会自动弹出Java VisualVM软件界面。</p>
+<h2 id="查看visualvm">查看VisualVM</h2>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-heap.png" alt="VisualVM-heap"></p>
+<p>可以改变在VisualVM --&gt; Tool --&gt; Plugins --&gt; Settings --&gt; Edit<br>
+Java VisualVM 插件各个版本： <a href="https://visualvm.github.io/pluginscenters.html" target="_blank" rel="noopener">https://visualvm.github.io/pluginscenters.html</a></p>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/Java/VisualVM/VisualVM-plugin.png" alt="VisualVM-plugin.png"></p>
+<h2 id="java-visualvm软件操作">Java VisualVM软件操作</h2>
+<p>1、点击次级导航Tab中Threads项，之后点击Heap Dump按钮，会打印输出线程详细状态；</p>
+<p>2、点击次级导航Tab中Monitor项，之后点击Heap Dump按钮，会输出内存镜像文件(.hprof文件，此文件可使用Eclipse平台的Memory Analyzer Tool，即MAT，进行详细分析)，此文件的完整路径，在界面中有显示；</p>
+<p><a href="https://blog.csdn.net/u014427391/article/details/95347716?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-95347716-blog-124230445.pc_relevant_3mothn_strategy_recovery&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=3" target="_blank" rel="noopener">Jvisualvm简单使用教程</a></p>
+<h2 id="jdk-11使用jvisualvm-visualgc"><a href="https://blog.csdn.net/muxiaoshan/article/details/124230445" target="_blank" rel="noopener">jdk 11使用jvisualVM visualGC</a></h2>
+<h2 id="其他相关文章">其他相关文章</h2>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/wngpenghao/article/details/82884874" target="_blank" rel="noopener">VisualVM远程连接配置</a></p>
+</li>
+<li>
+<p><a href="https://yanbin.blog/fix-jvisualvm-stuck-at-computing-description-issue/" target="_blank" rel="noopener">解决 jvisualvm 启动后长时间 Computing description… 的问题</a></p>
+</li>
+<li>
+<p><a href="https://juejin.cn/post/6997281868362350599#heading-2" target="_blank" rel="noopener">环境篇：idea 安装VisualVM，Jprofiler，jclasslib</a></p>
+</li>
+<li>
+<p><a href="https://juejin.cn/post/6997281868362350599#heading-2" target="_blank" rel="noopener">idea安装Jprofiler</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/liaoyue11/article/details/110853303?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-110853303-blog-123939267.pc_relevant_recovery_v2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-110853303-blog-123939267.pc_relevant_recovery_v2&amp;utm_relevant_index=5" target="_blank" rel="noopener">JAVA内存分析：idea集成jprofiler查看JVM内存使用情况</a></p>
+</li>
+<li>
+<p><a href="https://juejin.cn/post/7081830261846982693" target="_blank" rel="noopener">JVM系列（二十）JVM监控及诊断工具-命令行篇</a></p>
+</li>
+</ul>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html" target="_blank" title="IDEA 安装配置监控JVM 插件-VisualVM-解决jdk11无法启动VisualVM问题">IDEA 安装配置监控JVM 插件-VisualVM-解决jdk11无法启动VisualVM问题</a></div>
+  <div><b>本文链接: </b><a href="/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html" target="_blank" title="IDEA 安装配置监控JVM 插件-VisualVM-解决jdk11无法启动VisualVM问题">http://liyuankun.top/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/IDEA-插件.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="IDEA 插件">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/Kubernates-Certified Kubernetes Security Specialist-CKS.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="2023 CKS v1.26 考试真题整理">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#idea-安装配置监控jvm-插件"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">IDEA 安装配置监控JVM 插件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#idea配置visualvm"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">IDEA配置VisualVM</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#jdk-8"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">jdk 8</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#jdk-11"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">jdk 11</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#idea启动visualvm"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">IDEA启动VisualVM</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启动按钮diabled状态无法启动visualvm"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">启动按钮diabled状态无法启动VisualVM</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#命令行启动visualvm"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">命令行启动VisualVM</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#查看visualvm"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">查看VisualVM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#java-visualvm软件操作"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Java VisualVM软件操作</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jdk-11使用jvisualvm-visualgc"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">jdk 11使用jvisualVM visualGC</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#其他相关文章"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">其他相关文章</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html";
+        var disqus_url = "http://liyuankun.top/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>

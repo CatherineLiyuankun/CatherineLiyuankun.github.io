@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          2023 CKS v1.26 考试真题整理 - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/Kubernates-Certified Kubernetes Security Specialist-CKS.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                                <a class="tag" href="/tags/#Cloud" title="Cloud">Cloud</a>
+                                
+                                <a class="tag" href="/tags/#container" title="container">container</a>
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                                <div class="page-header-category">
+                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/container/">container</a>
+                                </div>
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/Kubernates-Certified Kubernetes Security Specialist-CKS.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/Kubernates-Certified Kubernetes Security Specialist-CKS.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                2023 CKS v1.26 考试真题整理
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading">Certified Kubernetes Security Specialist</h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2022-12-25
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <p>上一篇：<a href="./Kubernates-Certified-Kubernetes-Administrator-CKA.html">CKA考试真题</a><br>
+上一篇：<a href="./Kubernates-Certified-Kubernetes-Application-Developer-CKAD.html">CKAD考试真题</a></p>
+<h2 id="考试内容">考试内容</h2>
+<p><a href="https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/#" target="_blank" rel="noopener">CKS 考试链接</a><br>
+<a href="https://docs.linuxfoundation.org/tc-docs/certification/important-instructions-cks" target="_blank" rel="noopener">Important Instructions: CKS</a></p>
+<ul>
+<li>考试包括 15-20 项performance-based tasks。
+<ul>
+<li>2023.1 实测是16道题</li>
+</ul>
+</li>
+<li>考生有 2 小时的时间完成 CKS 考试。
+<ul>
+<li>因为从06/2022开始环境升级（贬义），考试环境更难用了，变的很卡，所以时间变得比较紧张。容易做不完题，建议先把有把握的，花费时间不多的题先做掉
+<ul>
+<li><a href="https://itnext.io/cks-cka-ckad-changed-terminal-to-remote-desktop-157a26c1d5e" target="_blank" rel="noopener">CKS CKA CKAD changed Terminal to Remote Desktop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CKS考试67分以上即可通过，考试不通过有一次补考机会。</li>
+</ul>
+<p>Certifications- expire 36 months from the date that the Program certification requirements are met by a candidate.</p>
+<h3 id="certified-kubernetes-security-specialist-cks">Certified Kubernetes Security Specialist (CKS)</h3>
+<p>The following tools and resources are allowed during the exam as long as they are used by candidates to work independently on exam tasks (i.e. not used for 3rd party assistance or research) and are accessed from within the Linux server terminal on which the Exam is delivered.<br>
+During the exam, candidates may:</p>
+<ul>
+<li>review the Exam content instructions that are presented in the command line terminal.</li>
+<li>review Documents installed by the distribution (i.e. /usr/share and its subdirectories)</li>
+<li>use the search function provided on <a href="https://kubernetes.io/docs/" target="_blank" rel="noopener">https://kubernetes.io/docs/</a> however, they may only open search results that have a domain matching the sites listed below</li>
+<li>use the browser within the VM to access the following documentation:
+<ul>
+<li>Kubernetes Documentation:
+<ul>
+<li><a href="https://kubernetes.io/docs/" target="_blank" rel="noopener">https://kubernetes.io/docs/</a> and their subdomains</li>
+<li><a href="https://kubernetes.io/blog/" target="_blank" rel="noopener">https://kubernetes.io/blog/</a> and their subdomains<br>
+This includes all available language translations of these pages (e.g. <a href="https://kubernetes.io/zh/docs/" target="_blank" rel="noopener">https://kubernetes.io/zh/docs/</a>)</li>
+</ul>
+</li>
+<li>Tools:
+<ul>
+<li>Trivy documentation <a href="https://aquasecurity.github.io/trivy/" target="_blank" rel="noopener">https://aquasecurity.github.io/trivy/</a></li>
+<li>Falco documentation <a href="https://falco.org/docs/" target="_blank" rel="noopener">https://falco.org/docs/</a><br>
+This includes all available language translations of these pages (e.g. <a href="https://falco.org/zh/docs/" target="_blank" rel="noopener">https://falco.org/zh/docs/</a>)</li>
+</ul>
+</li>
+<li>App Armor:
+<ul>
+<li>Documentation <a href="https://gitlab.com/apparmor/apparmor/-/wikis/Documentation" target="_blank" rel="noopener">https://gitlab.com/apparmor/apparmor/-/wikis/Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>You’re only allowed to have one other browser tab open with:</p>
+<ul>
+<li><a href="https://kubernetes.io/docs" target="_blank" rel="noopener">https://kubernetes.io/docs</a></li>
+<li><a href="https://github.com/kubernetes" target="_blank" rel="noopener">https://github.com/kubernetes</a></li>
+<li><a href="https://kubernetes.io/blog" target="_blank" rel="noopener">https://kubernetes.io/blog</a></li>
+<li><a href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener">https://github.com/aquasecurity/trivy</a></li>
+<li><a href="https://falco.org/docs" target="_blank" rel="noopener">https://falco.org/docs</a></li>
+<li><a href="https://gitlab.com/apparmor/apparmor/-/wikis/Documentation" target="_blank" rel="noopener">https://gitlab.com/apparmor/apparmor/-/wikis/Documentation</a></li>
+</ul>
+<h3 id="cks-environment">CKS Environment</h3>
+<ul>
+<li>Each task on this exam must be completed on a designated cluster/configuration context.</li>
+<li>Sixteen clusters comprise the exam environment, one for each task. Each cluster is made up of one master node and one worker node.</li>
+<li>An infobox at the start of each task provides you with the cluster name/context and the hostname of the master and worker node.</li>
+<li>You can switch the cluster/configuration context using a command such as the following:</li>
+<li><code>kubectl config use-context &lt;cluster/context name&gt;</code></li>
+<li>Nodes making up each cluster can be reached via ssh, using a command such as the following:</li>
+<li><code>ssh &lt;nodename&gt;</code></li>
+<li>You have elevated privileges on any node by default, so there is no need to assume elevated privileges.</li>
+<li>You must return to the base node (hostname cli) after completing each task.</li>
+<li>Nested <code>−ssh</code> is not supported.</li>
+<li>You can use <code>kubectl</code> and the appropriate context to work on any cluster from the base node. When connected to a cluster member via ssh, you will only be able to work on that particular cluster via kubectl.</li>
+<li>For your convenience, all environments, in other words, the base system and the cluster nodes, have the following additional command-line tools pre-installed and pre-configured:
+<ul>
+<li><code>kubectl</code> with kalias and Bash autocompletion</li>
+<li><code>yq</code> and <code>jq</code> for YAML/JSON processing</li>
+<li><code>tmux</code> for terminal multiplexing</li>
+<li><code>curl</code> and <code>wget</code> for testing web services</li>
+<li><code>man</code> and man pages for further documentation</li>
+</ul>
+</li>
+<li>Further instructions for connecting to cluster nodes will be provided in the appropriate tasks</li>
+<li>The CKS environment is currently running etcd v3.5</li>
+<li>The CKS environment is currently running Kubernetes v1.26</li>
+<li>The CKS  exam environment will be aligned with the most recent K8s minor version within approximately 4 to 8 weeks of the K8s release date.</li>
+</ul>
+<h3 id="more-items-for-cks-than-cka-and-ckad">More items for CKS than CKA and CKAD</h3>
+<ul>
+<li>Pod Security Policies(PSP) - removed from Kubernetes in <code>v1.25</code></li>
+<li><a href="https://kubernetes.io/docs/tutorials/security/apparmor/" target="_blank" rel="noopener">AppArmor</a></li>
+<li>Apiserver
+<ul>
+<li>Apiserver Crash</li>
+<li>Apiserver NodeRestriction</li>
+</ul>
+</li>
+<li>ImagePolicyWebhook</li>
+<li><a href="https://github.com/aquasecurity/kube-bench" target="_blank" rel="noopener">kube-bench</a></li>
+<li><a href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener">Trivy</a></li>
+</ul>
+<h3 id="cks-知识点-练习题总结"><a href="./Kubernetes-CKS-%E7%9F%A5%E8%AF%86%E7%82%B9-%E7%BB%83%E4%B9%A0%E9%A2%98.html">CKS 知识点&amp;练习题总结</a></h3>
+<h2 id="如何备考">如何备考</h2>
+<h3 id="k8s练习环境-同cka"><a href="./Kubernates-Certified-Kubernetes-Administrator-CKA.html#k8s%E7%BB%83%E4%B9%A0%E7%8E%AF%E5%A2%83">k8s练习环境</a>(同CKA)</h3>
+<h3 id="cks练习题">CKS练习题</h3>
+<p>有几个练习库，建议将每个题目都自己亲自操作一遍，一定要操作。</p>
+<ul>
+<li>CKS在线练习环境：<a href="https://killercoda.com/killer-shell-cks" target="_blank" rel="noopener">https://killercoda.com/killer-shell-cks</a></li>
+<li><a href="https://killer.sh/attendee/f65d95f1-170b-444d-8af0-bbf302f8c796/content" target="_blank" rel="noopener">CKS Simulator Kubernetes 1.26</a></li>
+<li><a href="https://killercoda.com/killer-shell-ckad/scenario/admission-controllers" target="_blank" rel="noopener">Adminission pligin/Pod Security Policies 练习</a></li>
+</ul>
+<h3 id="cks课程">CKS课程</h3>
+<ul>
+<li>【需付费】CKS考试-对应官方课程<a href="https://training.linuxfoundation.org/training/kubernetes-security-essentials-lfs260/" target="_blank" rel="noopener">Kubernetes for Developers (LFS260)</a> 感觉没必要买，只看官方文档就足够了。</li>
+</ul>
+<h3 id="常用命令">常用命令</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不熟</span></span><br><span class="line"><span class="comment">## 输出pod status</span></span><br><span class="line">kubectl -n default describe pod pod1 | grep -i status:</span><br><span class="line">kubectl -n default get pod pod1 -o jsonpath=<span class="string">"&#123;.status.phase&#125;"</span></span><br><span class="line"><span class="comment">## Check the pod for error</span></span><br><span class="line">kubectl describe pod podname | grep -i error</span><br><span class="line">... Error: ImagePullBackOff</span><br><span class="line"><span class="comment">## a fast way to get an overview of the ReplicaSets of a Deployment and their images could be done with:</span></span><br><span class="line">kubectl -n neptune get rs -o wide | grep deployname</span><br><span class="line">NAME         DESIRED   CURRENT   READY   AGE    CONTAINERS   IMAGES         SELECTOR</span><br><span class="line">deployname   3         3         3       9m6s   httpd        httpd:alpine   app=wonderful</span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建job</span></span><br><span class="line">kubectl -n neptune create job neb-new-job --image=busybox:1.31.0 <span class="variable">$do</span> &gt; /opt/course/3/job.yaml -- sh -c <span class="string">"sleep 2 &amp;&amp; echo done"</span></span><br><span class="line"><span class="comment">## If a Secret bolongs to a serviceaccount, it'll have the annotation kubernetes.io/service-account.name</span></span><br><span class="line">kubectl get secrets -oyaml | grep annotations -A 1 <span class="comment"># shows secrets with first annotation</span></span><br><span class="line"><span class="comment">## log</span></span><br><span class="line">kubectl logs podname &gt; /opt/test.log</span><br><span class="line"><span class="comment">## decode base64</span></span><br><span class="line">base64 -d filename</span><br><span class="line"><span class="comment">## check service connection using a temporary Pod</span></span><br><span class="line"><span class="comment">## k run tmp --restart=Never --rm --image=nginx:alpine -i -- curl http://svcname.namespace:svcport</span></span><br><span class="line">kubectl run tmp --restart=Never --rm --image=nginx:alpine -i -- curl http://svcname.namespace:80</span><br><span class="line"><span class="comment">## check that both PV and PVC have the status Bound:</span></span><br><span class="line">k -n earth get pv,pvc</span><br><span class="line">NAME                                            CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                 STORAGECLASS   REASON   AGE</span><br><span class="line">persistentvolume/earth-project-earthflower-pv   2Gi        RWO            Retain           Bound    earth/earth-project-earthflower-pvc                           8m4s</span><br><span class="line"></span><br><span class="line">NAME                                                  STATUS   VOLUME                         CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">persistentvolumeclaim/earth-project-earthflower-pvc   Bound    earth-project-earthflower-pv   2Gi        RWO                           7m38s</span><br><span class="line"></span><br><span class="line"><span class="comment">## We can confirm the pod of deployment with PVC mounting correctly:</span></span><br><span class="line">k describe pod project-earthflower-586758cc49-hb87f -n earth | grep -A2 Mount:</span><br><span class="line">    Mounts:</span><br><span class="line">      /tmp/project-data from task-pv-storage (rw)</span><br><span class="line">      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-jj2t2 (ro)</span><br><span class="line"></span><br><span class="line"><span class="comment">## Verify everything using kubectl auth can-i</span></span><br><span class="line">kubectl auth can-i create deployments --as system:serviceaccount:app-team1:cicd-token -n app-team1 <span class="comment"># YES</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 常用</span></span><br><span class="line"><span class="comment">## 创建pod</span></span><br><span class="line">kubectl run pod1 --image=httpd:2.4.41-alpine <span class="variable">$do</span> &gt; 2.yaml</span><br><span class="line">kubectl get pod sat-003 -o yaml &gt; 7-sat-003.yaml <span class="comment"># export</span></span><br><span class="line">kubectl delete pod pod1 --force --grace-period=0</span><br><span class="line"><span class="comment">## 创建service</span></span><br><span class="line">kubectl expose deployment d1 --name=服务名 --port=服务端口 --target-port=pod运行端口 --<span class="built_in">type</span>=类型</span><br><span class="line">kubectl expose pod pod名 --name=服务名 --port=服务端口 --target-port=pod运行端口 --<span class="built_in">type</span>=类型</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CKS</span></span><br><span class="line"><span class="comment">## 创建secret</span></span><br><span class="line">kubectl create secret generic db-credentials --from-literal db-password=passwd</span><br><span class="line"><span class="comment">## modify a pod yaml to deployment yaml</span></span><br><span class="line"><span class="comment">### put the Pod's metadata: and spec: into the Deployment's template: section:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## To verify that the token hasn't been mounted run the following commands:</span></span><br><span class="line">kubectl -n one <span class="built_in">exec</span> -it pod-name -- mount | grep serviceaccount</span><br><span class="line">kubectl -n one <span class="built_in">exec</span> -it pod-name -- cat /var/run/secrets/kubernetes.io/serviceaccount/token</span><br><span class="line"></span><br><span class="line"><span class="comment">### 创建 clusterrole，使用 psp</span></span><br><span class="line">kubectl create clusterrole restrict-access-role --verb=use --resource=psp --resource-name=restrict-policy</span><br><span class="line"></span><br><span class="line"><span class="comment">## after modify /etc/kubernetes/manifests/kube-apiserver.yaml</span></span><br><span class="line">systemctl restart kubelet</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查询 sa 对应的 role 名称（假设是 role-1）</span></span><br><span class="line">kubectl get rolebinding -n db -oyaml | grep <span class="string">'service-account-web'</span> -B 10</span><br><span class="line"></span><br><span class="line"><span class="comment">### grep</span></span><br><span class="line">grep apple -A 10 <span class="comment"># apple之后10行</span></span><br><span class="line"></span><br><span class="line">grep apple -B 10 <span class="comment"># apple之前10行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### secret used by pod</span></span><br><span class="line">kubectl <span class="built_in">exec</span> pod1 -- env</span><br><span class="line">kubectl <span class="built_in">exec</span> pod1 -- cat /etc/diver/hosts</span><br></pre></td></tr></table></figure>
+<h2 id="经验总结-同cka"><a href="http://liyuankun.top/Kubernates-Certified-Kubernetes-Administrator-CKA.html#%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93">经验总结</a>(同CKA)</h2>
+<h2 id="pre-setup-同cka"><a href="http://liyuankun.top/Kubernates-Certified-Kubernetes-Administrator-CKA.html#pre-setup">Pre Setup</a>(同CKA)</h2>
+<h2 id="cks-2023-真题-1-26">CKS 2023 真题 1.26</h2>
+<h3 id="考题1-apparmor-访问控制">考题1 - AppArmor 访问控制</h3>
+<h4 id="context">Context</h4>
+<p>AppArmor is enabled on the cluster’s worker node. An AppArmor profile is prepared, but not enforced yet.<br>
+You may use your browser to open one additional tab to access the AppArmor documentation.</p>
+<p>AppArmor 已在 cluster 的工作节点上被启用。一个 AppArmor 配置文件已存在，但尚未被实施。</p>
+<h4 id="task">Task</h4>
+<p>On the cluster’s worker node, enforce the prepared AppArmor profile located at <code>/etc/apparmor.d/nginx_apparmor</code> .<br>
+Edit the prepared manifest file located at <code>/home/candidate/KSSH00401/nginx-deploy.yaml</code> to apply the AppArmor profile.<br>
+Finally, apply the manifest file and create the pod specified in it.</p>
+<p>在 cluster 的工作节点上，实施位于 <code>/etc/apparmor.d/nginx_apparmor</code> 的现有 AppArmor 配置文件。<br>
+编辑位于 <code>/home/candidate/KSSH00401/nginx-deploy.yaml</code> 的现有清单文件以应用 AppArmor 配置文件。<br>
+最后，应用清单文件并创建其中指定的 Pod 。</p>
+<h4 id="solution">Solution</h4>
+<p>搜索 apparmor（使用 AppArmor 限制容器对资源的访问），接着再搜索字符串 “parser”<br>
+<a href="https://kubernetes.io/zh/docs/tutorials/security/apparmor/" target="_blank" rel="noopener">https://kubernetes.io/zh/docs/tutorials/security/apparmor/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 远程登录到指定工作节点</span></span><br><span class="line">ssh cka-node01</span><br><span class="line"></span><br><span class="line"><span class="comment">### 从profile文件查看策略名称</span></span><br><span class="line">cat /etc/apparmor.d/nginx_apparmor</span><br><span class="line"></span><br><span class="line">    profile nginx-profile flags=(attach_disconnected) &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment">### 加载 apparmor 配置文件</span></span><br><span class="line">apparmor_parser /etc/apparmor.d/nginx_apparmor</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看策略名称，结果是 nginx-profile</span></span><br><span class="line">apparmor_status | grep nginx-profile</span><br><span class="line"></span><br><span class="line"><span class="comment">### 回到控制节点，并更新 Pod 的注解</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">vim /home/candidate/KSSH00401/nginx-deploy.yaml</span><br><span class="line">    annotations:</span><br><span class="line">      <span class="comment">### hello 是 Pod 里容器名称，nginx-profile 则是 apparmor_status 解析出来的结果</span></span><br><span class="line">      container.apparmor.security.beta.kubernetes.io/hello: localhost/nginx-profile</span><br><span class="line"></span><br><span class="line"><span class="comment">### 如果 apply 后报错，则先删除保存并删除旧 Pod，改完后再创建新的</span></span><br><span class="line">kubectl apply -f /home/candidate/KSSH00401/nginx-deploy.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="考题2-kube-bench-基准测试">考题2 - Kube-Bench 基准测试</h3>
+<h4 id="context-v2">Context</h4>
+<p>A CIS Benchmark tool was run against the kubeadm-created cluster and found multiple issues that must be addressed immediately.</p>
+<p>针对 kubeadm 创建的 cluster 运行 CIS 基准测试工具时， 发现了多个必须立即解决的问题。</p>
+<h4 id="task-v2">Task</h4>
+<p>Fix all issues via configuration and restart theaffected components to ensure the new settings take effect.<br>
+通过配置修复所有问题并重新启动受影响的组件以确保新的设置生效。</p>
+<p>Fix all of the following violations that were found against the API server:<br>
+修复针对 API 服务器发现的所有以下违规行为：<br>
+Ensure that the 1.2.7 --authorization-mode FAIL argument is not set to AlwaysAllow<br>
+Ensure that the 1.2.8 --authorization-mode FAIL argument includes Node<br>
+Ensure that the 1.2.9 --authorization-mode FAIL argument includes RBAC<br>
+Ensure that the 1.2.18 --insecure-bind-address FAIL argument is not set<br>
+Ensure that the 1.2.19 --insecure-port FAIL argument is set to 0</p>
+<p>Fix all of the following violations that were found against the kubelet:<br>
+修复针对 kubelet 发现的所有以下违规行为：<br>
+Ensure that the 4.2.1 --anonymous-auth FAIL argument is set to false<br>
+Ensure that the 4.2.2 --authorization-mode FAIL argument is not set to AlwaysAllow<br>
+Use <code>Webhook</code> authn/authz where possible. 注意：尽可能使用 Webhook authn/authz。</p>
+<p>Fix all of the following violations that were found against etcd:<br>
+修复针对 etcd 发现的所有以下违规行为：<br>
+Ensure that the 4.2.1 --client-cert-auth FAIL argument is set to true</p>
+<h4 id="solution-v2">Solution</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">$ ssh root@vms65.rhce.cc</span><br><span class="line"></span><br><span class="line"><span class="comment"># kube-bench run --target=master --check=1.2.7</span></span><br><span class="line">kube-bench run --target=master | grep FAIL</span><br><span class="line"></span><br><span class="line"><span class="comment">### 修复针对 APIserver 发现的以下所有问题：</span></span><br><span class="line"><span class="comment">### 确保 1.2.7 --authorization-mode 参数不能设置为 AlwaysAllow</span></span><br><span class="line"><span class="comment">### 确保 1.2.8 --authorization-mode 参数包含 Node</span></span><br><span class="line"><span class="comment">### 确保 1.2.9 --authorization-mode 参数包含 RBAC</span></span><br><span class="line"><span class="comment">### 确保 1.2.18 --insecure-bind-address 参数不能设置</span></span><br><span class="line"><span class="comment">### 确保 1.2.19 --insecure-port 参数设置为 0</span></span><br><span class="line"><span class="comment">### 注意：修改 master 节点！</span></span><br><span class="line">vim /etc/kubernetes/manifests/kube-apiserver.yaml</span><br><span class="line">    <span class="comment">#- --authorization-mode=AlwaysAllow 删除AlwaysAllow，加Node,RBAC</span></span><br><span class="line">    - --authorization-mode=Node,RBAC</span><br><span class="line">    <span class="comment">#- --insecure-bind-address=0.0.0.0</span></span><br><span class="line">    - --insecure-port=0</span><br><span class="line"></span><br><span class="line"><span class="comment">### 修复针对 kubelet 发现的以下所有问题：</span></span><br><span class="line"><span class="comment">### 确保 4.2.1 anonymous-auth 参数设置为 false</span></span><br><span class="line"><span class="comment">### 确保 4.2.2 --authorization-mode 参数不能设置为 AlwaysAllow，尽可能使用 Webhook authn/authz</span></span><br><span class="line"><span class="comment">### 注意：master 和 node 节点都要修改！</span></span><br><span class="line">vim /var/lib/kubelet/config.yaml</span><br><span class="line">    authentication:</span><br><span class="line">      anonymous:</span><br><span class="line">        enabled: <span class="literal">false</span></span><br><span class="line">    authorization:</span><br><span class="line">      mode: Webhook</span><br><span class="line"></span><br><span class="line"><span class="comment">### 修复针对 etcd 发现的以下所有问题：</span></span><br><span class="line"><span class="comment">### 确保 4.2.--client-cert-auth 参数设置为 true</span></span><br><span class="line"><span class="comment">### 注意：修改 master 节点！</span></span><br><span class="line">vim /etc/kubernetes/manifests/etcd.yaml</span><br><span class="line">    - --client-cert-auth=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 加载并重启 kubelet 服务</span></span><br><span class="line"><span class="comment">### 注意：master 和 node 节点都要重启！</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
+<h3 id="考题3-trivy-镜像扫描">考题3 - Trivy 镜像扫描</h3>
+<h4 id="task-v3">Task</h4>
+<p>使用 Trivy 开源容器扫描器检测 namespace kamino 中 Pod 使用的具有严重漏洞的镜像。<br>
+查找具有 High 或 Critical 严重性漏洞的镜像，并删除使用这些镜像的 Pod。<br>
+注意：Trivy 仅安装在 cluster 的 master 节点上，在工作节点上不可使用。你必须切换到 cluster 的 master 节点才能使用 Trivy 。</p>
+<p>Use the Trivy open-source container scanner to detect images with severe vulnerabilities used by Pods in the namespace <code>kamino</code>.<br>
+Look for images with <code>High</code> or <code>Critical</code> severity vulnerabilities, and delete the Pods that use those images.</p>
+<p>Trivy is pre-installed on the cluster’s <code>master</code> node only; it is not available on the base system or the worker nodes. You’ll have to connect to the cluster’s master node to use <code>Trivy</code>.</p>
+<h4 id="solution-v3">Solution</h4>
+<p>搜索 kubectl images（列出集群中所有运行容器的镜像）<br>
+<a href="https://kubernetes.io/zh-cn/docs/tasks/access-application-cluster/list-all-running-container-images/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/tasks/access-application-cluster/list-all-running-container-images/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 需登录到控制节点操作</span></span><br><span class="line">ssh cka-master01</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查询命名空间 kamino 中 pod 使用的镜像</span></span><br><span class="line">kubectl get pod -n kamino -o yaml | grep image:</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">kubectl get pods -n kamino -o jsonpath=<span class="string">'&#123;range .items[*]&#125;&#123;"\n"&#125;&#123;.metadata.name&#125;&#123;":\t"&#125;&#123;range .spec.containers[*]&#125;&#123;.image&#125;&#123;", "&#125;&#123;end&#125;&#123;end&#125;'</span> | sort</span><br><span class="line"></span><br><span class="line"><span class="comment">### 假设镜像是 registry.aliyuncs.com/google_containers/coredns:1.7.0</span></span><br><span class="line"><span class="comment">### 使用 trivy 工具查询具有 HIGH 或 CRITICAL 漏洞的镜像</span></span><br><span class="line">trivy --<span class="built_in">help</span></span><br><span class="line">trivy image --severity HIGH,CRITICAL <span class="string">'registry.aliyuncs.com/google_containers/coredns:1.7.0'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 删除检测到的漏洞镜像对应的 pod（如果有控制器，得删除控制器）</span></span><br><span class="line">kubectl delete pod -n kamino pod名称</span><br></pre></td></tr></table></figure>
+<h3 id="考题4-sysdig-falco">考题4 - Sysdig &amp; Falco</h3>
+<p>you may use you brower to open one additonal tab to access sysdig’s documentation or Falco’s documentaion</p>
+<h4 id="task-v4">Task</h4>
+<p>Use runtime detection tools to detect anomalous processes spawning and executing frequently in the sigle container belonging to Pod <code>redis</code>. Two tools are avaliable to use:<br>
+使用运行时检测工具来检测 Pod tomcat 单个容器中频发生成和执行的异常进程。有两种工具可供使用：</p>
+<ul>
+<li>sysdig</li>
+<li>falco</li>
+</ul>
+<p>The tools are pre-installed on the cluster’s worker node only, they are not avaliable on the base system or the master node.<br>
+Using the tool of you choice (including any non pre-install tool) analyse the container’s behavior for at least <code>30</code> seconds, using filers that detect newly spawing and executing processes, store an incident file at <code>/opt/KSR00101/incidents/summary</code>, containing the detected incidents one per line in the follwing format:<br>
+注：这些工具只预装在 cluster 的工作节点，不在 master 节点。<br>
+使用工具至少分析 30 秒，使用过滤器检查生成和执行的进程，将事件写到 <code>/opt/KSR00101/incidents/summary</code> 文件中，其中包含检测的事件, 每个单独一行<br>
+格式如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[timestamp],[uid],[processName]</span></span><br></pre></td></tr></table></figure>
+<p>保持工具的原始时间戳格式不变。<br>
+注：确保事件文件存储在集群的工作节点上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一 sysdig</span></span><br><span class="line"><span class="comment">### 需登录到工作节点操作</span></span><br><span class="line">ssh cka-node01</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看 sysdig 帮助</span></span><br><span class="line">sysdig -h</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看 sysdig 支持的元数据</span></span><br><span class="line">sysdig -l</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看指定容器ID</span></span><br><span class="line">crictl ps | grep redis</span><br><span class="line"></span><br><span class="line"><span class="comment">### -M 分析容器30秒，-p 指定事件保存格式，--cri 指定容器运行时，并且保存到指定文件路径中</span></span><br><span class="line">sysdig -M 30 -p <span class="string">"*%evt.time,%user.uid,%proc.name"</span> --cri /run/containerd/containerd.sock container.id=xxxxx &gt; /opt/KSR00101/incidents/summary</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法二 falco</span></span><br><span class="line"><span class="comment">### 需登录到工作节点操作</span></span><br><span class="line">ssh cka-node01</span><br><span class="line"></span><br><span class="line"><span class="comment">### </span></span><br><span class="line"><span class="built_in">cd</span> /etc/falco</span><br><span class="line">ls</span><br><span class="line"></span><br><span class="line"><span class="comment">### </span></span><br><span class="line">vim /etc/falco/falco_rules.yaml</span><br><span class="line"><span class="comment"># Container is supposed to be immutable. Package management should be done in building the image.</span></span><br><span class="line">- rule: Launch Package Management Process <span class="keyword">in</span> Container</span><br><span class="line">  desc: Package management process ran inside container</span><br><span class="line">  condition: &gt;</span><br><span class="line">    spawned_process</span><br><span class="line">    and container</span><br><span class="line">    and user.name != <span class="string">"_apt"</span></span><br><span class="line">    and package_mgmt_procs</span><br><span class="line">    and not package_mgmt_ancestor_procs</span><br><span class="line">    and not user_known_package_manager_in_container</span><br><span class="line">  output: &gt;</span><br><span class="line">    Package management process launched <span class="keyword">in</span> container %evt.time,%user.uid,%proc.name</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看指定容器ID</span></span><br><span class="line">cat /var/<span class="built_in">log</span>/sysdig | grep falco | grep <span class="string">"Package management"</span> -i</span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">vim /opt/KSR00101/incidents/summary</span><br></pre></td></tr></table></figure>
+<h3 id="考题5-serviceaccount">考题5 - ServiceAccount</h3>
+<p>Context<br>
+A Pod fails to run because of an incorrectly specified ServiceAcccount.</p>
+<h4 id="task-v5">Task</h4>
+<p>create a new ServiceAccount named <code>backend-sa</code> in the existing namespace <code>qa</code>, which must <strong>not have access to any secrets</strong>.</p>
+<ul>
+<li>Inspect the Pods in the namespace <code>qa</code>.
+<ul>
+<li>Edit the Pod to use the newly created serviceAccount <code>backend-sa</code>.</li>
+<li>Ensure that the modified specification is applied and the Pod is running.</li>
+</ul>
+</li>
+<li>Finally, clean-up and delete the now unused serviceAccount in the namespace <code>qa</code>.<br>
+在现有 namespace <code>qa</code> 中创建一个名为 <code>backend-sa</code> 的新 ServiceAccount， 确保此 ServiceAccount 不自动挂载secrets。<br>
+使用 <code>/cks/9/pod9.yaml</code> 中的清单文件来创建一个 Pod。<br>
+最后，清理 namespace <code>qa</code> 中任何未使用的 ServiceAccount。</li>
+</ul>
+<h4 id="solution-v4">Solution</h4>
+<p>搜索 serviceaccount（为Pod配置服务账号），接着再搜索字符串 “automount”<br>
+<a href="https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-service-account/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-service-account/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 创建 ServiceAccount</span></span><br><span class="line">kubectl apply -f - &lt;&lt;EOF</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: ServiceAccount</span><br><span class="line">metadata:</span><br><span class="line">  name: backend-sa</span><br><span class="line">  namespace: qa</span><br><span class="line">automountServiceAccountToken: <span class="literal">false</span></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment">### </span></span><br><span class="line">k get pods -n qa</span><br><span class="line">  web1-xxx1</span><br><span class="line">  web2-xwx2</span><br><span class="line">  web3-xwx3</span><br><span class="line">k get deployment -n qa</span><br><span class="line">  web1</span><br><span class="line">  web2</span><br><span class="line">  web3</span><br><span class="line"><span class="comment"># 发现这些pod都属于deployment</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 编辑 Pod 使用新创建的 serviceaccount</span></span><br><span class="line">k edit deployment/web1 -n qa</span><br><span class="line">k edit deployment/web2 -n qa</span><br><span class="line">k edit deployment/web3 -n qa</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">template:</span><br><span class="line">  spec:</span><br><span class="line">    serviceAccountName: backend-sa <span class="comment"># add</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">### 应用清单文件</span></span><br><span class="line">kubectl apply -f /cks/9/pod9.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment">### 把除了 backend-sa, 并且没有被使用的 serviceaccount 都删除</span></span><br><span class="line">kubectl get serviceaccount -n qa</span><br><span class="line">    backend-sa</span><br><span class="line">    default</span><br><span class="line">    contentsa</span><br><span class="line"></span><br><span class="line">kubectl get rolebinding -n qa -o wide</span><br><span class="line">kubectl get clustorrolebinding -n qa -o wide</span><br><span class="line"></span><br><span class="line">kubectl delete -n qa serviceaccount contentsa</span><br></pre></td></tr></table></figure>
+<h3 id="考题6-2022真题v1-20-pod-安全策略-podsecuritypolicy">考题6 - 2022真题v1.20 Pod 安全策略-PodSecurityPolicy</h3>
+<p>2023的最新考试已经没有这道题了，替代的是Pod Security Standard</p>
+<h4 id="context6">Context6</h4>
+<p>A PodsecurityPolicy shall prevent the creation on of privileged Pods in a specific namespace.<br>
+PodSecurityPolicy 应防止在特定 namespace 中特权 Pod 的创建。</p>
+<h4 id="task6">Task6</h4>
+<p>Create a new <code>PodSecurityPolicy</code> named <code>restrict-policy</code>, which prevents the creation of privileged Pods.</p>
+<p>Create a new <code>ClusterRole</code> named <code>restrict-access-role</code>, which uses the newly created PodSecurityPolicy <code>restrict-policy</code>.<br>
+Create a new <code>serviceAccount</code> named <code>psp-denial-sa</code> in the existing namespace <code>staging</code>.</p>
+<p>Finally, create a new <code>clusterRoleBinding</code> named <code>dany-access-bind</code>, which binds the newly created ClusterRole <code>restrict-access-role</code> to the newly created serviceAccount <code>psp-denial-sa</code>.</p>
+<p>创建一个名为 <code>restrict-policy</code> 的新的 PodSecurityPolicy，以防止特权 Pod 的创建。<br>
+创建一个名为 <code>restrict-access-role</code> 并使用新创建的 PodSecurityPolicy <code>restrict-policy</code> 的 ClusterRole。<br>
+在现有的 namespace <code>staging</code> 中创建一个名为 <code>psp-denial-sa</code> 的新 ServiceAccount 。<br>
+最后，创建一个名为 <code>dany-access-bind</code> 的 ClusterRoleBinding，将新创建的 ClusterRole <code>restrict-access-role</code> 绑定到新创建的 ServiceAccount <code>psp-denial-sa</code>。<br>
+你可以在一下位置找到模版清单文件： <code>/cks/psp/psp.yaml</code></p>
+<h4 id="solution6">Solution6</h4>
+<p>搜索 runasany（Pod Security Policy）<br>
+<a href="https://kubernetes.io/id/docs/concepts/policy/pod-security-policy/" target="_blank" rel="noopener">https://kubernetes.io/id/docs/concepts/policy/pod-security-policy/</a><br>
+搜索 clusterrole（使用RBAC鉴权）<br>
+<a href="https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/rbac/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/rbac/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### (1)创建 psp</span></span><br><span class="line">vim /cks/psp/psp.yaml</span><br><span class="line">apiVersion: policy/v1beta1</span><br><span class="line">kind: PodSecurityPolicy</span><br><span class="line">metadata:</span><br><span class="line">  name: restrict-policy</span><br><span class="line">spec:</span><br><span class="line">  privileged: <span class="literal">false</span></span><br><span class="line">  seLinux:</span><br><span class="line">    rule: RunAsAny</span><br><span class="line">  supplementalGroups:</span><br><span class="line">    rule: RunAsAny</span><br><span class="line">  runAsUser:</span><br><span class="line">    rule: RunAsAny</span><br><span class="line">  fsGroup:</span><br><span class="line">    rule: RunAsAny</span><br><span class="line">  volumes:</span><br><span class="line">  - <span class="string">'*'</span></span><br><span class="line"></span><br><span class="line">kubectl apply -f /cks/psp/psp.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment">### (2)创建 clusterrole，使用 psp</span></span><br><span class="line">kubectl create clusterrole restrict-access-role --verb=use --resource=psp --resource-name=restrict-policy</span><br><span class="line"></span><br><span class="line"><span class="comment">### (3)创建 serviceaccount</span></span><br><span class="line">kubectl create serviceaccount psp-denial-sa -n staging </span><br><span class="line"></span><br><span class="line"><span class="comment">### (4)创建 clusterrolebinding</span></span><br><span class="line">kubectl create clusterrolebinding dany-access-bind --clusterrole=restrict-access-role --serviceaccount=staging:psp-denial-sa</span><br><span class="line"></span><br><span class="line"><span class="comment">### (5)启用 PodSecurityPolicy（在控制节点上修改 apiserver 配置）</span></span><br><span class="line">vim /etc/kubernetes/manifests/kube-apiserver.yaml</span><br><span class="line">    - --<span class="built_in">enable</span>-admission-plugins=NodeRestriction,PodSecurityPolicy</span><br><span class="line"></span><br><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
+<h3 id="考题6-2023真题v1-26-pod-security-standard">考题6 - 2023真题V1.26 Pod Security Standard</h3>
+<p>Task weight: 8%<br>
+Use context: <code>kubectl config use-context workload-prod</code></p>
+<p>There is Deployment <code>container-host-hacker</code> in Namespace <code>team-red</code> which mounts <code>/run/containerd</code> as a hostPath volume on the Node where it’s running. This means that the Pod can access various data about other containers running on the same Node.</p>
+<p>To prevent this configure Namespace <code>team-red</code> to <code>enforce</code> the <code>baseline</code> Pod Security Standard. Once completed, delete the Pod of the Deployment mentioned above.</p>
+<p>Check the <code>ReplicaSet</code> events and write the event/log lines containing the reason why the Pod isn’t recreated into <code>/opt/course/4/logs</code>.</p>
+<h4 id="answer">Answer</h4>
+<p>Making Namespaces use Pod Security Standards works via labels. We can simply edit it:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k edit ns team-red</span><br></pre></td></tr></table></figure>
+<p>Now we configure the requested label:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kubectl edit namespace team-red</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Namespace</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">kubernetes.io/metadata.name:</span> <span class="string">team-red</span></span><br><span class="line">    <span class="attr">pod-security.kubernetes.io/enforce:</span> <span class="string">baseline</span> <span class="comment"># add</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">team-red</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+<p>This should already be enough for the default Pod Security Admission Controller to pick up on that change. Let’s test it and delete the Pod to see if it’ll be recreated or fails, it should fail!</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜ k -n team-red get pod</span><br><span class="line">NAME                                    READY   STATUS    RESTARTS   AGE</span><br><span class="line">container-host-hacker-dbf989777-wm8fc   1/1     Running   0          115s</span><br><span class="line"></span><br><span class="line">➜ k -n team-red delete pod container-host-hacker-dbf989777-wm8fc </span><br><span class="line">pod <span class="string">"container-host-hacker-dbf989777-wm8fc"</span> deleted</span><br><span class="line"></span><br><span class="line">➜ k -n team-red get pod</span><br><span class="line">No resources found <span class="keyword">in</span> team-red namespace.</span><br></pre></td></tr></table></figure>
+<p>Usually the ReplicaSet of a Deployment would recreate the Pod if deleted, here we see this doesn’t happen. Let’s check why:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">➜ k -n team-red get rs</span><br><span class="line">NAME                              DESIRED   CURRENT   READY   AGE</span><br><span class="line">container-host-hacker-dbf989777   1         0         0       5m25s</span><br><span class="line"></span><br><span class="line">➜ k -n team-red describe rs container-host-hacker-dbf989777</span><br><span class="line">Name:           container-host-hacker-dbf989777</span><br><span class="line">Namespace:      team-red</span><br><span class="line">...</span><br><span class="line">Events:</span><br><span class="line">  Type     Reason            Age                   From                   Message</span><br><span class="line">  ----     ------            ----                  ----                   -------</span><br><span class="line">...</span><br><span class="line">  Warning  FailedCreate      2m41s                 replicaset-controller  Error creating: pods <span class="string">"container-host-hacker-dbf989777-bjwgv"</span> is forbidden: violates PodSecurity <span class="string">"baseline:latest"</span>: hostPath volumes (volume <span class="string">"containerdata"</span>)</span><br><span class="line">  Warning  FailedCreate      2m2s (x9 over 2m40s)  replicaset-controller  (combined from similar events): Error creating: pods <span class="string">"container-host-hacker-dbf989777-kjfpn"</span> is forbidden: violates PodSecurity <span class="string">"baseline:latest"</span>: hostPath volumes (volume <span class="string">"containerdata"</span>)</span><br></pre></td></tr></table></figure>
+<p>There we go! Finally we write the reason into the requested file so that Mr Scoring will be happy too!</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /opt/course/4/logs</span></span><br><span class="line">Warning  FailedCreate      2m2s (x9 over 2m40s)  replicaset-controller  (combined from similar events): Error creating: pods <span class="string">"container-host-hacker-dbf989777-kjfpn"</span> is forbidden: violates PodSecurity <span class="string">"baseline:latest"</span>: hostPath volumes (volume <span class="string">"containerdata"</span>)</span><br></pre></td></tr></table></figure>
+<p>Pod Security Standards can give a great base level of security! But when one finds themselves wanting to deeper adjust the levels like <code>baseline</code> or <code>restricted</code>… this isn’t possible and 3rd party solutions like OPA could be looked at.</p>
+<h3 id="考题7-networkpolicy-default-deny">考题7 - NetworkPolicy - default-deny</h3>
+<h4 id="context-v3">Context</h4>
+<p>A default-deny NetworkPolicy avoids to accidentally expose a Pod in a namespace that doesn’t have any other NetworkPolicy defined.<br>
+一个默认拒绝（default-deny）的 NetworkPolicy 可避免在未定义任何其他 NetworkPolicy 的 namespace 中意外公开 Pod。</p>
+<h4 id="task-v6">Task</h4>
+<p>Create a new default-deny NetworkPolicy named <code>denynetwork</code> in the namespace <code>development</code> for all traffic of type <code>Ingress</code>.<br>
+The new NetworkPolicy must deny all ingress traffic in the namespace <code>development</code>.</p>
+<p>Apply the newly created <code>default-deny</code> NetworkPolicy to all Pods running in namespace <code>development</code>.<br>
+You can find a skeleton manifest file at <code>/cks/15/p1.yaml</code></p>
+<p>为所有类型为 Ingress+Egress 的流量在 namespace testing 中创建一个名为 <code>denynetwork</code> 的新默认拒绝 NetworkPolicy。 此新的 NetworkPolicy 必须拒绝 namespace testng 中的所有的 Ingress + Egress 流量。<br>
+将新创建的默认拒绝 NetworkPolicy 应用与在 namespace testing 中运行的所有 Pod。<br>
+你可以在 <code>/cks/15/p1.yaml</code> 找到一个模板清单文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 修改模板清单文件</span></span><br><span class="line">vim /cks/15/p1.yaml</span><br><span class="line">apiVersion: networking.k8s.io/v1</span><br><span class="line">kind: NetworkPolicy</span><br><span class="line">metadata:</span><br><span class="line">  name: denynetwork</span><br><span class="line">  namespace: testing</span><br><span class="line">spec:</span><br><span class="line">  podSelector: &#123;&#125;</span><br><span class="line">  policyTypes:</span><br><span class="line">  - Ingress</span><br><span class="line"></span><br><span class="line"><span class="comment">### 应用清单文件</span></span><br><span class="line">kubectl apply -f /cks/15/p1.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="考题8-networkpolicy">考题8 - NetworkPolicy</h3>
+<h4 id="task-v7">Task</h4>
+<p>create a NetworkPolicy named <code>pod-restriction</code> to restrict access to Pod <code>products-service</code> running in namespace <code>dev-team</code>.<br>
+Only allow the following Pods to connect to Pod <code>products-service</code>:</p>
+<ul>
+<li>Pods in the namespace <code>qa</code></li>
+<li>Pods with label <code>environment: testing</code>, in any namespace</li>
+</ul>
+<p>Make sure to apply the NetworkPolicy.<br>
+You can find a skelet on manifest file at <code>/cks/6/p1.yaml</code></p>
+<p>创建一个名为 <code>pod-restriction</code> 的 NetworkPolicy 来限制对在 namespace <code>dev-team</code> 中运行的 Pod <code>products-service</code> 的访问。只允许以下 Pod 连接到 Pod <code>products-service</code>：</p>
+<ul>
+<li>namespace <code>qa</code> 中的 Pod</li>
+<li>位于任何 namespace，带有标签 <code>environment: testing</code> 的 Pod</li>
+</ul>
+<p>注意：确保应用 NetworkPolicy。<br>
+你可以在<code>/cks/net/po.yaml</code> 找到一个模板清单文件。</p>
+<h4 id="solution-v5">Solution</h4>
+<p>搜索 networkpolicy（网络策略）<br>
+<a href="https://kubernetes.io/zh-cn/docs/concepts/services-networking/network-policies/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/concepts/services-networking/network-policies/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### (1)查看命名空间 qa 具有的标签</span></span><br><span class="line">kubectl get namespace qa --show-labels</span><br><span class="line"></span><br><span class="line"><span class="comment">### (2)查看 pod 具有的标签</span></span><br><span class="line">kubectl get pod products-service -n dev-team --show-labels</span><br><span class="line"></span><br><span class="line"><span class="comment">### 修改模板清单文件</span></span><br><span class="line">vim /cks/net/po.yaml</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">NetworkPolicy</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pod-restriction</span>  <span class="comment"># name</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">dev-team</span>  <span class="comment"># namespace</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">podSelector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">products-service</span>  <span class="comment"># (2)</span></span><br><span class="line">  <span class="attr">policyTypes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ingress</span></span><br><span class="line">  <span class="attr">ingress:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">from:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">namespaceSelector:</span></span><br><span class="line">        <span class="attr">matchLabels:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">qa</span>  <span class="comment"># (1)</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">podSelector:</span>  <span class="comment"># 注意带 - ，表示或的关系</span></span><br><span class="line">        <span class="attr">matchLabels:</span></span><br><span class="line">          <span class="attr">environment:</span> <span class="string">testing</span></span><br><span class="line">      <span class="attr">namespaceSelector:</span> <span class="string">&#123;&#125;</span>    <span class="comment">## 任何命名空间, 不带 - ，且的关系</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 应用清单文件</span></span><br><span class="line">kubectl apply -f /cks/net/po.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="考题9-rbac">考题9 - RBAC</h3>
+<h4 id="context-v4">Context</h4>
+<p>绑定到 Pod 的 ServiceAccount 的 Role 授予过度宽松的权限。完成以下项目以减少权限集。<br>
+A Role bound to a Pod’s serviceAccount grants overly permissive permissions.<br>
+Complete the following tasks to reduce the set of permissions.</p>
+<h4 id="task-v8">Task</h4>
+<p>一个名为 <code>web-pod</code> 的现有 Pod 已在 namespace <code>db</code> 中运行。编辑绑定到 Pod 的 ServiceAccount <code>service-account-web</code> 的现有 Role， 仅允许只对 services 类型的资源执行 <code>get</code> 操作。</p>
+<ul>
+<li>在 namespace <code>db</code> 中创建一个名为 <code>role-2</code> ，并仅允许只对 <code>namespaces</code> 类型的资源执行 <code>delete</code> 操作的新 Role。</li>
+<li>创建一个名为 <code>role-2-binding</code> 的新 RoleBinding，将新创建的 Role 绑定到 Pod 的 ServiceAccount。<br>
+注意：请勿删除现有的 RoleBinding。</li>
+</ul>
+<p>Given an existing Pod named <code>web-pod</code> running in the namespace <code>db</code>. Edit the existing Role bound to the Pod’s serviceAccount <code>sa-dev-1</code> to only allow performing <code>list</code> operations, only on resources of type <code>Endpoints</code>.</p>
+<ul>
+<li>create a new Role named <code>role-2</code> in the namespace <code>db</code>, which only allows performing <code>update</code> operations, only on resources of type <code>persistentvolumeclaims</code></li>
+<li>create a new RoleBinding named <code>role-2-binding</code> binding the newly created Role to the Pod’s serviceAccount.</li>
+</ul>
+<p>Don’t delete the existing RoleBinding</p>
+<h4 id="solution-v6">solution</h4>
+<p>搜索 clusterrole（使用RBAC鉴权）<br>
+<a href="https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/rbac/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/rbac/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 查询 sa 对应的 role 名称（假设是 role-1）</span></span><br><span class="line">kubectl get rolebinding -n db -oyaml | grep <span class="string">'service-account-web'</span> -B 10</span><br><span class="line"></span><br><span class="line"><span class="comment">### 修改 role 清单文件（仅允许对 services 类型的资源执行 get 操作）</span></span><br><span class="line">kubectl edit role -n db role-1</span><br><span class="line"></span><br><span class="line">apiVersion: rbac.authorization.k8s.io/v1</span><br><span class="line">kind: Role</span><br><span class="line">metadata:</span><br><span class="line">  name: role-1</span><br><span class="line">  namespace: db</span><br><span class="line">  resourceVersion: <span class="string">"9528"</span></span><br><span class="line">rules:</span><br><span class="line">- apiGroups:</span><br><span class="line">    - <span class="string">""</span></span><br><span class="line">  resources:</span><br><span class="line">    - services</span><br><span class="line">  verbs:</span><br><span class="line">    - get</span><br><span class="line"></span><br><span class="line"><span class="comment">### 创建新角色 role-2（仅允许只对 namespaces 类型的资源执行 delete 操作）</span></span><br><span class="line">kubectl create role role-2 -n db --verb=delete --resource=namespaces</span><br><span class="line"></span><br><span class="line"><span class="comment">### 创建 rolebinding，并绑定到 sa 上</span></span><br><span class="line">kubectl create rolebinding role-2-binding --role=role-2 --serviceaccount=db:service-account-web</span><br></pre></td></tr></table></figure>
+<h3 id="考题10-kube-apiserver-审计日志记录和采集">考题10 - kube-apiserver 审计日志记录和采集</h3>
+<h4 id="task-v9">Task</h4>
+<p>Enable audit logs in the cluster.<br>
+To do so, enable the log backend, and ensure that:</p>
+<ul>
+<li>logs are stored at <code>/var/log/kubernetes/audit-logs.txt</code></li>
+<li>log files are retained for <code>10</code> days</li>
+<li>at maximum, a number of <code>2</code> auditlog files are retained<br>
+A basic policy is provided at <code>/etc/kubernetes/logpolicy/sample-policy.yaml</code>. it only specifies what not to log. The base policy is located on the cluster’s <code>master</code> node.</li>
+</ul>
+<p>Edit and extend the basic policy to log:</p>
+<ul>
+<li><code>namespaces</code> changes at <code>RequestResponse</code> level</li>
+<li>the request body of pods changes in the namespace <code>front-apps</code></li>
+<li><code>configMap</code> and <code>secret</code> changes in all namespaces at the <code>Metadata</code> level</li>
+<li>Also, add a <code>catch-all</code> ruie to log all other requests at the <code>Metadata</code> level.</li>
+</ul>
+<p>Don’t forget to apply the modifiedpolicy.<br>
+<code>/etc/kubernetes/logpolicy/sample-policy.yaml</code></p>
+<p>在 cluster 中启用审计日志。为此，请启用日志后端，并确保：</p>
+<ul>
+<li>日志存储在 <code>/var/log/kubernetes/audit-logs.txt</code></li>
+<li>日志文件能保留 <code>10</code> 天</li>
+<li>最多保留 <code>2</code> 个旧审计日志文件<br>
+/etc/kubernetes/logpolicy/sample-policy.yaml 提供了基本策略。它仅指定不记录的内容。<br>
+注意：基本策略位于 cluster 的 master 节点上。</li>
+</ul>
+<p>编辑和扩展基本策略以记录：</p>
+<ul>
+<li>RequestResponse 级别的 cronjobs 更改</li>
+<li>namespace front-apps 中 deployment 更改的请求体</li>
+<li>Metadata 级别的所有 namespace 中的 ConfigMap 和 Secret 的更改</li>
+<li>此外，添加一个全方位的规则以在 Metadata 级别记录所有其他请求。<br>
+注意：不要忘记应用修改后的策略</li>
+</ul>
+<h4 id="solution-v7">Solution</h4>
+<p>搜索 audit（审计）<br>
+<a href="https://kubernetes.io/zh-cn/docs/tasks/debug/debug-cluster/audit/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/tasks/debug/debug-cluster/audit/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 如果没有 /var/log/kubernetes/，则创建目录</span></span><br><span class="line">mkdir /var/<span class="built_in">log</span>/kubernetes/</span><br><span class="line"></span><br><span class="line"><span class="comment">### 修改 audit 模板文件</span></span><br><span class="line">vim /etc/kubernetes/logpolicy/sample-policy.yaml</span><br><span class="line"></span><br><span class="line">apiVersion: audit.k8s.io/v1</span><br><span class="line">kind: Policy</span><br><span class="line">omitStages:</span><br><span class="line">  - <span class="string">"RequestReceived"</span></span><br><span class="line">rules:</span><br><span class="line">  - level: RequestResponse</span><br><span class="line">    resources:</span><br><span class="line">    - group: <span class="string">""</span></span><br><span class="line">      resources: [<span class="string">"cronjobs"</span>]</span><br><span class="line">  - level: Request</span><br><span class="line">    resources:</span><br><span class="line">    - group: <span class="string">""</span></span><br><span class="line">      resources: [<span class="string">"deployments"</span>]</span><br><span class="line">    namespaces: [<span class="string">"front-apps"</span>]</span><br><span class="line">  - level: Metadata</span><br><span class="line">    resources:</span><br><span class="line">    - group: <span class="string">""</span></span><br><span class="line">      resources: [<span class="string">"secrets"</span>, <span class="string">"configmaps"</span>]</span><br><span class="line">  - level: Metadata</span><br><span class="line">    omitStages:</span><br><span class="line">      - <span class="string">"RequestReceived"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 修改 apiserver 配置文件，启用审计日志</span></span><br><span class="line">vim /etc/kubernetes/manifests/kube-apiserver.yaml</span><br><span class="line">--audit-policy-file=/etc/kubernetes/logpolicy/sample-policy.yaml</span><br><span class="line">--audit-log-path=/var/<span class="built_in">log</span>/kubernetes/audit-logs.txt</span><br><span class="line">--audit-log-maxage=10</span><br><span class="line">--audit-log-maxbackup=2</span><br><span class="line"></span><br><span class="line"><span class="comment">### 在 apiserver 的 Pod 上挂载策略文件和日志文件所在的目录（考试时可能已经挂载好）</span></span><br><span class="line">vim /etc/kubernetes/manifests/kube-apiserver.yaml</span><br><span class="line">volumeMounts:</span><br><span class="line">  - mountPath: /var/<span class="built_in">log</span>/kubernetes</span><br><span class="line">    name: kubernetes-logs</span><br><span class="line">  - mountPath: /etc/kubernetes/logpolicy</span><br><span class="line">    name: kubernetes-policy</span><br><span class="line">volumes:</span><br><span class="line">- name: kubernetes-logs</span><br><span class="line">  hostPath:</span><br><span class="line">    path: /var/<span class="built_in">log</span>/kubernetes</span><br><span class="line">- name: kubernetes-policy</span><br><span class="line">  hostPath:</span><br><span class="line">    path: /etc/kubernetes/logpolicy</span><br><span class="line"></span><br><span class="line"><span class="comment">### 重载生效配置</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
+<h3 id="考题11-secret">考题11 - Secret</h3>
+<h4 id="task-v10">Task</h4>
+<p>Retrieve the content of the existing secret named <code>db1-test</code> in the <code>istio-system</code> namespace.<br>
+store the username field in a file named <code>/home/candidate/user.txt</code>, and the password field in a file named <code>/home/candidate/pass</code>.txt.</p>
+<p>You must create both files; they don’t exist yet.<br>
+Do not use/modify the created files in the following steps, create new temporary files if needed.</p>
+<p>Create a new secret named <code>db2-test</code> in the <code>istio-system</code> namespace, with the following</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">username :</span> <span class="string">production-instance</span></span><br><span class="line"><span class="attr">password :</span> <span class="string">KvLftKgs4aVH</span></span><br></pre></td></tr></table></figure>
+<p>Finally, create a new Pod that has access to the secret db2-test via a volume:</p>
+<ul>
+<li>Pod name <code>secret-pod</code></li>
+<li>Namespace <code>istio-system</code></li>
+<li>container name <code>dev-container</code></li>
+<li>image <code>nginx</code></li>
+<li>volume name <code>secret-volume</code></li>
+<li>mount path <code>/etc/secret</code></li>
+</ul>
+<p>在 namespace <code>istio-system</code> 中获取名为 <code>db1-test</code> 的现有 secret 的内容.<br>
+将 username 字段存储在名为 <code>/cks/sec/user.txt</code> 的文件中，并将 password 字段存储在名为 <code>/cks/sec/pass.txt</code> 的文件中。</p>
+<p>注意：你必须创建以上两个文件，他们还不存在。<br>
+注意：不要在以下步骤中使用/修改先前创建的文件，如果需要，可以创建新的临时文件。</p>
+<p>在 <code>istio-system</code> namespace 中创建一个名为 <code>db2-test</code> 的新 secret，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">username :</span> <span class="string">production-instance</span></span><br><span class="line"><span class="attr">password :</span> <span class="string">KvLftKgs4aVH</span></span><br></pre></td></tr></table></figure>
+<p>最后，创建一个新的 Pod，它可以通过卷访问 secret <code>db2-test</code> ：</p>
+<ul>
+<li>Pod 名称 <code>secret-pod</code></li>
+<li>Namespace <code>istio-system</code></li>
+<li>容器名 <code>dev-container</code></li>
+<li>镜像 <code>nginx</code></li>
+<li>卷名 <code>secret-volume</code></li>
+<li>挂载路径 <code>/etc/secret</code></li>
+</ul>
+<h4 id="solution-v8">Solution</h4>
+<p>搜索 secret（使用 kubectl 管理 Secret）<br>
+<a href="https://kubernetes.io/zh-cn/docs/tasks/configmap-secret/managing-secret-using-kubectl/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/tasks/configmap-secret/managing-secret-using-kubectl/</a><br>
+搜索 secret（Secret）<br>
+<a href="https://kubernetes.io/zh-cn/docs/concepts/configuration/secret/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/concepts/configuration/secret/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 检索已存在的 secret，将获取到的用户名和密码字段存储到指定文件</span></span><br><span class="line">kubectl get secrets db2-test -o jsonpath=<span class="string">'&#123;.data.username&#125;'</span> | base64 -d &gt; /home/candidate/user.txt</span><br><span class="line">kubectl get secrets db2-test -o jsonpath=<span class="string">'&#123;.data.password&#125;'</span> | base64 -d &gt; /home/candidate/pass.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">### 创建 secret</span></span><br><span class="line">kubectl -n istio-system create secret generic db2-test --from-literal=username=production-instance --from-literal=password=KvLftKgs4aVH </span><br><span class="line"><span class="comment"># kubectl create secret generic db2-test -n istio-system --from-literal username=production-instance --from-literal password=KvLftKgs4aVH</span></span><br><span class="line"><span class="comment"># error: exactly one NAME is required, got 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 在 Pod 中以文件形式使用 Secret</span></span><br><span class="line">vim k8s-secret.yaml</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:</span><br><span class="line">  name: secret-pod</span><br><span class="line">  namespace: istio-system</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: dev-container</span><br><span class="line">    image: nginx</span><br><span class="line">    volumeMounts:</span><br><span class="line">    - name: secret-volume</span><br><span class="line">      mountPath: <span class="string">"/etc/secret"</span></span><br><span class="line">      readOnly: <span class="literal">true</span></span><br><span class="line">  volumes:</span><br><span class="line">  - name: secret-volume</span><br><span class="line">    secret:</span><br><span class="line">      secretName: db2-test</span><br><span class="line">      optional: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 应用清单文件</span></span><br><span class="line">kubectl apply -f k8s-secret.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment">### 验证 pod</span></span><br><span class="line">kubectl get pods -n istio-system dev-pod</span><br></pre></td></tr></table></figure>
+<h3 id="考题12-dockerfile-和-deployment-安全优化">考题12 - dockerfile 和 deployment 安全优化</h3>
+<h4 id="task-v11">Task</h4>
+<ul>
+<li>Analyze and edit the given Dockerfile (based on the ubuntu:16.04 image) <code>/cks/docker/Dockerfile</code> fixing two instructions present in the file being prominent security/best-practice issues.</li>
+<li>Analyze and edit the given manifest file <code>/cks/docker/deployment.yaml</code> fixing two fields present in the file being prominent security/best-practice issues.</li>
+</ul>
+<p>Don’t add or remove configuration settings; only modify the existing configuration settings, so that two configuration settings each are no longer security/best-practice concerns.</p>
+<p>Should you need an unprivileged user for any of the tasks, use user <code>nobody</code> with user id <code>65535</code>.</p>
+<blockquote>
+<ul>
+<li>分析和编辑给定的 Dockerfile <code>/cks/docker/Dockerfile</code>（基于 ubuntu:16.04 镜像），并修复在文件中拥有的突出的安全/最佳实践问题的两个指令。</li>
+<li>分析和编辑给定的清单文件 <code>/cks/docker/deployment.yaml</code>，并修复在文件中拥有突出的安全/最佳实践问题的两个字段。</li>
+</ul>
+<p>注意：请勿添加或删除配置设置；只需修改现有的配置设置让以上两个配置设置都不再有安全/最佳实践问题。<br>
+注意：如果您需要非特权用户来执行任何项目，请使用用户 ID 65535 的用户 nobody 。<br>
+答题： 注意，本次的 Dockerfile 和 deployment.yaml 仅修改即可，无需部署。</p>
+</blockquote>
+<h4 id="solution-12">Solution 12</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 修复 dockerfile 文件中存在的两个安全/最佳实践指令</span></span><br><span class="line"><span class="comment">### (1)把ubuntu:latest改为ubuntu:16.04 (2)将 root 注释掉；增加 nobody</span></span><br><span class="line">vim /cks/docker/Dockerfile</span><br><span class="line"><span class="comment"># FROM ubuntu:latest  1 修改</span></span><br><span class="line">FROM ubuntu:16.04</span><br><span class="line"><span class="comment">#USER root </span></span><br><span class="line">USER nobody <span class="comment"># 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 修复 deployment 文件中存在的两个安全/最佳实践问题字段</span></span><br><span class="line"><span class="comment">### (1)将 privileged 变为 False；(2)将 readOnlyRootFilesystem 变为 True 3 check runAsUser 65535</span></span><br><span class="line">vim /cks/docker/deployment.yaml</span><br><span class="line"></span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    app: dev</span><br><span class="line">  name: dev</span><br><span class="line">spec:</span><br><span class="line">  replicas: 1</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: dev</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: dev</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - image: mysql</span><br><span class="line">        name: mysql</span><br><span class="line">        securityContext: &#123;<span class="string">'capabilities'</span>:&#123;<span class="string">'add'</span>:[<span class="string">'NET_ADMIN'</span>],<span class="string">'drop'</span>:[<span class="string">'all'</span>]&#125;,<span class="string">'privileged'</span>: False,<span class="string">'readOnlyRootFilesystem'</span>: True, <span class="string">'runAsUser'</span>: 65535&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="考题13-admission-controllers-imagepolicywebhook">考题13 - admission-controllers - ImagePolicyWebhook</h3>
+<h4 id="context-v5">Context</h4>
+<p>A container image scanner is set up on the cluster, but it’s not yet fully integrated into the cluster’s configuration. When complete, the container image scanner shall scan for and reject the use of vulnerable images.</p>
+<p>cluster 上设置了容器镜像扫描器，但尚未完全集成到 cluster 的配置中。完成后，容器镜像扫描器应扫描并拒绝易受攻击的镜像的使用。</p>
+<h4 id="task-v12">Task</h4>
+<p>You have to complete the entire task on the cluster’s <code>master</code> node, where all services and files have been prepared and placed.<br>
+Given an incomplete configuration in directory <code>/etc/kubernetes/epconfig</code> and a functional container image scanner with HTTPS endpoint <code>https://acme.local:8082/image_policy</code>:</p>
+<ol>
+<li>Enable the necessary plugins to create an image policy</li>
+<li>validate the control configuration and change it to an implicit deny</li>
+<li>Edit the configuration to point to the provided HTTPS endpoint correctly.</li>
+<li>Finally , test if the configuration is working by trying to deploy the vulnerable resource  <code>/cks/1/web1.yaml</code></li>
+</ol>
+<p>You can find the container image scanner’s log file at <code>/var/loglimagepolicyiacme.log</code></p>
+<p>注意：你必须在 cluster 的 master 节点上完成整个考题，所有服务和文件都已被准备好并放置在该节点上。 给定一个目录 <code>/etc/kubernetes/epconfig</code> 中不完整的配置以及具有 HTTPS 端点 <code>https://acme.local:8082/image_policy</code> 的功能性容器镜像扫描器：</p>
+<ol>
+<li>启用必要的插件来创建镜像策略</li>
+<li>校验控制配置并将其更改为隐式拒绝（implicit deny）</li>
+<li>编辑配置以正确指向提供的 HTTPS 端点</li>
+<li>最后，通过尝试部署易受攻击的资源 <code>/cks/img/web1.yaml</code> 来测试配置是否有效。</li>
+</ol>
+<p>你可以在 <code>/var/log/imagepolicy/roadrunner.log</code> 找到容器镜像扫描仪的日志文件。</p>
+<h4 id="solution-v9">Solution</h4>
+<p>搜索 imagepolicywebhook（使用准入控制器），接着再搜索字符串&quot;imagepolicywebhook&quot;<br>
+<a href="https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/admission-controllers/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/reference/access-authn-authz/admission-controllers/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 0 master node</span></span><br><span class="line">ssh masterNode</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /etc/kubernetes/epconfig</span><br><span class="line">ls</span><br><span class="line">  admission_configuration.json kubeconfig.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment">###  查看config-file路径</span></span><br><span class="line">cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep --admission-control-config-file</span><br><span class="line">    - --admission-control-config-file=/etc/kubernetes/epconfig/admission_configuration.json </span><br><span class="line"></span><br><span class="line"><span class="comment">### 1 验证控制平面的配置并将其更改为拒绝</span></span><br><span class="line">vim /etc/kubernetes/epconfig/admission_configuration.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"apiVersion"</span>: <span class="string">"apiserver.config.k8s.io/v1"</span>,</span><br><span class="line">   <span class="attr">"kind"</span>: <span class="string">"AdmissionConfiguration"</span>,</span><br><span class="line">   <span class="attr">"plugins"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="attr">"name"</span>: <span class="string">"ImagePolicyWebhook"</span>,</span><br><span class="line">         <span class="attr">"configuration"</span>: &#123;</span><br><span class="line">            <span class="attr">"imagePolicy"</span>: &#123;</span><br><span class="line">               <span class="attr">"kubeConfigFile"</span>: <span class="string">"/etc/kubernetes/epconfig/kubeconfig.yaml"</span>, <span class="comment">// 1.1 kubeconfig</span></span><br><span class="line">               <span class="attr">"allowTTL"</span>: <span class="number">100</span>,</span><br><span class="line">               <span class="attr">"denyTTL"</span>: <span class="number">50</span>,</span><br><span class="line">               <span class="attr">"retryBackoff"</span>: <span class="number">500</span>,</span><br><span class="line">               <span class="attr">"defaultAllow"</span>: <span class="literal">false</span>   <span class="comment">// 1.2 modify from true to false</span></span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">### 2 编辑配置以正确指向提供的 HTTPS 端点</span></span><br><span class="line">vim kubeconfig.yaml</span><br><span class="line">    apiVersion: v1</span><br><span class="line">    kind: Config</span><br><span class="line">    clusters:</span><br><span class="line">    - cluster:</span><br><span class="line">        certificate-authority: /etc/kubernetes/epconfig/webhook.pem</span><br><span class="line">        server: https://acme.local:8082/image_policy   <span class="comment"># 2 配置此步</span></span><br><span class="line">    name: bouncer_webhook</span><br><span class="line"></span><br><span class="line"><span class="comment">### 3 启用必要的插件以创建镜像策略</span></span><br><span class="line">vim /etc/kubernetes/manifests/kube-apiserver.yaml</span><br><span class="line"></span><br><span class="line">    - --<span class="built_in">enable</span>-admission-plugins=NodeRestriction,ImagePolicyWebhook  <span class="comment"># 3.1 Add ImagePolicyWebhook</span></span><br><span class="line">    - --admission-control-config-file=/etc/kubernetes/epconfig/admission_configuration.json  <span class="comment"># 3.2 Check config-file path</span></span><br><span class="line">    ......</span><br><span class="line">    volumeMounts:                         <span class="comment"># 3.3 Check Mount, can search audit log in kubernetes.io</span></span><br><span class="line">    - mountPath: /etc/kubernetes/epconfig</span><br><span class="line">      name: config</span><br><span class="line">      readyOnly: <span class="literal">false</span></span><br><span class="line">  volumes:</span><br><span class="line">  - hostPath:</span><br><span class="line">      path: /etc/kubernetes/epconfig</span><br><span class="line">      <span class="built_in">type</span>: DirectoryOrCreate</span><br><span class="line">    name: config</span><br><span class="line"></span><br><span class="line"><span class="comment">### 4 加载生效配置</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart kubelet</span><br><span class="line"></span><br><span class="line"><span class="comment">### 5 通过部署易受攻击的资源来测试配置是否有效</span></span><br><span class="line">kubectl apply -f /cks/img/web1.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="考题14-删除非无状态或非不可变的-pod">考题14 - 删除非无状态或非不可变的 pod</h3>
+<p>Context: it is best-practice to design containers to be stateless and immutable</p>
+<h4 id="task-v13">Task</h4>
+<p>Inspect Pods runnings in namespace <code>production</code> and delete any Pod that is either not stateless or not immutable.</p>
+<p>Use the following strict interpretation of stateless and immutable:</p>
+<ul>
+<li>Pod being able to store data inside containers must be treated as not stateless. You don’t have to worry whether data is actually stored inside containers or not already.</li>
+<li>Pod being configured to be <code>privileged</code> in any way must be treated as potentially not stateless and not immutable.</li>
+</ul>
+<p>检查在 namespace production 中运行的 Pod，并删除任何非无状态或非不可变的 Pod。<br>
+使用以下对无状态和不可变的严格解释：</p>
+<ul>
+<li>能够在容器内存储数据的 Pod 的容器必须被视为非无状态的。</li>
+<li>被配置为任何形式的特权 Pod 必须被视为可能是非无状态和非不可变的。<br>
+注意：你不必担心数据是否实际上已经存储在容器中。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 在命名空间 dev 中检查 running 状态的 pod</span></span><br><span class="line">kubectl get pods -n production | grep running -i</span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看具有特权的 pod</span></span><br><span class="line">kubectl get pods -n production -oyaml | grep -i <span class="string">"privileged: true"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 查看具有 volume 的 pod</span></span><br><span class="line"><span class="comment"># jq 用于处理JSON输入，将给定过滤器应用于其JSON文本输入并在标准输出上将过滤器的结果生成为JSON。</span></span><br><span class="line">kubectl get pods -n production -o jsonpath=&#123;.spec.volumes&#125; | jq</span><br><span class="line"></span><br><span class="line"><span class="comment">### 将查询到的具有特权和 volume 的 pod 都删除</span></span><br><span class="line">kubectl delete pods -n production pod名称</span><br></pre></td></tr></table></figure>
+<h3 id="考题15-gvisor-runtimeclass">考题15 - gVisor/runtimeclass</h3>
+<h4 id="context-v6">Context</h4>
+<p>This cluster uses containerd as CRI runtime.<br>
+Containerd’s default runtime handler is <code>runc</code> . Containerd has been prepared to support an additional runtime handler , <code>runsc</code> (gVisor).</p>
+<blockquote>
+<p>该 cluster 使用 containerd 作为 CRI 运行时。<br>
+containerd 的默认运行时处理程序是 <code>runc</code>。 containerd 已准备好支持额外的运行时处理程序 <code>runsc</code> (gVisor)。</p>
+</blockquote>
+<h4 id="task-v14">Task</h4>
+<p>Create a RuntimeClass named <code>untrusted</code> using the prepared runtime handler named <code>runsc</code>.<br>
+Update all Pods in the namespace <code>server</code> to run on gvisor, unless they are already running on <code>anon-default</code> runtime handler.<br>
+You can find a skeleton manifest file at <code>/cks/13/rc.yaml</code></p>
+<blockquote>
+<p>使用名为 <code>runsc</code> 的现有运行时处理程序，创建一个名为 <code>untrusted</code> 的 RuntimeClass。<br>
+更新 namespace <code>server</code> 中的所有 Pod 以在 gVisor 上运行。<br>
+您可以在 <code>/cks/gVisor/rc.yaml</code> 中找到一个模版清单</p>
+</blockquote>
+<h4 id="solution-v10">Solution</h4>
+<p>搜索 runtimeclass（容器运行时类）<br>
+<a href="https://kubernetes.io/zh-cn/docs/concepts/containers/runtime-class/" target="_blank" rel="noopener">https://kubernetes.io/zh-cn/docs/concepts/containers/runtime-class/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 修改模板清单文件</span></span><br><span class="line">vim /cks/gVisor/rc.yaml</span><br><span class="line">    apiVersion: node.k8s.io/v1</span><br><span class="line">    kind: RuntimeClass</span><br><span class="line">    metadata:</span><br><span class="line">      name: untrusted</span><br><span class="line">    handler: runsc</span><br><span class="line"></span><br><span class="line"><span class="comment">### 应用清单文件</span></span><br><span class="line">kubectl apply -f /cks/gVisor/rc.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment">### 修改 server 命名空间下的所有 pod（还需要修改deployment）</span></span><br><span class="line">kubectl get pods -n server</span><br><span class="line">kubectl get deployments -n server</span><br><span class="line"></span><br><span class="line">kubectl get pods -n server -oyaml &gt; myrc.yaml</span><br><span class="line">vim myrc.yaml</span><br><span class="line">spec:</span><br><span class="line">  ......</span><br><span class="line">  runtimeClassName: untrusted</span><br><span class="line"></span><br><span class="line"><span class="comment">### 更新清单文件</span></span><br><span class="line">kubectl delete -f myrc.yaml</span><br><span class="line">kubectl apply -f myrc.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="考题16-启用-api-server-认证">考题16 - 启用 API Server 认证</h3>
+<h4 id="context-v7">Context</h4>
+<p>由 kubeadm 创建的 cluster 的 Kubernetes API 服务器，出于测试目的，临时配置允许未经身份验证和未经授权的访问，授予匿名用户 <code>cluster-admin</code> 的访问权限。</p>
+<h4 id="task-v15">Task</h4>
+<p>重新配置 cluster 的 Kubernetes API 服务器，以确保<strong>只允许经过身份验证和授权</strong>的 REST 请求。<br>
+使用授权模式 <code>Node</code>,<code>RBAC</code> 和准入控制器 <code>NodeRestriction。</code><br>
+删除用户 <code>system:anonymous</code> 的 ClusterRoleBinding 来进行清理。<br>
+注意：所有 kubectl 配置环境/文件也被配置使用未经身份验证和未经授权的访问。 你不必更改它，但请注意，一旦完成 cluster 的安全加固， kubectl 的配置将无法工作。 您可以使用位于 cluster 的 master 节点上，cluster 原本的 kubectl 配置文件 /etc/kubernetes/admin.conf ，以确保经过身份验证的授权的请求仍然被允许。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">k get nodes</span><br><span class="line"></span><br><span class="line"><span class="comment">### 注意：修改 master 节点！</span></span><br><span class="line">ssh masterNode</span><br><span class="line"></span><br><span class="line"><span class="comment">### (1)使用授权模式 Node,RBAC 和准入控制器 NodeRestriction</span></span><br><span class="line">vim /etc/kubernetes/manifests/kube-apiserver.yaml</span><br><span class="line">    - --authorization-mode=Node,RBAC              <span class="comment"># modify  Node,RBAC </span></span><br><span class="line">    - --<span class="built_in">enable</span>-admission-plugins=NodeRestriction  <span class="comment"># modify  NodeRestriction</span></span><br><span class="line">    - --client-ca-file=/etc/kubernetes/pki/ca.crt</span><br><span class="line">    - --<span class="built_in">enable</span>-bootstrap-token-auth=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### (2)删除 system:anonymous 的 ClusterRolebinding 角色绑定（取消匿名用户的集群管理员权限）</span></span><br><span class="line">k get clusterrolebinding -A | grep system:anonymous</span><br><span class="line">kubectl delete clusterrolebinding system:anonymous</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li>CKS 真题
+<ul>
+<li><a href="https://huaweicloud.csdn.net/638db1b2dacf622b8df8c678.html" target="_blank" rel="noopener">2022年11月最新CKS认证题库</a></li>
+<li><a href="https://huaweicloud.csdn.net/638db1a8dacf622b8df8c643.html?spm=1001.2101.3001.6650.5&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Eactivity-5-126962402-blog-123994683.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Eactivity-5-126962402-blog-123994683.pc_relevant_default&amp;utm_relevant_index=6" target="_blank" rel="noopener">2022.10 CKS考试题库v1.24</a></li>
+<li><a href="https://huaweicloud.csdn.net/638db200dacf622b8df8c7f0.html?spm=1001.2101.3001.6650.3&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7Eactivity-3-127131284-blog-123994683.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7Eactivity-3-127131284-blog-123994683.pc_relevant_default&amp;utm_relevant_index=4" target="_blank" rel="noopener">2022.10 CKS 1.24真题解析</a></li>
+<li><a href="https://blog.csdn.net/cloud_engineer/article/details/125709403?spm=1001.2101.3001.6650.7&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-125709403-blog-123994683.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-125709403-blog-123994683.pc_relevant_default&amp;utm_relevant_index=8" target="_blank" rel="noopener">2022.8 kubernets CKS内容及题库</a></li>
+<li><a href="https://blog.csdn.net/zfw_666666/article/details/125185751" target="_blank" rel="noopener">2022.6 CKS认证考题+解析</a></li>
+<li><a href="https://blog.csdn.net/april_4?type=blog" target="_blank" rel="noopener">2022.3 CKS 1.23 真题</a></li>
+<li><a href="https://huaweicloud.csdn.net/63311d5fd3efff3090b52a1e.html?spm=1001.2101.3001.6650.9&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Eactivity-9-122525427-blog-123994683.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Eactivity-9-122525427-blog-123994683.pc_relevant_default&amp;utm_relevant_index=10" target="_blank" rel="noopener">2022.1 cks 试题</a></li>
+<li><a href="https://huaweicloud.csdn.net/638db4efdacf622b8df8cc95.html" target="_blank" rel="noopener">2021.12 Kubernetes CKS 1.20 - 真题 15道题</a></li>
+<li><a href="https://blog.csdn.net/itsaka/category_11111851.html" target="_blank" rel="noopener">2021 Kubernetes CKS 1.20 - 真题 15道题</a></li>
+</ul>
+</li>
+<li>CKS其他
+<ul>
+<li><a href="https://blog.csdn.net/u011127242/article/details/125822057" target="_blank" rel="noopener">CKS考试知识点链接</a></li>
+</ul>
+</li>
+</ul>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/Kubernates-Certified Kubernetes Security Specialist-CKS.html" target="_blank" title="2023 CKS v1.26 考试真题整理">2023 CKS v1.26 考试真题整理</a></div>
+  <div><b>本文链接: </b><a href="/Kubernates-Certified Kubernetes Security Specialist-CKS.html" target="_blank" title="2023 CKS v1.26 考试真题整理">http://liyuankun.top/Kubernates-Certified Kubernetes Security Specialist-CKS.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/IDEA-安装配置监控JVM-插件-VisualVM-解决jdk11无法启动VisualVM问题.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="IDEA 安装配置监控JVM 插件-VisualVM-解决jdk11无法启动VisualVM问题">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/nano编辑器使用-快捷键-Linux.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="nano编辑器使用&快捷键-Linux">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#考试内容"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">考试内容</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#certified-kubernetes-security-specialist-cks"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Certified Kubernetes Security Specialist (CKS)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cks-environment"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">CKS Environment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#more-items-for-cks-than-cka-and-ckad"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">More items for CKS than CKA and CKAD</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cks-知识点-练习题总结"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">CKS 知识点&amp;练习题总结</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何备考"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">如何备考</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#k8s练习环境-同cka"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">k8s练习环境(同CKA)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cks练习题"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">CKS练习题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cks课程"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">CKS课程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#常用命令"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">常用命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#经验总结-同cka"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">经验总结(同CKA)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#pre-setup-同cka"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Pre Setup(同CKA)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#cks-2023-真题-1-26"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">CKS 2023 真题 1.26</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题1-apparmor-访问控制"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">考题1 - AppArmor 访问控制</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context"><span class="toc-nav-number">5.1.1.</span> <span class="toc-nav-text">Context</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task"><span class="toc-nav-number">5.1.2.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution"><span class="toc-nav-number">5.1.3.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题2-kube-bench-基准测试"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">考题2 - Kube-Bench 基准测试</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context-v2"><span class="toc-nav-number">5.2.1.</span> <span class="toc-nav-text">Context</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v2"><span class="toc-nav-number">5.2.2.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v2"><span class="toc-nav-number">5.2.3.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题3-trivy-镜像扫描"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">考题3 - Trivy 镜像扫描</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v3"><span class="toc-nav-number">5.3.1.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v3"><span class="toc-nav-number">5.3.2.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题4-sysdig-falco"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">考题4 - Sysdig &amp; Falco</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v4"><span class="toc-nav-number">5.4.1.</span> <span class="toc-nav-text">Task</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题5-serviceaccount"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">考题5 - ServiceAccount</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v5"><span class="toc-nav-number">5.5.1.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v4"><span class="toc-nav-number">5.5.2.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题6-2022真题v1-20-pod-安全策略-podsecuritypolicy"><span class="toc-nav-number">5.6.</span> <span class="toc-nav-text">考题6 - 2022真题v1.20 Pod 安全策略-PodSecurityPolicy</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context6"><span class="toc-nav-number">5.6.1.</span> <span class="toc-nav-text">Context6</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task6"><span class="toc-nav-number">5.6.2.</span> <span class="toc-nav-text">Task6</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution6"><span class="toc-nav-number">5.6.3.</span> <span class="toc-nav-text">Solution6</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题6-2023真题v1-26-pod-security-standard"><span class="toc-nav-number">5.7.</span> <span class="toc-nav-text">考题6 - 2023真题V1.26 Pod Security Standard</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#answer"><span class="toc-nav-number">5.7.1.</span> <span class="toc-nav-text">Answer</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题7-networkpolicy-default-deny"><span class="toc-nav-number">5.8.</span> <span class="toc-nav-text">考题7 - NetworkPolicy - default-deny</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context-v3"><span class="toc-nav-number">5.8.1.</span> <span class="toc-nav-text">Context</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v6"><span class="toc-nav-number">5.8.2.</span> <span class="toc-nav-text">Task</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题8-networkpolicy"><span class="toc-nav-number">5.9.</span> <span class="toc-nav-text">考题8 - NetworkPolicy</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v7"><span class="toc-nav-number">5.9.1.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v5"><span class="toc-nav-number">5.9.2.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题9-rbac"><span class="toc-nav-number">5.10.</span> <span class="toc-nav-text">考题9 - RBAC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context-v4"><span class="toc-nav-number">5.10.1.</span> <span class="toc-nav-text">Context</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v8"><span class="toc-nav-number">5.10.2.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v6"><span class="toc-nav-number">5.10.3.</span> <span class="toc-nav-text">solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题10-kube-apiserver-审计日志记录和采集"><span class="toc-nav-number">5.11.</span> <span class="toc-nav-text">考题10 - kube-apiserver 审计日志记录和采集</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v9"><span class="toc-nav-number">5.11.1.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v7"><span class="toc-nav-number">5.11.2.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题11-secret"><span class="toc-nav-number">5.12.</span> <span class="toc-nav-text">考题11 - Secret</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v10"><span class="toc-nav-number">5.12.1.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v8"><span class="toc-nav-number">5.12.2.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题12-dockerfile-和-deployment-安全优化"><span class="toc-nav-number">5.13.</span> <span class="toc-nav-text">考题12 - dockerfile 和 deployment 安全优化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v11"><span class="toc-nav-number">5.13.1.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-12"><span class="toc-nav-number">5.13.2.</span> <span class="toc-nav-text">Solution 12</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题13-admission-controllers-imagepolicywebhook"><span class="toc-nav-number">5.14.</span> <span class="toc-nav-text">考题13 - admission-controllers - ImagePolicyWebhook</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context-v5"><span class="toc-nav-number">5.14.1.</span> <span class="toc-nav-text">Context</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v12"><span class="toc-nav-number">5.14.2.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v9"><span class="toc-nav-number">5.14.3.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题14-删除非无状态或非不可变的-pod"><span class="toc-nav-number">5.15.</span> <span class="toc-nav-text">考题14 - 删除非无状态或非不可变的 pod</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v13"><span class="toc-nav-number">5.15.1.</span> <span class="toc-nav-text">Task</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题15-gvisor-runtimeclass"><span class="toc-nav-number">5.16.</span> <span class="toc-nav-text">考题15 - gVisor/runtimeclass</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context-v6"><span class="toc-nav-number">5.16.1.</span> <span class="toc-nav-text">Context</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v14"><span class="toc-nav-number">5.16.2.</span> <span class="toc-nav-text">Task</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#solution-v10"><span class="toc-nav-number">5.16.3.</span> <span class="toc-nav-text">Solution</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#考题16-启用-api-server-认证"><span class="toc-nav-number">5.17.</span> <span class="toc-nav-text">考题16 - 启用 API Server 认证</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#context-v7"><span class="toc-nav-number">5.17.1.</span> <span class="toc-nav-text">Context</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#task-v15"><span class="toc-nav-number">5.17.2.</span> <span class="toc-nav-text">Task</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#参考文章"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">参考文章</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/Kubernates-Certified Kubernetes Security Specialist-CKS.html";
+        var disqus_url = "http://liyuankun.top/Kubernates-Certified Kubernetes Security Specialist-CKS.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>

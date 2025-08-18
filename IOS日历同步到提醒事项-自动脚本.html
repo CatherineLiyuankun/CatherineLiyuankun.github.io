@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          IOS日历同步到提醒事项-自动脚本 - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/IOS日历同步到提醒事项-自动脚本.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/IOS日历同步到提醒事项-自动脚本.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/IOS日历同步到提醒事项-自动脚本.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                IOS日历同步到提醒事项-自动脚本
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading"></h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2023-08-30
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <p>根据知乎上的文章修改为自己的需求， 2023年最新的IOS16.6是正常执行的。</p>
+<h2 id="知乎上的文章">知乎上的文章</h2>
+<h3 id="ios-日历同步-提醒事项-单向同步-打卡功能-作者：汀力"><a href="https://zhuanlan.zhihu.com/p/169566930" target="_blank" rel="noopener">【ios】日历同步—》提醒事项 单向同步+打卡功能 【作者：汀力】</a></h3>
+<details>
+  <summary>点击展开代码1</summary>
+  <p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="keyword">var</span> dur_month = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> startDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">startDate.setMonth(startDate.getMonth() - dur_month);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`日历的开始时间 <span class="subst">$&#123;startDate.toLocaleDateString()&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> endDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">endDate.setMonth(endDate.getMonth() + dur_month);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`日历的结束时间 <span class="subst">$&#123;endDate.toLocaleDateString()&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reminders = <span class="keyword">await</span> Reminder.allDueBetween(startDate, endDate);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`获取 <span class="subst">$&#123;reminders.length&#125;</span> 条提醒事项`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> calendar = <span class="keyword">await</span> Calendar.forEvents();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取日历名和对应的日历</span></span><br><span class="line"><span class="keyword">var</span> m_dict = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span> (cal <span class="keyword">of</span> calendar) &#123;</span><br><span class="line">  m_dict[cal.title] = cal;</span><br><span class="line">  <span class="comment">// console.log(`日历:$&#123;cal.title&#125;`)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> events = <span class="keyword">await</span> CalendarEvent.between(startDate, endDate, calendar);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`获取 <span class="subst">$&#123;events.length&#125;</span> 条日历`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reminders_id_set = <span class="keyword">new</span> <span class="built_in">Set</span>(reminders.map(<span class="function">(<span class="params">e</span>) =&gt;</span> e.identifier));</span><br><span class="line"><span class="comment">// 删除日历里提醒事项删除的事项</span></span><br><span class="line">events_created = events.filter(</span><br><span class="line">  (e) =&gt; e.notes != <span class="literal">null</span> &amp;&amp; e.notes.includes(<span class="string">"[Reminder]"</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> event <span class="keyword">of</span> events_created) &#123;</span><br><span class="line">  <span class="comment">// console.warn(event.notes)</span></span><br><span class="line">  <span class="keyword">let</span> reg = <span class="regexp">/(\[Reminder\])\s([A-Z0-9\-]*)/</span>;</span><br><span class="line">  <span class="keyword">let</span> r = event.notes.match(reg);</span><br><span class="line">  <span class="comment">// if(r) console.log(r[2])</span></span><br><span class="line">  <span class="keyword">if</span> (!reminders_id_set.has(r[<span class="number">2</span>])) &#123;</span><br><span class="line">    event.remove();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> reminder <span class="keyword">of</span> reminders) &#123;</span><br><span class="line">  <span class="comment">// reminder的标识符</span></span><br><span class="line">  <span class="keyword">const</span> targetNote = <span class="string">`[Reminder] <span class="subst">$&#123;reminder.identifier&#125;</span>`</span>;</span><br><span class="line">  <span class="keyword">const</span> [targetEvent] = events.filter(</span><br><span class="line">    (e) =&gt; e.notes != <span class="literal">null</span> &amp;&amp; e.notes.includes(targetNote)</span><br><span class="line">  ); <span class="comment">// 过滤重复的reminder</span></span><br><span class="line">  <span class="keyword">if</span> (!m_dict[reminder.calendar.title]) &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">"找不到日历"</span> + reminder.calendar.title);</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (targetEvent) &#123;</span><br><span class="line">    <span class="comment">// console.log(`找到已经创建的事项 $&#123;reminder.title&#125;`)</span></span><br><span class="line">    updateEvent(targetEvent, reminder);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">`创建事项 <span class="subst">$&#123;reminder.title&#125;</span> 到 <span class="subst">$&#123;reminder.calendar.title&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">const</span> newEvent = <span class="keyword">new</span> CalendarEvent();</span><br><span class="line">    newEvent.notes = targetNote + <span class="string">"\n"</span> + reminder.notes; <span class="comment">// 要加入备注</span></span><br><span class="line">    updateEvent(newEvent, reminder);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Script.complete();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateEvent</span>(<span class="params">event, reminder</span>) </span>&#123;</span><br><span class="line">  event.title = <span class="string">`<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">  cal_name = reminder.calendar.title;</span><br><span class="line">  cal = m_dict[cal_name];</span><br><span class="line">  event.calendar = cal;</span><br><span class="line">  <span class="comment">// console.warn(event.calendar.title)</span></span><br><span class="line">  <span class="comment">// 已完成事项</span></span><br><span class="line">  <span class="keyword">if</span> (reminder.isCompleted) &#123;</span><br><span class="line">    event.title = <span class="string">`✅<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">    <span class="comment">//    event.isAllDay = false</span></span><br><span class="line">    <span class="comment">//     event.startDate = reminder.dueDate</span></span><br><span class="line">    <span class="comment">//   event.endDate=reminder.dueDate</span></span><br><span class="line">    <span class="comment">//    var ending = new Date(reminder.completionDate)</span></span><br><span class="line">    <span class="comment">//    ending.setHours(ending.getHours()+1)</span></span><br><span class="line">    <span class="comment">//    event.endDate = ending</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> period =</span><br><span class="line">      (reminder.dueDate - reminder.completionDate) / <span class="number">1000</span> / <span class="number">3600</span> / <span class="number">24</span>;</span><br><span class="line">    period = period.toFixed(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (period &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      period = -period;</span><br><span class="line">      event.location = <span class="string">" 延期"</span> + period + <span class="string">"天完成"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (period == <span class="number">0</span>) &#123;</span><br><span class="line">      event.location = <span class="string">" 准时完成"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.location = <span class="string">" 提前"</span> + period + <span class="string">"天完成"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 未完成事项</span></span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> nowtime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> period = (reminder.dueDate - nowtime) / <span class="number">1000</span> / <span class="number">3600</span> / <span class="number">24</span>;</span><br><span class="line">    period = period.toFixed(<span class="number">1</span>);</span><br><span class="line">    <span class="comment">// console.log(reminder.title+(period))</span></span><br><span class="line">    <span class="keyword">if</span> (period &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// 待办顺延</span></span><br><span class="line"></span><br><span class="line">      event.location = <span class="string">" 延期"</span> + -period + <span class="string">"天"</span>;</span><br><span class="line">      <span class="comment">// 如果不是在同一天,设置为全天事项</span></span><br><span class="line">      <span class="keyword">if</span> (reminder.dueDate.getDate() != nowtime.getDate()) &#123;</span><br><span class="line">        event.title = <span class="string">`❌<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">        event.startDate = nowtime;</span><br><span class="line">        event.endDate = nowtime;</span><br><span class="line">        event.isAllDay = <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 在同一天的保持原来的时间</span></span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        event.title = <span class="string">`⭕️<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">        event.isAllDay = <span class="literal">false</span>;</span><br><span class="line">        event.startDate = reminder.dueDate;</span><br><span class="line">        <span class="keyword">var</span> ending = <span class="keyword">new</span> <span class="built_in">Date</span>(reminder.dueDate);</span><br><span class="line">        ending.setHours(ending.getHours() + <span class="number">1</span>);</span><br><span class="line">        event.endDate = ending;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`【<span class="subst">$&#123;reminder.title&#125;</span>】待办顺延<span class="subst">$&#123;-period&#125;</span>天`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.title = <span class="string">`⭕️<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">      event.isAllDay = <span class="literal">false</span>;</span><br><span class="line">      event.location = <span class="string">"还剩"</span> + period + <span class="string">"天"</span>;</span><br><span class="line">      event.startDate = reminder.dueDate;</span><br><span class="line">      <span class="keyword">var</span> ending = <span class="keyword">new</span> <span class="built_in">Date</span>(reminder.dueDate);</span><br><span class="line">      ending.setHours(ending.getHours() + <span class="number">1</span>);</span><br><span class="line">      event.endDate = ending;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!reminder.dueDateIncludesTime) event.isAllDay = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  event.save();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </p>
+</details>
+<h3 id="最完美-ios-提醒事项与日历-双向同步-带跳转-作者：你说-根据汀力"><a href="https://zhuanlan.zhihu.com/p/558267163" target="_blank" rel="noopener">最完美(ios)提醒事项与日历  双向同步+带跳转  【作者：你说】（根据汀力）</a></h3>
+<details>
+  <summary>点击展开代码2</summary>
+  <p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="keyword">var</span> dur_month = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> startDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">startDate.setMonth(startDate.getMonth() - dur_month);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`日历的开始时间 <span class="subst">$&#123;startDate.toLocaleDateString()&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> endDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">endDate.setMonth(endDate.getMonth() + dur_month);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`日历的结束时间 <span class="subst">$&#123;endDate.toLocaleDateString()&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">event_cals = <span class="keyword">await</span> Calendar.forEvents();</span><br><span class="line">reminder_cals = <span class="keyword">await</span> Calendar.forReminders();</span><br><span class="line">titles = reminder_cals.map(<span class="function"><span class="params">e</span> =&gt;</span> e.title).filter(<span class="function"><span class="params">v</span> =&gt;</span> event_cals.map(<span class="function"><span class="params">e</span> =&gt;</span> e.title).includes(v));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`日历列表:<span class="subst">$&#123;titles&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">event_cals = event_cals.filter(<span class="function"><span class="params">v</span> =&gt;</span> titles.includes(v.title));</span><br><span class="line">reminder_cals = reminder_cals.filter(<span class="function"><span class="params">v</span> =&gt;</span> titles.includes(v.title));</span><br><span class="line"></span><br><span class="line">reminder_map = &#123;&#125;;</span><br><span class="line">reminder_cals.forEach(<span class="function"><span class="params">r</span> =&gt;</span> (reminder_map[r.title] = r));</span><br><span class="line"><span class="comment">// 时间范围过滤</span></span><br><span class="line"><span class="keyword">const</span> events = <span class="keyword">await</span> CalendarEvent.between(startDate, endDate, event_cals);</span><br><span class="line"><span class="keyword">const</span> reminders = <span class="keyword">await</span> Reminder.allDueBetween(startDate, endDate, reminder_cals);</span><br><span class="line"></span><br><span class="line"><span class="comment">//找出没有创建对应reminder的event，创建reminder</span></span><br><span class="line">reminder_created = reminders.filter(<span class="function"><span class="params">e</span> =&gt;</span> e.priority == <span class="number">1</span>);</span><br><span class="line">reminder_id_set = <span class="keyword">new</span> <span class="built_in">Set</span>(reminder_created.map(<span class="function"><span class="params">e</span> =&gt;</span> e.identifier));</span><br><span class="line"></span><br><span class="line">reg = <span class="regexp">/(\\[id\\])x\\-apple\\-reminderkit\\:\\\/\\\/REMCDReminder\\\/([A-Z0-9\\-\\:\/=]*)$/</span>;</span><br><span class="line"><span class="comment">// 提醒和日历 备注都要以[id]xxxxxx结尾</span></span><br><span class="line">events.forEach(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.notes != <span class="literal">null</span>) &#123;</span><br><span class="line">    s = e.notes.match(reg);</span><br><span class="line">    <span class="keyword">if</span> (s != <span class="literal">null</span>) &#123;</span><br><span class="line">      r_id = s[<span class="number">2</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      r_id = <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    r_id = <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//console.log(e.title)</span></span><br><span class="line">  <span class="keyword">if</span> (e.title.startsWith(<span class="string">"✅"</span>)) &#123;</span><br><span class="line">    event_ok = <span class="literal">true</span>;</span><br><span class="line">    pure_title = e.title.substr(<span class="number">1</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.title.startsWith(<span class="string">"☑️"</span>)) &#123;</span><br><span class="line">    event_ok = <span class="literal">false</span>;</span><br><span class="line">    pure_title = e.title.substr(<span class="number">1</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    event_ok = <span class="literal">false</span>;</span><br><span class="line">    pure_title = e.title;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//console.log(''+event_ok)</span></span><br><span class="line">  <span class="keyword">var</span> r = <span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">if</span> (!reminder_id_set.has(r_id)) &#123;</span><br><span class="line">    <span class="comment">// 新创建状态来自日历标题</span></span><br><span class="line">    remind_ok = event_ok;</span><br><span class="line">    newReminder = <span class="keyword">new</span> Reminder();</span><br><span class="line">    newReminder.dueDate = e.startDate;</span><br><span class="line">    newReminder.calendar = reminder_map[e.calendar.title];</span><br><span class="line">    newReminder.dueDateIncludesTime = !e.isAllDay;</span><br><span class="line">    newReminder.title = pure_title;</span><br><span class="line">    newReminder.priority = <span class="number">1</span>;</span><br><span class="line">    newReminder.isCompleted = remind_ok;</span><br><span class="line">    newReminder.save();</span><br><span class="line">    targetNote = <span class="string">`[id]x-apple-reminderkit:\/\/REMCDReminder\/<span class="subst">$&#123;newReminder.identifier&#125;</span>`</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`创建提醒:<span class="subst">$&#123;pure_title&#125;</span>`</span>);</span><br><span class="line">    r = newReminder;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> [targetReminder] = reminder_created.filter(<span class="function"><span class="params">e</span> =&gt;</span> e.identifier == r_id);</span><br><span class="line">    <span class="keyword">if</span> (targetReminder.isCompleted) &#123;</span><br><span class="line">      remind_ok = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      remind_ok = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 标题参考日历的，状态参数提醒的</span></span><br><span class="line">    targetReminder.title = pure_title;</span><br><span class="line">    targetReminder.dueDate = e.startDate;</span><br><span class="line">    targetReminder.dueDateIncludesTime = !e.isAllDay;</span><br><span class="line">    targetReminder.save();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`更新提醒:<span class="subst">$&#123;pure_title&#125;</span>`</span>);</span><br><span class="line">    <span class="comment">// 清理已经更新过的，用于后面删除日历上删除的</span></span><br><span class="line">    targetNote = <span class="string">`[id]x-apple-reminderkit:\/\/REMCDReminder\/<span class="subst">$&#123;targetReminder.identifier&#125;</span>`</span>;</span><br><span class="line">    reminder_id_set.delete(r_id);</span><br><span class="line">    r = targetReminder;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (remind_ok) &#123;</span><br><span class="line">    e.title = <span class="string">"✅"</span> + pure_title;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    e.title = <span class="string">"☑️"</span> + pure_title;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//console.log(pure_title)</span></span><br><span class="line">  <span class="keyword">if</span> (e.notes == <span class="literal">null</span>) &#123;</span><br><span class="line">    e.notes = <span class="string">"\\r\\n\\r\\n"</span> + targetNote;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!e.notes.endsWith(targetNote)) &#123;</span><br><span class="line">    e.notes = e.notes + <span class="string">"\\r\\n\\r\\n"</span> + targetNote;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果不要打卡时间，注释掉</span></span><br><span class="line">  updateEvent(e, r);</span><br><span class="line">  e.save();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reminder_id_set.forEach(v =&gt; &#123;</span></span><br><span class="line"><span class="comment">//  console.log(`reminder:$&#123;v&#125;`)</span></span><br><span class="line"><span class="comment">//&#125;)</span></span><br><span class="line"></span><br><span class="line">reminder_id_set.forEach(<span class="function"><span class="params">id</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> [targetReminder] = reminder_created.filter(<span class="function"><span class="params">e</span> =&gt;</span> e.identifier == id);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`删除提醒:<span class="subst">$&#123;targetReminder.title&#125;</span>`</span>);</span><br><span class="line">  targetReminder.remove();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateEvent</span>(<span class="params">event, reminder</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 用户自定义的保持原样</span></span><br><span class="line">  <span class="keyword">if</span> (event.location != <span class="literal">null</span> &amp;&amp; !event.location.startsWith(<span class="string">"⏱"</span>)) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//已完成事项</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (reminder.isCompleted) &#123;</span><br><span class="line">    <span class="keyword">var</span> period = (reminder.dueDate - reminder.completionDate) / <span class="number">1000</span> / <span class="number">3600</span> / <span class="number">24</span>;</span><br><span class="line">    period = period.toFixed(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (period &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      period = -period;</span><br><span class="line">      event.location = <span class="string">"⏱延期"</span> + period + <span class="string">"天完成"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (period == <span class="number">0</span>) &#123;</span><br><span class="line">      event.location = <span class="string">"⏱准时完成"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.location = <span class="string">"⏱提前"</span> + period + <span class="string">"天完成"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="comment">//未完成事项</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> nowtime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> period = (reminder.dueDate - nowtime) / <span class="number">1000</span> / <span class="number">3600</span> / <span class="number">24</span>;</span><br><span class="line">    period = period.toFixed(<span class="number">1</span>);</span><br><span class="line">    <span class="comment">//console.log(reminder.title+(period))</span></span><br><span class="line">    <span class="keyword">if</span> (period &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      event.location = <span class="string">"⏱延期"</span> + (-period) + <span class="string">"天"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.location = <span class="string">"⏱还剩"</span> + period + <span class="string">"天"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Script.complete();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 首先，定义了一个变量 dur_month，它被设置为1。这个变量可能用于计算日期范围。</span></span><br><span class="line"><span class="comment">// 接下来，创建了两个日期对象 startDate 和 endDate，它们表示日历的开始时间和结束时间。这些日期根据 dur_month 进行调整。</span></span><br><span class="line"><span class="comment">// 代码使用了 await 关键字来等待获取日历事件和提醒事件的数据。它使用 Calendar.forEvents() 和 Calendar.forReminders() 方法来获取事件和提醒的列表。</span></span><br><span class="line"><span class="comment">// 通过比较提醒和事件的标题，创建了一个名为 titles 的数组，其中包含在日历和提醒中都存在的标题。这个数组用于筛选出共有的事件和提醒。</span></span><br><span class="line"><span class="comment">// 接下来，对事件和提醒的列表进行过滤，只保留 titles 数组中存在的事件和提醒。</span></span><br><span class="line"><span class="comment">// 创建了一个空对象 reminder_map，用于将提醒的标题映射到提醒对象。</span></span><br><span class="line"><span class="comment">// 使用正则表达式 reg 匹配提醒和事件的备注，以提取提醒的唯一标识符。</span></span><br><span class="line"><span class="comment">// 遍历事件列表，处理每个事件的逻辑。根据事件标题的前缀（"✅" 或 "☑️"），确定事件是否已完成，并提取纯标题。然后，检查是否存在相应的提醒。如果不存在，创建新的提醒，并将其关联到事件上。如果存在，更新现有的提醒。</span></span><br><span class="line"><span class="comment">// 最后，根据提醒的状态更新事件标题，并将提醒的标识符添加到事件的备注中。还有一些与事件位置相关的逻辑。</span></span><br><span class="line"><span class="comment">// 最后，使用 Script.complete() 结束脚本的执行。</span></span><br></pre></td></tr></table></figure>
+  </p>
+</details>
+<h3 id="自动同步ios提醒事项到日历？简单-看这里-作者：crazy-根据汀力-你说"><a href="https://zhuanlan.zhihu.com/p/539872086" target="_blank" rel="noopener">自动同步iOS提醒事项到日历？简单，看这里！  【作者：crazy】 （根据汀力+你说）</a></h3>
+<h2 id="我的改动和代码">我的改动和代码</h2>
+<p>根据<a href="https://zhuanlan.zhihu.com/p/169566930" target="_blank" rel="noopener">汀力</a>最新的那篇，发现了几个和我自己需求不符合的点：</p>
+<ul>
+<li>从reminder 新建到calendar的event默认1小时
+<ul>
+<li>在calendar中修改event的开始时间和结束时间，执行脚本后会被重新改成reminder的开始时间，结束时间固定为1小时。</li>
+</ul>
+</li>
+<li>reminder 里面删除后，calendar里面还有（不会被删除）
+<ul>
+<li>这个是个bug?看代码里面是有这个逻辑的</li>
+</ul>
+</li>
+</ul>
+<p>我的需求和修改</p>
+<ul>
+<li>如果calendar 已有reminder相同title的event，不update，所以可以在calendar中修改event的开始时间和结束时间
+<ul>
+<li>如果calendar里面已经有event了，修改reminder里面的时间为calendar event的开始时间间</li>
+</ul>
+</li>
+<li>【已完成】 不会变成全天任务， 仍然是有开始时间和结束时间</li>
+</ul>
+<!-- <details>
+  <summary><b>点击展开代码3</b></summary>
+  <p> -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dur_month = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> startDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">startDate.setMonth(startDate.getMonth() - dur_month);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`日历的开始时间 <span class="subst">$&#123;startDate.toLocaleDateString()&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> endDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">endDate.setMonth(endDate.getMonth() + dur_month);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`日历的结束时间 <span class="subst">$&#123;endDate.toLocaleDateString()&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reminders = <span class="keyword">await</span> Reminder.allDueBetween(startDate, endDate);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`获取 <span class="subst">$&#123;reminders.length&#125;</span> 条提醒事项`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> calendar = <span class="keyword">await</span> Calendar.forEvents();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取日历名和对应的日历</span></span><br><span class="line"><span class="keyword">var</span> m_dict = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span> (cal <span class="keyword">of</span> calendar) &#123;</span><br><span class="line">  m_dict[cal.title] = cal;</span><br><span class="line">  <span class="comment">// console.log(`日历:$&#123;cal.title&#125;`)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> events = <span class="keyword">await</span> CalendarEvent.between(startDate, endDate, calendar);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`获取 <span class="subst">$&#123;events.length&#125;</span> 条日历`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reminders_id_set = <span class="keyword">new</span> <span class="built_in">Set</span>(reminders.map(<span class="function">(<span class="params">e</span>) =&gt;</span> e.identifier));</span><br><span class="line"><span class="comment">// 删除日历里提醒事项删除的事项</span></span><br><span class="line">events_created = events.filter(</span><br><span class="line">  (e) =&gt; e.notes != <span class="literal">null</span> &amp;&amp; e.notes.includes(<span class="string">"[Reminder]"</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> event <span class="keyword">of</span> events_created) &#123;</span><br><span class="line">  <span class="comment">// console.warn(event.notes)</span></span><br><span class="line">  <span class="keyword">let</span> reg = <span class="regexp">/(\[Reminder\])\s([A-Z0-9\-]*)/</span>;</span><br><span class="line">  <span class="keyword">let</span> r = event.notes.match(reg);</span><br><span class="line">  <span class="comment">// if(r) console.log(r[2])</span></span><br><span class="line">  <span class="keyword">if</span> (!reminders_id_set.has(r[<span class="number">2</span>])) &#123;</span><br><span class="line">    event.remove();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> reminder <span class="keyword">of</span> reminders) &#123;</span><br><span class="line">  <span class="comment">// reminder的标识符</span></span><br><span class="line">  <span class="keyword">const</span> targetNote = <span class="string">`[Reminder] <span class="subst">$&#123;reminder.identifier&#125;</span>`</span>;</span><br><span class="line">  <span class="keyword">const</span> [targetEvent] = events.filter(</span><br><span class="line">    (e) =&gt; e.notes != <span class="literal">null</span> &amp;&amp; e.notes.includes(targetNote)</span><br><span class="line">  ); <span class="comment">// 过滤重复的reminder</span></span><br><span class="line">  <span class="keyword">if</span> (!m_dict[reminder.calendar.title]) &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">"找不到日历"</span> + reminder.calendar.title);</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (targetEvent) &#123;</span><br><span class="line">    <span class="comment">// console.log(`找到已经创建的事项 $&#123;reminder.title&#125;`)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// LYK 替换updateEvent为updateReminder</span></span><br><span class="line">    <span class="comment">// updateEvent(targetEvent, reminder);</span></span><br><span class="line">    updateReminder(targetEvent, reminder);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.warn(<span class="string">`创建事项 <span class="subst">$&#123;reminder.title&#125;</span> 到 <span class="subst">$&#123;reminder.calendar.title&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">const</span> newEvent = <span class="keyword">new</span> CalendarEvent();</span><br><span class="line">    newEvent.notes = targetNote + <span class="string">"\n"</span> + reminder.notes; <span class="comment">// 要加入备注</span></span><br><span class="line">    updateEvent(newEvent, reminder);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Script.complete();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateEvent</span>(<span class="params">event, reminder</span>) </span>&#123;</span><br><span class="line">  event.title = <span class="string">`<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">  cal_name = reminder.calendar.title;</span><br><span class="line">  cal = m_dict[cal_name];</span><br><span class="line">  event.calendar = cal;</span><br><span class="line">  <span class="comment">// console.warn(event.calendar.title)</span></span><br><span class="line">  <span class="comment">// 已完成事项</span></span><br><span class="line">  <span class="keyword">if</span> (reminder.isCompleted) &#123;</span><br><span class="line">    event.title = <span class="string">`✅<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">    <span class="comment">//    event.isAllDay = false</span></span><br><span class="line">    <span class="comment">//     event.startDate = reminder.dueDate</span></span><br><span class="line">    <span class="comment">//   event.endDate=reminder.dueDate</span></span><br><span class="line">    <span class="comment">//    var ending = new Date(reminder.completionDate)</span></span><br><span class="line">    <span class="comment">//    ending.setHours(ending.getHours()+1)</span></span><br><span class="line">    <span class="comment">//    event.endDate = ending</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> period =</span><br><span class="line">      (reminder.dueDate - reminder.completionDate) / <span class="number">1000</span> / <span class="number">3600</span> / <span class="number">24</span>;</span><br><span class="line">    period = period.toFixed(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (period &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      period = -period;</span><br><span class="line">      event.location = <span class="string">" 延期"</span> + period + <span class="string">"天完成"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (period == <span class="number">0</span>) &#123;</span><br><span class="line">      event.location = <span class="string">" 准时完成"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.location = <span class="string">" 提前"</span> + period + <span class="string">"天完成"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 未完成事项</span></span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> nowtime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> period = (reminder.dueDate - nowtime) / <span class="number">1000</span> / <span class="number">3600</span> / <span class="number">24</span>;</span><br><span class="line">    period = period.toFixed(<span class="number">1</span>);</span><br><span class="line">    <span class="comment">// console.log(reminder.title+(period))</span></span><br><span class="line">    <span class="keyword">if</span> (period &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// 待办顺延</span></span><br><span class="line"></span><br><span class="line">      event.location = <span class="string">" 延期"</span> + -period + <span class="string">"天"</span>;</span><br><span class="line">      <span class="comment">// 如果不是在同一天,设置为全天事项</span></span><br><span class="line">      <span class="keyword">if</span> (reminder.dueDate.getDate() != nowtime.getDate()) &#123;</span><br><span class="line">        event.title = <span class="string">`❌<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">        event.startDate = nowtime;</span><br><span class="line">        event.endDate = nowtime;</span><br><span class="line">        event.isAllDay = <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 在同一天的保持原来的时间</span></span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        event.title = <span class="string">`⭕️<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">        event.isAllDay = <span class="literal">false</span>;</span><br><span class="line">        event.startDate = reminder.dueDate;</span><br><span class="line">        <span class="keyword">var</span> ending = <span class="keyword">new</span> <span class="built_in">Date</span>(reminder.dueDate);</span><br><span class="line">        ending.setHours(ending.getHours() + <span class="number">1</span>);</span><br><span class="line">        event.endDate = ending;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`【<span class="subst">$&#123;reminder.title&#125;</span>】待办顺延<span class="subst">$&#123;-period&#125;</span>天`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.title = <span class="string">`⭕️<span class="subst">$&#123;reminder.title&#125;</span>`</span>;</span><br><span class="line">      event.isAllDay = <span class="literal">false</span>;</span><br><span class="line">      event.location = <span class="string">"还剩"</span> + period + <span class="string">"天"</span>;</span><br><span class="line">      event.startDate = reminder.dueDate;</span><br><span class="line">      <span class="keyword">var</span> ending = <span class="keyword">new</span> <span class="built_in">Date</span>(reminder.dueDate);</span><br><span class="line">      ending.setHours(ending.getHours() + <span class="number">1</span>);</span><br><span class="line">      event.endDate = ending;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!reminder.dueDateIncludesTime) event.isAllDay = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  event.save();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// LYK 新加的方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateReminder</span>(<span class="params">event, reminder</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 方法1</span></span><br><span class="line">  <span class="keyword">if</span> (reminder) &#123;</span><br><span class="line">    <span class="comment">// 更新 Reminder 的开始时间</span></span><br><span class="line">    reminder.dueDate = event.startDate;</span><br><span class="line">    <span class="comment">// 保存 Reminder 更新</span></span><br><span class="line">    reminder.save();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- 
+  </p>
+</details> -->
+<details>
+  <summary>点击展开"LYK 方法2 EventKit方法"</summary>
+  <p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// LYK 创建 EventKit 实例</span></span><br><span class="line"><span class="keyword">const</span> EventKit = <span class="built_in">require</span>(<span class="string">"EventKit"</span>);</span><br><span class="line"><span class="keyword">const</span> eventKit = EventKit.init();</span><br><span class="line"></span><br><span class="line"><span class="comment">// LYK 方法2 EventKit方法</span></span><br><span class="line"><span class="comment">// 添加事件修改监听器</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> event <span class="keyword">of</span> events) &#123;</span><br><span class="line">    event.onStartDateChange(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 在这里实现日历事件开始时间更改时的同步操作</span></span><br><span class="line">      <span class="comment">// 可以获取修改后的开始时间，然后更新对应的 Reminder 提醒</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 找到对应的 Reminder</span></span><br><span class="line">      <span class="keyword">const</span> targetNote = <span class="string">`[Reminder] <span class="subst">$&#123;event.notes</span></span></span><br><span class="line"><span class="string"><span class="subst">        .split(<span class="string">"\n"</span>)[<span class="number">0</span>]</span></span></span><br><span class="line"><span class="string"><span class="subst">        .substring(<span class="number">10</span>)&#125;</span>`</span>;</span><br><span class="line">      <span class="keyword">const</span> reminderToUpdate = reminders.find(</span><br><span class="line">        (reminder) =&gt; reminder.identifier === targetNote</span><br><span class="line">      );</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (reminderToUpdate) &#123;</span><br><span class="line">        <span class="comment">// 更新 Reminder 的开始时间</span></span><br><span class="line">        reminderToUpdate.dueDate = event.startDate;</span><br><span class="line">        <span class="comment">// 保存 Reminder 更新</span></span><br><span class="line">        eventKit.saveReminder(reminderToUpdate, (error) =&gt; &#123;</span><br><span class="line">          <span class="keyword">if</span> (!error) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`已同步更新 Reminder 的开始时间为 <span class="subst">$&#123;event.startDate&#125;</span>`</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.error(<span class="string">`更新 Reminder 失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    event.onEndDateChange(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 在这里实现日历事件结束时间更改时的同步操作</span></span><br><span class="line">      <span class="comment">// 可以获取修改后的结束时间，然后更新对应的 Reminder 提醒</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 找到对应的 Reminder</span></span><br><span class="line">      <span class="keyword">const</span> targetNote = <span class="string">`[Reminder] <span class="subst">$&#123;event.notes</span></span></span><br><span class="line"><span class="string"><span class="subst">        .split(<span class="string">"\n"</span>)[<span class="number">0</span>]</span></span></span><br><span class="line"><span class="string"><span class="subst">        .substring(<span class="number">10</span>)&#125;</span>`</span>;</span><br><span class="line">      <span class="keyword">const</span> reminderToUpdate = reminders.find(</span><br><span class="line">        (reminder) =&gt; reminder.identifier === targetNote</span><br><span class="line">      );</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (reminderToUpdate) &#123;</span><br><span class="line">        <span class="comment">// 更新 Reminder 的结束时间</span></span><br><span class="line">        reminderToUpdate.dueDate = event.endDate;</span><br><span class="line">        <span class="comment">// 保存 Reminder 更新</span></span><br><span class="line">        eventKit.saveReminder(reminderToUpdate, (error) =&gt; &#123;</span><br><span class="line">          <span class="keyword">if</span> (!error) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`已同步更新 Reminder 的结束时间为 <span class="subst">$&#123;event.endDate&#125;</span>`</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.error(<span class="string">`更新 Reminder 失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+  </p>
+</details>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li>【ios】日历同步—》提醒事项 单向同步+打卡功能 【作者：汀力】
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/390100397" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/390100397</a> 2021.7</li>
+<li><a href="https://zhuanlan.zhihu.com/p/169566930" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/169566930</a> 2022.9.17</li>
+</ul>
+</li>
+<li>最完美(ios)提醒事项与日历  双向同步+带跳转  【作者：你说】（根据汀力）
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/512921323" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/512921323</a> 2022.8</li>
+<li><a href="https://zhuanlan.zhihu.com/p/558267163" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/558267163</a> 2022.9.19</li>
+</ul>
+</li>
+<li>自动同步iOS提醒事项到日历？简单，看这里！  【作者：crazy】 （根据汀力+你说）
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/539872086" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/539872086</a>  2022.7</li>
+</ul>
+</li>
+<li><a href="https://zhuanlan.zhihu.com/p/335275758" target="_blank" rel="noopener">将 iOS 上的提醒事项同步到微软日历</a></li>
+</ul>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/IOS日历同步到提醒事项-自动脚本.html" target="_blank" title="IOS日历同步到提醒事项-自动脚本">IOS日历同步到提醒事项-自动脚本</a></div>
+  <div><b>本文链接: </b><a href="/IOS日历同步到提醒事项-自动脚本.html" target="_blank" title="IOS日历同步到提醒事项-自动脚本">http://liyuankun.top/IOS日历同步到提醒事项-自动脚本.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/Chrome116-chromedriver-下载及配置.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="Chrome116 chromedriver 下载及配置 ">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/Accessibility-WCAG-2-1-Reflow-400-zoom.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="Accessibility-WCAG 2.1 Reflow (400% zoom)">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#知乎上的文章"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">知乎上的文章</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ios-日历同步-提醒事项-单向同步-打卡功能-作者：汀力"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">【ios】日历同步—》提醒事项 单向同步+打卡功能 【作者：汀力】</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#最完美-ios-提醒事项与日历-双向同步-带跳转-作者：你说-根据汀力"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">最完美(ios)提醒事项与日历  双向同步+带跳转  【作者：你说】（根据汀力）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#自动同步ios提醒事项到日历？简单-看这里-作者：crazy-根据汀力-你说"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">自动同步iOS提醒事项到日历？简单，看这里！  【作者：crazy】 （根据汀力+你说）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#我的改动和代码"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">我的改动和代码</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#参考文章"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">参考文章</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/IOS日历同步到提醒事项-自动脚本.html";
+        var disqus_url = "http://liyuankun.top/IOS日历同步到提醒事项-自动脚本.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>

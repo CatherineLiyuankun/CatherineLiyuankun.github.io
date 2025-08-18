@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          iterm2+oh-my-zsh组合你的terminal - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/oh-my-zsh组合你的terminal.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                                <a class="tag" href="/tags/#Command line" title="Command line">Command line</a>
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                                <div class="page-header-category">
+                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/Tools/">Tools</a>
+                                </div>
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/oh-my-zsh组合你的terminal.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/oh-my-zsh组合你的terminal.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                iterm2+oh-my-zsh组合你的terminal
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading">效率提升奥利给</h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2020-05-24
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <h1 id="oh-my-zsh到底是个啥呢？"><a href="http://ohmyz.sh" target="_blank" rel="noopener">oh-my-zsh</a>到底是个啥呢？</h1>
+<p>其实很早就装了<a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh</a>，但是没好好研究过好用的插件。趁此机会就全面总结下好了，省的我下次又忘记了。</p>
+<blockquote>
+<p>Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.</p>
+</blockquote>
+<p>简单说oh-my-zsh是基于zsh的管理配置框架。只是一个对zsh命令行环境的配置包装框架，但它不提供命令行窗口，更不是一个独立的APP。所以前提是先安装好zsh。</p>
+<h2 id="为什么要用zsh？">为什么要用Zsh？</h2>
+<p>（在<a href="https://blog.csdn.net/czg13548930186/article/details/72858289" target="_blank" rel="noopener">“利用Oh-My-Zsh打造你的超级终端”</a>第一部分的基础上修改。）</p>
+<blockquote>
+<p>【兼容bash】原来爱用bash的童鞋切换过来毫无压力。</p>
+<p>【强大的历史纪录功能】在用方向上键⬆查找历史命令时，zsh支持限制查找。比如输入git然后再按方向上键⬆,则只会查找用过的git命令。</p>
+<p>【多个终端会话共享历史记录】经常有多个窗口，tab，tmux的多个session，panel。这些命令历史不能共享实在是很糟糕的回忆。<br>
+但是有了zsh之后，这些确实成了回忆了,所有的命令历史都可以共享。</p>
+<p>【智能拼写纠正】输入gtep mactalk * -R，系统会提示：zsh: correct ‘gtep’ to ‘grep’ [nyae]?比妹纸贴心吧，她们向来都是让你猜的……</p>
+<p>【各种补全】路径补全、命令补全，命令参数补全，插件内容补全等等。触发补全只需要按一下或两下tab键，补全项可以使用ctrl+n/p/f/b上下左右切换。<br>
+比如你想杀掉java的进程，只需要输入kill java + tab键，如果只有一个java进程，zsh 会自动替换为进程的 pid，如果有多个则会出现选择项供你选择。ssh+空格+两个tab键，zsh会列出所有访问过的主机和用户名进行补全</p>
+<p>【不再需要输入cd命令跳转目录】 直接输入… 或 … ，或目录名都可以跳转，不再需要输入cd命令了。</p>
+<p>【通配符搜索】 ls -l *<em>/</em>.sh，可以递归显示当前目录下的 shell 文件，文件少时可以代替find，文件太多还是用find。</p>
+<p>输入 d，即可列出你在这个会话里访问的目录列表，输入列表前的序号，即可直接跳转。</p>
+<p>【丰富的插件】安装了autojump插件之后，zsh 会自动记录你访问过的目录，通过 j + 目录名 可以直接进行目录跳转，而且目录名支持模糊匹配和自动补全，例如你访问过hadoop-1.0.0目录，输入j hado 即可正确跳转。j –stat 可以看你的历史路径库。</p>
+</blockquote>
+<h1 id="oh-my-zsh-安装">oh-my-zsh 安装</h1>
+<h2 id="1-安装zsh">1 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH" target="_blank" rel="noopener">安装zsh</a></h2>
+<h3 id="判断zsh是否已经安装">判断zsh是否已经安装</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh --version</span><br></pre></td></tr></table></figure>
+<p>期望版本 zsh 5.4.2 或者更高。没有安装的话，按<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH" target="_blank" rel="noopener">官网步骤安装zsh</a>就好了。</p>
+<h3 id="安装zsh">安装zsh</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux</span></span><br><span class="line">sudo yum install zsh    (Fedora和RedHat以及SUSE中)或</span><br><span class="line">sudo apt-get install zsh    (Debian系列，Ubuntu )</span><br><span class="line"></span><br><span class="line"><span class="comment"># macOS 系统自带了zsh, 一般不是最新版，如果需要最新版可通过Homebrew来安装(确认安装了Homebrew)</span></span><br><span class="line">brew install zsh zsh-completions</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者也可以使用MacPorts(包管理工具)</span></span><br><span class="line">sudo port install zsh zsh-completions</span><br></pre></td></tr></table></figure>
+<h3 id="设置zsh-作为默认shell">设置Zsh 作为默认shell</h3>
+<p>打开一个新的terminal来确认，设置Zsh 作为默认shell：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br><span class="line"><span class="comment"># 期望结果: /usr/bin/zsh or similar</span></span><br><span class="line"><span class="comment"># 如果shell列表中没有zsh或者你没有使用chsh权限的时候，不起作用</span></span><br><span class="line">[sudo] chsh -s $(<span class="built_in">which</span> zsh)  <span class="comment">#或 chsh -s /bin/zsh</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-安装oh-my-zsh">2 安装oh-my-zsh</h2>
+<p>Oh My Zsh 的安装方式简单，可以通过curl或wget的方式。</p>
+<h3 id="curl-方式">curl 方式</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="wget方式">wget方式</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="git方式">git方式</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br></pre></td></tr></table></figure>
+<h3 id="oh-my-zsh目录结构">oh-my-zsh目录结构</h3>
+<p>进入~/.oh-my-zsh目录后，看看该目录的结构</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.oh-my-zsh</span><br><span class="line">cache  custom  lib  <span class="built_in">log</span>  MIT-LICENSE.txt  oh-my-zsh.sh  plugins  README.markdown  templates  themes  tools</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>lib 提供了核心功能的脚本库<br>
+tools 提供安装、升级等功能的快捷工具<br>
+plugins 自带插件的存在放位置<br>
+templates 自带模板的存在放位置<br>
+themes  自带主题文件的存在放位置<br>
+custom 个性化配置目录，自安装的插件和主题可放这里</p>
+</blockquote>
+<h1 id="oh-my-zsh-主题配置">oh-my-zsh 主题配置</h1>
+<h2 id="默认主题">默认主题</h2>
+<p>打开配置文件~/.zshrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>找到<code>ZSH_THEME=&quot;robbyrussel&quot;</code> 系统默认主题robbyrussel。</p>
+<p><img src="https://cloud.githubusercontent.com/assets/2618447/6316876/710cbb8c-ba03-11e4-90b3-0315d72f270c.jpg" alt="默认主题robbyrussel"></p>
+<p>Oh My Zsh默认自带了一些主题，存放在~/.oh-my-zsh/themes目录中。我们可以查看这些主题，<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes" target="_blank" rel="noopener">官网也列出了许多主题的图片</a>, 方便我们挑选。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls ~/.oh-my-zsh/themes</span><br></pre></td></tr></table></figure>
+<p>想用什么主题，我们只要修改配置<code>ZSH_THEME</code>。<br>
+然后保存这个文件文件，再打开一个新的命令行窗口即可看到效果了。我们还可以将主题设置为随机，这样在我们每次打开命令行窗口的时候，都会随机在已经安装的主题中选择一个。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">"random"</span></span><br></pre></td></tr></table></figure>
+<p>我们如果觉得当前的主题比较喜欢，可以直接使用 echo 命令输出当前主题的名称</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$ZSH_THEME</span></span><br></pre></td></tr></table></figure>
+<p>然后再将他设置到配置文件配置文件~/.zshrc中即可。</p>
+<h2 id="官方推荐主题agnoster">官方推荐主题agnoster</h2>
+<p><img src="https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png" alt="agnoster"></p>
+<p>为啥这个单拎出来说呢，因为需要额外安装<a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">Powerline Fonts字体</a> (或<a href="https://github.com/microsoft/cascadia-code" target="_blank" rel="noopener">Cascadia Code PL /Cascadia Mono PL字体</a>)和修改iTerm设置。</p>
+<p>否则就会长这个样子：</p>
+<p><img src="https://hustyichi.github.io/img/in-post/oh-my-zsh/first.jpg" alt="缺少字体"></p>
+<p>解决方法：</p>
+<ol>
+<li><a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">下载Powerline字体库</a>, 或者使用<a href="https://github.com/microsoft/cascadia-code" target="_blank" rel="noopener">Cascadia Code PL /Cascadia Mono PL字体</a></li>
+<li>进入目录，执行install.sh脚本</li>
+<li>iTerm -&gt; Preferences -&gt; Profiles -&gt; Text -&gt; Font 修改字体</li>
+</ol>
+<h3 id="修改配置文件-zshrc">修改配置文件~/.zshrc</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">"agnoster"</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装powerline-fonts字体">安装<a href="https://github.com/powerline/fonts" target="_blank" rel="noopener">Powerline Fonts字体</a></h3>
+<h4 id="通过命令安装字体">通过命令安装字体</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># clone</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/powerline/fonts.git --depth=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># install</span></span><br><span class="line">$ <span class="built_in">cd</span> fonts</span><br><span class="line">$ ./install.sh</span><br><span class="line">cp: directory /Users/yuanli/Library/Fonts does not exist</span><br><span class="line">Powerline fonts installed to /Users/yuanli/Library/Fonts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果~/Library/Fonts 文件夹不存在，则创建文件夹后再次执行</span></span><br><span class="line">$ ./install.sh</span><br><span class="line"><span class="comment"># ~/Library/Fonts里面就有需要的字体</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># clean-up a bit</span></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">rm -rf fonts</span><br></pre></td></tr></table></figure>
+<h4 id="通过font-book安装字体">通过font book安装字体</h4>
+<p>参考链接： <a href="https://www.lifewire.com/how-to-manually-install-fonts-on-mac-2260815" target="_blank" rel="noopener">https://www.lifewire.com/how-to-manually-install-fonts-on-mac-2260815</a></p>
+<ol>
+<li>
+<p>打开Mac自带应用： Font Book</p>
+</li>
+<li>
+<p>Select <code>File</code> and choose <code>Add Fonts</code> in the drop-down menu.</p>
+</li>
+<li>
+<p>选择刚刚在~/Library/Fonts下安装好的所有字体</p>
+</li>
+<li>
+<p>Before you use the font, validate it to be sure it is safe to use. Select the font and choose <code>Validate Font</code> in the File menu to generate a Font Validation window.</p>
+</li>
+</ol>
+<p>这时候发现还是不生效。iTerm2需要额外配置，需要在终端中Regular font 和 the Non-ASCII Font选中刚刚安装的字体</p>
+<h3 id="修改iterm2设置">修改iTerm2设置</h3>
+<h4 id="多设备共享iterm2设置">多设备共享iTerm2设置</h4>
+<p>iTerm2 --&gt; Preferences --&gt; General --&gt; Preferences Tab</p>
+<p>勾选 <code>Load preferences from a custom folder or URL</code>，并选择配置文件，这里我是用oneDrive共享过来的。<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/218eec4defecbfe94b81086b7dfa7b4c099b9746/blog/post/oh-my-zsh%E7%BB%84%E5%90%88%E4%BD%A0%E7%9A%84terminal/iTerm2%E9%85%8D%E7%BD%AE%E5%85%B1%E4%BA%AB.png" alt="修改iTerm2设置字体"></p>
+<h4 id="iterm2设置主题">iTerm2设置主题</h4>
+<p>iTerm2需要额外配置，需要在终端中Regular font 和 the Non-ASCII Font选中刚刚安装的字体，点击iTerms的菜单&quot;iTerm &gt; Preferences &gt; Profiles &gt; Text&quot;，进行配置（<a href="https://github.com/powerline/fonts/issues/44" target="_blank" rel="noopener">git issue</a>）。</p>
+<h5 id="字体方案一-不管用">字体方案一【不管用】</h5>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/oh-my-zsh%E7%BB%84%E5%90%88%E4%BD%A0%E7%9A%84terminal/iTerm2%E8%AE%BE%E7%BD%AE.png" alt="修改iTerm2设置"></p>
+<p>按说这回就能正常显示主题agnoster了，但还是不行。</p>
+<h5 id="字体方案二-管用">字体方案二【管用】</h5>
+<p>后来在git issue上面查了半天，找到了<a href="https://github.com/ohmyzsh/ohmyzsh/issues/2869" target="_blank" rel="noopener">解决办法</a>。</p>
+<p>iTerm2设置中不仅要修改Non-ASCII Font，还要修改字体。<br>
+这里我修改成：<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/oh-my-zsh%E7%BB%84%E5%90%88%E4%BD%A0%E7%9A%84terminal/iTerm2%E8%AE%BE%E7%BD%AE2.png" alt="修改iTerm2设置字体"></p>
+<h5 id="字体方案三-管用">字体方案三【管用】</h5>
+<p>看别人的经验，还可以把iTerm 2的设置里的Profile中的Text 选项卡中里的Regular Font和Non-ASCII Font的字体都设置成 Powerline的字体<br>
+<code>12pt Meslo LG S DZ Regular for Powerline</code></p>
+<p>或者:<br>
+<img src="https://cloud.githubusercontent.com/assets/1128227/9950693/c834c0ec-5dc5-11e5-92c1-a75d80f3d783.png" alt="或者"></p>
+<h5 id="字体方案四-管用-正在使用">字体方案四【管用，正在使用】</h5>
+<p>如果之前安装的是<a href="https://github.com/microsoft/cascadia-code" target="_blank" rel="noopener">Cascadia Code PL /Cascadia Mono PL字体</a>，设置为：</p>
+<ul>
+<li>Font：Cascadia Code PL            Regular 12</li>
+<li>Non-ASCII Font：Cascadia Code PL  Regular 12</li>
+</ul>
+<h4 id="iterm2配色方案">iTerm2配色方案</h4>
+<p>我的iTerm2配色跟agnoster不同，也需要修改。<br>
+下载<a href="https://github.com/altercation/solarized#click-here-to-download-latest-version" target="_blank" rel="noopener">solarized</a>。</p>
+<p>进入刚刚下载的工程的solarized/iterm2-colors-solarized 下双击 Solarized Dark.itermcolors 和 Solarized Light.itermcolors 两个文件就可以把配置文件导入到 iTerm2 里</p>
+<p>通过load presets选择刚刚安装的配色主题即可<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/oh-my-zsh%E7%BB%84%E5%90%88%E4%BD%A0%E7%9A%84terminal/iTerm2%E8%AE%BE%E7%BD%AE%E9%85%8D%E8%89%B23.png" alt="修改iTerm2设置字体"></p>
+<h3 id="vs-code-设置">VS Code 设置</h3>
+<p>但后来我发现，在VS Code的控制台中仍然有乱码。<br>
+原因是VS Code的字体设置有限制，只能设置monospace样式的字体，我找到了这篇文章<br>
+作者用的是Linux，跟Mac在目录结构上有些差异，我参照了前面提到的install.sh脚本中的信息，修改了一些地方，以下是Mac上的操作步骤：</p>
+<ul>
+<li>从这个<a href="https://github.com/abertsch/Menlo-for-Powerline" target="_blank" rel="noopener">链接</a>下载字体文件</li>
+<li>sudo mv “Menlo for Powerline.ttf” ~/Library/Fonts</li>
+<li>VS Code -&gt; Terminal Font Family 设置字体为 Menlo for Powerline</li>
+</ul>
+<h2 id="修改主题-怎样不显示主机名"><a href="https://github.com/agnoster/agnoster-zsh-theme/issues/39#issuecomment-307338817" target="_blank" rel="noopener">修改主题-怎样不显示主机名</a></h2>
+<p>有的主机名很长，我不需要常常看到。我喜欢这个主题，但是主题里面带有主机名怎么办？</p>
+<h3 id="方法一-只修改改某一主题">方法一 只修改改某一主题</h3>
+<p>比如我不想让ys主题显示主机名,编辑 ~/.oh-my-zsh/themes/ys.zsh-theme，最后面改成这样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=<span class="string">"</span></span><br><span class="line"><span class="string">%&#123;<span class="variable">$terminfo</span>[bold]<span class="variable">$fg</span>[blue]%&#125;#%&#123;<span class="variable">$reset_color</span>%&#125; \</span></span><br><span class="line"><span class="string">%(#,%&#123;<span class="variable">$bg</span>[yellow]%&#125;%&#123;<span class="variable">$fg</span>[black]%&#125;%n%&#123;<span class="variable">$reset_color</span>%&#125;,%&#123;<span class="variable">$fg</span>[cyan]%&#125;%n) \</span></span><br><span class="line"><span class="string">%&#123;<span class="variable">$fg</span>[white]%&#125;in \</span></span><br><span class="line"><span class="string">%&#123;<span class="variable">$terminfo</span>[bold]<span class="variable">$fg</span>[yellow]%&#125;%~%&#123;<span class="variable">$reset_color</span>%&#125;\</span></span><br><span class="line"><span class="string"><span class="variable">$&#123;hg_info&#125;</span>\</span></span><br><span class="line"><span class="string"><span class="variable">$&#123;git_info&#125;</span>\</span></span><br><span class="line"><span class="string"> \</span></span><br><span class="line"><span class="string">%&#123;<span class="variable">$fg</span>[white]%&#125;[%*] <span class="variable">$exit_code</span></span></span><br><span class="line"><span class="string">%&#123;<span class="variable">$terminfo</span>[bold]<span class="variable">$fg</span>[red]%&#125;$ %&#123;<span class="variable">$reset_color</span>%&#125;"</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法二-作用于所有主题">方法二 作用于所有主题</h3>
+<p>打开.zshrc 在底部粘贴:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">prompt_context</span></span>() &#123;</span><br><span class="line"> <span class="keyword">if</span> [[ <span class="string">"<span class="variable">$USER</span>"</span> != <span class="string">"<span class="variable">$DEFAULT_USER</span>"</span> || -n <span class="string">"<span class="variable">$SSH_CLIENT</span>"</span> ]]; <span class="keyword">then</span></span><br><span class="line">   prompt_segment black default <span class="string">"%(!.%&#123;%F&#123;yellow&#125;%&#125;.)<span class="variable">$USER</span>"</span></span><br><span class="line"> <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就只显示用户名了. 如果你连用户名也不想显示，只需要注释掉这一行： <code>prompt_segment black default...</code>。</p>
+<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes" target="_blank" rel="noopener">其他修改主题的方法</a>。</p>
+<h2 id="其他主题">其他主题</h2>
+<p>如果这些默认主题还不能满足你的需要，我们还可以到这里找到更多的主题</p>
+<blockquote>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh/wiki/Themes</a><br>
+<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes</a><br>
+<a href="https://github.com/unixorn/awesome-zsh-plugins#themes" target="_blank" rel="noopener">https://github.com/unixorn/awesome-zsh-plugins#themes</a></p>
+</blockquote>
+<h1 id="oh-my-zsh-插件推荐">oh-my-zsh 插件推荐</h1>
+<h2 id="默认插件">默认插件</h2>
+<p>Oh My Zsh 默认自带了一些默认插件，存放在~/.oh-my-zsh/plugins目录中。可以查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls ~/.oh-my-zsh/plugins</span><br></pre></td></tr></table></figure>
+<h2 id="插件介绍">插件介绍</h2>
+<h3 id="zsh-history-substring-search"><a href="https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/history-substring-search" target="_blank" rel="noopener">zsh-history-substring-search</a></h3>
+<h3 id="autojump"><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a></h3>
+<p>功能：实现目录间快速跳转，想去哪个目录直接 j + 目录名，不用在频繁的 cd 了！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个命令就能找到近期 clone 了哪些库，省却了写一堆代码的功夫。</span></span><br><span class="line"><span class="built_in">history</span> | grep <span class="string">"git clone"</span></span><br></pre></td></tr></table></figure>
+<p>autojump 就是通过记录你在 history 中的行为把你访问过的文件夹路径都 cache 下来，当你输入路径名的时候会模糊匹配你之前cd过的目录路径，配合后面的自动提示插件，非常好用！！！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先cd到一些目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/lyk/production</span><br><span class="line"><span class="built_in">cd</span> ~/lyk/src/react</span><br><span class="line"><span class="comment"># j快速切换到 ~/lyk/production目录下</span></span><br><span class="line">j production</span><br><span class="line"><span class="comment"># jo快速在finder里打开文件夹 ~/lyk/production</span></span><br><span class="line">jo production</span><br></pre></td></tr></table></figure>
+<h3 id="zsh-syntax-highlighting"><a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank" rel="noopener">zsh-syntax-highlighting</a></h3>
+<p>日常用的命令会高亮显示，命令错误显示红色。<br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/oh-my-zsh%E7%BB%84%E5%90%88%E4%BD%A0%E7%9A%84terminal/zsh-syntax-highlighting.png" alt="zsh-syntax-highlighting例子"></p>
+<h3 id="zsh-autosuggestions"><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></h3>
+<p>如图所示，输入命令时可提示自动补全（灰色部分），然后按键盘 → （！！！！上下左右的右键，不是tab键）即可补全。</p>
+<p><a href="https://asciinema.org/a/37390" target="_blank"><img src="https://asciinema.org/a/37390.svg"></a></p>
+<p>更多插件可参考：</p>
+<blockquote>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins</a><br>
+<a href="https://github.com/unixorn/awesome-zsh-plugins" target="_blank" rel="noopener">https://github.com/unixorn/awesome-zsh-plugins</a><br>
+<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview</a></p>
+</blockquote>
+<h2 id="插件安装">插件安装</h2>
+<p>安装zsh-history-substring-search、autojump、zsh-autosuggestions、zsh-syntax-highlighting插件:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装zsh-history-substring-search</span></span><br><span class="line"> git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-history-substring-search <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-history-substring-search</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装autojump</span></span><br><span class="line">brew install autojump</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装zsh-autosuggestions</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line"><span class="comment"># or </span></span><br><span class="line">brew install zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装zsh-syntax-highlighting</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line"><span class="comment"># or </span></span><br><span class="line">brew install zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<p>别忘了在~/.zshrc找到<code>plugins=</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>添加你想使用的插件。<br>
+注意不同插件间用空格，不要加逗号。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">  git</span><br><span class="line">  autojump</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">  zsh-history-substring-search</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>最后保存执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="插件使用">插件使用</h2>
+<p><a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/" target="_blank" rel="noopener">git plugin 命令</a></p>
+<h1 id="其他技巧">其他技巧</h1>
+<h2 id="iterm-run-command">iterm Run command</h2>
+<p>iTerm2 里配 <code>Run command...</code> 为 <code>/usr/local/bin/idea --path \2 \1</code> (<a href="https://zos.alipayobjects.com/rmsportal/RmWdxKRQUWFMoVDjerNQ.png" target="_blank" rel="noopener">图</a>)，这样 Command + 点击文件路径，就会在 Intellij Idea 里打开</p>
+<h2 id="给history命令增加时间">给history命令增加时间</h2>
+<p>.zshrc中加入以下行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line">HIST_STAMPS=<span class="string">"yyyy-mm-dd"</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>如果没用oh my zsh的话可用如下alias</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> <span class="built_in">history</span>=<span class="string">'fc -il 1'</span></span><br></pre></td></tr></table></figure>
+<h2 id="更新oh-my-zsh">更新oh-my-zsh</h2>
+<p>设置自动更新oh-my-zsh</p>
+<p>默认情况下，当oh-my-zsh有更新时，都会给你提示。如果希望让oh-my-zsh自动更新，在~/.zshrc 中添加下面这句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISABLE_UPDATE_PROMPT=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>要手动更新，可以执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure>
+<h2 id="卸载oh-my-zsh">卸载oh my zsh</h2>
+<p>直接在终端中，运行<code>uninstall_oh_my_zsh</code>既可以卸载。</p>
+<h1 id="借鉴文章">借鉴文章</h1>
+<p>有点懒，把这几篇写的好的部分和官网结合在一起了。</p>
+<ul>
+<li><a href="https://juejin.im/post/5d773da76fb9a06aff5e9a99" target="_blank" rel="noopener">oh-my-zsh让终端好用到飞起~</a></li>
+<li><a href="https://blog.csdn.net/czg13548930186/article/details/72858289" target="_blank" rel="noopener">利用Oh-My-Zsh打造你的超级终端</a></li>
+<li><a href="https://hustyichi.github.io/2018/09/19/oh-my-zsh/" target="_blank" rel="noopener">Oh my zsh 配置与插件</a></li>
+<li><a href="http://ohmyz.sh" target="_blank" rel="noopener">Oh my zsh官网</a></li>
+</ul>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/oh-my-zsh组合你的terminal.html" target="_blank" title="iterm2+oh-my-zsh组合你的terminal">iterm2+oh-my-zsh组合你的terminal</a></div>
+  <div><b>本文链接: </b><a href="/oh-my-zsh组合你的terminal.html" target="_blank" title="iterm2+oh-my-zsh组合你的terminal">http://liyuankun.top/oh-my-zsh组合你的terminal.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/你不知道的Chrome的很多神奇版本.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="你不知道的Chrome的很多神奇版本">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/9秦小明-新金融思维训练笔记第09讲-金融的财务会计基础IV-财务建模-公司研究.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="9秦小明-新金融思维训练笔记第09讲-金融的财务会计基础IV-财务建模-公司研究">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/oh-my-zsh组合你的terminal.html";
+        var disqus_url = "http://liyuankun.top/oh-my-zsh组合你的terminal.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>

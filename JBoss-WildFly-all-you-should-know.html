@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          JBoss/WildFly all you should know - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/JBoss-WildFly-all-you-should-know.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                                <a class="tag" href="/tags/#WebContainer" title="WebContainer">WebContainer</a>
+                                
+                                <a class="tag" href="/tags/#JBoss" title="JBoss">JBoss</a>
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                                <div class="page-header-category">
+                                    <a class="category-list-link" href="/categories/TECH/">TECH</a>►<a class="category-list-link" href="/categories/TECH/BackEnd/">BackEnd</a>
+                                </div>
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/JBoss-WildFly-all-you-should-know.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/JBoss-WildFly-all-you-should-know.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                JBoss/WildFly all you should know
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading">JBoss/WildFly 常见概念/版本/下载/部署总结</h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2021-12-15
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <h1 id="web-containers-web容器总结"><a href="../Web-containers-web%E5%AE%B9%E5%99%A8%E6%80%BB%E7%BB%93.html">Web-containers-web容器总结</a></h1>
+<h1 id="jboss-基本术语-概念">JBoss 基本术语/概念</h1>
+<h2 id="jboss-eap-vs-jboss-as-vs-wildfly">JBoss EAP Vs JBoss AS Vs Wildfly</h2>
+<blockquote>
+<p>JBoss EAP is the JBoss Enterprise Application Platform that is a subscription based JavaEE application server; this is a Red Hat product; whereas Wildfly is the community product.</p>
+</blockquote>
+<p>作为JBoss的新手，会发现很多不同的术语-JBoss EAP，JBoss Server，Wildfly，Jboss Web，以及许多不是最新的或针对较旧版本的文档。按时间线来看的话：</p>
+<p><code>JBoss AS</code> (JBoss Application Server) 是开源社区早期版本，发布比较频繁。内部封装的容器是基于Tomcat的升级版。最新版本是7.1.1，2012年3月发布的，已经不再维护。官方推荐升级到WildFly或者JBoss EAP。所以从JBoss AS 7.1.1之后分出了两个方向，分别是WildFly和JBoss EAP。<br>
+网址：<a href="https://jbossas.jboss.org/downloads" target="_blank" rel="noopener">https://jbossas.jboss.org/downloads</a></p>
+<blockquote>
+<p>JBoss AS 7，前后发布了 7.0.0, 7.0.1, 7.0.2, 7.1.0, 7.1.1, 7.1.2, 7.1.3, 7.2.0，其中 7.1.1 比较经典，7.2.0 是 JBoss EAP.1 的基础，但7.1.2, 7.1.3, 7.2.0 只是源代码打了 Tag，并没提供开放下载。这个社区项目最终将成为JBoss EAP。</p>
+</blockquote>
+<p><code>WildFly</code>只是<code>JBoss AS</code>的新名称，从 8 开始，新的 JBoss AS 正式有一个名字，叫 <code>WildFly</code>. 内部封装的容器是Undertow。RedHat公司称，新名称WildFly反映了服务器“非常灵活、轻量、不羁、自由”的特性。WildFly 8，WildFly 9，WildFly 10以及可能的其他WildFly版本都是通往最终称为JBoss EAP 7的里程碑, 它们都实现了Java EE 7。尽管它们是该路线上的里程碑并且不受支持，但某些发行版实际上相当稳定并且可以投入生产(但由于不支持，因此后果自负)。</p>
+<blockquote>
+<p>改名后的首个版本为WildFly 8，将接棒JBoss AS 7。RedHat公司表示，新版本不仅是名称上的变化，还带来了如下改进：</p>
+<ul>
+<li>启动超快</li>
+<li>模块化设计</li>
+<li>非常轻量，内存占用非常少</li>
+<li>更优雅的配置、管理方式</li>
+<li>严格遵守Java EE7和OSGi规范</li>
+</ul>
+</blockquote>
+<p><code>JBoss EAP</code>(JBoss Enterprise Application Platform)在开源版本上构建的企业版本，会将社区版中验证过的，成熟的技术引入该版本，支持周期长。6的版本以Jboss AS7为基础；7的版本以Wildfly为基础。目前Redhat 已经将 JBoss EAP 放在 <a href="http://JBoss.org" target="_blank" rel="noopener">JBoss.org</a> 开放下载，开发人无需注册 Redhat （之前是必须有 <a href="http://Redhat.com" target="_blank" rel="noopener">Redhat.com</a> 账号才能下载 JBoss EAP）。是Red Hat生产和支持的Java EE应用程序服务器的名称。</p>
+<p><code>JBoss Web</code>是Red Hat在JBoss EAP及更早版本中使用的基于Tomcat的Servlet容器的名称。从EAP 7开始(因此已经在WildFly 8,9,10中使用)，它将被称为<code>Undertow</code>的新Servlet容器/ http引擎取代。</p>
+<p><code>Undertow</code> Jboss自主研发的Servlet容器。</p>
+<h2 id="jboss和tomcat区别">JBoss和Tomcat区别</h2>
+<ul>
+<li>
+<p>Tomcat 是 JSP/Servlet 容器</p>
+</li>
+<li>
+<p>JBoss 是 JEE 容器，JEE 包括JSP/Servlet，JMS， EJB，JAX-WS，JAX-RS，CDI等等</p>
+<ul>
+<li>JBoss是一个管理EJB的容器和服务器，但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。servlet容器还是tomcat，所以JBoss是基于tomcat的。从EAP 7开始(因此已经在WildFly 8,9,10中使用)，tomcat被称为<code>Undertow</code>的新Servlet容器/ http引擎取代。</li>
+<li>JBoss无最大访问限制、可伸缩性。</li>
+</ul>
+</li>
+</ul>
+<h1 id="jboss-下载配置">JBoss 下载配置</h1>
+<h2 id="jboss-下载">JBoss 下载</h2>
+<p><a href="https://developers.redhat.com/products/eap/download/" target="_blank" rel="noopener">JBOSS EAP developers</a><br>
+<a href="https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=appplatform&amp;downloadType=distributions" target="_blank" rel="noopener">JBOSS EAP</a><br>
+<a href="https://www.wildfly.org/downloads/" target="_blank" rel="noopener">WildFly</a> JBoss AS 从版本 8.0 开始改名为 WildFly<br>
+<a href="https://jbossas.jboss.org/downloads" target="_blank" rel="noopener">JBoss AS</a></p>
+<h2 id="jboss-官方文档">JBoss 官方文档</h2>
+<p>这里只列出部分常用配置文档：</p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4" target="_blank" rel="noopener">JBOSS EAP 官方文档目录</a></p>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_guide/index" target="_blank" rel="noopener">JBOSS EAP 官方文档-Getting Started Guide</a>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_guide/administering_jboss_eap#assembly-download-and-install-jboss-eap_default" target="_blank" rel="noopener">JBoss EAP 官方文档-1.1. Downloading and installing JBoss EAP</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_guide/administering_jboss_eap#assembly-start-stop-jboss-eap_default" target="_blank" rel="noopener">JBoss EAP 官方文档-1.2. Starting and stopping JBoss EAP</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_guide/administering_jboss_eap#jboss_eap_management" target="_blank" rel="noopener">JBoss EAP 官方文档-1.3 JBoss EAP Management</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_guide/administering_jboss_eap#assembly-network-port-configurations_default" target="_blank" rel="noopener">JBoss EAP 官方文档-1.4 Network and port configuration JBoss EAP</a></li>
+</ul>
+</li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/installation_guide/index" target="_blank" rel="noopener">JBOSS EAP 官方文档-INSTALLATION GUIDE</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/configuration_guide/index" target="_blank" rel="noopener">JBOSS EAP 官方文档-Configuration Guide</a>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/deploying_applications" target="_blank" rel="noopener">JBOSS EAP 官方文档-Deploying Applications</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="jboss-常用配置">JBoss 常用配置</h2>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_guide/administering_jboss_eap#configuration_files" target="_blank" rel="noopener">JBoss EAP 官方文档-1.3.3 Configuration Files</a></p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EAP_HOME/bin/init.d/jboss-eap-rhel.sh</td>
+<td>startup script 启动脚本</td>
+</tr>
+<tr>
+<td>EAP_HOME/bin/init.d/jboss-eap.conf</td>
+<td>configuration file 配置文件, 最少配置下<code>JBOSS_HOME</code>和<code>JBOSS_USER</code>。 1 默认使用默认配置文件 <code>standalone.xml</code>启动 a standalone JBoss EAP server。2 If you want the service to start JBoss EAP as a managed domain, add <code>JBOSS_MODE=domain</code> to jboss-eap.conf. To specify custom <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html-single/installation_guide/index#:~:text=To%20specify%20custom-,domain%20configuration%20files,-%2C%20add%20JBOSS_DOMAIN_CONFIG%3DDOMAIN_CONFIG_FILE" target="_blank" rel="noopener">domain configuration files</a>, add <code>JBOSS_DOMAIN_CONFIG=DOMAIN_CONFIG_FILE.xml</code> and <code>JBOSS_HOST_CONFIG=HOST_CONFIG_FILE.xml</code>. By default, JBoss EAP uses <code>domain.xml</code> and <code>host.xml</code> as the domain configuration files.</td>
+</tr>
+<tr>
+<td>EAP_HOME/bin/standalone.sh</td>
+<td>启动server脚本， standalone mode（单机模式）。 <code>standalone.bat</code> for windows users. 默认配置文件 <code>EAP_HOME/standalone/configuration/standalone.xml</code>， 也可以指定读取其他配置文件，命令是<code>./standalone.sh --server-config=standalone-custom.xml</code>。或者使用备份历史文件：<code>$ EAP_HOME/bin/standalone.sh --server-config=standalone_xml_history/snapshot/20151022-133109702standalone.xml</code></td>
+</tr>
+<tr>
+<td>EAP_HOME/bin/domain.sh</td>
+<td>启动server脚本， domain mode（集群模式）. <code>domain.bat</code> for windows users. 默认配置文件  <code>EAP_HOME/domain/configuration/domain.xml</code> and <code>EAP_HOME/domain/configuration/host.xml</code></td>
+</tr>
+<tr>
+<td>EAP_HOME/bin/jboss-cli.sh</td>
+<td>命令行管理工具, 通过命令行实现部署卸载应用、配置系统设置和执行管理任务的功能。使用该工具修改系统配置时，最终也会作用到standalone.xml中。虽然官方文档不建议直接改xml而是推荐CLI，但我更喜欢直接改。 The management command-line interface (CLI) is a command-line administration tool for JBoss EAP.</td>
+</tr>
+<tr>
+<td>EAP_HOME/bin/jboss-cli.sh --connect command=:shutdown</td>
+<td>stop server脚本. 1 <code>EAP_HOME/bin/jboss-cli.sh --connect</code> 2 <code>shutdown</code></td>
+</tr>
+<tr>
+<td>EAP_HOME/bin/add-user.sh</td>
+<td>Adding a Management User， For Windows Server, use the <code>EAP_HOME\bin\add-user.bat</code> script. <code>a</code> to add a management user, <code>b</code> adds a user to the ApplicationRealm, which is used for applications and provides no particular permissions.</td>
+</tr>
+<tr>
+<td>EAP_HOME/bin/standalone.conf</td>
+<td>Jboss启动的配置，在文件中加入 <code>JAVA_HOME=&quot;/path/jdk&quot;</code>，可以指定使用的jdk，而不必依赖于系统默认的java环境变量。在文件中加入 <code>LANG=Zh_CN.GB18030</code>，可以设定语言环境为中文. 修改<code>JAVA_OPTS</code>，可以设置JVM的启动参数.</td>
+</tr>
+<tr>
+<td><a href="http://localhost:9990/console/index.html" target="_blank" rel="noopener">http://localhost:9990/console/index.html</a></td>
+<td>Management Console，管理控制台。是jboss提供的web管理系统，所有的操作均可通过jboss-cli实现。默认用户名密码admin/admin, 可以通过 <code>EAP_HOME/bin/add-user.sh</code> 选择<code>a</code> management user, 进行添加或修改。</td>
+</tr>
+<tr>
+<td><code>EAP_HOME/standalone/configuration/standalone.xml</code></td>
+<td>standalone mode（单机模式）的默认配置文件。It contains all information about the server, including subsystems, networking, deployments, socket bindings, and other configurable details. It does not provide the subsystems necessary for messaging or high availability.</td>
+</tr>
+<tr>
+<td><code>EAP_HOME/domain/configuration/domain.xml</code></td>
+<td>domain mode（集群模式）默认配置文件，Only the domain master reads this file. This file contains the configurations for all of the profiles (default, ha, full, full-ha, load-balancer).</td>
+</tr>
+<tr>
+<td><code>EAP_HOME/domain/configuration/host.xml</code></td>
+<td>This file includes configuration details specific to a physical host in a managed domain, such as network interfaces, socket bindings, the name of the host, and other host-specific details. The host.xml file includes all of the features of both host-master.xml and host-slave.xml, which are described below.也可以指定读取其他配置文件，命令是<code>$ EAP_HOME/bin/domain.sh --host-config=host-master.xml</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="jboss-eap-网络和端口配置">JBoss EAP 网络和端口配置</h2>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_guide/administering_jboss_eap#assembly-network-port-configurations_default" target="_blank" rel="noopener">JBoss EAP 官方文档-1.4 Network and port configuration JBoss EAP</a></p>
+<h2 id="jboss-eap的详细介绍-目录结构等">JBoss EAP的详细介绍（目录结构等）</h2>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appclient/</td>
+<td>包含应用程序客户容器的配置细节。</td>
+</tr>
+<tr>
+<td>bin/</td>
+<td>包含 Red Hat 企业版 Linux 和微软 Windows 上 JBoss EAP 的启动脚本。</td>
+</tr>
+<tr>
+<td>docs/</td>
+<td>许可证文件、schema 和示例。</td>
+</tr>
+<tr>
+<td>domain/</td>
+<td>配置文件、部署内容和 JBoss EAP 以受管域运行时使用的可写入区域。</td>
+</tr>
+<tr>
+<td>modules/</td>
+<td>当有服务请求时 JBoss EAP 动态加载的模块。custom modules自定义的modules可以放在这里。</td>
+</tr>
+<tr>
+<td>standalone/</td>
+<td>配置文件、部署内容和 JBoss EAP 以独立服务器运行时使用的可写入区域。</td>
+</tr>
+<tr>
+<td>welcome-content/</td>
+<td>包含默认安装里 8080 端口上的 Welcome 应用程序使用的内容。</td>
+</tr>
+<tr>
+<td>jboss-modules.jar</td>
+<td>加载模块的引导机制。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="domain-里的目录">domain/ 里的目录</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>configuration/</td>
+<td>用于受管域的配置文件。这些文件是通过管理控制台和 CLI 进行修改的，不能直接进行编辑。</td>
+</tr>
+<tr>
+<td>data/</td>
+<td>关于已部署服务的信息。服务是用管理控制台或管理 CLI，而不是通过部署扫描器来部署的。因此，请不要手动在这个目录里放入文件。</td>
+</tr>
+<tr>
+<td>log/</td>
+<td>包含运行在本地实例上的主机和进程控制器的运行时日志文件。</td>
+</tr>
+<tr>
+<td>servers/</td>
+<td>包含某个域里的每个服务器实例的 data/、log/ 和 tmp/ 目录，其中包含的数据和顶层的 domain/</td>
+</tr>
+<tr>
+<td>tmp/</td>
+<td>包含临时数据，如针对受管域检验本地用户的管理 CLI 使用的共享密钥机制相关的文件。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="standalone-里的目录">standalone/ 里的目录</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>configuration/</td>
+<td>用于独立服务器的配置文件。这些文件是通过管理控制台和 CLI 进行修改的，不能直接进行编辑。</td>
+</tr>
+<tr>
+<td>deployments/</td>
+<td>关于已部署服务的信息。独立服务器包含一个部署扫描器，您可以在这个目录里放入要部署的归档文件。然而，我们推荐的方法是用管理控制台或管理 CLI 来管理部署。</td>
+</tr>
+<tr>
+<td>lib/</td>
+<td>附属于独立服务器模式的外部库。默认为空。</td>
+</tr>
+<tr>
+<td>tmp/</td>
+<td>包含临时数据，如针对服务器检验本地用户的管理 CLI 使用的共享密钥机制相关的文件。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jboss-eap-的功能">JBoss EAP 的功能</h3>
+<p>功能 | 描述<br>
+符合 Java EE 7 规范 | 通过 Java Enterprise Edition 7 full 和 web profile 认证。<br>
+受管域 | 集中管理多个服务器实例和物理主机，而独立服务器只允许运行单个服务器实例。可以按服务器组来管理配置、部署、套接字绑定、模块、扩展和系统属性。集中并简化应用程序安全性（包括安全域）管理。<br>
+管理控制台和管理 CLI | 新的域或独立服务器管理界面。管理 CLI 还包括批处理模式，可以编写脚本并自动执行管理任务。不建议直接编辑 JBoss EAP XML 配置文件。<br>
+简化的目录结构 | 模块目录包含所有应用服务器模块。域和独立目录分别包含用于域和独立部署的构件与配置文件。<br>
+模块化类加载机制 | 模块可以按需加载和卸载。这样可提高性能、实现更好的安全性并缩短启动和重启时间。<br>
+简化数据源管理 | 数据库驱动程序可像其他服务一样进行部署。另外，可以使用管理控制台和管理 CLI 来创建和管理数据源。</p>
+<h4 id="子系统">子系统</h4>
+<p>许多对部署到 JBoss EAP 的应用程序开放的 API 和功能组成子系统。管理员可根据应用程序的目标，配置这些子系统来提供不同的特性。例如，如果应用程序需要数据库，则可在 datasources 子系统中配置数据源，在应用程序部署到 JBoss EAP 服务器或域之后，就可以访问该数据源。</p>
+<h4 id="高可用性">高可用性</h4>
+<p>JBoss EAP 中的高可用性 (HA) 是指多个 JBoss EAP 实例一起协同运行，使应用程序能更好地抵抗流量、服务器负载和服务器故障等方面的波动。HA 结合了可扩展性、负载均衡和容错性等概念。</p>
+<h4 id="操作模式">操作模式</h4>
+<p>除了向应用程序提供相关功能和 API 之外，JBoss EAP 还具备强大的管理功能。JBoss EAP 采用不同的操作模式启动，可以分别提供不同的管理功能。JBoss EAP 提供独立服务器操作模式用于管理分散的实例，提供受管域操作模式用于从单个控制点管理一组实例。</p>
+<h1 id="web-application的部署">Web Application的部署</h1>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/deploying_applications" target="_blank" rel="noopener">JBOSS EAP 官方文档-Deploying Applications</a><br>
+官方文档中有6种方法，这里只列出常用的方法，可根据生产/开发环境来选择合适的方式。</p>
+<blockquote>
+<p>For administrators, the <code>management console</code> and the <code>management CLI</code> offer ideal graphical and command-line interfaces to manage application deployment in a production environment.</p>
+</blockquote>
+<p>对于管理员, <code>management console</code> 和 <code>management CLI</code> 提供理想的图形和命令行界面来管理生产环境中的应用程序部署.</p>
+<blockquote>
+<p>For developers, the range of application deployment testing options include a configurable file system <code>deployment scanner</code>, the <code>HTTP API</code>, an <code>IDE</code> such as Red Hat CodeReady Studio, and <code>Maven</code>.</p>
+</blockquote>
+<p>对于开发人员，应用程序部署测试选项的范围包括可配置文件系统<code>deployment scanner</code>、<code>HTTP API</code>、<code>IDE</code>（例如 Red Hat CodeReady Studio）和<code>Maven</code>。</p>
+<table>
+<thead>
+<tr>
+<th>部署方式</th>
+<th>Management CLI</th>
+<th>Management Console</th>
+<th>Deployment Scanner</th>
+<th>Exploded</th>
+<th>HTTP API</th>
+<th>Maven</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>环境</td>
+<td>生产环境(推荐)</td>
+<td>生产环境</td>
+<td>开发环境</td>
+<td>开发环境</td>
+<td>开发环境</td>
+<td>开发环境</td>
+</tr>
+<tr>
+<td>需要上传文件到deployments文件夹下？</td>
+<td>No</td>
+<td>No</td>
+<td>YES</td>
+<td>根据部署方式</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用management-cli部署-官方推荐：生产环境">使用Management CLI部署【官方推荐：生产环境】</h2>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/deploying_applications#deploying_apps_using_cli" target="_blank" rel="noopener">JBOSS EAP 官方文档-Deploying Applications</a></p>
+<!-- 增加属性scan-enabled="false" -->
+<p>此模式是官方推荐的生产环境部署应用方式，无需将应用上传至deployments文件夹下。首先保证test-application.war在服务器上，假设其路径为/path/to/test-application.war。</p>
+<ol>
+<li>启动服务器，并使用<code>./jboss-cli.sh --connect</code>命令进入命令行管理界面。</li>
+<li>执行命令<code>deployment deploy-file /path/to/test-application.war</code>部署应用。</li>
+<li>取消部署时，在命令行管理界面执行 <code>deployment undeploy test-application.war</code>。<br>
+应用的数据会在<code>EAP_HOME/standalone/data/content</code>下，并且standalone.xml最下方会出现deployments标签，显示已经部署的应用。</li>
+</ol>
+<ul>
+<li>Disable某个application：<br>
+Disable 不会把部署内容移除，只是暂时不启动。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deployment <span class="built_in">disable</span> <span class="built_in">test</span>-application.war</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deployment <span class="built_in">disable</span>-all</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Enable某个application：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deployment <span class="built_in">enable</span> <span class="built_in">test</span>-application.war</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deployment <span class="built_in">enable</span>-all</span><br></pre></td></tr></table></figure>
+<ul>
+<li>列出deploy信息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deployment info</span><br></pre></td></tr></table></figure>
+<h2 id="使用management-console部署-生产环境">使用Management Console部署【生产环境】</h2>
+<p>Management Console，管理控制台。是jboss提供的web管理系统，所有的操作均可通过jboss-cli实现。默认用户名密码admin/admin, 可以通过 <code>EAP_HOME/bin/add-user.sh</code> 选择<code>a</code> management user, 进行添加或修改。<br>
+<a href="http://localhost:9990/console/index.html" target="_blank" rel="noopener"><a href="http://localhost:9990/console/index.html" target="_blank" rel="noopener">http://localhost:9990/console/index.html</a></a></p>
+<h3 id="选择deployments-tab">选择Deployments Tab</h3>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/JBoss-WildFly-all-you-should-know/console.png" alt="选择Deployments Tab"></p>
+<h3 id="点击-可以选择">点击+，可以选择</h3>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/JBoss-WildFly-all-you-should-know/console-deployment1.png" alt="选择Deployments Tab"></p>
+<ul>
+<li>
+<p>Upload a deployment</p>
+<p>Upload an application that will be copied to the server’s content repository and managed by JBoss EAP.</p>
+</li>
+<li>
+<p>Adding an unmanaged deployment</p>
+<p>Specify the location of a deployment. This deployment will not be copied to the server’s content repository and will not be managed by JBoss EAP.</p>
+</li>
+<li>
+<p>Creating an empty deployment</p>
+<p>Create an empty, exploded deployment. You can add files to the deployment after it has been created.</p>
+</li>
+</ul>
+<h3 id="选中application-可以选择">选中application，可以选择</h3>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/JBoss-WildFly-all-you-should-know/console-deployment2.png" alt="选择Deployments Tab"></p>
+<ul>
+<li>
+<p>Undeploy an Application<br>
+Select the deployment and choose the <code>Remove</code> option to undeploy the application. This undeploys the deployment and removes it from the content repository.</p>
+</li>
+<li>
+<p>Disable an Application<br>
+Select the deployment and choose the <code>Disable</code> option to disable the application. This undeploys the deployment, but does not remove it from the content repository.</p>
+</li>
+<li>
+<p>Replace an Application<br>
+Select the deployment and choose the <code>Replace</code> option. Select the new version of the deployment, which must have the same name as the original, and click Finish. This undeploys and removes the original version of the deployment, and then deploys the new version.</p>
+</li>
+</ul>
+<h2 id="使用deployment-scanner部署-适合开发环境">使用Deployment Scanner部署【适合开发环境】</h2>
+<h3 id="deploy-an-application">Deploy an Application</h3>
+<p>在默认配置下，将war包拷贝至<code>EAP_HOME/standalone/deployments/</code>，服务器会在启动时，每5秒间隔检查deployments下的文件变化，部署应用。<br>
+此外，Deployment Scanner不应与其他部署方法结合使用。</p>
+<blockquote>
+<p>Deployment Scanner仅在 JBoss EAP 作为standalone服务器运行时可用。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /path/to/<span class="built_in">test</span>-application.war EAP_HOME/standalone/deployments/</span><br></pre></td></tr></table></figure>
+<p>如果启用了自动部署，则会自动选取、部署此文件，并创建<code>.dodeploy</code>标记文件。<br>
+如果未启用自动部署，则需要手动添加<code>.dodeploy</code> 标记文件以触发部署。<br>
+JBOSS在启动时会把这个文件名自动改成<code>test-application.war.deploying</code>。<br>
+如果布署成功，该文件名会被自动改名成：<code>test-application.war.deployed</code><br>
+如果布署失败，该文件名会被自动改名成：<code>test-application.war.failed</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch EAP_HOME/standalone/deployments/<span class="built_in">test</span>-application.war.dodeploy</span><br></pre></td></tr></table></figure>
+<h3 id="undeploy">UnDeploy</h3>
+<p>删除<code>.dodeploy</code> 标记文件。如果启用自动部署，删除<code>.war</code>文件也会触发undeploy。</p>
+<h3 id="redeploy">ReDeploy</h3>
+<p>手动添加 <code>.dodeploy</code> 标记文件, 或者把之前的标记文件从<code>.deployed</code>或者<code>.failed</code>重命名为<code>.dodeploy</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch EAP_HOME/standalone/deployments/<span class="built_in">test</span>-application.war.dodeploy</span><br></pre></td></tr></table></figure>
+<h2 id="解压式部署-适合开发环境">解压式部署【适合开发环境】</h2>
+<p>解压式部署比war包部署的好处是，允许更改解压的应用程序的内容，而无需部署应用程序的新版本。<br>
+在 JBoss EAP 7.1 之前，只能通过操作文件系统上的文件来管理解压部署。从 JBoss EAP 7.1 开始，可以使用管理界面management console管理解压式部署。</p>
+<h3 id="手动部署">手动部署</h3>
+<p>在 JBoss EAP 7.1 之前，只能通过操作文件系统上的文件来管理解压部署。和Deployment Scanner部署比较相像， 唯一区别是需要手动解压war文件，并重命名。</p>
+<ol>
+<li>解压test-application.war包到test-application文件夹，重命名test-application文件夹为<code>test-application.war</code></li>
+<li>拷贝解压好的war包拷贝至<code>EAP_HOME/standalone/deployments/</code>。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /path/to/<span class="built_in">test</span>-application.war EAP_HOME/standalone/deployments/</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>创建<code>.dodeploy</code>标记文件。 如果未启用自动部署，则需要手动添加<code>.dodeploy</code> 标记文件以触发部署。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch EAP_HOME/standalone/deployments/<span class="built_in">test</span>-application.war.dodeploy</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>UnDeploy和ReDeploy的方法也和Deployment Scanner部署一样。</li>
+</ol>
+<h3 id="management-console部署">management console部署</h3>
+<p>从 JBoss EAP 7.1 开始，可以使用管理界面management console管理解压式部署。</p>
+<blockquote>
+<p>对部署中的静态文件（例如 JavaScript 和 CSS 文件）的更新会立即生效。 对其他文件（例如 Java 类）的更改可能需要重新部署应用程序才能使更改生效。</p>
+</blockquote>
+<ol>
+<li>选择Deployments Tab, 点击+, 选择<code>Creating an empty deployment</code></li>
+<li>填写文件夹路径<code>/path/to/test-application.war</code></li>
+</ol>
+<h3 id="management-cli部署">Management CLI部署</h3>
+<h4 id="创建空的部署：">创建空的部署：</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/deployment=DEPLOYMENT_NAME.war:add(content=[&#123;empty=<span class="literal">true</span>&#125;])</span><br></pre></td></tr></table></figure>
+<h4 id="explode-an-existing-archive-deployment">Explode an Existing Archive Deployment</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/deployment=ARCHIVE_DEPLOYMENT_NAME.ear:explode</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a href="https://blog.csdn.net/zmh458/article/details/79405871" target="_blank" rel="noopener">初识JBoss EAP</a></li>
+<li><a href="https://blog.csdn.net/lifetragedy/article/details/51371794" target="_blank" rel="noopener">JBOSS EAP实战(1)</a></li>
+<li><a href="https://www.jianshu.com/p/4baaf549436b" target="_blank" rel="noopener">Jboss eap7.1 配置部署入门</a></li>
+</ul>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/JBoss-WildFly-all-you-should-know.html" target="_blank" title="JBoss/WildFly all you should know">JBoss/WildFly all you should know</a></div>
+  <div><b>本文链接: </b><a href="/JBoss-WildFly-all-you-should-know.html" target="_blank" title="JBoss/WildFly all you should know">http://liyuankun.top/JBoss-WildFly-all-you-should-know.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/Docker.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="Docker">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/Spring-XML-config.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="Spring 实战 - 3 最小化 Spring XML config">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#web-containers-web容器总结"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Web-containers-web容器总结</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#jboss-基本术语-概念"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">JBoss 基本术语/概念</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jboss-eap-vs-jboss-as-vs-wildfly"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">JBoss EAP Vs JBoss AS Vs Wildfly</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jboss和tomcat区别"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">JBoss和Tomcat区别</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#jboss-下载配置"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">JBoss 下载配置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jboss-下载"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">JBoss 下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jboss-官方文档"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">JBoss 官方文档</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jboss-常用配置"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">JBoss 常用配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jboss-eap-网络和端口配置"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">JBoss EAP 网络和端口配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#jboss-eap的详细介绍-目录结构等"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">JBoss EAP的详细介绍（目录结构等）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#domain-里的目录"><span class="toc-nav-number">3.5.1.</span> <span class="toc-nav-text">domain/ 里的目录</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#standalone-里的目录"><span class="toc-nav-number">3.5.2.</span> <span class="toc-nav-text">standalone/ 里的目录</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#jboss-eap-的功能"><span class="toc-nav-number">3.5.3.</span> <span class="toc-nav-text">JBoss EAP 的功能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#子系统"><span class="toc-nav-number">3.5.3.1.</span> <span class="toc-nav-text">子系统</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#高可用性"><span class="toc-nav-number">3.5.3.2.</span> <span class="toc-nav-text">高可用性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#操作模式"><span class="toc-nav-number">3.5.3.3.</span> <span class="toc-nav-text">操作模式</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#web-application的部署"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Web Application的部署</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用management-cli部署-官方推荐：生产环境"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">使用Management CLI部署【官方推荐：生产环境】</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用management-console部署-生产环境"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">使用Management Console部署【生产环境】</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#选择deployments-tab"><span class="toc-nav-number">4.2.1.</span> <span class="toc-nav-text">选择Deployments Tab</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#点击-可以选择"><span class="toc-nav-number">4.2.2.</span> <span class="toc-nav-text">点击+，可以选择</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#选中application-可以选择"><span class="toc-nav-number">4.2.3.</span> <span class="toc-nav-text">选中application，可以选择</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用deployment-scanner部署-适合开发环境"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">使用Deployment Scanner部署【适合开发环境】</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#deploy-an-application"><span class="toc-nav-number">4.3.1.</span> <span class="toc-nav-text">Deploy an Application</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undeploy"><span class="toc-nav-number">4.3.2.</span> <span class="toc-nav-text">UnDeploy</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#redeploy"><span class="toc-nav-number">4.3.3.</span> <span class="toc-nav-text">ReDeploy</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#解压式部署-适合开发环境"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">解压式部署【适合开发环境】</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#手动部署"><span class="toc-nav-number">4.4.1.</span> <span class="toc-nav-text">手动部署</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#management-console部署"><span class="toc-nav-number">4.4.2.</span> <span class="toc-nav-text">management console部署</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#management-cli部署"><span class="toc-nav-number">4.4.3.</span> <span class="toc-nav-text">Management CLI部署</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#创建空的部署："><span class="toc-nav-number">4.4.3.1.</span> <span class="toc-nav-text">创建空的部署：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#explode-an-existing-archive-deployment"><span class="toc-nav-number">4.4.3.2.</span> <span class="toc-nav-text">Explode an Existing Archive Deployment</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考文章"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">参考文章</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/JBoss-WildFly-all-you-should-know.html";
+        var disqus_url = "http://liyuankun.top/JBoss-WildFly-all-you-should-know.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>

@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4aJ9pFEKjOcI9zlltw5NYLKMsnk_Ygy49okv3PcTknw">
+    <meta name="baidu-site-verification" content="JFD0vIDsbS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/cat-icon-512.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          计算机英语-安全Security - Yuankun | Zilan
+        
+    </title>
+
+    <link rel="canonical" href="http://liyuankun.top/计算机英语-安全Security.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <!-- <link rel="stylesheet" href="/css/zilan.min.css"> -->
+    <link rel="stylesheet" href="/css/zilan.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <link rel="stylesheet" href="/css/share.css">
+
+    <link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" href="/css/copyright.css">
+
+    <link rel="stylesheet" href="/css/search/localsearch.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('');
+            /*post*/
+        
+    }
+    
+        #signature{
+            background-image: url('/img/signature/signature-white.png');
+        }
+    
+
+    
+        #header-cover {
+            background-color: rgba(0,0,0,.2);
+        }
+    
+</style>
+
+<header class="intro-header" >
+    <div id="header-cover">
+        <!-- Signature -->
+        <div id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                        <div class="post-heading">
+                            <div class="tags">
+                                
+                                <a class="tag" href="/tags/#Security" title="Security">Security</a>
+                                
+                            </div>
+                            <!-- category post header -->
+                            
+                                <div class="page-header-category">
+                                    <a class="category-list-link" href="/categories/English-Learning/">English Learning</a>►<a class="category-list-link" href="/categories/English-Learning/计算机英语/">计算机英语</a>
+                                </div>
+                            
+                            
+                                <span class="post-comments-count">
+                                    <span class="post-meta-divider">|</span>
+                                    <a href="/计算机英语-安全Security.html#git_comment" rel="external nofollow" itemprop="discussionUrl">
+                                        <span class="post-meta-item-icon">
+                                            <i class="fa fa-comment-o"></i>
+                                        </span>
+                                        <span class="post-comments-count gitment-comments-count" data-xid="/计算机英语-安全Security.html" itemprop="commentsCount"></span>
+                                    </a>
+                                </span>
+                            
+                            <h1>
+                                计算机英语-安全Security
+                                <!-- Share -->
+                                
+                                    <span id="needsharebutton-postbottom" class="header-share">
+                                        <span class="btn">
+                                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </span>
+                                
+                            </h1>
+                            <h2 class="subheading"></h2>
+                            <span class="meta">
+                                Posted by Yuankun Li on
+                                2022-09-02
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">岚</a>
+            <!-- Search -->
+            
+            
+                <li class="menu-item menu-item-search">
+                
+                    <a href="javascript:;" class="popup-trigger">
+                
+                    
+                        <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+                    
+                </a>
+                </li>
+            
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<div id="container">
+    <article>
+        <div class="container post-content-container">
+            <div class="row">
+
+                <!-- One Post Content Container -->
+                <div class="
+                    col-lg-8 col-lg-offset-2
+                    col-md-10 col-md-offset-1
+                    post-container">
+
+                    <h2 id="攻击类型">攻击类型</h2>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>读音</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phishing</td>
+<td>美/ˈfɪʃɪŋ/</td>
+<td>网络钓鱼 the activity of tricking people by getting them to give their identity, bank account numbers, etc. over the Internet or by email, and then using these to steal money from them 网络诱骗（通过互联网或电邮骗取他人身份证件、银行账号等以盗取金钱）</td>
+</tr>
+<tr>
+<td>Injection</td>
+<td></td>
+<td>注入 例如 SQL Injection</td>
+</tr>
+</tbody>
+</table>
+<h2 id="缩写">缩写</h2>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>全称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOS</td>
+<td>Denial of Service</td>
+<td>服务不可用 Denial of Service occurs when a web server is made temporarily unavailable or unusable to a valid user. Protection from such threats improves system consistency and availability. 当 Web 服务器暂时不可用或对有效用户不可用时，就会发生拒绝服务。 防范此类威胁可提高系统一致性和可用性。</td>
+</tr>
+<tr>
+<td>DFDs</td>
+<td>Data flow diagrams</td>
+<td>The threat modeling approach requires you to use data flow diagrams (or DFDs).<br>A data flow diagram is an organized evaluation and design method used for software analvsis. It represents the flow of data through the system. DFD supports decomposition, to graphically depict the flow of data and functions in the system.<br>A DFD provides:<br>- A system design to support the analysis and requirement stage.<br>- A detailed system diagram.<br>- Description of the network of activities of the target system.<br>- Step-by-step modification through tiered disintegration of activities.</td>
+</tr>
+<tr>
+<td><a href="https://owasp.org/www-project-application-security-verification-standard/" target="_blank" rel="noopener">ASVS</a></td>
+<td>OWASP Application Security Verification Standards</td>
+<td>a community-driven attempt to begin a framework of security controls that focuses on outlining the functional and non functional security controls essential for development, design,and testing of modern web services and applications.</td>
+</tr>
+<tr>
+<td>CVSS</td>
+<td>Common Vulnerability Scoring System</td>
+<td></td>
+</tr>
+<tr>
+<td>CVE</td>
+<td>Common Vulnerability and Exposure</td>
+<td></td>
+</tr>
+<tr>
+<td>NVD</td>
+<td><a href="https://nvd.nist.gov/" target="_blank" rel="noopener">National Vulnerability Database</a></td>
+<td></td>
+</tr>
+<tr>
+<td>MFA</td>
+<td>Multi-factor authentication</td>
+<td>(MFA) is an authentication technique in which a user must provide two or more verification factors to access an application. MFA is one of the best defense techniques, which can be used against most password-related attacks. Use MFA wherever possible and feasible.</td>
+</tr>
+<tr>
+<td>RBAC</td>
+<td>Role-Based Access Control</td>
+<td>is the process of making access decisions based on the roles and responsibilities of a user</td>
+</tr>
+<tr>
+<td>DAC</td>
+<td>Discretionary Access Control</td>
+<td>the process of restricting access to information based on the identity of the user.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>threat modeling</th>
+<th>approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PASTA (The Process for Attack Simulation and Threat Analysis)</td>
+<td>a type of <code>threat modeling</code></td>
+<td><code>attack-centric</code> approach</td>
+</tr>
+<tr>
+<td>STRIDE (spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)</td>
+<td>one of the commonly used <code>threat modeling</code> methods. a tool developed by <code>Microsoft</code> to classify all possible threats on the server.</td>
+<td></td>
+</tr>
+<tr>
+<td>DREAD</td>
+<td><code>Damage</code> – how bad would an attack be?<br><code>Reproducibility</code> – how easy is it to reproduce the attack?<br><code>Exploitability</code> – how much work is it to launch the attack?<br><code>Affected users</code> – how many people will be impacted?<br><code>Discoverability</code> – how easy is it to discover the threat?</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft Security Development Lifecycle (SDL)</td>
+<td>a type of <code>threat modeling</code>, Microsoft Threat Modeling Tool</td>
+<td><code>application-centric</code> approach</td>
+</tr>
+<tr>
+<td>OCTAVE (Operationally Critical Threat, Asset, and Vulnerability Evaluation)</td>
+<td>a tried and tested <code>threat modeling</code></td>
+<td><code>asset-centric</code> approach</td>
+</tr>
+<tr>
+<td>TD (Threat Dragon)</td>
+<td>open-source threat modeling tool, both online and a desktop application</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="threat-modeling"><a href="https://owasp.org/www-community/Threat_Modeling" target="_blank" rel="noopener">Threat modeling</a></h3>
+<p><code>Threat modeling</code> is a core element of the Microsoft Security Development Lifecycle. You can use threat modeling to identify and mitigate threats, weaknesses, and vulnerabilities in an application.</p>
+<p>OWASP suggests gathering the following assessment input.</p>
+<ul>
+<li>A description, design, or model of your application architecture.</li>
+<li>A list of assumptions that can be checked or challenged in the future, as the threat landscape changes.</li>
+<li>A list of potential threats to the system.</li>
+<li>A list of mitigations to be taken for each threat.</li>
+<li>A way of validating the model. threats, and verifying the success of implemented mitigations.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th><a href="https://owasp.org/www-community/Threat_Modeling" target="_blank" rel="noopener">threat modeling</a></th>
+<th>approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PASTA (The Process for Attack Simulation and Threat Analysis)</td>
+<td>a type of <code>threat modeling</code></td>
+<td><code>attack-centric</code> approach</td>
+</tr>
+<tr>
+<td>STRIDE (spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)</td>
+<td>one of the commonly used <code>threat modeling</code> methods. a tool developed by <code>Microsoft</code> to classify all possible threats on the server.</td>
+<td></td>
+</tr>
+<tr>
+<td>DREAD</td>
+<td><code>Damage</code> – how bad would an attack be?<br><code>Reproducibility</code> – how easy is it to reproduce the attack?<br><code>Exploitability</code> – how much work is it to launch the attack?<br><code>Affected users</code> – how many people will be impacted?<br><code>Discoverability</code> – how easy is it to discover the threat?</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft Security Development Lifecycle (SDL)</td>
+<td>a type of <code>threat modeling</code>, Microsoft Threat Modeling Tool</td>
+<td><code>application-centric</code> approach</td>
+</tr>
+<tr>
+<td>OCTAVE (Operationally Critical Threat, Asset, and Vulnerability Evaluation)</td>
+<td>a tried and tested <code>threat modeling</code></td>
+<td><code>asset-centric</code> approach</td>
+</tr>
+<tr>
+<td>TD (Threat Dragon)</td>
+<td>open-source threat modeling tool, both online and a desktop application</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>STRIDE</th>
+<th>读音</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spoofing</td>
+<td>美/ˈspuːfɪŋ/</td>
+<td>电子欺骗; 在网络上或邮件中假冒他人的行为或事例。the act or an instance of impersonating another person on the internet or via email. Refers to illegal access and use of data.</td>
+</tr>
+<tr>
+<td>Tampering</td>
+<td>美/ˈtæmpərɪŋ/</td>
+<td>篡改数据 Refers to malicious modification of data. Can be done to data at rest, or in transit.指恶意修改数据。 可以对静止或传输中的数据进行处理。</td>
+</tr>
+<tr>
+<td>Repudiation</td>
+<td>美/rɪˌpjuːdiˈeɪʃ(ə)n/</td>
+<td>否认、抵赖。不可否认/抵赖性（Non-repudiation）. Occurs when the system cannot trace and prove actions performed by a user. 当系统无法跟踪和证明用户执行的操作时出现。</td>
+</tr>
+<tr>
+<td>Information disclosure</td>
+<td></td>
+<td>Information disclosure refers to exposing information to unauthorized entities. For example, a user is able to read a file that does not belong to them, or a threat actor gains access to data in transit. 信息泄露是指将信息暴露给未经授权的实体。 例如，用户能够读取不属于他们的文件，或者威胁参与者可以访问传输中的数据。</td>
+</tr>
+<tr>
+<td>Elevation of privilege</td>
+<td></td>
+<td>权限提升 Elevation of privilege refers to a situation where an attacker successfully gains access to restricted levels of a svstem. The attackers can then access sensitive data, restricted functionality, and connected systems.特权提升是指攻击者成功获得对受限制级别的系统的访问权限的情况。 然后，攻击者可以访问敏感数据、受限功能和连接的系统。</td>
+</tr>
+<tr>
+<td>DOS (Denial of Service)</td>
+<td></td>
+<td>服务不可用 Denial of Service occurs when a web server is made temporarily unavailable or unusable to a valid user. Protection from such threats improves system consistency and availability. 当 Web 服务器暂时不可用或对有效用户不可用时，就会发生拒绝服务。 防范此类威胁可提高系统一致性和可用性。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>DFDs</th>
+<th>读音</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DFDs (Data flow diagrams)</td>
+<td></td>
+<td>The threat modeling approach requires you to use data flow diagrams (or DFDs).<br>A data flow diagram is an organized evaluation and design method used for software analvsis. It represents the flow of data through the system. DFD supports decomposition, to graphically depict the flow of data and functions in the system.<br>A DFD provides:<br>- A system design to support the analysis and requirement stage.<br>- A detailed system diagram.<br>- Description of the network of activities of the target system.<br>- Step-by-step modification through tiered disintegration of activities.</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/security/DFD1.png" alt="DFD1"><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/security/DFD1.png" alt="DFD2"></p>
+<h2 id="application-security-testing">Application Security Testing</h2>
+<h3 id="security-assessment-methodologies">security assessment methodologies</h3>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>security assessment methodologies</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SAST</td>
+<td>（Static Application Security Testing）</td>
+<td>测试或运行阶段分析应用程序的动态运行状态。它模拟黑客行为对应用程序进行动态攻击，分析应用程序的反应，从而确定该Web应用是否易受攻击。</td>
+</tr>
+<tr>
+<td>DAST</td>
+<td>（Dynamic Application Security Testing）</td>
+<td>在编码阶段分析应用程序的源代码或二进制文件的语法、结构、过程、接口等来发现程序代码存在的安全漏洞。</td>
+</tr>
+<tr>
+<td>IAST</td>
+<td>交互式应用程序安全测试（Interactive Application Security Testing）</td>
+<td>是2012年Gartner公司提出的一种新的应用程序安全测试方案，通过代理、VPN或者在服务端部署Agent程序，收集、监控Web应用程序运行时函数执行、数据传输，并与扫描器端进行实时交互，高效、准确的识别安全缺陷及漏洞，同时可准确确定漏洞所在的代码文件、行数、函数及参数。IAST相当于是DAST和SAST结合的一种互相关联运行时安全检测技术。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>SAST</th>
+<th>DAST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Inside-out security testing method.</td>
+<td>Outside-in security testing method.</td>
+</tr>
+<tr>
+<td></td>
+<td>Studies the source code or binary without application execution.</td>
+<td>Studies the source code or binary by executing the application.</td>
+</tr>
+<tr>
+<td></td>
+<td>Supports assessment of all kinds of software.</td>
+<td>Does not support assessment of software other than web applications and web services.</td>
+</tr>
+<tr>
+<td></td>
+<td>静态 Scans only static code.<br>cannot discover run-time vulnerabilities.</td>
+<td>动态 Performs dynamic analysis on an application.<br>can discover run-time vulnerabilities</td>
+</tr>
+<tr>
+<td></td>
+<td>Less expensive<br>since the vulnerabilities can be detected during the earlier stages of the software development lifecycle.</td>
+<td>More expensive<br>detects vulnerabilities towards the end</td>
+</tr>
+</tbody>
+</table>
+<p>of a software development lifecycle<br>
+||Need eliminate false positives|</p>
+<p>参考： <a href="https://www.aqniu.com/learn/46910.html" target="_blank" rel="noopener">一文洞悉DAST、SAST、IAST ——Web应用安全测试技术对比浅谈</a></p>
+<h3 id="component-analysis"><a href="https://owasp.org/www-community/Component_Analysis" target="_blank" rel="noopener">Component Analysis</a></h3>
+<p><a href="https://wiki.owasp.org/images/b/bd/Software_Composition_Analysis_OWASP_Stammtisch_-_Stanislav_Sivak.pdf" target="_blank" rel="noopener">Software Composition Analysis - OWASP Stammtisch</a></p>
+<p>解决third-party and open source components依赖带来的security问题。</p>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>全称</th>
+<th>含义</th>
+<th>Advantage</th>
+<th>Caution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCA</td>
+<td>Software Composition Analysis</td>
+<td>Component Analysis is the process of identifying potential areas of risk from the use of third-party and open-source software and hardware components. A software-only subset of Component Analysis with limited scope is commonly referred to as <code>Software Composition Analysis (SCA)</code>.</td>
+<td>Component Analysis is a function within an overall <a href="https://csrc.nist.gov/projects/supply-chain-risk-management" target="_blank" rel="noopener"><code>Cyber Supply Chain Risk Management (C-SCRM)</code></a> framework.</td>
+<td></td>
+</tr>
+<tr>
+<td>C-SCRM</td>
+<td><a href="https://csrc.nist.gov/projects/supply-chain-risk-management" target="_blank" rel="noopener">Cyber Supply Chain Risk Management</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SBOM</td>
+<td><a href="https://owasp.org/www-community/Component_Analysis#software-bill-of-materials-sbom" target="_blank" rel="noopener">Software Bill of Materials</a></td>
+<td>软件透明度通常通过发布软件材料清单来实现。 SBOM 是配方中成分列表的同义词。 两者都是透明度的实现。Software Transparency is often achieved through the publishing of software bill of materials. An SBOM is synonymous to the list of ingredients in a recipe. Both are an implementation of transparency.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/security/Application_security_pipeline.png" alt="Application_security_pipeline"><br>
+<img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/security/Application_security_CICDpipeline.png" alt="Application_security_CICDpipeline"></p>
+<h3 id="prioritizing-security-risks">Prioritizing security risks</h3>
+<ul>
+<li>The likelihood of a threat exploiting the system weaknesses.</li>
+<li>The likely impact of the threat on the weaknesses.</li>
+<li>The capability of the existing information security system controls to reduce the risk.</li>
+</ul>
+<p>Risk = Probability of Threat x Impact Value</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Probability of Threat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>High</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Impact Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>High</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h3 id="secure-sdlc-101">Secure SDLC 101</h3>
+<p>Secure Software Development Lifecycle (<code>SSDLC</code>)</p>
+<p>A software development life cycle (<code>SDLC</code>) is a process that outlines the steps used by organizations, to build an application from the beginning until the end. In simple terms, a secure SDLC is set up by adding security-related actions to the current development life cycle.</p>
+<p>The phases of SDLC include:</p>
+<ul>
+<li>Planning and requirements Architecture and design</li>
+<li>Test planning</li>
+<li>Coding</li>
+<li>Testing and results</li>
+<li>Release and maintenance</li>
+</ul>
+<p><img src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/post/security/SSDLC.png" alt="SSDLC"></p>
+<p>Benefits of Secure SDLC:</p>
+<ul>
+<li>Acquaints stakeholders to security considerations.</li>
+<li>Reduces expenses by early detection and issue fixes.</li>
+<li>Results in overall decline in key business risks.</li>
+</ul>
+<h3 id="code-review">Code review</h3>
+<p><a href="https://owasp.org/www-project-code-review-guide/assets/OWASP_Code_Review_Guide_v2.pdf" target="_blank" rel="noopener">OWASP Code Review Guide 2.0</a></p>
+<p>Best practices before sending the code for review:</p>
+<ul>
+<li>Ensure that the code compiles and passes static analysis, within policy compliance.</li>
+<li>Ensure that the code passes unit, integration<br>
+and system tests.</li>
+<li>Check for spelling errors and double-check to tidy up your document.</li>
+<li>Ensure code changes are captured and annotated appropriately.</li>
+<li>Check for logic errors.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Code review techniques</th>
+<th>Expain</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instant Code Review</td>
+<td>the code is instantly reviewed while it is being written. The developer writes code, while the reviewer sits beside reading and correcting the code.</td>
+<td><code>Highly complex</code> programs can benefit from instant code review, because two minds working on a problem often solve problems in a speedier and efficient manner.</td>
+</tr>
+<tr>
+<td>Ad-Hoc Code Review</td>
+<td>called “Over the Shoulder” reviewing. Typically, a developer will ask a reviewer to look at, and give feedback on the code they have written. The emphasis of ad-hoc review is that it is done with the reviewer and developer in a live conversion.</td>
+<td>It is one of the <code>most common</code> review processes.</td>
+</tr>
+<tr>
+<td>Meeting-Based Code Review</td>
+<td>coders finish their work and call a meeting. The whole technology team sits together, comments. and attempts to improve the code together.</td>
+<td>not commonly practiced because it is a <code>time-consuming</code> and <code>resource-intensive</code> activity.</td>
+</tr>
+<tr>
+<td>Tool-Based(asynchronous) Code Review</td>
+<td>is performed by the reviewer, separate from the developer. A developer will make their code available for review and then the reviewer will, in their own time, review the code. Comments and corrections will be left by the reviewer for the developer.</td>
+<td>The developer will be notified of the feedback and if the two parties agree, the code is signed off and accepted as part of the application.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rating-vulnerabilities">Rating vulnerabilities</h2>
+<h3 id="dread-rating-system">DREAD rating system</h3>
+<p>A risk assessment model that evaluates the security threats is called DREAD rating system.</p>
+<p>DREAD Category:</p>
+<ul>
+<li>Damage potential</li>
+<li>Reproducibility</li>
+<li>Exploitability</li>
+<li>Affected users</li>
+<li>Discoverability</li>
+</ul>
+<p>A rating from 1 to 10 is given to DREAD categories and the sum of all ratings is used to prioritize issues.</p>
+<h3 id="cvss">CVSS</h3>
+<p>CVSS is used to communicate the characteristics and severity of software vulnerabilities.</p>
+<p>There are three metric groups used in the CVSS report:</p>
+<ol>
+<li><code>Base</code></li>
+<li><code>Temporal</code></li>
+<li><code>Environmental</code>.</li>
+</ol>
+<p>The <code>Base</code> metrics produces a score range from 0 to 10. The score can be changed by changing the Temporal and Environmental metrics.</p>
+<ul>
+<li><code>Base</code> signifies the essential and vital characteristics of a vulnerability that are constant with time and user environment.</li>
+<li><code>Temporal</code> signifies the features of a vulnerability that change with time, but not with user environments.</li>
+<li><code>Environmental</code> signifies the features of a vulnerabilitv that are unique to a user’s environments.</li>
+</ul>
+<h4 id="cvss-scores">CVSS scores</h4>
+<p>You can obtain the CVSS scores for all vulnerabilities from the <code>National Vulnerability Database (NVD)</code>. The <a href="https://nvd.nist.gov/" target="_blank" rel="noopener">NVD</a> helps create a CVSS base score for all vulnerabilities.</p>
+<p>Note that the CVSS has two active versions. The score to severitv relationship is different depending on the version.</p>
+<table>
+<thead>
+<tr>
+<th>CVSS v2.0 Ratings - Severity</th>
+<th>Base Score Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low</td>
+<td>0.0-3.9</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>4.0-6.9</td>
+</tr>
+<tr>
+<td>High</td>
+<td>7.0-10.0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>CVSS v3.0 Ratings - Severity</th>
+<th>Base Score Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>0.1-3.9</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>4.0-6.9</td>
+</tr>
+<tr>
+<td>High</td>
+<td>7.0-8.9</td>
+</tr>
+<tr>
+<td>Critical</td>
+<td>9.0-10.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="finding-security-vulnerabilities-online">Finding security vulnerabilities online</h3>
+<ul>
+<li><a href="https://cve.mitre.org/" target="_blank" rel="noopener">Common Vulnerabilities and Exposure</a>
+<ul>
+<li>List of items containing identification number, description, and a public reference for publicly known cybersecurity weaknesses.</li>
+<li>These CVE entries are used with cybersecurity creations and amenities from all around the world.</li>
+</ul>
+</li>
+<li><a href="https://nvd.nist.gov/" target="_blank" rel="noopener">National Vulnerability Database</a>
+<ul>
+<li>The U.S. government’s database of reported and known security vulnerabilities.</li>
+<li>Synchronized with CVE.</li>
+<li>Comparatively easier to navigate.</li>
+<li>Lists each vulnerability along with a description, source, and severity level.</li>
+</ul>
+</li>
+<li><a href="https://www.veracode.com/security/owasp-top-10" target="_blank" rel="noopener">OWASP Top 10 Vulnerabilities</a></li>
+<li><a href="https://vuldb.com/" target="_blank" rel="noopener">Vulnerability Database</a>
+<ul>
+<li>A platform that collects, maintains, and disseminates data about common security vulnerabilities.</li>
+<li>Describes each vulnerability, provides a workaround, assesses the impacts, and issues moderation.</li>
+</ul>
+</li>
+</ul>
+<h2 id="secure-architecture-and-design">Secure Architecture and Design</h2>
+<h3 id="access-control-methodologies">Access control methodologies</h3>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>全称</th>
+<th>含义</th>
+<th>Advantage</th>
+<th>Caution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RBAC</td>
+<td>Role-Based Access Control</td>
+<td>is the process of making access decisions based on the <code>roles</code> and responsibilities of a user.<br>- Roles of a user are defined based on the organizational goals, structure, and security policies.<br>- Application security administrators use RBAC to define what, when, where, and how an action can be performed by a user.</td>
+<td>- Easy to implement and administer.<br>- Facilitates the principle of least privilege.</td>
+<td>- Assign user roles using strict sign-offs and procedures.<br>- Disable all previously assigned permissions and assign permissions based on the new role.<br>- Perform strict access control reviews to ensure safe use of RBAC</td>
+</tr>
+<tr>
+<td>DAC</td>
+<td>Discretionary Access Control</td>
+<td>the process of restricting access to information based on the <code>identity</code> of the user.<br>- Access decisions depend on the user’s current authorization limits.<br>- A simple example of DAC would be a system in which passwords are set for files,folders, and other resources.<br>-Resource owners can grant or revoke permission to any of the objects that are under their control.</td>
+<td>- Easy to use and administer.<br>- Used on par with the principle of least privileges.<br>- Users have complete control over the access granted to them.</td>
+<td>Perform strict access control reviews to ensure the safe use of DAC.</td>
+</tr>
+<tr>
+<td>MAC</td>
+<td>Mandatory Access Control</td>
+<td>is the process of providing access to users based on the <code>sensitivity</code> and <code>confidentiality</code> of the data.</td>
+<td>- Access permissions are granted based on the sensitivity of the data, business requirements, and changes in the scope of a project.<br>- Only administrators are given control to grant user access.</td>
+<td>- Classify data and assign access to sensitive information based on user permission level.<br>- Ensure that data classification is done at the appropriate level</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Permission-Based Access Control</td>
+<td>process of converting application access into a series of permissions.<br>- Permissions are string-based names.<br>- Access decisions are made by verifying whether the current permission level of a user allows them to perform the requested application action.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.</td>
+<td>Multi-Tenant Access Control</td>
+<td>Single application instance has multiple users</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="mac">MAC</h4>
+<ul>
+<li>Users are granted permission based on need.</li>
+<li>MAC is the most secure access control model because access rules are:
+<ul>
+<li>Defined manually by system administrators.</li>
+<li>Implemented by the operating system or security kernel.</li>
+<li>Used to restrict access to security attributes.</li>
+</ul>
+</li>
+</ul>
+<h4 id="permission-based-access-control">Permission-Based Access Control</h4>
+<ul>
+<li>Direct Model
+<ul>
+<li>In the direct model, grant privileges only to the users who need those privileges to complete the assigned tasks.</li>
+</ul>
+</li>
+<li>Indirect Model
+<ul>
+<li>The permission is granted to an intermediate entity like a user group.</li>
+<li>If a user inherits permissions from a user group, that user becomes a member of that user group.</li>
+<li>If you edit permissions assigned to a user group, all users associated with that user group are affected.</li>
+</ul>
+</li>
+</ul>
+<h4 id="multi-tenant-access-control">Multi-Tenant Access Control</h4>
+<ul>
+<li>Single application instance has multiple users</li>
+<li>Tenant resource isolation or segmentation is fundamental to these systems.</li>
+<li>Segmented application enables secure separation between tenants.
+<ul>
+<li>Example: For your SAAS application, you need to isolate each company on multiple layers.</li>
+</ul>
+</li>
+<li>Segregation ensures that customer resources cannot be accessed by other tenants.</li>
+<li>MTAC models can address both intra-tenant and cross-tenant access.</li>
+</ul>
+<p><a href="https://d1.awsstatic.com/whitepapers/saas-tenant-isolation-strategies.pdf" target="_blank" rel="noopener">SaaS Tenant Isolation Strategies</a></p>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a href="https://haiderm.com/stride-threat-modelling-vs-dread-threat-modelling/" target="_blank" rel="noopener">STRIDE Threat Modelling vs DREAD Threat Modelling</a></li>
+</ul>
+
+
+                    <!-- Donate -->
+
+<div>
+    <div class="donate-container" style="padding: 10px 0; margin: auto auto; width: 90%; text-align: center;">
+        <div></div>
+        <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <span>Donate</span>
+        </button>
+        <div id="QR" style="display: none;">
+            <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechatpay.png" alt="WeChat Pay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Wechat</p> -->
+            </div>
+            <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/alipay.png" alt="Alipay" style="width: 200px; height: 200px; text-align: center;">
+            <!-- <p>Alipay</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <! -- 添加版权信息 -->
+<div class="article-footer-copyright">
+  <div><b>本文标题: </b><a href="/计算机英语-安全Security.html" target="_blank" title="计算机英语-安全Security">计算机英语-安全Security</a></div>
+  <div><b>本文链接: </b><a href="/计算机英语-安全Security.html" target="_blank" title="计算机英语-安全Security">http://liyuankun.top/计算机英语-安全Security.html</a>.</div>
+  <div>本文由<a href="/index.html" target="_blank" title="Yuankun Li">Yuankun Li</a>创作和发表,采用<b>BY</b>-<b>NC</b>-<b>SA</b>国际许可协议进行许可,转载请注明作者及出处。</div>
+</div>
+
+                    
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        
+                            <li class="previous">
+                                <a href="/semver-语义化版本（Semantic-Versioning）规范.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="semver - 语义化版本（Semantic Versioning）规范">&larr; Previous Post</a>
+                            </li>
+                        
+                        
+                            <li class="next">
+                                <a href="/Kubernates-Certified-Kubernetes-Administrator-CKA.html" rel="external nofollow" data-toggle="tooltip" data-placement="top" title="2022年8月 CKA K8s v1.24 考试真题整理">Next Post &rarr;</a>
+                            </li>
+                        
+                    </ul>
+
+                    <!-- Duoshuo Comment Share -->
+                    
+
+                    <!-- Duoshuo Comment -->
+                    
+
+                    <!-- Disqus Comment -->
+                    <!-- disqus comment -->
+
+    <div class="disqus_comment">
+        <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+
+
+                    <!-- Git Comment -->
+                    <!-- gitment -->
+
+    <hr>
+    <div class="git_comment" id="git_comment">
+        
+            <div onclick="document.getElementById('gitment-display-button').style.display = 'none';document.getElementById('gitment-container').style.display = 'block';renderGitment();" id="gitment-display-button">show git comment</div>
+            <div id="gitment-container" style="display:none"></div>
+        
+    </div>
+    <hr>
+
+                </div>
+                
+                <!-- Tabe of Content -->
+                <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#攻击类型"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">攻击类型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#缩写"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">缩写</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#threat-modeling"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Threat modeling</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#application-security-testing"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Application Security Testing</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#security-assessment-methodologies"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">security assessment methodologies</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#component-analysis"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Component Analysis</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#prioritizing-security-risks"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">Prioritizing security risks</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#secure-sdlc-101"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">Secure SDLC 101</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#code-review"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">Code review</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#rating-vulnerabilities"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Rating vulnerabilities</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#dread-rating-system"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">DREAD rating system</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cvss"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">CVSS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#cvss-scores"><span class="toc-nav-number">4.2.1.</span> <span class="toc-nav-text">CVSS scores</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#finding-security-vulnerabilities-online"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">Finding security vulnerabilities online</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#secure-architecture-and-design"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Secure Architecture and Design</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#access-control-methodologies"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Access control methodologies</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#mac"><span class="toc-nav-number">5.1.1.</span> <span class="toc-nav-text">MAC</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#permission-based-access-control"><span class="toc-nav-number">5.1.2.</span> <span class="toc-nav-text">Permission-Based Access Control</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#multi-tenant-access-control"><span class="toc-nav-number">5.1.3.</span> <span class="toc-nav-text">Multi-Tenant Access Control</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考文章"><span class="toc-nav-number"></span> <span class="toc-nav-text">参考文章</span></a>
+        
+        </div>
+      </aside>
+    
+
+                    
+                <!-- Sidebar Container Below-->
+                <div class="
+    col-lg-8 col-lg-offset-2
+    col-md-10 col-md-offset-1
+    sidebar-container">
+    
+        
+    
+        
+    
+        
+    
+        
+            
+  <h5>RECENT POSTS</h5>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/awesome-tools.html">程序猿的那些好用工具</a>
+        </li>
+      
+        <li>
+          <a href="/计算机英语-virus-worm-Spyware-Ransomware-Trojan-horse.html">计算机英语-virus,worm,Spyware,Ransomware,Trojan horse</a>
+        </li>
+      
+        <li>
+          <a href="/浏览器报错“localhost-sent-an-invalid-response-ERR-SSL-PROTOCOL-ERROR”.html">浏览器报错“localhost sent an invalid response.ERR_SSL_PROTOCOL_ERROR”</a>
+        </li>
+      
+        <li>
+          <a href="/JSON-Web-Token-JWT-入门教程.html">JSON Web Token (JWT) 入门教程</a>
+        </li>
+      
+        <li>
+          <a href="/Develop-LLM-powered-applications-with-LangChain-Udemy-Course.html">Develop LLM powered applications with LangChain - Udemy Course</a>
+        </li>
+      
+    </ul>
+  </div>
+
+            <hr>
+        
+    
+        
+            <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://blog.csdn.net/muzilanlan" target="_blank">CSDN</a></li>
+    
+        <li><a href="https://www.jianshu.com/u/6b421fa23669" target="_blank">简书</a></li>
+    
+</ul>
+
+            <hr>
+        
+    
+        
+    
+</div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℒ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<!-- Read more, 微信解锁博客 https://openwrite.cn/openwrite/openwrite-readmore/-->
+<script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"></script>
+<script>
+    const btw = new BTWPlugin();
+    btw.init({
+        id: 'container',
+        blogId: '19965-1582033785898-401',
+        name: '岚坤爷',
+        qrcode: 'https://github.com/CatherineLiyuankun/PictureBed/raw/master/blog/base/wechat/wechat-public.png',
+        keyword: 'vip',
+    });
+    // 加英文版翻译
+    const readMoreBtn = document.querySelector('#read-more-btn');
+    const addEnglish = () => {
+        const element = document.querySelector('#btw-modal-header');
+        element.innerHTML = element.innerHTML + `<p id="btw-modal-header-en" style="margin-top: 10px; line-height: 1.8; font-size: 13px; color: #0085a1;">
+            Scan the QR code to follow the WeChat public account: <strong>岚坤爷</strong><br>
+            Send message:<strong> vip</strong><br>
+            Get a verification code that permanently unlocks all articles on this site`;
+        const input = document.querySelector('#btw-modal-input');
+        input.setAttribute('placeholder', '请输入验证码 Input verification code');
+        const submit = document.querySelector('#btw-submit-btn');
+        submit.innerHTML = '提交 Submit';
+    };
+
+    readMoreBtn.addEventListener('click', () => {
+        setTimeout(addEnglish, 10);
+    });
+</script>
+
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/catherineliyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/muzilan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.jianshu.com/u/6b421fa23669">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">简</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="mailto:muzilan1@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CatherineLiYK">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liyuankun">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Yuankun Li 2025 
+                    <br>
+                    Theme by <a href="https://github.com/CatherineLiyuankun">Li, Yuankun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=catherineliyuankun&repo=hexo-theme-zilan&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liyuankun.top/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+    <!-- Fork me on GitHub -->
+    
+       
+    <!-- Search -->
+    <!-- {% include 'tinysou.swig' %}
+ {% include 'localsearch.swig' %}
+ {% include 'algolia-search/assets.swig' %} -->
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = 'search.xml';
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = '/' + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        // dataType: isXml ? "xml" : "json",
+        // dataType: "binary",
+        // contentType: "text/xml",
+        dataType: "text", // Fix Bug: xml parser error
+        async: true,
+        data: "{}",
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-cover');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if (!input || !resultContent) {
+            // Fix Bug: add /zilan/layout/_partial/search/localsearch.ejs inside "site-search"
+              $(".site-search")
+              .append(
+                  '<div class="popup search-popup local-search-popup">' +
+                  '<div class="local-search-header clearfix">' +
+                    '<span class="search-icon">' +
+                      '<i class="fa fa-search"></i>' +
+                  '</span>' +
+                    '<span class="popup-btn-close">' +
+                      '<i class="fa fa-times-circle"></i>' +
+                    '</span>' +
+                    '<div class="local-search-input-wrapper">' +
+                      '<input autocomplete="off"' +
+                            'placeholder="search" spellcheck="false"' +
+                            'type="text" id="local-search-input">' +
+                    '</div>' +
+                  '</div>' +
+                  '<div id="local-search-result"></div>' +
+                '</div>');
+            input = document.getElementById("local-search-input");
+            resultContent = document.getElementById("local-search-result");
+            // Fix Bug: close not work
+            var searchClose = document.querySelector(".popup-btn-close");
+            searchClose.addEventListener('click', onPopupClose);
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            /*弹出jqXHR对象的信息*/
+            alert(jqXHR.responseText);
+            alert(jqXHR.status);
+            alert(jqXHR.readyState);
+            alert(jqXHR.statusText);
+            /*弹出其他两个参数的信息*/
+            alert(textStatus);
+            alert(errorThrown);
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    var registerESCKeyEvent =  function () {
+      $(document).on('keyup', function (event) {
+        var shouldDismissSearchPopup = event.which === 27 &&
+          $('.search-popup').is(':visible');
+        if (shouldDismissSearchPopup) {
+          $('.search-popup').hide();
+          $('.search-popup-overlay').remove();
+          $('body').css('overflow', '');
+        }
+      });
+    };
+    registerESCKeyEvent();
+  </script>
+
+
+
+
+
+    <!-- Share -->
+      
+    <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+    <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "bottom";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var pbOptions = {};
+          var iconStyle = "light";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          pbOptions["iconStyle"] = iconStyle;
+          pbOptions["boxForm"] = boxForm;
+          pbOptions["position"] = position;
+          pbOptions["networks"] = networks;
+          
+          new needShareButton('#needsharebutton-postbottom', pbOptions);
+      </script>
+    
+
+    
+      <script>
+          var flOptions = {};
+          var iconStyle = "box";
+          var boxForm = "horizontal";
+          var position = "middleRight";
+          var networks = "Wechat,Weibo,Douban,Twitter,Facebook,Reddit,Linkedin,Evernote";
+          flOptions["iconStyle"] = iconStyle;
+          flOptions["boxForm"] = boxForm;
+          flOptions["position"] = position;
+          flOptions["networks"] = networks;
+
+          new needShareButton('#needsharebutton-float', flOptions);
+      </script>
+    
+
+
+    <!-- Share float -->
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt fa-inverse" aria-hidden="true"></i>
+        </span>
+      </div>
+      
+
+    <!-- Git Comment -->
+    
+    
+    <!-- LOCAL: You can save these files to your site and update links -->
+        
+            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+        
+    <!-- END LOCAL -->
+        
+        <style>
+            a.gitment-editor-footer-tip { display: none; }
+            .gitment-container.gitment-footer-container { display: none; }
+        </style>
+        
+
+        
+        <script type="text/javascript">
+            var option = {
+                id: window.location.pathname,
+                owner: 'CatherineLiyuankun',
+                repo: 'gitment-comments',
+                oauth: {
+                    client_id: 'f3a0c1c7153576e1ab6c'
+                }
+            };
+            if(true) {
+                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+            }
+            if (true && ( || false)) {
+                option.oauth.redirect_protocol = '';
+            }
+            if (true && ( || false)) {
+                option.oauth.proxy_gateway = '';
+            } else {
+                option.oauth.client_secret = 'bedf5010df925fa0e02e8be9399a64caac3d2b4e';
+            }
+
+            function renderGitment(){
+                var gitment;
+                if (true) {
+                    gitment = new Gitmint(option);
+                } else {
+                    gitment = new Gitment(option);
+                }
+                gitment.render('gitment-container');
+            }
+
+            if(!true) {
+                renderGitment();
+            } else {
+                function showGitment(){
+                    document.getElementById("gitment-display-button").style.display = "none";
+                    document.getElementById("gitment-container").style.display = "block";
+                    renderGitment();
+                }
+            }
+        </script>
+        
+    
+
+
+
+    <!-- Disqus Comment -->
+    
+    <!-- disqus embedded js code start (one page only need to embed once) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "lyk-1";
+        var disqus_identifier = "http://liyuankun.top/计算机英语-安全Security.html";
+        var disqus_url = "http://liyuankun.top/计算机英语-安全Security.html";
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+    </script>
+    <!-- disqus embedded js code start end -->
+
+    
+    <!-- Duoshuo Comment -->
+    
+
+    <!-- Search popup-->
+    
+    
+      <div class="site-search">
+      <!-- {% if theme.algolia_search.enable %}
+  {% include '../_third-party/search/algolia-search/dom.swig' %}
+{% elseif theme.swiftype_key %}
+  {% include 'search/swiftype.swig' %}
+{% elseif theme.tinysou_Key %}
+  {% include 'search/tinysou.swig' %}
+{% elseif theme.local_search.enable %}
+  {% include 'search/localsearch.swig' %}
+{% endif %} -->
+
+<div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="search" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+      </div>
+    
+    
+	<a id="rocket" href="#top" class="" rel="external nofollow"></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+  <!-- Markdown math -->
+   
+   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+
+  <!-- Fancybox -->
+  
+      <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.css">
+      <script src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="/js/wrapImage.js"></script>
+  
+  <!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+
+</html>
